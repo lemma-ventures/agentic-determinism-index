@@ -1,0 +1,18 @@
+[project]
+name = "agentic-determinism-index"
+version = "0.1.0"
+description = "A public harness measuring how reproducible hosted LLM APIs actually are."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+agentic-determinism-index = "agentic_determinism_index.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["agentic_determinism_index"]

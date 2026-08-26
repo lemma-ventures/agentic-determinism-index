@@ -1,0 +1,120 @@
+# Agentic Determinism Index (ADI)
+
+A public harness that asks one narrow question of hosted LLM APIs:
+
+> **If I send you the exact same request N times, concurrently, and again across days, how identical are your answers?**
+
+No benchmark of intelligence, no quality judgment. Just reproducibility, measured at the byte level, per model, over time, from raw transcripts anyone can re-score.
+
+- **Zero dependencies.** Python ≥ 3.9 standard library only. Clone and run.
+- **Methodology before scores.** The harness and scoring spec ([METHODOLOGY.md](METHODOLOGY.md), v0.1 draft) are published first; a leaderboard follows only after a public comment window. Open an issue to challenge any metric.
+- **A door, not a wall.** Alongside scores we document the exact conditions a provider would need to meet for reproducible serving. Providers that meet them get recognized for it.
+
+## Quickstart
+
+```bash
+git clone <this-repo> && cd agentic-determinism-index
+
+# keys for whichever providers you want to probe (only the ones you set are usable;
+# unset providers are skipped automatically)
+export OPENAI_API_KEY=...
+export ANTHROPIC_API_KEY=...
+export GEMINI_API_KEY=...
+export NVIDIA_API_KEY=...
+export OPENROUTER_API_KEY=...
+export HF_API_KEY=...
+
+# edit configs/example.json to the models you care about, then:
+python3 -m agentic_determinism_index run --config configs/example.json
+python3 -m agentic_determinism_index score runs/reference/<timestamp>
+python3 -m agentic_determinism_index site --run runs/reference/<timestamp> --out website/index.html
+```
+
+`run` fires each probe case at each target, a concurrent burst plus spaced serial requests, and writes raw transcripts (`probes/*.json`) plus an environment manifest. `score` turns a run directory into `scores.json` and a human-readable `SCORES.md`. `site` renders a standalone leaderboard page from `scores.json` into a static HTML file. Nothing is uploaded anywhere; everything stays on your disk unless you choose to contribute it.
+
+## What it measures
+
+Per (provider, model, case):
+
+| Metric | Meaning |
+|---|---|
+| `byte_identical` | All N responses bit-for-bit identical |
+| `distinct` | Number of distinct completions observed |
+| `mode_share` | Fraction of responses matching the most common completion |
+| `first_divergence_char` | Character index where responses first differ |
+| `json_parse_rate` / `distinct_canonical_json` | Structured-output stability: does the *parsed, canonicalized* JSON agree even when bytes don't |
+| `fingerprints` / `model_versions` | Backend fingerprint and version drift observed across the run window |
+
+Definitions and the probe protocol are specified in [METHODOLOGY.md](METHODOLOGY.md).
+
+## How this relates to the model or agent *you* are using
+
+The scores here do not describe a model. They describe a **serving tuple**: (provider, model snapshot, parameters, serving stack) during a time window. The same weights served two different ways will score differently, determinism is a property of the deployment, not the weights.
+
+That matters for you in three concrete ways:
+
+1. **Your agent inherits the reproducibility of the exact tuple it calls.** If your agent calls `some-model-2026-05-13` at temperature 0 with a tool schema, its reproducibility is that tuple's, not the model family's, and not what this repo measured for a different snapshot or parameter set. To measure *your* stack, copy your production request shape (same model string, temperature, seed, max tokens, JSON/tool schema) into a case file under `cases/` and run the harness against it. The closer the probe is to your real traffic, the more the score means.
+
+2. **Probe through the same path your agent uses.** If your requests go through a gateway, proxy, or router, that layer is part of your stack, point the harness at it, not at the provider directly. Any OpenAI-compatible endpoint works via the `openai_compatible` provider with a `base_url`, which also means you can probe a self-hosted vLLM/SGLang deployment and compare it against hosted APIs under identical cases.
+
+3. **Multi-step agents compound single-step variance.** A single flipped token early in a plan can change every subsequent action. If a model's `mode_share` is 0.8 per call, a 10-call agent trajectory repeats far less often than 80% of the time. When your agent tests are flaky, this harness tells you how much of that is the serving layer before you debug your own code.
+
+## How scores are aggregated
+
+Two strictly separated tiers:
+
+- **Reference runs**, the only data that feeds the published leaderboard. Executed by the maintainers on a fixed cadence, with disclosed harness version, config, account tier, and region. Provider behavior varies by account tier, region, and routing, so leaderboard comparability requires a controlled, uniform vantage point.
+- **Community replications**, contributed runs, published alongside the leaderboard as labeled replications that confirm or contradict the reference scores from other vantage points (different tiers, regions, days). They are never merged into reference scores. Contributing your data is a PR: see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Every published score, reference or community, is recomputable from its raw transcripts with `python3 -m agentic_determinism_index score`. A score you can't re-derive doesn't get published.
+
+For public publication, run:
+
+```bash
+python3 -m agentic_determinism_index site --run-root runs/reference --out website/index.html
+```
+
+Then commit only `website/index.html` (or equivalent generated directory) alongside the corresponding reference run if you are maintaining a mirrored leaderboard.
+
+## Supported providers
+
+| `provider` | API | Notes |
+|---|---|---|
+| `openai` | Chat Completions | records `system_fingerprint`; `seed` sent when set |
+| `anthropic` | Messages | no seed parameter exists; probed at temperature 0 |
+| `gemini` | generateContent | `seed` sent when set; records `modelVersion` |
+| `openai_compatible` | any Chat-Completions-shaped endpoint | set `base_url`: gateways, routers, self-hosted vLLM/SGLang |
+| `nvidia_nim` | NIM chat (OpenAI-compatible) | default base hosted NIM; set `force_deterministic: true` to send `NIM_FORCE_DETERMINISTIC`, the only hosted opt-in for bit-replay we know of |
+| `openrouter` | OpenRouter (OpenAI-compatible) | routes to shifting upstream backends; expect poor burst scores. Routed `provider` recorded as fingerprint |
+| `huggingface` | HF Router / Inference Endpoint (OpenAI-compatible) | default base is the HF Router; set `base_url` to a dedicated Endpoint to probe one pinned deployment |
+
+Adding a provider is one adapter class in `agentic_determinism_index/providers.py`.
+
+## Status
+
+v0.1, methodology comment window open. No leaderboard is published yet, deliberately. License: [MIT](LICENSE).
+
+## Maintained by
+
+**Lemma Ventures GmbH**, Switzerland, which builds deterministic-inference infrastructure.
+
+**Incentive disclosure:** Lemma has commercial interest in reproducible serving. This harness exists so published scores do not require trusting the maintainer: every score is recomputable from raw transcripts with `python3 -m agentic_determinism_index score`. Community replications are welcome; the reference leaderboard column is maintainer-controlled for tier/region comparability.
+
+This repo measures serving reproducibility. It does not implement pinned-stack serving, receipts, or replay infrastructure.
+
+## Hosting the leaderboard site
+
+The `site` command emits a single-file, self-contained `website/index.html` (no external assets, no tracking).
+
+- **Canonical host:** `index.lemma.ventures` or GitHub Pages on `lemma-ventures/agentic-determinism-index`.
+- **Scores page:** single-purpose leaderboard only. Footer names Lemma; no product CTAs.
+- **Do not embed** the live leaderboard inside marketing pages (e.g. `lemma-ventures-website/standards/` with product CTAs). Other Lemma properties link **out** by URL.
+
+**Medals:** each published snapshot ranks reference tuples; top 3 receive 🥇🥈🥉 (most reproducible under the disclosed protocol). Medals are snapshot-relative, not permanent certifications.
+
+To publish:
+```bash
+python3 -m agentic_determinism_index site --run-root runs/reference --out website/index.html
+git add website/index.html && git commit -m "publish leaderboard for <stamp>"
+```
+Push to the `gh-pages` branch or enable Pages on `main` serving `/website`.

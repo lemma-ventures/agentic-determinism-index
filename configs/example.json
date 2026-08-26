@@ -1,0 +1,11 @@
+{
+ "targets": [
+  {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY"},
+  {"provider": "anthropic", "model": "claude-sonnet-5", "api_key_env": "ANTHROPIC_API_KEY"},
+  {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
+  {"provider": "openai_compatible", "model": "your-self-hosted-or-gateway-model", "base_url": "http://localhost:8000/v1", "api_key_env": "LOCAL_API_KEY"},
+  {"provider": "nvidia_nim", "model": "meta/llama-3.1-8b-instruct", "api_key_env": "NVIDIA_API_KEY", "force_deterministic": true},
+  {"provider": "openrouter", "model": "openai/gpt-4o-mini", "api_key_env": "OPENROUTER_API_KEY"},
+  {"provider": "huggingface", "model": "meta-llama/Llama-3.1-8B-Instruct", "api_key_env": "HF_API_KEY"}
+ ]
+}

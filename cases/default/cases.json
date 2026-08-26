@@ -1,0 +1,37 @@
+{
+ "version": "0.1",
+ "cases": [
+  {
+   "id": "freeform-short",
+   "expect": "text",
+   "messages": [
+    {"role": "user", "content": "Explain in exactly three sentences why floating-point addition is not associative."}
+   ],
+   "params": {"temperature": 0, "seed": 42, "max_tokens": 300}
+  },
+  {
+   "id": "reasoning-arith",
+   "expect": "text",
+   "messages": [
+    {"role": "user", "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."}
+   ],
+   "params": {"temperature": 0, "seed": 42, "max_tokens": 800}
+  },
+  {
+   "id": "json-extract",
+   "expect": "json",
+   "messages": [
+    {"role": "user", "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"}
+   ],
+   "params": {"temperature": 0, "seed": 42, "max_tokens": 300, "json": true}
+  },
+  {
+   "id": "long-generation",
+   "expect": "text",
+   "messages": [
+    {"role": "user", "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."}
+   ],
+   "params": {"temperature": 0, "seed": 42, "max_tokens": 1600}
+  }
+ ]
+}
