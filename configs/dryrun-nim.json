@@ -1,0 +1,6 @@
+{
+ "_comment": "NIM retry: meta/llama-3.1-8b-instruct hit EOL 410 on 2026-08-26; using a currently served model.",
+ "targets": [
+  {"provider": "nvidia_nim", "model": "nvidia/llama-3.1-nemotron-70b-instruct", "api_key_env": "NVIDIA_API_KEY", "force_deterministic": true}
+ ]
+}

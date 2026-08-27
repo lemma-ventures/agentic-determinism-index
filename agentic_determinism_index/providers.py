@@ -30,6 +30,22 @@ class Provider:
     def parse(self, body):
         raise NotImplementedError
 
+    def describe_request(self, case):
+        """The exact request a probe sends, for the transcript: URL, JSON
+        payload, and non-auth headers. Scores must be re-derivable from
+        transcripts, which requires the request bytes, not just the response.
+        Credentials never enter transcripts."""
+        req = self.request(case)
+        headers = {
+            k: v
+            for k, v in req.header_items()
+            if k.lower()
+            not in ("authorization", "x-goog-api-key", "x-api-key",
+                    "content-type", "content-length")
+        }
+        payload = json.loads(req.data.decode("utf-8")) if req.data else None
+        return {"url": req.full_url, "payload": payload, "headers": headers}
+
     def call(self, case, timeout=180):
         req = self.request(case)
         try:

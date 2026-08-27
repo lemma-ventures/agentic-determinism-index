@@ -63,6 +63,7 @@ def cmd_run(args):
                     "target": {k: v for k, v in target.items()
                                if k != "api_key_env"},
                     "case": case,
+                    "request": provider.describe_request(case),
                     "samples": samples,
                 }, f, indent=1)
     manifest["finished"] = utcnow()

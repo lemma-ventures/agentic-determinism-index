@@ -140,3 +140,21 @@ class TestSite(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestDescribeRequest(unittest.TestCase):
+    def test_payload_recorded_and_credentials_redacted(self):
+        import os
+        from agentic_determinism_index.providers import make_provider
+        os.environ["ADI_TEST_KEY"] = "sk-secret-value"
+        try:
+            p = make_provider({"provider": "openai", "model": "m",
+                               "api_key_env": "ADI_TEST_KEY"})
+            case = {"messages": [{"role": "user", "content": "hi"}],
+                    "params": {"temperature": 0, "seed": 42, "max_tokens": 8}}
+            d = p.describe_request(case)
+            self.assertEqual(d["payload"]["temperature"], 0)
+            self.assertEqual(d["payload"]["seed"], 42)
+            self.assertNotIn("sk-secret-value", json.dumps(d))
+        finally:
+            del os.environ["ADI_TEST_KEY"]
