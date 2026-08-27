@@ -84,7 +84,7 @@ Then commit only `website/index.html` (or equivalent generated directory) alongs
 | `anthropic` | Messages | no seed parameter exists; probed at temperature 0 |
 | `gemini` | generateContent | `seed` sent when set; records `modelVersion` |
 | `openai_compatible` | any Chat-Completions-shaped endpoint | set `base_url`: gateways, routers, self-hosted vLLM/SGLang |
-| `nvidia_nim` | NIM chat (OpenAI-compatible) | default base hosted NIM; set `force_deterministic: true` to send `NIM_FORCE_DETERMINISTIC`, the only hosted opt-in for bit-replay we know of |
+| `nvidia_nim` | NIM chat (OpenAI-compatible) | default base hosted NIM. NIM's deterministic mode (`NIM_FORCE_DETERMINISTIC`) is documented as a container env var for self-hosted deployments, not as a hosted-API parameter; to measure it, self-host a NIM with the variable set and probe it via `openai_compatible` |
 | `openrouter` | OpenRouter (OpenAI-compatible) | routes to shifting upstream backends; expect poor burst scores. Routed `provider` recorded as fingerprint |
 | `huggingface` | HF Router / Inference Endpoint (OpenAI-compatible) | default base is the HF Router; set `base_url` to a dedicated Endpoint to probe one pinned deployment |
 

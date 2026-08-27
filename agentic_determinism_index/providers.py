@@ -105,11 +105,14 @@ class AnthropicMessages(Provider):
 
 class NvidiaNIM(Provider):
     """NVIDIA NIM. OpenAI-compatible chat protocol, served from a fixed
-    base URL. NIM is the one hosted provider that documents a determinism
-    opt-in: set `force_deterministic: true` in the target and the harness
-    sends `NIM_FORCE_DETERMINISTIC: true`. This is the "door, not a wall"
-    case in practice — the same model scores differently depending on a
-    header the customer is allowed to set."""
+    base URL. NIM documents a deterministic mode, but as a container
+    environment variable (NIM_FORCE_DETERMINISTIC) for self-hosted NIM
+    deployments, not as a request parameter on the hosted API. With
+    `force_deterministic: true` the harness still sends the name as a
+    header, and records that it did, but treats it as unverified: no
+    NVIDIA document states the hosted endpoint honors it. Self-hosting a
+    NIM with the variable set and probing it via `openai_compatible` is
+    the supported way to measure that mode."""
 
     default_base = "https://integrate.api.nvidia.com/v1"
 
