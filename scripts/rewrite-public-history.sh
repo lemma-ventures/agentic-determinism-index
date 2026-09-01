@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rewrite to a single clean commit. Full procedure: DLM/content/PUBLIC_REPO_PUBLISH.md
+# Rewrite to a single clean commit. See PUBLIC_REPO_PUBLISH.md in the private launch corpus for the full gated procedure.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

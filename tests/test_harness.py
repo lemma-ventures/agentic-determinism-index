@@ -5,7 +5,13 @@ import unittest
 
 from agentic_determinism_index.metrics import canonical_json, first_divergence, score_samples
 from agentic_determinism_index.report import markdown, score_run
-from agentic_determinism_index.site import aggregate_leaderboard, latest_scored_run, render_html
+from agentic_determinism_index.site import (
+    aggregate_leaderboard,
+    build_payload,
+    build_stack_drift,
+    latest_scored_run,
+    render_html,
+)
 
 
 def sample(text, **kw):
@@ -136,6 +142,37 @@ class TestSite(unittest.TestCase):
         self.assertIn("1st", html)
         self.assertIn("runs/reference/2026", html)
         self.assertIn("top3 medals", html.lower())
+
+
+class TestStackDrift(unittest.TestCase):
+    def test_build_stack_drift_from_multiple_runs(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "r1", "probes"))
+            os.makedirs(os.path.join(d, "r2", "probes"))
+
+            rows1 = [
+                {"provider": "openai", "model": "gpt", "case": "c1",
+                 "mode_share": 1.0, "fingerprints": ["fp_a"],
+                 "model_versions": ["v1"], "n": 10, "n_ok": 10, "errors": 0},
+            ]
+            rows2 = [
+                {"provider": "openai", "model": "gpt", "case": "c1",
+                 "mode_share": 0.5, "fingerprints": ["fp_b"],
+                 "model_versions": ["v2"], "n": 10, "n_ok": 9, "errors": 1},
+            ]
+            for name, rows in [("r1", rows1), ("r2", rows2)]:
+                with open(os.path.join(d, name, "scores.json"), "w") as f:
+                    json.dump(rows, f)
+
+            drift = build_stack_drift(d)
+            self.assertEqual(len(drift), 1)
+            self.assertEqual(drift[0]["drift_count"], 1)
+
+            payload = build_payload(os.path.join(d, "r2"), run_root=d)
+            html = render_html(payload)
+            self.assertIn("Stack-drift timeline", html)
+            self.assertIn("fp_a", html)
+            self.assertIn("fp_b", html)
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ A public harness that asks one narrow question of hosted LLM APIs:
 No benchmark of intelligence, no quality judgment. Just reproducibility, measured at the byte level, per model, over time, from raw transcripts anyone can re-score.
 
 - **Zero dependencies.** Python ≥ 3.9 standard library only. Clone and run.
-- **Methodology before scores.** The harness and scoring spec ([METHODOLOGY.md](METHODOLOGY.md), v0.1 draft) are published first; a leaderboard follows only after a public comment window. Open an issue to challenge any metric.
+- **Methodology open, scores live.** The harness and scoring spec ([METHODOLOGY.md](METHODOLOGY.md), v0.1 draft) ship with the first reference leaderboard. Challenge any metric via issues; scores remain recomputable from transcripts and update as new reference runs land.
 - **A door, not a wall.** Alongside scores we document the exact conditions a provider would need to meet for reproducible serving. Providers that meet them get recognized for it.
 
 ## Quickstart
@@ -74,7 +74,7 @@ For public publication, run:
 python3 -m agentic_determinism_index site --run-root runs/reference --out website/index.html
 ```
 
-Then commit only `website/index.html` (or equivalent generated directory) alongside the corresponding reference run if you are maintaining a mirrored leaderboard.
+Then commit only `website/index.html` (or equivalent generated directory) alongside the corresponding reference run if you are maintaining a mirrored leaderboard. The generated page now includes an on-page `Stack-drift timeline` section that tracks `(provider, model)` stack-ID changes (`system_fingerprint` and `modelVersion`) across your scored reference run history.
 
 ## Supported providers
 
@@ -92,11 +92,11 @@ Adding a provider is one adapter class in `agentic_determinism_index/providers.p
 
 ## Status
 
-v0.1, methodology comment window open. No leaderboard is published yet, deliberately. License: [MIT](LICENSE).
+v0.1, methodology comment window open, first reference scores published and updated continuously. License: [MIT](LICENSE).
 
 ## Maintained by
 
-**Lemma Ventures GmbH**, Switzerland, which builds deterministic-inference infrastructure.
+**Lemma Ventures AG**, Zug, Switzerland, which builds deterministic-inference infrastructure.
 
 **Incentive disclosure:** Lemma has commercial interest in reproducible serving. This harness exists so published scores do not require trusting the maintainer: every score is recomputable from raw transcripts with `python3 -m agentic_determinism_index score`. Community replications are welcome; the reference leaderboard column is maintainer-controlled for tier/region comparability.
 
@@ -118,3 +118,9 @@ python3 -m agentic_determinism_index site --run-root runs/reference --out websit
 git add website/index.html && git commit -m "publish leaderboard for <stamp>"
 ```
 Push to the `gh-pages` branch or enable Pages on `main` serving `/website`.
+
+## Background and motivation
+
+Read the author's launch post for the full context and thoughts behind the Agentic Determinism Index:
+
+https://lemma.ventures/blog/your-model-is-not-non-deterministic

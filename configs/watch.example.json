@@ -1,0 +1,10 @@
+{
+  "_comment": "Lightweight stack-ID watch targets. One short request per tick per target. Copy to configs/watch.json and enable only providers with keys set. Not a reference scoring config.",
+  "targets": [
+    {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY"},
+    {"provider": "anthropic", "model": "claude-sonnet-4-20250514", "api_key_env": "ANTHROPIC_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "nvidia_nim", "model": "meta/llama-3.1-8b-instruct", "api_key_env": "NVIDIA_API_KEY"},
+    {"provider": "openrouter", "model": "openai/gpt-4o-mini", "api_key_env": "OPENROUTER_API_KEY"}
+  ]
+}

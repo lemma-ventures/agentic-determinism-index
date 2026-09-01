@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Determinism Index</title>
+      <style>
+        body {
+          font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+          margin: 2rem;
+          color: #0f172a;
+          background: #f8fafc;
+        }
+        h1 { margin-bottom: 0.2rem; }
+        h2 { margin-top: 2rem; }
+        .lead { color: #334155; margin-top: 0.2rem; }
+        .stats {
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 0.5rem;
+          margin: 1rem 0 1.5rem;
+        }
+        .stat {
+          background: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 0.5rem;
+          padding: 0.6rem;
+        }
+        .stat .value {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .stat .label {
+          color: #475569;
+          font-size: 0.85rem;
+          margin-top: 0.2rem;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 1rem;
+          background: #fff;
+        }
+      th, td {
+        border: 1px solid #e2e8f0;
+        padding: 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th { background: #f1f5f9; }
+      .medal { font-size: 1.1rem; margin-right: 0.2rem; }
+      .meta { color: #475569; font-size: 0.9rem; margin-bottom: 1rem; }
+        .badge {
+          display: inline-block;
+          background: #e2e8f0;
+          border-radius: 9999px;
+          padding: 0.1rem 0.6rem;
+          font-size: 0.85rem;
+          color: #0f172a;
+        }
+        .timeline {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          white-space: nowrap;
+          overflow-x: auto;
+        }
+      </style>
+  </head>
+  <body>
+    <h1>Determinism Index</h1>
+    <div class="lead">Reference results by provider with top3 medals.</div>
+    <div class="meta">
+      source: <span class="badge">runs/reference/2026-09-01T100929Z</span>
+      • run: <span class="badge">2026-09-01T100929Z</span>
+      • generated: <span class="badge">2026-09-01T10:29:36.723401Z</span>
+      • started: <span class="badge"></span>
+      • finished: <span class="badge"></span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="value">4</div><div class="label">models</div></div>
+      <div class="stat"><div class="value">1</div><div class="label">providers</div></div>
+      <div class="stat"><div class="value">4</div><div class="label">cases</div></div>
+      <div class="stat"><div class="value">195</div><div class="label">raw responses</div></div>
+      <div class="stat"><div class="value">46.7%</div><div class="label">successful request rate</div></div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Provider</th>
+          <th>Score</th>
+          <th>Mean mode_share</th>
+          <th>Byte-identical rate</th>
+          <th>Mean distinct</th>
+          <th>Models</th>
+          <th>Cases</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+              <td>1</td>
+              <td> <span class="medal">1st</span> openrouter</td>
+              <td>34.33</td>
+              <td>0.4286</td>
+              <td>0.1429</td>
+              <td>6.5714</td>
+              <td>2</td>
+              <td>meta-llama/llama-3.1-8b-instruct (3 cases), openai/gpt-4o-mini (4 cases)</td>
+              <td>15</td>
+            </tr>
+      </tbody>
+    </table>
+    <p class="meta" style="margin-top: 1rem;">
+      Notes: mode_share and byte-identical are per (provider, model, case), then averaged.
+      Scores are recomputed from raw transcripts before publish and do not merge community replications.
+    </p>
+    <h2>Stack-drift timeline</h2>
+    <p class="meta">For each (provider, model) tuple, this shows the set of observed stack IDs by run.</p>
+    <table class="drift">
+<thead><tr><th>Provider</th><th>Model</th><th>Drift events</th><th>Timeline</th><th>Latest fingerprints</th><th>Latest model versions</th></tr></thead>
+<tbody><tr><td colspan=6>Stack IDs not yet available for this provider set.</td></tr></tbody></table>
+    <p class="meta" style="margin-top: 1.5rem; font-size:0.8rem;">
+      Maintained by <a href="https://lemma.ventures">Lemma Ventures AG</a>.
+      Source: <a href="https://github.com/lemma-ventures/agentic-determinism-index">lemma-ventures/agentic-determinism-index</a> (MIT).
+    </p>
+  </body>
+</html>

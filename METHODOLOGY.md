@@ -1,6 +1,6 @@
 # Agentic Determinism Index (ADI) · Methodology (v0.1 draft)
 
-Status: **open for public comment.** No leaderboard publishes until this spec has survived a comment window. Open an issue against any definition below.
+Status: **open for public comment** while first reference scores ship. Challenge any definition below via issues; scores stay recomputable from transcripts and will be revised if the protocol changes.
 
 ## 1. Question under measurement
 

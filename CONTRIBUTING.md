@@ -4,7 +4,7 @@ Two ways to contribute: challenge the methodology, or contribute run data.
 
 ## Methodology comments
 
-METHODOLOGY.md is a v0.1 draft in a public comment window. Open an issue per point of contention — metric definitions, protocol parameters, confounds (caching, tiering, regions). Disagreements are resolved in the open before any leaderboard publishes.
+METHODOLOGY.md is a v0.1 draft in a public comment window. Open an issue per point of contention — metric definitions, protocol parameters, confounds (caching, tiering, regions). First reference scores already ship so the debate is grounded in numbers; if the protocol changes, scores are recomputed from transcripts.
 
 ## Contributing runs (community replications)
 

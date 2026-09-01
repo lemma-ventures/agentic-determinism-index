@@ -4,6 +4,7 @@ import datetime
 import html
 import json
 import os
+from collections import defaultdict
 
 
 MEDALS = {1: "1st", 2: "2nd", 3: "3rd"}
@@ -40,6 +41,165 @@ def latest_scored_run(run_root):
     if not candidates:
         return None
     return candidates[-1]
+
+
+def _list_scored_runs(run_root):
+    if not os.path.isdir(run_root):
+        return []
+    runs = []
+    for name in sorted(os.listdir(run_root)):
+        path = os.path.join(run_root, name)
+        if not os.path.isdir(path):
+            continue
+        scores = os.path.join(path, "scores.json")
+        if os.path.isfile(scores):
+            runs.append(path)
+    return runs
+
+
+def _norm_stack_values(values):
+    return sorted({str(v).strip() for v in (values or []) if v})
+
+
+def _summarize_run_rows(rows):
+    providers = set()
+    models = set()
+    cases = set()
+    n_total = 0
+    n_ok_total = 0
+    errors_total = 0
+    scored_rows = 0
+
+    for row in rows:
+        provider = row.get("provider")
+        model = row.get("model")
+        case = row.get("case")
+        if provider:
+            providers.add(provider)
+        if model:
+            models.add(model)
+        if case:
+            cases.add(case)
+
+        n = row.get("n")
+        if isinstance(n, (int, float)):
+            n_total += n
+
+        n_ok = row.get("n_ok")
+        if isinstance(n_ok, (int, float)):
+            n_ok_total += n_ok
+
+        errors = row.get("errors")
+        if isinstance(errors, (int, float)):
+            errors_total += errors
+
+        if row.get("mode_share") is not None:
+            scored_rows += 1
+
+    success_rate = round(n_ok_total / n_total, 4) if n_total else None
+    return {
+        "providers": len(providers),
+        "models": len(models),
+        "cases": len(cases),
+        "probe_rows": len(rows),
+        "scored_rows": scored_rows,
+        "requests": int(n_total),
+        "non_error_requests": int(n_ok_total),
+        "errors": int(errors_total),
+        "success_rate": success_rate,
+    }
+
+
+def _collect_run_stack_points(run_dir):
+    rows = load_scores(run_dir)
+    by_target = defaultdict(lambda: {
+        "provider": "",
+        "model": "",
+        "fingerprints": set(),
+        "model_versions": set(),
+    })
+
+    for row in rows:
+        provider = row.get("provider")
+        model = row.get("model")
+        if not provider or not model:
+            continue
+
+        key = (provider, model)
+        fp = by_target[key]["fingerprints"]
+        fv = by_target[key]["model_versions"]
+        fp.update(_norm_stack_values(row.get("fingerprints")))
+        fv.update(_norm_stack_values(row.get("model_versions")))
+        by_target[key]["provider"] = provider
+        by_target[key]["model"] = model
+
+    return {
+        key: {
+            "provider": data["provider"],
+            "model": data["model"],
+            "fingerprints": sorted(data["fingerprints"]),
+            "model_versions": sorted(data["model_versions"]),
+        }
+        for key, data in by_target.items()
+    }
+
+
+def build_stack_drift(run_root):
+    if not run_root or not os.path.isdir(run_root):
+        return []
+
+    all_runs = _list_scored_runs(run_root)
+    if len(all_runs) < 2:
+        return []
+
+    history = defaultdict(list)
+    for run_dir in all_runs:
+        stamp = os.path.basename(run_dir)
+        points = _collect_run_stack_points(run_dir)
+        for item in points.values():
+            if not item["fingerprints"] and not item["model_versions"]:
+                continue
+            history[(item["provider"], item["model"])].append({
+                "run_stamp": stamp,
+                "fingerprints": item["fingerprints"],
+                "model_versions": item["model_versions"],
+            })
+
+    out = []
+    for (provider, model), points in sorted(history.items(), key=lambda kv: (kv[0][0], kv[0][1])):
+        drift_count = 0
+        prev_fps = None
+        prev_mvs = None
+        normalized = []
+        for point in points:
+            fps = point["fingerprints"]
+            mvs = point["model_versions"]
+            if prev_fps is not None and (fps != prev_fps or mvs != prev_mvs):
+                drift_count += 1
+            prev_fps, prev_mvs = fps, mvs
+            normalized.append(point)
+
+        out.append({
+            "provider": provider,
+            "model": model,
+            "runs": normalized,
+            "drift_count": drift_count,
+            "latest_fingerprints": points[-1]["fingerprints"],
+            "latest_model_versions": points[-1]["model_versions"],
+        })
+    return out
+
+
+def build_first_metrics(run_dir, run_root=None):
+    rows = load_scores(run_dir)
+    summary = _summarize_run_rows(rows)
+    if run_root is None:
+        run_root = os.path.dirname(run_dir)
+    drift = build_stack_drift(run_root)
+    return {
+        "summary": summary,
+        "stack_drift": drift,
+    }
 
 
 def _as_float(v):
@@ -195,27 +355,117 @@ def render_html(payload):
 
     rows_html = "\n".join(rows) if rows else """<tr><td colspan=8>No scored reference run found.</td></tr>"""
 
+    summary = payload.get("summary", {}) or {}
+    total_models = summary.get("models", 0)
+    total_providers = summary.get("providers", 0)
+    total_cases = summary.get("cases", 0)
+    total_requests = summary.get("requests", 0)
+    success_rate = summary.get("success_rate")
+    success_text = f"{success_rate:.1%}" if success_rate is not None else "n/a"
+
+    stack_drift_rows = []
+    for item in payload.get("stack_drift", []):
+        timeline_parts = []
+        for point in item.get("runs", []):
+            fp = ", ".join(point.get("fingerprints", [])) or "n/a"
+            mv = ", ".join(point.get("model_versions", [])) or "n/a"
+            timeline_parts.append("{stamp}: [{fp}] / [{mv}]".format(
+                stamp=html.escape(point.get("run_stamp", "")),
+                fp=html.escape(fp),
+                mv=html.escape(mv),
+            ))
+        timeline = " → ".join(timeline_parts) if timeline_parts else "n/a"
+        latest_fp = ", ".join(item.get("latest_fingerprints", [])) or "n/a"
+        latest_mv = ", ".join(item.get("latest_model_versions", [])) or "n/a"
+        stack_drift_rows.append(
+            """
+            <tr>
+              <td>{provider}</td>
+              <td>{model}</td>
+              <td>{drift}</td>
+              <td>{timeline}</td>
+              <td>{latest_fingerprints}</td>
+              <td>{latest_model_versions}</td>
+            </tr>
+            """.format(
+                provider=html.escape(item.get("provider", "")),
+                model=html.escape(item.get("model", "")),
+                drift=item.get("drift_count", 0),
+                timeline=timeline,
+                latest_fingerprints=html.escape(latest_fp),
+                latest_model_versions=html.escape(latest_mv),
+            ).strip()
+        )
+
+    stack_rows_html = "\n".join(stack_drift_rows)
+    has_drift = bool(stack_rows_html)
+    if has_drift:
+        drift_block = (
+            "<table class=\"drift\">\n"
+            "<thead><tr>"
+            "<th>Provider</th>"
+            "<th>Model</th>"
+            "<th>Drift events</th>"
+            "<th>Timeline</th>"
+            "<th>Latest fingerprints</th>"
+            "<th>Latest model versions</th>"
+            "</tr></thead>\n"
+            "<tbody>\n"
+            f"{stack_rows_html}\n"
+            "</tbody></table>"
+        )
+    else:
+        drift_block = (
+            "<table class=\"drift\">\n"
+            "<thead><tr><th>Provider</th><th>Model</th><th>Drift events</th>"
+            "<th>Timeline</th><th>Latest fingerprints</th><th>Latest model versions</th></tr></thead>\n"
+            "<tbody><tr><td colspan=6>Stack IDs not yet available for this provider set.</td></tr></tbody></table>"
+        )
+
     return """<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <style>
-      body {{
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        margin: 2rem;
-        color: #0f172a;
-        background: #f8fafc;
-      }}
-      h1 {{ margin-bottom: 0.2rem; }}
-      .lead {{ color: #334155; margin-top: 0.2rem; }}
-      table {{
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1rem;
-        background: #fff;
-      }}
+      <style>
+        body {{
+          font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+          margin: 2rem;
+          color: #0f172a;
+          background: #f8fafc;
+        }}
+        h1 {{ margin-bottom: 0.2rem; }}
+        h2 {{ margin-top: 2rem; }}
+        .lead {{ color: #334155; margin-top: 0.2rem; }}
+        .stats {{
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 0.5rem;
+          margin: 1rem 0 1.5rem;
+        }}
+        .stat {{
+          background: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 0.5rem;
+          padding: 0.6rem;
+        }}
+        .stat .value {{
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #0f172a;
+        }}
+        .stat .label {{
+          color: #475569;
+          font-size: 0.85rem;
+          margin-top: 0.2rem;
+        }}
+        table {{
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 1rem;
+          background: #fff;
+        }}
       th, td {{
         border: 1px solid #e2e8f0;
         padding: 0.6rem;
@@ -225,15 +475,20 @@ def render_html(payload):
       th {{ background: #f1f5f9; }}
       .medal {{ font-size: 1.1rem; margin-right: 0.2rem; }}
       .meta {{ color: #475569; font-size: 0.9rem; margin-bottom: 1rem; }}
-      .badge {{
-        display: inline-block;
-        background: #e2e8f0;
-        border-radius: 9999px;
-        padding: 0.1rem 0.6rem;
-        font-size: 0.85rem;
-        color: #0f172a;
-      }}
-    </style>
+        .badge {{
+          display: inline-block;
+          background: #e2e8f0;
+          border-radius: 9999px;
+          padding: 0.1rem 0.6rem;
+          font-size: 0.85rem;
+          color: #0f172a;
+        }}
+        .timeline {{
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          white-space: nowrap;
+          overflow-x: auto;
+        }}
+      </style>
   </head>
   <body>
     <h1>{title}</h1>
@@ -244,6 +499,13 @@ def render_html(payload):
       • generated: <span class="badge">{generated}</span>
       • started: <span class="badge">{started}</span>
       • finished: <span class="badge">{finished}</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="value">{total_models}</div><div class="label">models</div></div>
+      <div class="stat"><div class="value">{total_providers}</div><div class="label">providers</div></div>
+      <div class="stat"><div class="value">{total_cases}</div><div class="label">cases</div></div>
+      <div class="stat"><div class="value">{total_requests}</div><div class="label">raw responses</div></div>
+      <div class="stat"><div class="value">{success_text}</div><div class="label">successful request rate</div></div>
     </div>
     <table>
       <thead>
@@ -266,6 +528,13 @@ def render_html(payload):
       Notes: mode_share and byte-identical are per (provider, model, case), then averaged.
       Scores are recomputed from raw transcripts before publish and do not merge community replications.
     </p>
+    <h2>Stack-drift timeline</h2>
+    <p class="meta">For each (provider, model) tuple, this shows the set of observed stack IDs by run.</p>
+    {drift_block}
+    <p class="meta" style="margin-top: 1.5rem; font-size:0.8rem;">
+      Maintained by <a href="https://lemma.ventures">Lemma Ventures AG</a>.
+      Source: <a href="https://github.com/lemma-ventures/agentic-determinism-index">lemma-ventures/agentic-determinism-index</a> (MIT).
+    </p>
   </body>
 </html>
 """.format(
@@ -276,19 +545,61 @@ def render_html(payload):
         generated=html.escape(str(generated)),
         started=started,
         finished=finished,
+        total_models=total_models,
+        total_providers=total_providers,
+        total_cases=total_cases,
+        total_requests=total_requests,
+        success_text=success_text,
+        drift_block=drift_block,
     )
 
 
-def build_payload(run_dir):
-    scores = load_scores(run_dir)
-    manifest = load_manifest(run_dir)
-    leaders = aggregate_leaderboard(scores)
+def build_payload(run_dir=None, run_root=None, watch_dir=None):
+    """Build page payload from a scored run and optional watch history.
+
+    ``run_dir`` may be None when only stack-watch data exists; the leaderboard
+    table then shows an empty state while the drift panel can still render.
+    """
+    scores = load_scores(run_dir) if run_dir else []
+    manifest = load_manifest(run_dir) if run_dir else {}
+    leaders = aggregate_leaderboard(scores) if scores else []
+    if run_dir:
+        first_metrics = build_first_metrics(run_dir, run_root)
+    else:
+        first_metrics = {
+            "summary": {
+                "providers": 0,
+                "models": 0,
+                "cases": 0,
+                "probe_rows": 0,
+                "scored_rows": 0,
+                "requests": 0,
+                "non_error_requests": 0,
+                "errors": 0,
+                "success_rate": None,
+            },
+            "stack_drift": build_stack_drift(run_root) if run_root else [],
+        }
+
+    # Merge continuous stack-watch history when present.
+    if watch_dir:
+        try:
+            from .watch import build_watch_drift, load_watch_history
+            hist = load_watch_history(os.path.join(watch_dir, "history.jsonl"))
+            watch_drift = build_watch_drift(hist)
+            if watch_drift:
+                first_metrics = dict(first_metrics)
+                first_metrics["watch_drift"] = watch_drift
+        except Exception:
+            pass
+
     return {
         "title": "Determinism Index",
-        "run_dir": run_dir,
-        "run_stamp": os.path.basename(run_dir),
+        "run_dir": run_dir or "",
+        "run_stamp": os.path.basename(run_dir) if run_dir else "",
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "started": manifest.get("started", ""),
         "finished": manifest.get("finished", ""),
         "leaders": leaders,
+        **first_metrics,
     }

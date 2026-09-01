@@ -1,0 +1,13 @@
+{
+  "version": "0.1-watch",
+  "cases": [
+    {
+      "id": "stack-ping",
+      "expect": "text",
+      "messages": [
+        {"role": "user", "content": "Reply with the single word: pong"}
+      ],
+      "params": {"temperature": 0, "seed": 42, "max_tokens": 8}
+    }
+  ]
+}

@@ -11,6 +11,7 @@ from .probe import run_probe, utcnow
 from .providers import make_provider
 from .report import markdown, score_run
 from .site import build_payload, latest_scored_run, render_html
+from .watch import format_tick_summary, run_tick
 
 
 def _load(path):
@@ -58,6 +59,22 @@ def cmd_run(args):
                 print(f"  {errors}/{len(samples)} requests errored", flush=True)
             name = "{}__{}__{}.json".format(
                 target["provider"], target["model"].replace("/", "-"), case["id"])
+            # Same model probed under different pins (OpenRouter provider
+            # prefs, NIM force_deterministic) must not overwrite each other.
+            pin = target.get("label") or ""
+            if not pin:
+                prefs = target.get("provider_prefs") or {}
+                order = prefs.get("order") or prefs.get("only") or []
+                if order:
+                    pin = "via-" + "-".join(str(x) for x in order)
+                elif target.get("force_deterministic"):
+                    pin = "force-det"
+            if pin:
+                safe = "".join(c if c.isalnum() or c in "-_" else "-"
+                               for c in pin.lower()).strip("-")
+                name = "{}__{}__{}__{}.json".format(
+                    target["provider"], target["model"].replace("/", "-"),
+                    safe, case["id"])
             with open(os.path.join(run_dir, "probes", name), "w") as f:
                 json.dump({
                     "target": {k: v for k, v in target.items()
@@ -87,25 +104,65 @@ def cmd_score(args):
 
 
 def cmd_site(args):
-    if args.run:
-        run_dir = args.run
-    else:
+    run_dir = args.run
+    if not run_dir:
         run_dir = latest_scored_run(args.run_root)
-        if not run_dir:
-            print(f"no scored run found under {args.run_root}", file=sys.stderr)
-            return 1
 
-    if not os.path.isdir(run_dir):
+    if run_dir and not os.path.isdir(run_dir):
         print(f"run directory not found: {run_dir}", file=sys.stderr)
         return 1
+    if not run_dir:
+        print(
+            f"note: no scored run under {args.run_root}; "
+            "building page without leaderboard rows",
+            file=sys.stderr,
+        )
 
-    payload = build_payload(run_dir)
+    payload = build_payload(
+        run_dir,
+        run_root=args.run_root,
+        watch_dir=args.watch_dir,
+    )
     out_dir = os.path.dirname(args.out)
     if out_dir:
         os.makedirs(out_dir, exist_ok=True)
     with open(args.out, "w") as f:
         f.write(render_html(payload))
     print(args.out)
+    return 0
+
+
+def cmd_watch(args):
+    cfg = {}
+    if args.min_interval is not None:
+        cfg["min_interval_s"] = args.min_interval
+    if args.max_interval is not None:
+        cfg["max_interval_s"] = args.max_interval
+    if args.backoff is not None:
+        cfg["backoff"] = args.backoff
+    if args.stable_after is not None:
+        cfg["stable_after"] = args.stable_after
+    if args.jitter is not None:
+        cfg["jitter"] = args.jitter
+
+    if not os.path.isfile(args.config):
+        print(
+            f"watch config not found: {args.config}\n"
+            f"Copy configs/watch.example.json → configs/watch.json and enable targets.",
+            file=sys.stderr,
+        )
+        return 1
+
+    summary = run_tick(
+        config_path=args.config,
+        cases_path=args.cases,
+        watch_dir=args.out,
+        force=args.force,
+        cfg=cfg,
+    )
+    sys.stdout.write(format_tick_summary(summary))
+    if summary.get("drift_events"):
+        return 2  # non-zero so CI can notify on drift without failing hard callers
     return 0
 
 
@@ -134,8 +191,32 @@ def main(argv=None):
     sitep = sub.add_parser("site", help="build a static leaderboard website")
     sitep.add_argument("--run", help="reference run directory")
     sitep.add_argument("--run-root", default="runs/reference")
+    sitep.add_argument("--watch-dir", default="runs/watch",
+                       help="stack-watch history dir (optional drift panel)")
     sitep.add_argument("--out", default="website/index.html")
     sitep.set_defaults(fn=cmd_site)
+
+    watchp = sub.add_parser(
+        "watch",
+        help="cheap stack-ID tick with adaptive backoff (not a full score run)",
+    )
+    watchp.add_argument("--config", default="configs/watch.json")
+    watchp.add_argument("--cases", default="cases/watch/cases.json")
+    watchp.add_argument("--out", default="runs/watch",
+                        help="watch state + history directory")
+    watchp.add_argument("--force", action="store_true",
+                        help="probe all targets even if not due")
+    watchp.add_argument("--min-interval", type=int, default=None,
+                        help="seconds (default 3600)")
+    watchp.add_argument("--max-interval", type=int, default=None,
+                        help="seconds (default 86400)")
+    watchp.add_argument("--backoff", type=float, default=None,
+                        help="multiplier after stable streak (default 1.5)")
+    watchp.add_argument("--stable-after", type=int, default=None,
+                        help="unchanged ticks before backoff (default 3)")
+    watchp.add_argument("--jitter", type=float, default=None,
+                        help="fractional jitter on due time (default 0.20)")
+    watchp.set_defaults(fn=cmd_watch)
 
     args = ap.parse_args(argv)
     return args.fn(args) or 0

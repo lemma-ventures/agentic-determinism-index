@@ -1,0 +1,156 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct"
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-01T10:24:44.897315+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we add the number of boxes on each floor: 1284 + 907 + 2156 = 3357.\n\nTo find the number of fully loaded trucks, we divide the total number of boxes by the number of boxes each truck can carry: 3357 \u00f7 85 = 39.5. Since we can't have a fraction of a truck, we round down to 39 trucks.\n\nTo find the number of boxes remaining unshipped, we multiply the number of boxes each truck can carry by the number of trucks: 85 \u00d7 39 = 3295. Then, we subtract this number from the total number of boxes: 3357 - 3295 = 62.\n\nANSWER: 39,62",
+   "sha256": "2730b80efe58f93aced02aeae044c416012313118908bc2ebe72056af54b7372",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 7472
+  },
+  {
+   "ts": "2026-09-01T10:24:44.897409+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we add the number of boxes on each floor: 1284 + 907 + 2156 = 3357.\n\nTo find the number of fully loaded trucks, we divide the total number of boxes by the number of boxes each truck can carry: 3357 \u00f7 85 = 39.5. Since we can't have a fraction of a truck, we round down to 39 trucks.\n\nTo find the number of boxes remaining unshipped, we multiply the number of boxes each truck can carry by the number of trucks: 85 \u00d7 39 = 3295. Then, we subtract this number from the total number of boxes: 3357 - 3295 = 62.\n\nANSWER: 39,62",
+   "sha256": "2730b80efe58f93aced02aeae044c416012313118908bc2ebe72056af54b7372",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 7401
+  },
+  {
+   "ts": "2026-09-01T10:24:44.897511+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we add the number of boxes on each floor: 1284 + 907 + 2156 = 3357.\n\nTo find the number of fully loaded trucks, we divide the total number of boxes by the number of boxes each truck can carry: 3357 \u00f7 85 = 39.5. Since we can't have a fraction of a truck, we round down to 39 trucks.\n\nTo find the number of boxes remaining unshipped, we multiply the number of boxes each truck can carry by the number of trucks: 85 \u00d7 39 = 3295. Then, we subtract this number from the total number of boxes: 3357 - 3295 = 62.\n\nANSWER: 39,62",
+   "sha256": "2730b80efe58f93aced02aeae044c416012313118908bc2ebe72056af54b7372",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 8262
+  },
+  {
+   "ts": "2026-09-01T10:24:44.897691+00:00",
+   "mode": "burst",
+   "text": "## Step 1: Calculate the total number of boxes in the warehouse\nTo find the total number of boxes, we need to add the number of boxes on each floor. total_boxes = 1284 + 907 + 2156 = 4347.\n\n## Step 2: Determine the number of fully loaded trucks needed\nEach truck carries 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry. trucks_needed = total_boxes / 85 = 4347 / 85 = 51.176470588235294.\n\n## Step 3: Since we can't have a fraction of a truck, we need to round up to the nearest whole number to ensure all boxes are shipped. trucks_needed = ceil(trucks_needed) = 52.\n\n## Step 4: Calculate the number of boxes that can be carried by the fully loaded trucks\nboxes_carried = trucks_needed * 85 = 52 * 85 = 4420.\n\n## Step 5: Calculate the number of boxes remaining unshipped\nboxes_remaining = total_boxes - boxes_carried = 4347 - 4420 = -73.\n\n## Step 6: Since we cannot have a negative number of boxes remaining, we need to adjust our calculation. This means that the number of boxes carried exceeds the total number of boxes, which is not possible. We made an error in our previous steps. Let's correct this by recalculating the number of trucks needed and the number of boxes carried.\n\n## Step 7: Correct the calculation of the number of trucks needed by taking the ceiling of the division of total_boxes by 85. trucks_needed = ceil(total_boxes / 85) = ceil(4347 / 85) = 52.\n\n## Step 8: Correct the calculation of the number of boxes carried by multiplying the corrected number of trucks by 85. boxes_carried = trucks_needed * 85 = 52 * 85 = 4420.\n\n## Step 9: Correct the calculation of the number of boxes remaining by subtracting the number of boxes carried from the total number of boxes. boxes_remaining = total_boxes - boxes_carried = 4347 - 4420 = -73.\n\n## Step 10: Since we still have a negative number of boxes remaining, it means our initial calculation of trucks needed was incorrect. We need to recalculate the number of trucks needed by taking the floor of the division of total_boxes by 85, since we cannot have a fraction of a truck and we want to minimize the number of trucks. trucks_needed = floor(total_boxes / 85) = floor(4347 / 85) = 51.\n\n## Step 11: Calculate the number of boxes carried by the corrected number of trucks. boxes_carried = trucks_needed * 85 = 51 * 85 = 4335.\n\n## Step 12: Calculate the number of boxes remaining unshipped by subtracting the number of boxes carried from the total number of boxes. boxes_remaining = total_boxes - boxes_carried = 4347 - 4335 = 12.\n\n## Step 13: Since we now have a positive number of boxes remaining, we can conclude our calculation.\n\nThe final answer is: ANSWER: 52,12",
+   "sha256": "8430c990561f7466afa02288b2de806ffb330058a91be78c85725f241e85b1dd",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 6264
+  },
+  {
+   "ts": "2026-09-01T10:24:44.897786+00:00",
+   "mode": "burst",
+   "text": "To find the number of fully loaded trucks needed, we need to divide the total number of boxes by the number of boxes each truck can carry.\n\nFirst, let's add up the total number of boxes:\n1284 + 907 + 2156 = 4337\n\nNow, let's divide the total number of boxes by the number of boxes each truck can carry:\n4337 \u00f7 85 = 51\n\nSo, 51 fully loaded trucks are needed.\n\nTo find the number of boxes remaining unshipped, we can multiply the number of trucks by the number of boxes each truck can carry, and then subtract the result from the total number of boxes:\n51 \u00d7 85 = 4325\n4337 - 4325 = 12\n\nTherefore, 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "c03df4944ef6223b51e40ec523f13b3b02018dfbae7fa0b3e99cafbd5974a5ea",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 8804
+  },
+  {
+   "ts": "2026-09-01T10:24:44.897902+00:00",
+   "mode": "burst",
+   "text": "To find the number of fully loaded trucks needed, we need to divide the total number of boxes by the number of boxes each truck can carry.\n\nFirst, let's add up the total number of boxes:\n1284 + 907 + 2156 = 4337\n\nNow, let's divide the total number of boxes by the number of boxes each truck can carry:\n4337 \u00f7 85 = 51\n\nSo, 51 fully loaded trucks are needed.\n\nTo find the number of boxes remaining unshipped, we can multiply the number of trucks by the number of boxes each truck can carry, and then subtract the result from the total number of boxes:\n51 \u00d7 85 = 4325\n4337 - 4325 = 12\n\nTherefore, 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "c03df4944ef6223b51e40ec523f13b3b02018dfbae7fa0b3e99cafbd5974a5ea",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 8781
+  },
+  {
+   "ts": "2026-09-01T10:24:44.898029+00:00",
+   "mode": "burst",
+   "text": "To find the number of fully loaded trucks needed, we need to divide the total number of boxes by the number of boxes each truck can carry.\n\nFirst, let's add up the total number of boxes:\n1284 + 907 + 2156 = 4337\n\nNow, let's divide the total number of boxes by the number of boxes each truck can carry:\n4337 \u00f7 85 = 51\n\nSo, 51 fully loaded trucks are needed.\n\nTo find the number of boxes remaining unshipped, we can multiply the number of trucks by the number of boxes each truck can carry, and then subtract the result from the total number of boxes:\n51 \u00d7 85 = 4325\n4337 - 4325 = 12\n\nTherefore, 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "c03df4944ef6223b51e40ec523f13b3b02018dfbae7fa0b3e99cafbd5974a5ea",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 7980
+  },
+  {
+   "ts": "2026-09-01T10:24:44.898163+00:00",
+   "mode": "burst",
+   "text": "## Step 1: Calculate the total number of boxes in the warehouse.\nTo find the total number of boxes, we need to add the number of boxes on each floor. total_boxes = 1284 + 907 + 2156 = 4347.\n\n## Step 2: Determine the number of fully loaded trucks needed.\nEach truck can carry 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry. trucks_needed = total_boxes / 85 = 4347 / 85 = 51.09411764705882.\n\n## Step 3: Since we cannot have a fraction of a truck, we need to round up to the nearest whole number to ensure all boxes are shipped. trucks_needed = ceil(trucks_needed) = 52.\n\n## Step 4: Calculate the number of boxes that can be carried by the fully loaded trucks.\nboxes_carried = trucks_needed * 85 = 52 * 85 = 4420.\n\n## Step 5: Calculate the number of boxes that remain unshipped.\nboxes_remaining = total_boxes - boxes_carried = 4347 - 4420 = -73.\n\n## Step 6: Since the number of boxes remaining cannot be negative, we need to adjust our calculation. This means that the number of trucks needed was correct, but the boxes remaining should be the difference between the total boxes and the boxes that can be carried by 51 trucks, since we cannot carry a negative number of boxes. boxes_remaining = total_boxes - (trucks_needed - 1) * 85 = 4347 - (52 - 1) * 85 = 4347 - 51 * 85 = 4347 - 4335 = 12.\n\n## Step 7: Now that we have the correct number of boxes remaining, we can state the final answer.\n\nThe final answer is: ANSWER: 52,12",
+   "sha256": "9d27a3d47dfe445860c64247cb83794491f18e50830c3be825e692afc6a8b502",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 3787
+  },
+  {
+   "ts": "2026-09-01T10:24:44.898268+00:00",
+   "mode": "burst",
+   "text": "## Step 1: Calculate the total number of boxes in the warehouse.\nTo find the total number of boxes, we need to add the number of boxes on each floor. total_boxes = 1284 + 907 + 2156 = 4347.\n\n## Step 2: Determine the number of fully loaded trucks needed.\nEach truck can carry 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry. trucks_needed = total_boxes / 85 = 4347 / 85 = 51.09411764705882.\n\n## Step 3: Since we cannot have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. trucks_needed = ceil(trucks_needed) = 52.\n\n## Step 4: Calculate the number of boxes that can be carried by the fully loaded trucks.\nboxes_carried = trucks_needed * 85 = 52 * 85 = 4420.\n\n## Step 5: Determine the number of boxes remaining unshipped.\nboxes_remaining = total_boxes - boxes_carried = 4347 - 4420 = -73.\n\n## Step 6: Since we cannot have a negative number of boxes remaining, we need to adjust our calculation. This means that the number of boxes carried exceeds the total number of boxes, which is not possible. We made an error in our previous steps. Let's correct this by recalculating the number of trucks needed and the boxes carried.\n\n## Step 7: Correct the calculation of the number of trucks needed by taking into account that we cannot have a fraction of a truck and that the total number of boxes must be an integer.\ntrucks_needed = ceil(total_boxes / 85) = ceil(4347 / 85) = 51.\n\n## Step 8: Correct the calculation of the boxes carried by the trucks.\nboxes_carried = trucks_needed * 85 = 51 * 85 = 4345.\n\n## Step 9: Correct the calculation of the boxes remaining.\nboxes_remaining = total_boxes - boxes_carried = 4347 - 4345 = 2.\n\n## Step 10: Since we now have a positive number of boxes remaining, we can conclude our calculation.\n\nThe final answer is: ANSWER: 51,2",
+   "sha256": "397400719135a2296beeb4a015e5a49404b486700324af4b91459763fcc4e12a",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 4455
+  },
+  {
+   "ts": "2026-09-01T10:24:44.898433+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_8639719ff2",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1131
+  },
+  {
+   "ts": "2026-09-01T10:25:13.704082+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we add the number of boxes on each floor: 1284 + 907 + 2156 = 3357.\n\nTo find the number of fully loaded trucks, we divide the total number of boxes by the number of boxes each truck can carry: 3357 \u00f7 85 = 39.5. Since we can't have a fraction of a truck, we round down to 39 trucks.\n\nTo find the number of boxes remaining unshipped, we multiply the number of boxes each truck can carry by the number of trucks: 85 \u00d7 39 = 3295. Then, we subtract this number from the total number of boxes: 3357 - 3295 = 62.\n\nANSWER: 39,62",
+   "sha256": "2730b80efe58f93aced02aeae044c416012313118908bc2ebe72056af54b7372",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 5621
+  },
+  {
+   "ts": "2026-09-01T10:25:39.325574+00:00",
+   "mode": "serial",
+   "text": "To find the number of fully loaded trucks needed, we need to divide the total number of boxes by the number of boxes each truck can carry.\n\nFirst, let's add up the total number of boxes:\n1284 + 907 + 2156 = 4337\n\nNow, let's divide the total number of boxes by the number of boxes each truck can carry:\n4337 \u00f7 85 = 51\n\nSo, 51 fully loaded trucks are needed.\n\nTo find the number of boxes remaining unshipped, we can multiply the number of trucks by the number of boxes each truck can carry, and then subtract the result from the total number of boxes:\n51 \u00d7 85 = 4325\n4337 - 4325 = 12\n\nTherefore, 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "c03df4944ef6223b51e40ec523f13b3b02018dfbae7fa0b3e99cafbd5974a5ea",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 8258
+  },
+  {
+   "ts": "2026-09-01T10:26:07.587899+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_6a1eabf260",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 436
+  }
+ ]
+}
