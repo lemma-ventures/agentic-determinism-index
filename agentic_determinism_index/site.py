@@ -221,6 +221,67 @@ def _tuple_key(row):
     return (provider, model, label)
 
 
+def _run_tuple_byte_exact(rows):
+    """True when every scored case for a tuple in one run is byte-identical.
+
+    Returns dict keyed by ``_tuple_key`` → bool. Unscored (no mode_share) rows
+    are ignored; a tuple with no scored cases is omitted.
+    """
+    by_key = {}
+    for row in rows or []:
+        if not row.get("provider"):
+            continue
+        if _as_float(row.get("mode_share")) is None:
+            continue
+        key = _tuple_key(row)
+        bucket = by_key.setdefault(key, {"any": False, "all_exact": True})
+        bucket["any"] = True
+        if not row.get("byte_identical"):
+            bucket["all_exact"] = False
+    return {k: v["all_exact"] for k, v in by_key.items() if v["any"]}
+
+
+def tuple_deterministic_survival(run_root):
+    """Across scored reference runs, how often each serving tuple stayed byte-exact.
+
+    For each tuple key returns::
+        {
+          "runs_seen": N,             # reference runs that scored this tuple
+          "deterministic_runs": M,    # of those, fully byte-exact
+          "streak": S,                # consecutive byte-exact ending at latest run
+        }
+    Streak resets when the tuple is missing from a later run or fails byte-exact.
+    """
+    survival = {}
+    for path in _list_scored_runs(run_root):
+        try:
+            rows = load_scores(path)
+        except (OSError, ValueError, TypeError):
+            continue
+        exact_map = _run_tuple_byte_exact(rows)
+        seen_this_run = set(exact_map)
+
+        # Advance streak for tuples present this run; reset others that were active.
+        for key, exact in exact_map.items():
+            s = survival.setdefault(key, {
+                "runs_seen": 0,
+                "deterministic_runs": 0,
+                "streak": 0,
+            })
+            s["runs_seen"] += 1
+            if exact:
+                s["deterministic_runs"] += 1
+                s["streak"] += 1
+            else:
+                s["streak"] = 0
+
+        # Missing from this run breaks the streak (survived consecutive window).
+        for key, s in survival.items():
+            if key not in seen_this_run:
+                s["streak"] = 0
+    return survival
+
+
 def aggregate_leaderboard(rows):
     """Rank scored serving tuples. Rows with n_ok == 0 / no mode_share are
     excluded so failed probes (EOL models, missing endpoints) do not take
@@ -290,6 +351,9 @@ def aggregate_leaderboard(rows):
             "exact_match_rate": round(exact_rate, 4),
             "mean_distinct": round(mean_distinct, 4) if mean_distinct is not None else None,
             "score": round(score, 2),
+            "deterministic_runs": 1 if exact_rate >= 0.999 else 0,
+            "runs_seen": 1,
+            "streak": 1 if exact_rate >= 0.999 else 0,
             # Back-compat for older HTML payload consumers / tests.
             "models": [{
                 "name": s["model"],
@@ -304,6 +368,25 @@ def aggregate_leaderboard(rows):
         entry["rank"] = i + 1
         entry["medal"] = MEDALS.get(i + 1, "")
     return ranked
+
+
+def apply_survival(leaders, survival):
+    """Attach cross-run deterministic survival counts onto leaderboard rows."""
+    for entry in leaders or []:
+        key = (
+            entry.get("provider") or "",
+            entry.get("model") or "unknown",
+            (entry.get("label") or "").strip(),
+        )
+        s = (survival or {}).get(key) or {}
+        entry["runs_seen"] = int(s.get("runs_seen") or entry.get("runs_seen") or 1)
+        entry["deterministic_runs"] = int(
+            s.get("deterministic_runs")
+            if s.get("deterministic_runs") is not None
+            else entry.get("deterministic_runs") or 0
+        )
+        entry["streak"] = int(s.get("streak") if s.get("streak") is not None else entry.get("streak") or 0)
+    return leaders
 
 
 def short_stack_id(text, length=12):
@@ -392,6 +475,18 @@ def render_html(payload):
         sid_disp = display_stack_id(sid)
         # Link to the run detail page (same relative path on GitHub Pages and mirrors).
         sid_href = entry.get("stack_href") or f"{run_href}#{sid}"
+        det = int(entry.get("deterministic_runs") or 0)
+        seen = int(entry.get("runs_seen") or 0) or 1
+        streak = int(entry.get("streak") or 0)
+        survive_title = (
+            f"{det} of {seen} scored reference runs fully byte-exact; "
+            f"current streak {streak}"
+        )
+        survive_cell = (
+            f'<span title="{html.escape(survive_title, quote=True)}">'
+            f"{det}&nbsp;/&nbsp;{seen}</span>"
+            f'<div class="sid">streak {streak}</div>'
+        )
         rows.append(
             "<tr{tr_cls}>"
             "<td>{rank}</td>"
@@ -402,6 +497,7 @@ def render_html(payload):
             "<td>{score}</td>"
             "<td>{mode_share}</td>"
             "<td>{byte_cell}</td>"
+            "<td>{survive}</td>"
             "<td>{distinct}</td>"
             "<td>{cases}</td>"
             "</tr>".format(
@@ -415,13 +511,14 @@ def render_html(payload):
                 score=entry.get("score", 0.0),
                 mode_share=_format_pct(entry.get("mean_mode_share")),
                 byte_cell=byte_cell,
+                survive=survive_cell,
                 distinct=_format_float(entry.get("mean_distinct")),
                 cases=entry.get("rows", 0),
             )
         )
 
     rows_html = "\n".join(rows) if rows else (
-        '<tr><td colspan="8">No scored reference run found.</td></tr>'
+        '<tr><td colspan="9">No scored reference run found.</td></tr>'
     )
 
     summary = payload.get("summary", {}) or {}
@@ -556,6 +653,7 @@ def render_html(payload):
           <th>Score</th>
           <th>Mode share</th>
           <th>Byte-exact replay</th>
+          <th>Deterministic runs</th>
           <th>Mean distinct</th>
           <th>Cases</th>
         </tr>
@@ -567,6 +665,8 @@ def render_html(payload):
     <p class="meta">
       <strong>Byte-exact replay</strong> is the property that matters for audit trails:
       green rows returned identical bytes on every successful repeat of the same request.
+      <strong>Deterministic runs</strong> counts how many scored reference runs that serving
+      tuple stayed fully byte-exact (N of M), plus the current consecutive streak.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).
       All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
     </p>
@@ -593,6 +693,8 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
     leaders = aggregate_leaderboard(scores) if scores else []
     root = run_root or (os.path.dirname(run_dir) if run_dir else None)
     n_runs = len(_list_scored_runs(root)) if root else (1 if run_dir else 0)
+    if root:
+        apply_survival(leaders, tuple_deterministic_survival(root))
 
     if run_dir:
         first_metrics = build_first_metrics(run_dir, run_root)

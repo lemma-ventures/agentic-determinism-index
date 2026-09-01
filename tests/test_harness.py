@@ -127,6 +127,46 @@ class TestSite(unittest.TestCase):
         self.assertEqual(len(leaders), 2)
         self.assertEqual(leaders[0]["label"], "via Groq")
         self.assertEqual(leaders[1]["label"], "via DeepInfra")
+        self.assertEqual(leaders[0]["deterministic_runs"], 1)
+        self.assertEqual(leaders[0]["streak"], 1)
+        self.assertEqual(leaders[1]["deterministic_runs"], 0)
+        self.assertEqual(leaders[1]["streak"], 0)
+
+    def test_tuple_deterministic_survival_across_runs(self):
+        with tempfile.TemporaryDirectory() as d:
+            for name, rows in (
+                ("r1", [
+                    {"provider": "openrouter", "model": "llama", "label": "via Groq",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1},
+                    {"provider": "openrouter", "model": "gpt", "label": "via Azure",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1},
+                ]),
+                ("r2", [
+                    {"provider": "openrouter", "model": "llama", "label": "via Groq",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1},
+                    {"provider": "openrouter", "model": "gpt", "label": "via Azure",
+                     "mode_share": 0.5, "byte_identical": False, "distinct": 2},
+                ]),
+                ("r3", [
+                    {"provider": "openrouter", "model": "llama", "label": "via Groq",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1},
+                ]),
+            ):
+                path = os.path.join(d, name)
+                os.makedirs(path)
+                with open(os.path.join(path, "scores.json"), "w") as f:
+                    json.dump(rows, f)
+
+            from agentic_determinism_index.site import tuple_deterministic_survival
+            surv = tuple_deterministic_survival(d)
+            groq = surv[("openrouter", "llama", "via Groq")]
+            azure = surv[("openrouter", "gpt", "via Azure")]
+            self.assertEqual(groq["deterministic_runs"], 3)
+            self.assertEqual(groq["runs_seen"], 3)
+            self.assertEqual(groq["streak"], 3)
+            self.assertEqual(azure["deterministic_runs"], 1)
+            self.assertEqual(azure["runs_seen"], 2)
+            self.assertEqual(azure["streak"], 0)
 
     def test_render_html(self):
         payload = {
@@ -149,6 +189,9 @@ class TestSite(unittest.TestCase):
                     "exact_match_rate": 1.0,
                     "mean_distinct": 1.0,
                     "rows": 4,
+                    "deterministic_runs": 2,
+                    "runs_seen": 3,
+                    "streak": 2,
                     "stack_id": "abcd1234wxyz",
                     "stack_href": "r/qert7m2kn4vw/#abcd1234wxyz",
                     "models": [
@@ -167,6 +210,9 @@ class TestSite(unittest.TestCase):
         self.assertNotIn("tagcloud", html)
         self.assertIn("r/qert7m2kn4vw/", html)
         self.assertIn("abcd…wxyz", html)
+        self.assertIn("Deterministic runs", html)
+        self.assertIn("2&nbsp;/&nbsp;3", html)
+        self.assertIn("streak 2", html)
 
 
 class TestStackDrift(unittest.TestCase):
