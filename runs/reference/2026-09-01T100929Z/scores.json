@@ -1,5 +1,37 @@
 [
  {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 13,
+  "n_ok": 0,
+  "errors": 13
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 13,
+  "n_ok": 0,
+  "errors": 13
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 13,
+  "n_ok": 0,
+  "errors": 13
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 13,
+  "n_ok": 0,
+  "errors": 13
+ },
+ {
   "provider": "openrouter",
   "model": "anthropic/claude-3.5-sonnet",
   "case": "freeform-short",
@@ -104,6 +136,25 @@
   ],
   "json_parse_rate": 1.0,
   "distinct_canonical_json": 1
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 13,
+  "n_ok": 13,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.4615,
+  "first_divergence_char": 18,
+  "fingerprints": [
+   "DeepInfra",
+   "Novita"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ]
  },
  {
   "provider": "openrouter",

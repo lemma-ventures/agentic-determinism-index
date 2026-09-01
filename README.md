@@ -106,18 +106,29 @@ This repo measures serving reproducibility. It does not implement pinned-stack s
 
 The `site` command emits a single-file, self-contained `website/index.html` (no external assets, no tracking).
 
-- **Canonical host:** `index.lemma.ventures` or GitHub Pages on `lemma-ventures/agentic-determinism-index`.
+**Live links (use these):**
+
+| Host | URL |
+|---|---|
+| GitHub repo | https://github.com/lemma-ventures/agentic-determinism-index |
+| GitHub Pages | https://lemma-ventures.github.io/agentic-determinism-index/ |
+| Canonical (when DNS is live) | https://index.lemma.ventures/ |
+| Staging review | https://index.staging.lemma.ventures/ |
+
 - **Scores page:** single-purpose leaderboard only. Footer names Lemma; no product CTAs.
-- **Do not embed** the live leaderboard inside marketing pages (e.g. `lemma-ventures-website/standards/` with product CTAs). Other Lemma properties link **out** by URL.
+- **Do not embed** the live leaderboard inside marketing pages. Other Lemma properties link **out** by URL.
 
 **Medals:** each published snapshot ranks reference tuples; top 3 receive 🥇🥈🥉 (most reproducible under the disclosed protocol). Medals are snapshot-relative, not permanent certifications.
 
-To publish:
+Bootstrap reference scores ship with the harness. **First consolidated results: 6 October 2026** (multi-day drift window under the published protocol). Until then the page shows the latest bootstrap reference run and updates as new runs land.
+
+To publish a snapshot:
 ```bash
 python3 -m agentic_determinism_index site --run-root runs/reference --out website/index.html
-git add website/index.html && git commit -m "publish leaderboard for <stamp>"
+git add website/index.html runs/reference/<stamp> && git commit -m "publish leaderboard for <stamp>"
+git push origin main
 ```
-Push to the `gh-pages` branch or enable Pages on `main` serving `/website`.
+GitHub Pages is served from `/website` on `main`.
 
 ## Background and motivation
 

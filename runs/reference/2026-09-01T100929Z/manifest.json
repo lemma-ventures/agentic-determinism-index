@@ -1,0 +1,12 @@
+{
+ "harness_version": "0.1.0",
+ "python": "3.12.4",
+ "platform": "macOS-15.6.1-arm64-arm-64bit",
+ "config_sha256": "80e4ccd8a3235811233af8ca9c1aafe531b3d3c97a73e30fc71a21ede32d7ca1",
+ "cases_sha256": "5523a627641907c64fef7c8b2effbf3c778e3f267fc8402ae43944fe6b1d178c",
+ "burst": 10,
+ "serial": 3,
+ "gap_s": 20,
+ "started": "2026-09-01T10:09:29.374554+00:00",
+ "finished": "2026-09-01T10:34:20.648485+00:00"
+}
