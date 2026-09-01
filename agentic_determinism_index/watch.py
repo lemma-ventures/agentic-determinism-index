@@ -28,11 +28,16 @@ from .providers import make_provider
 
 
 DEFAULTS = {
-    "min_interval_s": 3600,       # 1 h
-    "max_interval_s": 86400,      # 24 h
+    "min_interval_s": 3600,       # 1 h when stack is byte-exact / unknown
+    "max_interval_s": 86400,      # 24 h cap for stack-ID ticks
     "backoff": 1.5,
     "stable_after": 3,            # unchanged ticks before backing off
     "jitter": 0.20,
+    # Full score re-runs are expensive. If the last scored run for a tuple was
+    # not byte-exact, do not burn tokens re-probing it often — stack drift is
+    # still watched cheaply; score cadence backs off hard.
+    "non_exact_score_min_interval_s": 7 * 86400,   # 7 days
+    "exact_score_min_interval_s": 86400,            # 1 day when byte-exact
 }
 
 
@@ -85,7 +90,67 @@ def next_interval_s(state_row, cfg=None):
     streak = int(state_row.get("stable_streak") or 0)
     steps = max(0, streak - cfg["stable_after"] + 1) if streak >= cfg["stable_after"] else 0
     base = cfg["min_interval_s"] * (cfg["backoff"] ** steps)
+    # Known non-byte-exact stacks: skip ahead toward the long end of the range
+    # so we do not spend tokens re-checking divergence we already measured.
+    if state_row.get("byte_exact") is False:
+        base = max(base, cfg["min_interval_s"] * 4)
     return min(cfg["max_interval_s"], max(cfg["min_interval_s"], base))
+
+
+def score_reprobe_due(state_row, now=None, cfg=None):
+    """Whether a full score re-run is worth the tokens for this tuple.
+
+    Byte-exact stacks may be re-scored daily (default). Non-exact stacks wait a
+    week unless forced — repeated full bursts on a known-divergent stack waste
+    spend without new information beyond the cheap stack-ID watch.
+    """
+    cfg = {**DEFAULTS, **(cfg or {})}
+    now = now or time.time()
+    last = state_row.get("last_score_epoch")
+    if last is None:
+        return True
+    exact = state_row.get("byte_exact")
+    if exact is True:
+        gap = cfg["exact_score_min_interval_s"]
+    elif exact is False:
+        gap = cfg["non_exact_score_min_interval_s"]
+    else:
+        gap = cfg["exact_score_min_interval_s"]
+    return now >= float(last) + gap
+
+
+def ingest_score_hints(watch_dir, scores_rows, run_stamp=None):
+    """Update watch state from a scored run so non-exact tuples back off."""
+    state_path = os.path.join(watch_dir, "state.json")
+    state = _load_json(state_path, default={"targets": {}, "config": dict(DEFAULTS)})
+    state.setdefault("targets", {})
+    now = time.time()
+    for row in scores_rows or []:
+        provider = row.get("provider")
+        model = row.get("model")
+        if not provider or not model:
+            continue
+        label = row.get("label") or ""
+        tkey = f"{provider}|{model}|{label}"
+        entry = state["targets"].setdefault(tkey, {
+            "provider": provider,
+            "model": model,
+            "label": label,
+            "stable_streak": 0,
+        })
+        # Aggregate: if any case is not byte-identical, the tuple is not exact.
+        bi = row.get("byte_identical")
+        if bi is False:
+            entry["byte_exact"] = False
+        elif bi is True and entry.get("byte_exact") is not False:
+            entry["byte_exact"] = True
+        entry["last_score_epoch"] = now
+        entry["last_score_stamp"] = run_stamp
+        if row.get("mode_share") is not None:
+            entry["last_mode_share"] = row.get("mode_share")
+    state["updated"] = utcnow()
+    _write_json(state_path, state)
+    return state
 
 
 def schedule_next(now_ts, state_row, cfg=None, rng=None):

@@ -130,12 +130,19 @@ class TestSite(unittest.TestCase):
 
     def test_render_html(self):
         payload = {
-            "title": "Determinism Index",
+            "title": "Agentic Determinism Index (ADI)",
             "run_dir": "runs/reference/2026",
             "run_stamp": "2026",
+            "run_id": "qert7m2kn4vw",
+            "run_href": "r/qert7m2kn4vw/",
             "generated_at": "2026-01-01T00:00:00Z",
             "started": "2026-01-01T00:00:00Z",
             "finished": "2026-01-01T00:01:00Z",
+            "n_runs": 2,
+            "provider_tags": [
+                {"name": "openai", "count": 4},
+                {"name": "openrouter · via Groq", "count": 2},
+            ],
             "leaders": [
                 {
                     "rank": 1,
@@ -146,6 +153,8 @@ class TestSite(unittest.TestCase):
                     "exact_match_rate": 1.0,
                     "mean_distinct": 1.0,
                     "rows": 4,
+                    "stack_id": "abcd1234wxyz",
+                    "stack_href": "r/qert7m2kn4vw/#abcd1234wxyz",
                     "models": [
                         {"name": "gpt", "rows": 4}
                     ],
@@ -153,12 +162,14 @@ class TestSite(unittest.TestCase):
             ],
         }
         html = render_html(payload)
-        self.assertIn("Determinism Index", html)
+        self.assertIn("Agentic Determinism Index (ADI)", html)
         self.assertIn("1st", html)
         self.assertIn("Last run", html)
         self.assertIn("byte-exact", html)
         self.assertIn("row-exact", html)
         self.assertIn("medals", html.lower())
+        self.assertIn("tagcloud", html)
+        self.assertIn("qert…n4vw", html)
 
 
 class TestStackDrift(unittest.TestCase):

@@ -8,6 +8,7 @@ from agentic_determinism_index.watch import (
     is_due,
     next_interval_s,
     schedule_next,
+    score_reprobe_due,
 )
 
 
@@ -47,6 +48,27 @@ class TestWatchSchedule(unittest.TestCase):
         self.assertEqual(len(drift), 1)
         self.assertEqual(drift[0]["drift_count"], 1)
         self.assertEqual(drift[0]["latest_stack_id"], "fp:b")
+
+    def test_non_exact_backs_off_score_reprobe(self):
+        now = 1_000_000
+        # Just scored non-exact → not due
+        self.assertFalse(score_reprobe_due(
+            {"byte_exact": False, "last_score_epoch": now - 3600},
+            now=now,
+            cfg={"non_exact_score_min_interval_s": 7 * 86400, "exact_score_min_interval_s": 86400},
+        ))
+        # Byte-exact yesterday → due again after 1 day
+        self.assertTrue(score_reprobe_due(
+            {"byte_exact": True, "last_score_epoch": now - 90000},
+            now=now,
+            cfg={"non_exact_score_min_interval_s": 7 * 86400, "exact_score_min_interval_s": 86400},
+        ))
+        # Non-exact interval longer than exact baseline
+        non_exact = next_interval_s({"stable_streak": 0, "byte_exact": False},
+                                    {"min_interval_s": 100, "max_interval_s": 10000, "backoff": 1.5, "stable_after": 3})
+        exact = next_interval_s({"stable_streak": 0, "byte_exact": True},
+                                {"min_interval_s": 100, "max_interval_s": 10000, "backoff": 1.5, "stable_after": 3})
+        self.assertGreater(non_exact, exact)
 
 
 if __name__ == "__main__":

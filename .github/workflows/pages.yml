@@ -24,21 +24,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Prefer website/ build output when present
+      - name: Assemble Pages site (leaderboard + run pages + assets)
         run: |
           set -eu
           mkdir -p _site
-          if [ -f website/index.html ]; then
-            cp website/index.html _site/index.html
-          elif [ -f docs/index.html ]; then
-            cp docs/index.html _site/index.html
+          if [ -d website ] && [ -f website/index.html ]; then
+            rsync -a --delete website/ _site/
+          elif [ -d docs ] && [ -f docs/index.html ]; then
+            rsync -a --delete docs/ _site/
           else
-            echo "::error::no website/index.html or docs/index.html"
+            echo "::error::no website/ or docs/ index.html"
             exit 1
           fi
-          # Keep docs/ in sync for legacy Pages source path
+          # Keep docs/ mirror for legacy path readers
           mkdir -p docs
-          cp _site/index.html docs/index.html
+          rsync -a --delete _site/ docs/
+          test -f _site/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

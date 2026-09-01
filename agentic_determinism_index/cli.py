@@ -99,6 +99,16 @@ def cmd_score(args):
     md = markdown(rows)
     with open(os.path.join(args.run_dir, "SCORES.md"), "w") as f:
         f.write(md)
+    # Feed watch state so non-byte-exact tuples are not re-scored often.
+    try:
+        from .watch import ingest_score_hints
+        ingest_score_hints(
+            getattr(args, "watch_dir", "runs/watch"),
+            rows,
+            run_stamp=os.path.basename(os.path.abspath(args.run_dir)),
+        )
+    except Exception as e:
+        print(f"note: score hints not written ({e})", file=sys.stderr)
     print(md, end="")
     return 0
 
@@ -118,17 +128,16 @@ def cmd_site(args):
             file=sys.stderr,
         )
 
-    payload = build_payload(
-        run_dir,
+    from .site import write_site
+
+    paths = write_site(
+        out_html=args.out,
+        run_dir=run_dir,
         run_root=args.run_root,
         watch_dir=args.watch_dir,
     )
-    out_dir = os.path.dirname(args.out)
-    if out_dir:
-        os.makedirs(out_dir, exist_ok=True)
-    with open(args.out, "w") as f:
-        f.write(render_html(payload))
-    print(args.out)
+    for p in paths:
+        print(p)
     return 0
 
 
