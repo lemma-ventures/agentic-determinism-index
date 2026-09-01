@@ -111,15 +111,14 @@ The `site` command emits a single-file, self-contained `website/index.html` (no 
 | Host | URL |
 |---|---|
 | GitHub repo | https://github.com/lemma-ventures/agentic-determinism-index |
-| GitHub Pages | https://lemma-ventures.github.io/agentic-determinism-index/ |
-| Canonical (when DNS is live) | https://index.lemma.ventures/ |
+| Canonical index (GitHub Pages) | https://lemma-ventures.github.io/agentic-determinism-index/ |
 
 - **Scores page:** single-purpose leaderboard only. Footer names Lemma; no product CTAs.
 - **Do not embed** the live leaderboard inside marketing pages. Other Lemma properties link **out** by URL.
 
 **Medals:** each published snapshot ranks reference tuples; top 3 receive 🥇🥈🥉 (most reproducible under the disclosed protocol). Medals are snapshot-relative, not permanent certifications.
 
-Bootstrap reference scores ship with the harness. **First consolidated results: 6 October 2026** (multi-day drift window under the published protocol). Until then the page shows the latest bootstrap reference run and updates as new runs land.
+Bootstrap reference scores ship with the harness. A **first analysis follows after about a month** of continuous runs and open-source community contributions. Until then the page shows the latest bootstrap reference run and updates as new runs land.
 
 To publish a snapshot:
 ```bash

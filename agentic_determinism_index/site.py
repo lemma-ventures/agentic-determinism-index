@@ -390,7 +390,7 @@ def render_html(payload):
             f"{entry.get('provider')}|{entry.get('model')}|{entry.get('label') or ''}"
         )
         sid_disp = display_stack_id(sid)
-        # Link to the run detail page (same path on GH Pages, index.lemma.ventures, staging).
+        # Link to the run detail page (same relative path on GitHub Pages and mirrors).
         sid_href = entry.get("stack_href") or f"{run_href}#{sid}"
         rows.append(
             "<tr{tr_cls}>"
