@@ -128,7 +128,7 @@ python3 -m agentic_determinism_index site --run-root runs/reference --out websit
 git add website/index.html runs/reference/<stamp> && git commit -m "publish leaderboard for <stamp>"
 git push origin main
 ```
-GitHub Pages is served from `/website` on `main`.
+GitHub Pages is served from `/docs` on `main` (GitHub only allows `/` or `/docs` for legacy Pages). `website/index.html` remains the build output; copy or regenerate into `docs/` when publishing.
 
 ## Background and motivation
 
