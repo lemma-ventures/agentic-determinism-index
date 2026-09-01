@@ -404,11 +404,14 @@ def render_html(payload):
             f"{entry.get('provider')}|{entry.get('model')}|{entry.get('label') or ''}"
         )
         sid_disp = display_stack_id(sid)
+        # Link to the run detail page (same path on GH Pages, index.lemma.ventures, staging).
         sid_href = entry.get("stack_href") or f"{run_href}#{sid}"
         rows.append(
             "<tr{tr_cls}>"
             "<td>{rank}</td>"
-            "<td>{medal}{display}<div class=\"sid\"><a href=\"{sid_href}\">{sid_disp}</a></div></td>"
+            "<td>{medal}{display}<div class=\"sid\">"
+            "<a href=\"{sid_href}\" title=\"Open run detail for this stack\">"
+            "{sid_disp}</a></div></td>"
             "<td>{model}</td>"
             "<td>{score}</td>"
             "<td>{mode_share}</td>"
@@ -440,8 +443,8 @@ def render_html(payload):
         max_c = max(t["count"] for t in tags) or 1
         tag_html = '<div class="tagcloud">' + "".join(
             '<span class="tag" style="font-size:{fs:.2f}rem">{name}</span>'.format(
-                # Keep tags compact: ~0.65–0.9rem (was ~0.75–1.85rem).
-                fs=0.65 + 0.25 * (t["count"] / max_c),
+                # Compact chips: ~0.55–0.68rem
+                fs=0.55 + 0.13 * (t["count"] / max_c),
                 name=html.escape(t["name"]),
             )
             for t in tags
@@ -556,14 +559,14 @@ def render_html(payload):
       .sid a {{ color: #64748b; text-decoration: none; border-bottom: 1px dotted #94a3b8; }}
       .sid a:hover {{ color: #1d4ed8; }}
       .tagcloud {{
-        display: flex; flex-wrap: wrap; gap: 0.3rem 0.4rem; align-items: baseline;
-        margin: 0 0 1.25rem; padding: 0.55rem 0.7rem; background: #fff;
-        border: 1px solid #e2e8f0; border-radius: 0.5rem;
+        display: flex; flex-wrap: wrap; gap: 0.2rem 0.28rem; align-items: baseline;
+        margin: 0 0 1rem; padding: 0.4rem 0.5rem; background: #fff;
+        border: 1px solid #e2e8f0; border-radius: 0.4rem;
       }}
       .tag {{
         display: inline-block; background: #eef2ff; color: #3730a3;
-        border-radius: 9999px; padding: 0.08rem 0.4rem; font-weight: 600;
-        line-height: 1.25;
+        border-radius: 9999px; padding: 0.05rem 0.32rem; font-weight: 500;
+        line-height: 1.2;
       }}
       a {{ color: #1d4ed8; }}
     </style>
@@ -574,7 +577,7 @@ def render_html(payload):
     <div class="summary">
       <span>Last run: <strong>{html.escape(last_run)}</strong></span>
       <span>Reference runs: <strong>{int(n_runs)}</strong></span>
-      <span>Run id: <strong><a href="{html.escape(run_href, quote=True)}">{html.escape(run_id_disp)}</a></strong></span>
+      <span>Run: <strong><a href="{html.escape(run_href, quote=True)}" title="Run detail page">r/{html.escape(run_id)}/</a></strong></span>
     </div>
     {tag_html}
     <div class="stats">

@@ -169,7 +169,8 @@ class TestSite(unittest.TestCase):
         self.assertIn("row-exact", html)
         self.assertIn("medals", html.lower())
         self.assertIn("tagcloud", html)
-        self.assertIn("qert…n4vw", html)
+        self.assertIn("r/qert7m2kn4vw/", html)
+        self.assertIn("abcd…wxyz", html)
 
 
 class TestStackDrift(unittest.TestCase):
