@@ -139,10 +139,6 @@ class TestSite(unittest.TestCase):
             "started": "2026-01-01T00:00:00Z",
             "finished": "2026-01-01T00:01:00Z",
             "n_runs": 2,
-            "provider_tags": [
-                {"name": "openai", "count": 4},
-                {"name": "openrouter · via Groq", "count": 2},
-            ],
             "leaders": [
                 {
                     "rank": 1,
@@ -168,7 +164,7 @@ class TestSite(unittest.TestCase):
         self.assertIn("byte-exact", html)
         self.assertIn("row-exact", html)
         self.assertIn("medals", html.lower())
-        self.assertIn("tagcloud", html)
+        self.assertNotIn("tagcloud", html)
         self.assertIn("r/qert7m2kn4vw/", html)
         self.assertIn("abcd…wxyz", html)
 

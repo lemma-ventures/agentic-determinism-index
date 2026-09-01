@@ -324,20 +324,6 @@ def display_stack_id(sid):
     return f"{sid[:4]}…{sid[-4:]}"
 
 
-def provider_tag_cloud(scores):
-    """Count providers (and optional pins) tried in a run, including failures."""
-    counts = defaultdict(int)
-    for row in scores or []:
-        p = row.get("provider") or "unknown"
-        label = row.get("label") or ""
-        key = f"{p}" + (f" · {label}" if label else "")
-        counts[key] += 1
-    return sorted(
-        [{"name": k, "count": v} for k, v in counts.items()],
-        key=lambda x: (-x["count"], x["name"]),
-    )
-
-
 def _format_float(v):
     return f"{v:.4f}" if v is not None else "n/a"
 
@@ -437,20 +423,6 @@ def render_html(payload):
     rows_html = "\n".join(rows) if rows else (
         '<tr><td colspan="8">No scored reference run found.</td></tr>'
     )
-
-    tags = payload.get("provider_tags") or []
-    if tags:
-        max_c = max(t["count"] for t in tags) or 1
-        tag_html = '<div class="tagcloud">' + "".join(
-            '<span class="tag" style="font-size:{fs:.2f}rem">{name}</span>'.format(
-                # Compact chips: ~0.55–0.68rem
-                fs=0.55 + 0.13 * (t["count"] / max_c),
-                name=html.escape(t["name"]),
-            )
-            for t in tags
-        ) + "</div>"
-    else:
-        tag_html = ""
 
     summary = payload.get("summary", {}) or {}
     total_models = summary.get("models", 0)
@@ -558,16 +530,6 @@ def render_html(payload):
       }}
       .sid a {{ color: #64748b; text-decoration: none; border-bottom: 1px dotted #94a3b8; }}
       .sid a:hover {{ color: #1d4ed8; }}
-      .tagcloud {{
-        display: flex; flex-wrap: wrap; gap: 0.2rem 0.28rem; align-items: baseline;
-        margin: 0 0 1rem; padding: 0.4rem 0.5rem; background: #fff;
-        border: 1px solid #e2e8f0; border-radius: 0.4rem;
-      }}
-      .tag {{
-        display: inline-block; background: #eef2ff; color: #3730a3;
-        border-radius: 9999px; padding: 0.05rem 0.32rem; font-weight: 500;
-        line-height: 1.2;
-      }}
       a {{ color: #1d4ed8; }}
     </style>
   </head>
@@ -579,7 +541,6 @@ def render_html(payload):
       <span>Reference runs: <strong>{int(n_runs)}</strong></span>
       <span>Run: <strong><a href="{html.escape(run_href, quote=True)}" title="Run detail page">r/{html.escape(run_id)}/</a></strong></span>
     </div>
-    {tag_html}
     <div class="stats">
       <div class="stat"><div class="value">{total_providers}</div><div class="label">providers</div></div>
       <div class="stat"><div class="value">{total_models}</div><div class="label">models</div></div>
@@ -662,7 +623,7 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         except Exception:
             pass
 
-    run_stamp = os.path.basename(run_dir) if run_dir else ""
+    run_stamp = os.path.basename(os.path.normpath(run_dir)) if run_dir else ""
     run_id = short_stack_id(run_stamp or "none")
     for entry in leaders:
         sid = short_stack_id(
@@ -682,7 +643,6 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         "finished": manifest.get("finished", ""),
         "n_runs": n_runs,
         "leaders": leaders,
-        "provider_tags": provider_tag_cloud(scores),
         **first_metrics,
     }
 
