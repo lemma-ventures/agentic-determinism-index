@@ -15,9 +15,13 @@ permissions:
   pages: write
   id-token: write
 
+# One deployment at a time, but never kill one that is already running: a push and
+# a manual dispatch of the same commit both land in this group, and cancelling the
+# in-progress run marks the commit with a red "cancelled" check even though the
+# other run deployed it fine. Queue instead. (This is GitHub's own Pages pattern.)
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
