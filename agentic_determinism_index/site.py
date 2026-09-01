@@ -440,7 +440,8 @@ def render_html(payload):
         max_c = max(t["count"] for t in tags) or 1
         tag_html = '<div class="tagcloud">' + "".join(
             '<span class="tag" style="font-size:{fs:.2f}rem">{name}</span>'.format(
-                fs=0.75 + 1.1 * (t["count"] / max_c),
+                # Keep tags compact: ~0.65–0.9rem (was ~0.75–1.85rem).
+                fs=0.65 + 0.25 * (t["count"] / max_c),
                 name=html.escape(t["name"]),
             )
             for t in tags
@@ -555,14 +556,14 @@ def render_html(payload):
       .sid a {{ color: #64748b; text-decoration: none; border-bottom: 1px dotted #94a3b8; }}
       .sid a:hover {{ color: #1d4ed8; }}
       .tagcloud {{
-        display: flex; flex-wrap: wrap; gap: 0.45rem 0.65rem; align-items: baseline;
-        margin: 0 0 1.5rem; padding: 0.85rem 1rem; background: #fff;
+        display: flex; flex-wrap: wrap; gap: 0.3rem 0.4rem; align-items: baseline;
+        margin: 0 0 1.25rem; padding: 0.55rem 0.7rem; background: #fff;
         border: 1px solid #e2e8f0; border-radius: 0.5rem;
       }}
       .tag {{
         display: inline-block; background: #eef2ff; color: #3730a3;
-        border-radius: 9999px; padding: 0.15rem 0.65rem; font-weight: 600;
-        line-height: 1.3;
+        border-radius: 9999px; padding: 0.08rem 0.4rem; font-weight: 600;
+        line-height: 1.25;
       }}
       a {{ color: #1d4ed8; }}
     </style>
