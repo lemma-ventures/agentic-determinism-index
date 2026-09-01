@@ -113,7 +113,6 @@ The `site` command emits a single-file, self-contained `website/index.html` (no 
 | GitHub repo | https://github.com/lemma-ventures/agentic-determinism-index |
 | GitHub Pages | https://lemma-ventures.github.io/agentic-determinism-index/ |
 | Canonical (when DNS is live) | https://index.lemma.ventures/ |
-| Staging review | https://index.staging.lemma.ventures/ |
 
 - **Scores page:** single-purpose leaderboard only. Footer names Lemma; no product CTAs.
 - **Do not embed** the live leaderboard inside marketing pages. Other Lemma properties link **out** by URL.

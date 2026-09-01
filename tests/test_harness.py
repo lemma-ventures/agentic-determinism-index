@@ -155,8 +155,10 @@ class TestSite(unittest.TestCase):
         html = render_html(payload)
         self.assertIn("Determinism Index", html)
         self.assertIn("1st", html)
-        self.assertIn("runs/reference/2026", html)
-        self.assertIn("top-3 medals", html.lower())
+        self.assertIn("Last run", html)
+        self.assertIn("byte-exact", html)
+        self.assertIn("row-exact", html)
+        self.assertIn("medals", html.lower())
 
 
 class TestStackDrift(unittest.TestCase):

@@ -1,136 +1,103 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Determinism Index</title>
-      <style>
-        body {
-          font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-          margin: 2rem;
-          color: #0f172a;
-          background: #f8fafc;
-        }
-        h1 { margin-bottom: 0.2rem; }
-        h2 { margin-top: 2rem; }
-        .lead { color: #334155; margin-top: 0.2rem; }
-        .stats {
-          display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: 0.5rem;
-          margin: 1rem 0 1.5rem;
-        }
-        .stat {
-          background: #fff;
-          border: 1px solid #e2e8f0;
-          border-radius: 0.5rem;
-          padding: 0.6rem;
-        }
-        .stat .value {
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: #0f172a;
-        }
-        .stat .label {
-          color: #475569;
-          font-size: 0.85rem;
-          margin-top: 0.2rem;
-        }
-        table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 1rem;
-          background: #fff;
-        }
-      th, td {
-        border: 1px solid #e2e8f0;
-        padding: 0.6rem;
-        text-align: left;
-        vertical-align: top;
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        margin: 2rem auto;
+        max-width: 1100px;
+        color: #0f172a;
+        background: #f8fafc;
+        padding: 0 1rem 3rem;
       }
-      th { background: #f1f5f9; }
-      .medal { font-size: 1.1rem; margin-right: 0.2rem; }
-      .meta { color: #475569; font-size: 0.9rem; margin-bottom: 1rem; }
-        .badge {
-          display: inline-block;
-          background: #e2e8f0;
-          border-radius: 9999px;
-          padding: 0.1rem 0.6rem;
-          font-size: 0.85rem;
-          color: #0f172a;
-        }
-        .timeline {
-          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-          white-space: nowrap;
-          overflow-x: auto;
-        }
-      </style>
+      h1 { margin-bottom: 0.25rem; }
+      h2 { margin-top: 2.25rem; }
+      .lead { color: #334155; margin: 0.25rem 0 1rem; }
+      .summary {
+        display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem;
+        color: #475569; font-size: 0.95rem; margin-bottom: 1.25rem;
+      }
+      .summary strong { color: #0f172a; font-weight: 600; }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.5rem;
+        margin: 0 0 1.5rem;
+      }
+      .stat {
+        background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.65rem 0.75rem;
+      }
+      .stat .value { font-size: 1.35rem; font-weight: 700; }
+      .stat .label { color: #64748b; font-size: 0.8rem; margin-top: 0.15rem; }
+      table { width: 100%; border-collapse: collapse; background: #fff; }
+      th, td { border: 1px solid #e2e8f0; padding: 0.55rem 0.65rem; text-align: left; vertical-align: top; }
+      th { background: #f1f5f9; font-size: 0.85rem; }
+      tr.row-exact { background: #ecfdf5; }
+      tr.row-exact td { border-color: #a7f3d0; }
+      .medal { margin-right: 0.15rem; }
+      .meta { color: #64748b; font-size: 0.9rem; margin: 1rem 0; }
+      .pill {
+        display: inline-block; border-radius: 9999px; padding: 0.15rem 0.55rem;
+        font-size: 0.8rem; font-weight: 600; white-space: nowrap;
+      }
+      .pill-yes { background: #d1fae5; color: #065f46; }
+      .pill-partial { background: #fef3c7; color: #92400e; }
+      .pill-no { background: #fee2e2; color: #991b1b; }
+      .pill-na { background: #e2e8f0; color: #475569; }
+      .timeline {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.8rem; white-space: nowrap; overflow-x: auto; max-width: 28rem;
+      }
+      a { color: #1d4ed8; }
+    </style>
   </head>
   <body>
     <h1>Determinism Index</h1>
-    <div class="lead">Reference results by serving tuple, with top-3 medals.</div>
-    <div class="meta">
-      source: <span class="badge">runs/reference/2026-09-01T100929Z</span>
-      • run: <span class="badge">2026-09-01T100929Z</span>
-      • generated: <span class="badge">2026-09-01T10:52:23.964032Z</span>
-      • started: <span class="badge">2026-09-01T10:09:29.374554+00:00</span>
-      • finished: <span class="badge">2026-09-01T10:34:20.648485+00:00</span>
+    <p class="lead">Reference leaderboard by serving tuple. Top three earn medals for the latest snapshot.</p>
+    <div class="summary">
+      <span>Last run: <strong>2026-09-01 10:34 UTC</strong></span>
+      <span>Reference runs: <strong>2</strong></span>
     </div>
     <div class="stats">
-      <div class="stat"><div class="value">5</div><div class="label">models</div></div>
       <div class="stat"><div class="value">2</div><div class="label">providers</div></div>
+      <div class="stat"><div class="value">5</div><div class="label">models</div></div>
       <div class="stat"><div class="value">4</div><div class="label">cases</div></div>
-      <div class="stat"><div class="value">260</div><div class="label">raw responses</div></div>
-      <div class="stat"><div class="value">40.0%</div><div class="label">successful request rate</div></div>
+      <div class="stat"><div class="value">2</div><div class="label">scored tuples</div></div>
     </div>
     <table>
       <thead>
         <tr>
           <th>Rank</th>
           <th>Serving tuple</th>
-          <th>Score</th>
-          <th>Mean mode_share</th>
-          <th>Byte-identical rate</th>
-          <th>Mean distinct</th>
           <th>Model</th>
+          <th>Score</th>
+          <th>Mode share</th>
+          <th>Byte-exact replay</th>
+          <th>Mean distinct</th>
           <th>Cases</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-              <td>1</td>
-              <td> <span class="medal">1st</span> openrouter/openai/gpt-4o-mini</td>
-              <td>36.49</td>
-              <td>0.4231</td>
-              <td>0.2500</td>
-              <td>8.0000</td>
-              <td>openai/gpt-4o-mini</td>
-              <td>4</td>
-            </tr>
-<tr>
-              <td>2</td>
-              <td> <span class="medal">2nd</span> openrouter/meta-llama/llama-3.1-8b-instruct</td>
-              <td>31.87</td>
-              <td>0.4423</td>
-              <td>0.0000</td>
-              <td>5.5000</td>
-              <td>meta-llama/llama-3.1-8b-instruct</td>
-              <td>4</td>
-            </tr>
+        <tr><td>1</td><td><span class="medal">1st</span> openrouter/openai/gpt-4o-mini</td><td>openai/gpt-4o-mini</td><td>36.49</td><td>42%</td><td><span class="pill pill-partial">Partial · 25%</span></td><td>8.0000</td><td>4</td></tr>
+<tr><td>2</td><td><span class="medal">2nd</span> openrouter/meta-llama/llama-3.1-8b-instruct</td><td>meta-llama/llama-3.1-8b-instruct</td><td>31.87</td><td>44%</td><td><span class="pill pill-no">No</span></td><td>5.5000</td><td>4</td></tr>
       </tbody>
     </table>
-    <p class="meta" style="margin-top: 1rem;">
-      Notes: each row is one serving tuple (provider, model, optional pin).
-      mode_share and byte-identical are per case, then averaged across scored cases only.
-      All-error probes (EOL models, missing endpoints) are omitted, not shown as zeros.
-      Scores are recomputed from raw transcripts and do not merge community replications.
+    <p class="meta">
+      <strong>Byte-exact replay</strong> is the property that matters for audit trails:
+      green rows returned identical bytes on every successful repeat of the same request.
+      Mode share is the fraction matching the most common completion (can be high without bit-identity).
+      All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
     </p>
     <h2>Stack-drift timeline</h2>
-    <p class="meta">For each (provider, model) tuple, this shows the set of observed stack IDs by run.</p>
-    <table class="drift">
-<thead><tr><th>Provider</th><th>Model</th><th>Drift events</th><th>Timeline</th><th>Latest fingerprints</th><th>Latest model versions</th></tr></thead>
-<tbody><tr><td colspan=6>Stack IDs not yet available for this provider set.</td></tr></tbody></table>
-    <p class="meta" style="margin-top: 1.5rem; font-size:0.8rem;">
+    <p class="meta">When a provider changes <code>system_fingerprint</code> / model version across reference runs.</p>
+    <table class="drift"><thead><tr><th>Provider</th><th>Model</th><th>Drift events</th><th>Timeline</th></tr></thead><tbody>
+<tr><td>openrouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td class="timeline">2026-09-01T100929Z: [DeepInfra, Novita, fp_03e8423237, fp_6a1eabf260, fp_8639719ff2] / [meta-llama/llama-3.1-8b-instruct]</td></tr>
+<tr><td>openrouter</td><td>openai/gpt-4o-mini</td><td>0</td><td class="timeline">2026-09-01T100929Z: [fp_369e662417] / [openai/gpt-4o-mini] → 2026-09-01T105457Z: [fp_369e662417] / [openai/gpt-4o-mini]</td></tr>
+</tbody></table>
+    <p class="meta" style="margin-top: 1.75rem; font-size: 0.8rem;">
       Maintained by <a href="https://lemma.ventures">Lemma Ventures AG</a>.
       Source: <a href="https://github.com/lemma-ventures/agentic-determinism-index">lemma-ventures/agentic-determinism-index</a> (MIT).
     </p>

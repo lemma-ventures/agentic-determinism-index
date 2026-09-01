@@ -306,53 +306,93 @@ def _format_float(v):
     return f"{v:.4f}" if v is not None else "n/a"
 
 
+def _format_pct(v):
+    if v is None:
+        return "n/a"
+    return f"{100.0 * float(v):.0f}%"
+
+
+def _short_dt(iso):
+    """ISO timestamp → compact UTC display (YYYY-MM-DD HH:MM UTC)."""
+    if not iso:
+        return ""
+    s = str(iso).replace("Z", "+00:00")
+    try:
+        dt = datetime.datetime.fromisoformat(s)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=datetime.timezone.utc)
+        dt = dt.astimezone(datetime.timezone.utc)
+        return dt.strftime("%Y-%m-%d %H:%M UTC")
+    except ValueError:
+        return str(iso)[:16]
+
+
+def _byte_exact_cell(rate):
+    """Human label for average byte-identity across cases."""
+    if rate is None:
+        return '<span class="pill pill-na">n/a</span>', ""
+    r = float(rate)
+    if r >= 0.999:
+        return '<span class="pill pill-yes">Yes · byte-exact</span>', "row-exact"
+    if r <= 0.001:
+        return '<span class="pill pill-no">No</span>', ""
+    return (
+        f'<span class="pill pill-partial">Partial · {_format_pct(r)}</span>',
+        "",
+    )
+
+
 def render_html(payload):
-    generated = payload.get("generated_at") or datetime.datetime.utcnow().isoformat()
     title = html.escape(payload.get("title") or "Determinism Index")
-    run_dir = html.escape(payload.get("run_dir") or "")
-    run_stamp = html.escape(payload.get("run_stamp") or "")
-    started = html.escape(payload.get("started") or "")
-    finished = html.escape(payload.get("finished") or "")
+    run_stamp = payload.get("run_stamp") or ""
+    finished = payload.get("finished") or payload.get("started") or ""
+    last_run = _short_dt(finished) or html.escape(run_stamp) or "n/a"
+    n_runs = payload.get("n_runs")
+    if n_runs is None:
+        n_runs = 1 if payload.get("run_dir") else 0
 
     rows = []
     for entry in payload.get("leaders", []):
-        medal = f" <span class=\"medal\">{entry.get('medal','')}</span>" if entry.get("medal") else ""
+        medal = f'<span class="medal">{html.escape(entry.get("medal") or "")}</span> ' if entry.get("medal") else ""
         display = entry.get("display") or entry.get("label") or entry.get("provider", "")
         model = entry.get("model") or ""
         if not model and entry.get("models"):
             model = ", ".join(m.get("name", "") for m in entry["models"] if m.get("name"))
-        rows.append("""
-            <tr>
-              <td>{rank}</td>
-              <td>{medal_html} {display}</td>
-              <td>{score}</td>
-              <td>{mode_share}</td>
-              <td>{exact}</td>
-              <td>{distinct}</td>
-              <td>{model}</td>
-              <td>{cases}</td>
-            </tr>
-        """.format(
-            rank=entry.get("rank", ""),
-            medal_html=medal,
-            display=html.escape(display),
-            score=entry.get("score", 0.0),
-            mode_share=_format_float(entry.get("mean_mode_share")),
-            exact=_format_float(entry.get("exact_match_rate")),
-            distinct=_format_float(entry.get("mean_distinct")),
-            model=html.escape(model) if model else "n/a",
-            cases=entry.get("rows", 0),
-        ).strip())
+        exact_rate = entry.get("exact_match_rate")
+        byte_cell, row_class = _byte_exact_cell(exact_rate)
+        tr_cls = f' class="{row_class}"' if row_class else ""
+        rows.append(
+            "<tr{tr_cls}>"
+            "<td>{rank}</td>"
+            "<td>{medal}{display}</td>"
+            "<td>{model}</td>"
+            "<td>{score}</td>"
+            "<td>{mode_share}</td>"
+            "<td>{byte_cell}</td>"
+            "<td>{distinct}</td>"
+            "<td>{cases}</td>"
+            "</tr>".format(
+                tr_cls=tr_cls,
+                rank=entry.get("rank", ""),
+                medal=medal,
+                display=html.escape(display),
+                model=html.escape(model) if model else "n/a",
+                score=entry.get("score", 0.0),
+                mode_share=_format_pct(entry.get("mean_mode_share")),
+                byte_cell=byte_cell,
+                distinct=_format_float(entry.get("mean_distinct")),
+                cases=entry.get("rows", 0),
+            )
+        )
 
-    rows_html = "\n".join(rows) if rows else """<tr><td colspan=8>No scored reference run found.</td></tr>"""
+    rows_html = "\n".join(rows) if rows else (
+        '<tr><td colspan="8">No scored reference run found.</td></tr>'
+    )
 
     summary = payload.get("summary", {}) or {}
     total_models = summary.get("models", 0)
     total_providers = summary.get("providers", 0)
     total_cases = summary.get("cases", 0)
-    total_requests = summary.get("requests", 0)
-    success_rate = summary.get("success_rate")
-    success_text = f"{success_rate:.1%}" if success_rate is not None else "n/a"
 
     stack_drift_rows = []
     for item in payload.get("stack_drift", []):
@@ -360,191 +400,144 @@ def render_html(payload):
         for point in item.get("runs", []):
             fp = ", ".join(point.get("fingerprints", [])) or "n/a"
             mv = ", ".join(point.get("model_versions", [])) or "n/a"
-            timeline_parts.append("{stamp}: [{fp}] / [{mv}]".format(
-                stamp=html.escape(point.get("run_stamp", "")),
-                fp=html.escape(fp),
-                mv=html.escape(mv),
-            ))
+            timeline_parts.append(
+                "{stamp}: [{fp}] / [{mv}]".format(
+                    stamp=html.escape(point.get("run_stamp", "")),
+                    fp=html.escape(fp),
+                    mv=html.escape(mv),
+                )
+            )
         timeline = " → ".join(timeline_parts) if timeline_parts else "n/a"
-        latest_fp = ", ".join(item.get("latest_fingerprints", [])) or "n/a"
-        latest_mv = ", ".join(item.get("latest_model_versions", [])) or "n/a"
         stack_drift_rows.append(
-            """
-            <tr>
-              <td>{provider}</td>
-              <td>{model}</td>
-              <td>{drift}</td>
-              <td>{timeline}</td>
-              <td>{latest_fingerprints}</td>
-              <td>{latest_model_versions}</td>
-            </tr>
-            """.format(
+            "<tr>"
+            "<td>{provider}</td>"
+            "<td>{model}</td>"
+            "<td>{drift}</td>"
+            "<td class=\"timeline\">{timeline}</td>"
+            "</tr>".format(
                 provider=html.escape(item.get("provider", "")),
                 model=html.escape(item.get("model", "")),
                 drift=item.get("drift_count", 0),
                 timeline=timeline,
-                latest_fingerprints=html.escape(latest_fp),
-                latest_model_versions=html.escape(latest_mv),
-            ).strip()
+            )
         )
 
-    stack_rows_html = "\n".join(stack_drift_rows)
-    has_drift = bool(stack_rows_html)
-    if has_drift:
+    if stack_drift_rows:
         drift_block = (
-            "<table class=\"drift\">\n"
-            "<thead><tr>"
-            "<th>Provider</th>"
-            "<th>Model</th>"
-            "<th>Drift events</th>"
-            "<th>Timeline</th>"
-            "<th>Latest fingerprints</th>"
-            "<th>Latest model versions</th>"
-            "</tr></thead>\n"
-            "<tbody>\n"
-            f"{stack_rows_html}\n"
-            "</tbody></table>"
+            '<table class="drift"><thead><tr>'
+            "<th>Provider</th><th>Model</th><th>Drift events</th><th>Timeline</th>"
+            "</tr></thead><tbody>\n"
+            + "\n".join(stack_drift_rows)
+            + "\n</tbody></table>"
         )
     else:
         drift_block = (
-            "<table class=\"drift\">\n"
-            "<thead><tr><th>Provider</th><th>Model</th><th>Drift events</th>"
-            "<th>Timeline</th><th>Latest fingerprints</th><th>Latest model versions</th></tr></thead>\n"
-            "<tbody><tr><td colspan=6>Stack IDs not yet available for this provider set.</td></tr></tbody></table>"
+            '<p class="meta">No multi-run stack-ID history yet. '
+            "Drift appears after two or more scored reference runs.</p>"
         )
 
-    return """<!doctype html>
-<html>
+    return f"""<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-      <style>
-        body {{
-          font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-          margin: 2rem;
-          color: #0f172a;
-          background: #f8fafc;
-        }}
-        h1 {{ margin-bottom: 0.2rem; }}
-        h2 {{ margin-top: 2rem; }}
-        .lead {{ color: #334155; margin-top: 0.2rem; }}
-        .stats {{
-          display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: 0.5rem;
-          margin: 1rem 0 1.5rem;
-        }}
-        .stat {{
-          background: #fff;
-          border: 1px solid #e2e8f0;
-          border-radius: 0.5rem;
-          padding: 0.6rem;
-        }}
-        .stat .value {{
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: #0f172a;
-        }}
-        .stat .label {{
-          color: #475569;
-          font-size: 0.85rem;
-          margin-top: 0.2rem;
-        }}
-        table {{
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 1rem;
-          background: #fff;
-        }}
-      th, td {{
-        border: 1px solid #e2e8f0;
-        padding: 0.6rem;
-        text-align: left;
-        vertical-align: top;
+    <style>
+      body {{
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        margin: 2rem auto;
+        max-width: 1100px;
+        color: #0f172a;
+        background: #f8fafc;
+        padding: 0 1rem 3rem;
       }}
-      th {{ background: #f1f5f9; }}
-      .medal {{ font-size: 1.1rem; margin-right: 0.2rem; }}
-      .meta {{ color: #475569; font-size: 0.9rem; margin-bottom: 1rem; }}
-        .badge {{
-          display: inline-block;
-          background: #e2e8f0;
-          border-radius: 9999px;
-          padding: 0.1rem 0.6rem;
-          font-size: 0.85rem;
-          color: #0f172a;
-        }}
-        .timeline {{
-          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-          white-space: nowrap;
-          overflow-x: auto;
-        }}
-      </style>
+      h1 {{ margin-bottom: 0.25rem; }}
+      h2 {{ margin-top: 2.25rem; }}
+      .lead {{ color: #334155; margin: 0.25rem 0 1rem; }}
+      .summary {{
+        display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem;
+        color: #475569; font-size: 0.95rem; margin-bottom: 1.25rem;
+      }}
+      .summary strong {{ color: #0f172a; font-weight: 600; }}
+      .stats {{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.5rem;
+        margin: 0 0 1.5rem;
+      }}
+      .stat {{
+        background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.65rem 0.75rem;
+      }}
+      .stat .value {{ font-size: 1.35rem; font-weight: 700; }}
+      .stat .label {{ color: #64748b; font-size: 0.8rem; margin-top: 0.15rem; }}
+      table {{ width: 100%; border-collapse: collapse; background: #fff; }}
+      th, td {{ border: 1px solid #e2e8f0; padding: 0.55rem 0.65rem; text-align: left; vertical-align: top; }}
+      th {{ background: #f1f5f9; font-size: 0.85rem; }}
+      tr.row-exact {{ background: #ecfdf5; }}
+      tr.row-exact td {{ border-color: #a7f3d0; }}
+      .medal {{ margin-right: 0.15rem; }}
+      .meta {{ color: #64748b; font-size: 0.9rem; margin: 1rem 0; }}
+      .pill {{
+        display: inline-block; border-radius: 9999px; padding: 0.15rem 0.55rem;
+        font-size: 0.8rem; font-weight: 600; white-space: nowrap;
+      }}
+      .pill-yes {{ background: #d1fae5; color: #065f46; }}
+      .pill-partial {{ background: #fef3c7; color: #92400e; }}
+      .pill-no {{ background: #fee2e2; color: #991b1b; }}
+      .pill-na {{ background: #e2e8f0; color: #475569; }}
+      .timeline {{
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.8rem; white-space: nowrap; overflow-x: auto; max-width: 28rem;
+      }}
+      a {{ color: #1d4ed8; }}
+    </style>
   </head>
   <body>
     <h1>{title}</h1>
-    <div class="lead">Reference results by serving tuple, with top-3 medals.</div>
-    <div class="meta">
-      source: <span class="badge">{run_dir}</span>
-      • run: <span class="badge">{run_stamp}</span>
-      • generated: <span class="badge">{generated}</span>
-      • started: <span class="badge">{started}</span>
-      • finished: <span class="badge">{finished}</span>
+    <p class="lead">Reference leaderboard by serving tuple. Top three earn medals for the latest snapshot.</p>
+    <div class="summary">
+      <span>Last run: <strong>{html.escape(last_run)}</strong></span>
+      <span>Reference runs: <strong>{int(n_runs)}</strong></span>
     </div>
     <div class="stats">
-      <div class="stat"><div class="value">{total_models}</div><div class="label">models</div></div>
       <div class="stat"><div class="value">{total_providers}</div><div class="label">providers</div></div>
+      <div class="stat"><div class="value">{total_models}</div><div class="label">models</div></div>
       <div class="stat"><div class="value">{total_cases}</div><div class="label">cases</div></div>
-      <div class="stat"><div class="value">{total_requests}</div><div class="label">raw responses</div></div>
-      <div class="stat"><div class="value">{success_text}</div><div class="label">successful request rate</div></div>
+      <div class="stat"><div class="value">{len(payload.get("leaders") or [])}</div><div class="label">scored tuples</div></div>
     </div>
     <table>
       <thead>
         <tr>
           <th>Rank</th>
           <th>Serving tuple</th>
-          <th>Score</th>
-          <th>Mean mode_share</th>
-          <th>Byte-identical rate</th>
-          <th>Mean distinct</th>
           <th>Model</th>
+          <th>Score</th>
+          <th>Mode share</th>
+          <th>Byte-exact replay</th>
+          <th>Mean distinct</th>
           <th>Cases</th>
         </tr>
       </thead>
       <tbody>
-        {rows}
+        {rows_html}
       </tbody>
     </table>
-    <p class="meta" style="margin-top: 1rem;">
-      Notes: each row is one serving tuple (provider, model, optional pin).
-      mode_share and byte-identical are per case, then averaged across scored cases only.
-      All-error probes (EOL models, missing endpoints) are omitted, not shown as zeros.
-      Scores are recomputed from raw transcripts and do not merge community replications.
+    <p class="meta">
+      <strong>Byte-exact replay</strong> is the property that matters for audit trails:
+      green rows returned identical bytes on every successful repeat of the same request.
+      Mode share is the fraction matching the most common completion (can be high without bit-identity).
+      All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
     </p>
     <h2>Stack-drift timeline</h2>
-    <p class="meta">For each (provider, model) tuple, this shows the set of observed stack IDs by run.</p>
+    <p class="meta">When a provider changes <code>system_fingerprint</code> / model version across reference runs.</p>
     {drift_block}
-    <p class="meta" style="margin-top: 1.5rem; font-size:0.8rem;">
+    <p class="meta" style="margin-top: 1.75rem; font-size: 0.8rem;">
       Maintained by <a href="https://lemma.ventures">Lemma Ventures AG</a>.
       Source: <a href="https://github.com/lemma-ventures/agentic-determinism-index">lemma-ventures/agentic-determinism-index</a> (MIT).
     </p>
   </body>
 </html>
-""".format(
-        title=title,
-        rows=rows_html,
-        run_dir=run_dir,
-        run_stamp=html.escape(run_stamp),
-        generated=html.escape(str(generated)),
-        started=started,
-        finished=finished,
-        total_models=total_models,
-        total_providers=total_providers,
-        total_cases=total_cases,
-        total_requests=total_requests,
-        success_text=success_text,
-        drift_block=drift_block,
-    )
+"""
 
 
 def build_payload(run_dir=None, run_root=None, watch_dir=None):
@@ -556,6 +549,9 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
     scores = load_scores(run_dir) if run_dir else []
     manifest = load_manifest(run_dir) if run_dir else {}
     leaders = aggregate_leaderboard(scores) if scores else []
+    root = run_root or (os.path.dirname(run_dir) if run_dir else None)
+    n_runs = len(_list_scored_runs(root)) if root else (1 if run_dir else 0)
+
     if run_dir:
         first_metrics = build_first_metrics(run_dir, run_root)
     else:
@@ -574,7 +570,6 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
             "stack_drift": build_stack_drift(run_root) if run_root else [],
         }
 
-    # Merge continuous stack-watch history when present.
     if watch_dir:
         try:
             from .watch import build_watch_drift, load_watch_history
@@ -590,9 +585,10 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         "title": "Determinism Index",
         "run_dir": run_dir or "",
         "run_stamp": os.path.basename(run_dir) if run_dir else "",
-        "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z"),
         "started": manifest.get("started", ""),
         "finished": manifest.get("finished", ""),
+        "n_runs": n_runs,
         "leaders": leaders,
         **first_metrics,
     }
