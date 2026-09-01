@@ -68,11 +68,11 @@
   </head>
   <body>
     <h1>Determinism Index</h1>
-    <div class="lead">Reference results by provider with top3 medals.</div>
+    <div class="lead">Reference results by serving tuple, with top-3 medals.</div>
     <div class="meta">
       source: <span class="badge">runs/reference/2026-09-01T100929Z</span>
       • run: <span class="badge">2026-09-01T100929Z</span>
-      • generated: <span class="badge">2026-09-01T10:37:36.987040Z</span>
+      • generated: <span class="badge">2026-09-01T10:52:23.964032Z</span>
       • started: <span class="badge">2026-09-01T10:09:29.374554+00:00</span>
       • finished: <span class="badge">2026-09-01T10:34:20.648485+00:00</span>
     </div>
@@ -87,43 +87,43 @@
       <thead>
         <tr>
           <th>Rank</th>
-          <th>Provider</th>
+          <th>Serving tuple</th>
           <th>Score</th>
           <th>Mean mode_share</th>
           <th>Byte-identical rate</th>
           <th>Mean distinct</th>
-          <th>Models</th>
+          <th>Model</th>
           <th>Cases</th>
         </tr>
       </thead>
       <tbody>
         <tr>
               <td>1</td>
-              <td> <span class="medal">1st</span> openrouter</td>
-              <td>34.15</td>
-              <td>0.4327</td>
-              <td>0.1250</td>
-              <td>6.7500</td>
-              <td>2</td>
-              <td>meta-llama/llama-3.1-8b-instruct (4 cases), openai/gpt-4o-mini (4 cases)</td>
-              <td>16</td>
+              <td> <span class="medal">1st</span> openrouter/openai/gpt-4o-mini</td>
+              <td>36.49</td>
+              <td>0.4231</td>
+              <td>0.2500</td>
+              <td>8.0000</td>
+              <td>openai/gpt-4o-mini</td>
+              <td>4</td>
             </tr>
 <tr>
               <td>2</td>
-              <td> <span class="medal">2nd</span> nvidia_nim</td>
-              <td>0.0</td>
+              <td> <span class="medal">2nd</span> openrouter/meta-llama/llama-3.1-8b-instruct</td>
+              <td>31.87</td>
+              <td>0.4423</td>
               <td>0.0000</td>
-              <td>0.0000</td>
-              <td>n/a</td>
-              <td>0</td>
-              <td>n/a</td>
+              <td>5.5000</td>
+              <td>meta-llama/llama-3.1-8b-instruct</td>
               <td>4</td>
             </tr>
       </tbody>
     </table>
     <p class="meta" style="margin-top: 1rem;">
-      Notes: mode_share and byte-identical are per (provider, model, case), then averaged.
-      Scores are recomputed from raw transcripts before publish and do not merge community replications.
+      Notes: each row is one serving tuple (provider, model, optional pin).
+      mode_share and byte-identical are per case, then averaged across scored cases only.
+      All-error probes (EOL models, missing endpoints) are omitted, not shown as zeros.
+      Scores are recomputed from raw transcripts and do not merge community replications.
     </p>
     <h2>Stack-drift timeline</h2>
     <p class="meta">For each (provider, model) tuple, this shows the set of observed stack IDs by run.</p>

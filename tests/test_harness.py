@@ -104,6 +104,8 @@ class TestSite(unittest.TestCase):
              "byte_identical": True, "distinct": 1.0},
             {"provider": "mistral", "model": "mixtral", "mode_share": 0.2,
              "byte_identical": False, "distinct": 3.0},
+            # All-error probe must not appear as a zero-score medal row.
+            {"provider": "nvidia_nim", "model": "eol", "n_ok": 0, "errors": 13},
         ]
 
         leaders = aggregate_leaderboard(rows)
@@ -112,6 +114,19 @@ class TestSite(unittest.TestCase):
         self.assertEqual(leaders[0]["medal"], "1st")
         self.assertEqual(leaders[1]["provider"], "openai")
         self.assertEqual(leaders[1]["medal"], "2nd")
+        self.assertTrue(all(e["provider"] != "nvidia_nim" for e in leaders))
+
+    def test_aggregate_leaderboard_splits_labels(self):
+        rows = [
+            {"provider": "openrouter", "model": "llama", "label": "via Groq",
+             "mode_share": 1.0, "byte_identical": True, "distinct": 1.0},
+            {"provider": "openrouter", "model": "llama", "label": "via DeepInfra",
+             "mode_share": 0.5, "byte_identical": False, "distinct": 2.0},
+        ]
+        leaders = aggregate_leaderboard(rows)
+        self.assertEqual(len(leaders), 2)
+        self.assertEqual(leaders[0]["label"], "via Groq")
+        self.assertEqual(leaders[1]["label"], "via DeepInfra")
 
     def test_render_html(self):
         payload = {
@@ -141,7 +156,7 @@ class TestSite(unittest.TestCase):
         self.assertIn("Determinism Index", html)
         self.assertIn("1st", html)
         self.assertIn("runs/reference/2026", html)
-        self.assertIn("top3 medals", html.lower())
+        self.assertIn("top-3 medals", html.lower())
 
 
 class TestStackDrift(unittest.TestCase):

@@ -209,15 +209,34 @@ def _as_float(v):
         return None
 
 
+def _tuple_key(row):
+    """Serving tuple for ranking: provider + model + optional pin label."""
+    provider = row.get("provider") or ""
+    model = row.get("model") or "unknown"
+    label = (row.get("label") or "").strip()
+    return (provider, model, label)
+
+
 def aggregate_leaderboard(rows):
-    providers = {}
+    """Rank scored serving tuples. Rows with n_ok == 0 / no mode_share are
+    excluded so failed probes (EOL models, missing endpoints) do not take
+    medals or pollute the board with zeros."""
+    tuples = {}
     for row in rows:
         provider = row.get("provider")
         if not provider:
             continue
+        mode_share = _as_float(row.get("mode_share"))
+        # Unscored probe (all errors): skip entirely.
+        if mode_share is None:
+            continue
+        key = _tuple_key(row)
         model = row.get("model") or "unknown"
-        stats = providers.setdefault(provider, {
+        label = (row.get("label") or "").strip()
+        stats = tuples.setdefault(key, {
             "provider": provider,
+            "model": model,
+            "label": label,
             "rows": 0,
             "mode_sum": 0.0,
             "mode_rows": 0,
@@ -225,49 +244,28 @@ def aggregate_leaderboard(rows):
             "exact_rows": 0,
             "distinct_sum": 0.0,
             "distinct_rows": 0,
-            "models": {},
         })
 
         stats["rows"] += 1
-        model_stats = stats["models"].setdefault(model, {
-            "rows": 0,
-            "mode_sum": 0.0,
-            "mode_rows": 0,
-            "exact_sum": 0,
-            "exact_rows": 0,
-            "distinct_sum": 0.0,
-            "distinct_rows": 0,
-        })
-        model_stats["rows"] += 1
-
-        mode_share = _as_float(row.get("mode_share"))
-        if mode_share is not None:
-            stats["mode_sum"] += mode_share
-            stats["mode_rows"] += 1
-            model_stats["mode_sum"] += mode_share
-            model_stats["mode_rows"] += 1
+        stats["mode_sum"] += mode_share
+        stats["mode_rows"] += 1
+        stats["exact_rows"] += 1
+        if row.get("byte_identical"):
+            stats["exact_sum"] += 1
 
         distinct = _as_float(row.get("distinct"))
         if distinct is not None:
             stats["distinct_sum"] += distinct
             stats["distinct_rows"] += 1
-            model_stats["distinct_sum"] += distinct
-            model_stats["distinct_rows"] += 1
-
-        byte_identical = row.get("byte_identical")
-        if mode_share is not None:
-            stats["exact_rows"] += 1
-            model_stats["exact_rows"] += 1
-            if byte_identical:
-                stats["exact_sum"] += 1
-                model_stats["exact_sum"] += 1
 
     ranked = []
-    for p, s in providers.items():
+    for s in tuples.values():
         mode_rows = s["mode_rows"]
+        if mode_rows == 0:
+            continue
         exact_rows = s["exact_rows"]
         distinct_rows = s["distinct_rows"]
-        mean_mode = s["mode_sum"] / mode_rows if mode_rows else 0.0
+        mean_mode = s["mode_sum"] / mode_rows
         exact_rate = s["exact_sum"] / exact_rows if exact_rows else 0.0
         mean_distinct = s["distinct_sum"] / distinct_rows if distinct_rows else None
         if mean_distinct is None:
@@ -277,28 +275,24 @@ def aggregate_leaderboard(rows):
         score = (0.70 * mean_mode) + (0.25 * exact_rate) + (0.05 * stability)
         score *= 100
 
-        models = []
-        for name, m in s["models"].items():
-            m_mode_rows = m["mode_rows"]
-            m_exact_rows = m["exact_rows"]
-            if m_mode_rows == 0:
-                continue
-            models.append({
-                "name": name,
-                "rows": m["rows"],
-                "mean_mode_share": round(m["mode_sum"] / m_mode_rows, 4),
-                "exact_match": round(m["exact_sum"] / m_exact_rows, 4)
-                if m_exact_rows else None,
-            })
-
+        display = s["label"] or f"{s['provider']}/{s['model']}"
         ranked.append({
-            "provider": p,
+            "provider": s["provider"],
+            "model": s["model"],
+            "label": s["label"],
+            "display": display,
             "rows": s["rows"],
             "mean_mode_share": round(mean_mode, 4),
             "exact_match_rate": round(exact_rate, 4),
             "mean_distinct": round(mean_distinct, 4) if mean_distinct is not None else None,
             "score": round(score, 2),
-            "models": models,
+            # Back-compat for older HTML payload consumers / tests.
+            "models": [{
+                "name": s["model"],
+                "rows": s["rows"],
+                "mean_mode_share": round(mean_mode, 4),
+                "exact_match": round(exact_rate, 4),
+            }],
         })
 
     ranked.sort(key=lambda x: (x["score"], x["mean_mode_share"]), reverse=True)
@@ -323,33 +317,30 @@ def render_html(payload):
     rows = []
     for entry in payload.get("leaders", []):
         medal = f" <span class=\"medal\">{entry.get('medal','')}</span>" if entry.get("medal") else ""
-        model_count = len(entry.get("models", []))
-        models = ", ".join(
-            f"{m['name']} ({m['rows']} cases)"
-            for m in sorted(entry.get("models", []), key=lambda m: m["name"])
-        )
+        display = entry.get("display") or entry.get("label") or entry.get("provider", "")
+        model = entry.get("model") or ""
+        if not model and entry.get("models"):
+            model = ", ".join(m.get("name", "") for m in entry["models"] if m.get("name"))
         rows.append("""
             <tr>
               <td>{rank}</td>
-              <td>{medal_html} {provider}</td>
+              <td>{medal_html} {display}</td>
               <td>{score}</td>
               <td>{mode_share}</td>
               <td>{exact}</td>
               <td>{distinct}</td>
-              <td>{model_count}</td>
-              <td>{models}</td>
+              <td>{model}</td>
               <td>{cases}</td>
             </tr>
         """.format(
             rank=entry.get("rank", ""),
             medal_html=medal,
-            provider=html.escape(entry.get("provider", "")),
+            display=html.escape(display),
             score=entry.get("score", 0.0),
             mode_share=_format_float(entry.get("mean_mode_share")),
             exact=_format_float(entry.get("exact_match_rate")),
             distinct=_format_float(entry.get("mean_distinct")),
-            model_count=model_count,
-            models=html.escape(models) if models else "n/a",
+            model=html.escape(model) if model else "n/a",
             cases=entry.get("rows", 0),
         ).strip())
 
@@ -492,7 +483,7 @@ def render_html(payload):
   </head>
   <body>
     <h1>{title}</h1>
-    <div class="lead">Reference results by provider with top3 medals.</div>
+    <div class="lead">Reference results by serving tuple, with top-3 medals.</div>
     <div class="meta">
       source: <span class="badge">{run_dir}</span>
       • run: <span class="badge">{run_stamp}</span>
@@ -511,12 +502,12 @@ def render_html(payload):
       <thead>
         <tr>
           <th>Rank</th>
-          <th>Provider</th>
+          <th>Serving tuple</th>
           <th>Score</th>
           <th>Mean mode_share</th>
           <th>Byte-identical rate</th>
           <th>Mean distinct</th>
-          <th>Models</th>
+          <th>Model</th>
           <th>Cases</th>
         </tr>
       </thead>
@@ -525,8 +516,10 @@ def render_html(payload):
       </tbody>
     </table>
     <p class="meta" style="margin-top: 1rem;">
-      Notes: mode_share and byte-identical are per (provider, model, case), then averaged.
-      Scores are recomputed from raw transcripts before publish and do not merge community replications.
+      Notes: each row is one serving tuple (provider, model, optional pin).
+      mode_share and byte-identical are per case, then averaged across scored cases only.
+      All-error probes (EOL models, missing endpoints) are omitted, not shown as zeros.
+      Scores are recomputed from raw transcripts and do not merge community replications.
     </p>
     <h2>Stack-drift timeline</h2>
     <p class="meta">For each (provider, model) tuple, this shows the set of observed stack IDs by run.</p>

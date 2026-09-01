@@ -1,10 +1,52 @@
 {
-  "_comment": "First public reference snapshot (v0.1 bootstrap). Maintainer vantage: OpenRouter routes + hosted NIM where keys exist. Account tier/region as of the run manifest. Expand as more provider keys are configured.",
+  "_comment": "Public reference snapshot (v0.1). OpenRouter-pinned serving tuples plus unpinned routes that respond from this account. Hosted NIM omitted until the NGC account has a live chat model (previous IDs returned 404/410). Labels become leaderboard rows.",
   "targets": [
-    {"provider": "openrouter", "model": "openai/gpt-4o-mini", "api_key_env": "OPENROUTER_API_KEY"},
-    {"provider": "openrouter", "model": "anthropic/claude-3.5-sonnet", "api_key_env": "OPENROUTER_API_KEY"},
-    {"provider": "openrouter", "model": "google/gemini-2.0-flash-001", "api_key_env": "OPENROUTER_API_KEY"},
-    {"provider": "openrouter", "model": "meta-llama/llama-3.1-8b-instruct", "api_key_env": "OPENROUTER_API_KEY"},
-    {"provider": "nvidia_nim", "model": "meta/llama-3.1-8b-instruct", "api_key_env": "NVIDIA_API_KEY"}
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "gpt-4o-mini via Azure (OpenRouter)",
+      "provider_prefs": {"order": ["azure"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Llama-3.1-8B via Groq (OpenRouter)",
+      "provider_prefs": {"order": ["groq"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Llama-3.1-8B via DeepInfra (OpenRouter)",
+      "provider_prefs": {"order": ["deepinfra"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Llama-3.1-8B via Novita (OpenRouter)",
+      "provider_prefs": {"order": ["novita"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "google/gemini-2.5-flash",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Gemini 2.5 Flash (OpenRouter)"
+    },
+    {
+      "provider": "openrouter",
+      "model": "amazon/nova-lite-v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Nova Lite via Amazon Bedrock (OpenRouter)",
+      "provider_prefs": {"order": ["amazon-bedrock"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "DeepSeek Chat (OpenRouter)"
+    }
   ]
 }
