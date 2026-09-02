@@ -20,12 +20,16 @@ def one_call(provider, case, mode):
     t0 = time.monotonic()
     try:
         r = provider.call(case)
-        rec.update(
-            text=r["text"],
-            sha256=sha256(r["text"]),
-            fingerprint=r.get("fingerprint"),
-            model_version=r.get("model_version"),
-        )
+        txt = r.get("text") or ""
+        if not txt:
+            rec["error"] = "unsupported: empty completion (tool call or similar)"
+        else:
+            rec.update(
+                text=txt,
+                sha256=sha256(txt),
+                fingerprint=r.get("fingerprint"),
+                model_version=r.get("model_version"),
+            )
     except Exception as e:
         rec["error"] = f"{type(e).__name__}: {e}"
     rec["latency_ms"] = round((time.monotonic() - t0) * 1000)

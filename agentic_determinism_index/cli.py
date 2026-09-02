@@ -27,6 +27,12 @@ def _sha256_file(path):
 def cmd_run(args):
     config = _load(args.config)
     cases = _load(args.cases)["cases"]
+    for c in cases:
+        if c.get("tools"):
+            raise SystemExit(
+                f"case {c.get('id')} specifies 'tools'; "
+                "tool-call cases are unsupported (§6.5)"
+            )
     watch_dir = getattr(args, "watch_dir", "runs/watch")
 
     if getattr(args, "due_only", False):

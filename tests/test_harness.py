@@ -59,6 +59,20 @@ class TestMetrics(unittest.TestCase):
         self.assertEqual(m["n_ok"], 0)
         self.assertNotIn("distinct", m)
 
+    def test_empty_text_is_error_not_identical(self):
+        # empty non-error text (e.g. tool call parse) must not score as byte-identical
+        samples = [sample(""), sample(""), {"ts": "t", "mode": "burst", "error": "timeout"}]
+        m = score_samples(samples)
+        self.assertEqual((m["n"], m["n_ok"], m["errors"]), (3, 0, 3))
+        self.assertNotIn("byte_identical", m)
+
+    def test_empty_text_counts_as_error(self):
+        # non-error sample with empty text is excluded from n_ok
+        samples = [sample(""), sample("foo"), sample("foo")]
+        m = score_samples(samples)
+        self.assertEqual((m["n_ok"], m["errors"]), (2, 1))
+        self.assertTrue(m["byte_identical"])
+
 
 class TestReport(unittest.TestCase):
     def test_score_run_and_markdown(self):

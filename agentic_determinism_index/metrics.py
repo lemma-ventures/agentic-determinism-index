@@ -30,7 +30,8 @@ def canonical_json(text):
 
 
 def score_samples(samples, expect="text"):
-    texts = [s["text"] for s in samples if not s.get("error")]
+    ok = [s for s in samples if not s.get("error") and s.get("text")]
+    texts = [s["text"] for s in ok]
     out = {"n": len(samples), "n_ok": len(texts),
            "errors": len(samples) - len(texts)}
     if not texts:
