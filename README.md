@@ -120,29 +120,30 @@ The `site` command emits a single-file, self-contained `website/index.html` (no 
 
 Bootstrap reference scores ship with the harness. A **first analysis follows after about a month** of continuous runs and open-source community contributions. Until then the page shows the latest bootstrap reference run and updates as new runs land.
 
-### Continuous watch (hourly Actions)
+### Continuous watch (private host only)
 
-GitHub Pages only serves static HTML. Provider probing runs in GitHub Actions:
+GitHub Pages only serves static HTML. Provider probing needs API keys.
+
+**This public repository must never store provider API keys** (no GitHub Actions secrets for `OPENROUTER_API_KEY`, `NVIDIA_API_KEY`, or similar). Continuous watch runs on a **private machine or private runner** with keys in the process environment only. Publish results by PR of `runs/` + `website/` artifacts.
 
 | Cadence | What |
 |---|---|
-| Every hour | `watch` cheap stack-ID tick (1 short request per due target) |
+| Hourly (or as scheduled privately) | `watch` cheap stack-ID tick (1 short request per due target) |
 | After stable ticks | Interval backs off (1.5x) up to 24h; known non-exact stacks cap at 7d |
 | Full score | Byte-exact tuples about daily; **non-exact about monthly** (`--due-only`) |
 
-Workflow: [`.github/workflows/watch.yml`](.github/workflows/watch.yml) (`cron: 17 * * * *` + manual dispatch).
-
-Required repo secret: `OPENROUTER_API_KEY`. Optional: `NVIDIA_API_KEY`.
-
 ```bash
-# local equivalent
+# on a private host — keys in env, never in this repo
+export OPENROUTER_API_KEY=...   # shell / secret manager / private runner only
+export NVIDIA_API_KEY=...       # optional
+
 ./scripts/ci_watch.sh
 # or pieces:
 python3 -m agentic_determinism_index watch --config configs/watch.json
 python3 -m agentic_determinism_index run --config configs/continuous.json --due-only --burst 8 --serial 2 --gap 10
 ```
 
-State lives in `runs/watch/` (committed by the workflow) so backoff survives across runners.
+State lives in `runs/watch/` so backoff survives across runs. Commit and push artifacts when you want the public index updated.
 
 To publish a snapshot:
 ```bash
