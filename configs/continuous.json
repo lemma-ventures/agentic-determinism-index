@@ -1,0 +1,89 @@
+{
+  "_comment": "Continuous reference scoring targets (same pins as configs/watch.json). Used by the hourly Actions job with --due-only so non-exact stacks are re-scored about monthly and byte-exact about daily.",
+  "targets": [
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "OpenAI via OpenRouter",
+      "provider_prefs": {"order": ["openai"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Azure via OpenRouter",
+      "provider_prefs": {"order": ["azure"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Groq via OpenRouter",
+      "provider_prefs": {"order": ["groq"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "DeepInfra via OpenRouter",
+      "provider_prefs": {"order": ["deepinfra"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Novita via OpenRouter",
+      "provider_prefs": {"order": ["novita"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Cloudflare via OpenRouter",
+      "provider_prefs": {"order": ["cloudflare"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "cohere/command-r-08-2024",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Cohere via OpenRouter",
+      "provider_prefs": {"order": ["cohere"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "amazon/nova-lite-v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "Amazon Bedrock via OpenRouter",
+      "provider_prefs": {"order": ["amazon-bedrock"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat-v3.1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "SiliconFlow via OpenRouter",
+      "provider_prefs": {"order": ["siliconflow"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "label": "CoreWeave via OpenRouter",
+      "provider_prefs": {"order": ["coreweave"], "allow_fallbacks": false}
+    },
+    {
+      "provider": "nvidia_nim",
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "api_key_env": "NVIDIA_API_KEY",
+      "label": "NIM hosted (default)",
+      "force_deterministic": false
+    },
+    {
+      "provider": "nvidia_nim",
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "api_key_env": "NVIDIA_API_KEY",
+      "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+      "force_deterministic": true
+    }
+  ]
+}

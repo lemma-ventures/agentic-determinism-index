@@ -8,10 +8,10 @@ dist/
 # local scratch runs; reference/community runs are committed deliberately
 runs/local/
 
-# continuous stack-watch state (history may be published selectively)
-runs/watch/state.json
-runs/watch/last-tick.json
+# continuous stack-watch: keep state/history in git so hourly Actions
+# can resume adaptive backoff. Ignore only local temp files.
 runs/watch/*.tmp
+runs/watch/last-tick.json
 
 # internal dry-run fixtures (public template is configs/example.json + cases/default/)
 configs/dryrun-*.json

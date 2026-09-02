@@ -2,16 +2,21 @@
 
 Full reference scoring (burst+serial across cases) is expensive; run it on
 a published cadence. Between score runs, maintainers still need to know when
-a provider's stack ID drifts underneath them — that signal is cheap: one
+a provider's stack ID drifts underneath them. That signal is cheap: one
 short request per target.
 
 Schedule (per target, independent):
   - start at ``min_interval_s`` (default 1 h)
   - after ``stable_after`` consecutive unchanged ticks, multiply interval by
     ``backoff`` (default 1.5), capped at ``max_interval_s`` (default 24 h)
+  - known non-byte-exact stacks use a longer watch cap (default 7 d)
   - on fingerprint/version change: emit a drift event and reset to min
-  - each due time is jittered ±``jitter`` (default 20%) so checks are not
+  - each due time is jittered +/- ``jitter`` (default 20%) so checks are not
     perfectly periodic (reduces synchronized load and samples the day)
+
+Full score cadence (separate from cheap ticks):
+  - byte-exact: re-score about daily (``exact_score_min_interval_s``)
+  - non-byte-exact: re-score about monthly (``non_exact_score_min_interval_s``)
 
 State and history live under ``runs/watch/`` and never touch ``runs/reference/``.
 """
@@ -29,14 +34,15 @@ from .providers import make_provider
 
 DEFAULTS = {
     "min_interval_s": 3600,       # 1 h when stack is byte-exact / unknown
-    "max_interval_s": 86400,      # 24 h cap for stack-ID ticks
+    "max_interval_s": 86400,      # 24 h cap for stack-ID ticks (exact/unknown)
     "backoff": 1.5,
-    "stable_after": 3,            # unchanged ticks before backing off
+    "stable_after": 3,            # unchanged ticks before backoff
     "jitter": 0.20,
-    # Full score re-runs are expensive. If the last scored run for a tuple was
-    # not byte-exact, do not burn tokens re-probing it often — stack drift is
-    # still watched cheaply; score cadence backs off hard.
-    "non_exact_score_min_interval_s": 7 * 86400,   # 7 days
+    # Known non-exact stacks: cheap watch still runs, but rarely.
+    "non_exact_max_interval_s": 7 * 86400,         # 7 d cap for stack-ID ticks
+    # Full score re-runs are expensive. Non-exact stacks wait ~a month unless
+    # forced; exact stacks may re-score about daily.
+    "non_exact_score_min_interval_s": 30 * 86400,  # ~30 days
     "exact_score_min_interval_s": 86400,            # 1 day when byte-exact
 }
 
@@ -90,19 +96,21 @@ def next_interval_s(state_row, cfg=None):
     streak = int(state_row.get("stable_streak") or 0)
     steps = max(0, streak - cfg["stable_after"] + 1) if streak >= cfg["stable_after"] else 0
     base = cfg["min_interval_s"] * (cfg["backoff"] ** steps)
+    max_i = cfg["max_interval_s"]
     # Known non-byte-exact stacks: skip ahead toward the long end of the range
     # so we do not spend tokens re-checking divergence we already measured.
     if state_row.get("byte_exact") is False:
         base = max(base, cfg["min_interval_s"] * 4)
-    return min(cfg["max_interval_s"], max(cfg["min_interval_s"], base))
+        max_i = cfg.get("non_exact_max_interval_s", max_i)
+    return min(max_i, max(cfg["min_interval_s"], base))
 
 
 def score_reprobe_due(state_row, now=None, cfg=None):
     """Whether a full score re-run is worth the tokens for this tuple.
 
-    Byte-exact stacks may be re-scored daily (default). Non-exact stacks wait a
-    week unless forced — repeated full bursts on a known-divergent stack waste
-    spend without new information beyond the cheap stack-ID watch.
+    Byte-exact stacks may be re-scored daily (default). Non-exact stacks wait
+    about a month unless forced; repeated full bursts on a known-divergent
+    stack waste spend without new information beyond the cheap stack-ID watch.
     """
     cfg = {**DEFAULTS, **(cfg or {})}
     now = now or time.time()
@@ -117,6 +125,41 @@ def score_reprobe_due(state_row, now=None, cfg=None):
     else:
         gap = cfg["exact_score_min_interval_s"]
     return now >= float(last) + gap
+
+
+def target_key(target):
+    return _target_key(target)
+
+
+def filter_score_due_targets(targets, watch_dir, now=None, cfg=None):
+    """Return (due_targets, skipped) using watch state score cadence."""
+    cfg = {**DEFAULTS, **(cfg or {})}
+    now = now or time.time()
+    state_path = os.path.join(watch_dir, "state.json")
+    state = _load_json(state_path, default={"targets": {}}) or {"targets": {}}
+    rows = state.get("targets") or {}
+    due = []
+    skipped = []
+    for target in targets or []:
+        tkey = _target_key(target)
+        row = rows.get(tkey) or {}
+        if score_reprobe_due(row, now=now, cfg=cfg):
+            due.append(target)
+        else:
+            skipped.append({
+                "target": tkey,
+                "reason": "score_not_due",
+                "byte_exact": row.get("byte_exact"),
+                "last_score_epoch": row.get("last_score_epoch"),
+            })
+    return due, skipped
+
+
+def load_watch_state(watch_dir):
+    return _load_json(
+        os.path.join(watch_dir, "state.json"),
+        default={"targets": {}, "config": dict(DEFAULTS)},
+    ) or {"targets": {}, "config": dict(DEFAULTS)}
 
 
 def ingest_score_hints(watch_dir, scores_rows, run_stamp=None):

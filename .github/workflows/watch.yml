@@ -1,0 +1,104 @@
+name: watch
+
+# Hourly adaptive stack watch + selective full score.
+# GitHub Pages is static HTML only; this Actions job is what probes providers.
+# Cadence (agentic_determinism_index/watch.py):
+#   cheap tick: 1h start, backoff to 24h when stable (7d cap if non-exact)
+#   full score: ~daily if byte-exact, ~monthly if not
+# Pushing website/ + docs/ triggers the separate pages.yml deploy.
+on:
+  schedule:
+    - cron: "17 * * * *"   # hourly, offset :17 to avoid top-of-hour stampede
+  workflow_dispatch:
+    inputs:
+      force_score:
+        description: "Ignore due-only and score all targets (expensive)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adi-watch
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install harness
+        run: pip install -e .
+
+      - name: Require API keys
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: |
+          set -eu
+          if [ -z "${OPENROUTER_API_KEY:-}" ]; then
+            echo "::error::OPENROUTER_API_KEY secret is not set on this repo"
+            exit 1
+          fi
+          if [ -z "${NVIDIA_API_KEY:-}" ]; then
+            echo "::warning::NVIDIA_API_KEY unset; NIM targets will be skipped"
+          fi
+
+      - name: Hourly watch (+ due scores)
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          WATCH_DIR: runs/watch
+          RUN_ROOT: runs/reference
+          FORCE_SCORE: ${{ inputs.force_score || false }}
+        run: |
+          set -euo pipefail
+          chmod +x scripts/ci_watch.sh
+          if [ "${FORCE_SCORE}" = "true" ]; then
+            export WATCH_DIR RUN_ROOT
+            mkdir -p "$WATCH_DIR" "$RUN_ROOT"
+            set +e
+            python3 -m agentic_determinism_index watch \
+              --config configs/watch.json \
+              --cases cases/watch/cases.json \
+              --out "$WATCH_DIR"
+            set -e
+            RUN_OUT="$(
+              python3 -m agentic_determinism_index run \
+                --config configs/continuous.json \
+                --cases cases/default/cases.json \
+                --out "$RUN_ROOT" \
+                --watch-dir "$WATCH_DIR" \
+                --burst 8 --serial 2 --gap 10 \
+                | tee /tmp/adi-run.out | tail -n 1
+            )"
+            if [ -n "${RUN_OUT:-}" ] && [ -d "$RUN_OUT" ]; then
+              python3 -m agentic_determinism_index score "$RUN_OUT" --watch-dir "$WATCH_DIR"
+            fi
+            python3 -m agentic_determinism_index site \
+              --run-root "$RUN_ROOT" --watch-dir "$WATCH_DIR" --out website/index.html
+            mkdir -p docs
+            rsync -a --delete website/ docs/
+          else
+            ./scripts/ci_watch.sh
+          fi
+
+      - name: Commit watch state + published site
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p runs/watch
+          git add -A runs/watch runs/reference website docs || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "watch: hourly tick $(date -u +%Y-%m-%dT%H%MZ)"
+          git push origin HEAD:main

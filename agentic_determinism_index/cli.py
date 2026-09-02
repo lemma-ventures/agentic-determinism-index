@@ -27,6 +27,23 @@ def _sha256_file(path):
 def cmd_run(args):
     config = _load(args.config)
     cases = _load(args.cases)["cases"]
+    watch_dir = getattr(args, "watch_dir", "runs/watch")
+
+    if getattr(args, "due_only", False):
+        from .watch import filter_score_due_targets
+        due, skipped = filter_score_due_targets(config.get("targets") or [], watch_dir)
+        for s in skipped:
+            print(
+                f"skip score {s['target']}: not due "
+                f"(byte_exact={s.get('byte_exact')})",
+                flush=True,
+            )
+        config = dict(config)
+        config["targets"] = due
+        if not due:
+            print("no targets due for full score; watch-only cadence applies")
+            return 0
+
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     run_dir = os.path.join(args.out, stamp)
     os.makedirs(os.path.join(run_dir, "probes"), exist_ok=True)
@@ -40,6 +57,7 @@ def cmd_run(args):
         "burst": args.burst,
         "serial": args.serial,
         "gap_s": args.gap,
+        "due_only": bool(getattr(args, "due_only", False)),
         "started": utcnow(),
     }
     for target in config["targets"]:
@@ -191,10 +209,23 @@ def main(argv=None):
                       help="spaced identical requests per case")
     runp.add_argument("--gap", type=int, default=60,
                       help="seconds between serial requests")
+    runp.add_argument(
+        "--due-only",
+        action="store_true",
+        help="only score targets whose watch state says a full re-score is due "
+             "(byte-exact ~daily; non-exact ~monthly)",
+    )
+    runp.add_argument(
+        "--watch-dir",
+        default="runs/watch",
+        help="watch state dir used by --due-only and score hints",
+    )
     runp.set_defaults(fn=cmd_run)
 
     scorep = sub.add_parser("score", help="score a run directory from its transcripts")
     scorep.add_argument("run_dir")
+    scorep.add_argument("--watch-dir", default="runs/watch",
+                        help="where to write score cadence hints")
     scorep.set_defaults(fn=cmd_score)
 
     sitep = sub.add_parser("site", help="build a static leaderboard website")
