@@ -20,12 +20,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-02T16:25:20.159542+00:00",
+      "last_ts": "2026-09-02T21:17:06.674378+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788380639.6932826,
+      "next_due_epoch": 1788400307.4043283,
       "provider": "nvidia_nim",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
@@ -37,12 +37,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-02T16:25:20.514107+00:00",
+      "last_ts": "2026-09-02T21:17:06.919749+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788380745.0740001,
+      "next_due_epoch": 1788397036.197905,
       "provider": "nvidia_nim",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -54,12 +54,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:Amazon Bedrock|mv:amazon/nova-lite-v1",
-      "last_ts": "2026-09-02T16:25:14.432309+00:00",
+      "last_ts": "2026-09-02T21:17:06.231975+00:00",
       "model": "amazon/nova-lite-v1",
-      "next_due_epoch": 1788382021.3417091,
+      "next_due_epoch": 1788400951.6188853,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "openrouter|cohere/command-r-08-2024|Cohere via OpenRouter": {
       "interval_s": 3600,
@@ -94,7 +94,7 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788380658.0769436,
+      "next_due_epoch": 1788387716.35508,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -125,30 +125,30 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:DeepInfra|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-02T16:25:12.942404+00:00",
+      "last_ts": "2026-09-02T21:17:05.837938+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788382385.2433913,
+      "next_due_epoch": 1788397014.8990142,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": true,
-      "drifts": 1,
+      "drifts": 2,
       "interval_s": 3600,
       "label": "Groq via OpenRouter",
-      "last_fingerprint": "fp_e2c608b1d6",
+      "last_fingerprint": "fp_020e283281",
       "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.1-8b-instruct",
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
-      "last_stack_id": "fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-02T19:17:05.161050+00:00",
+      "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
+      "last_ts": "2026-09-02T21:17:05.682582+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788380730.4407058,
+      "next_due_epoch": 1788387003.3972552,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 4
+      "stable_streak": 0,
+      "ticks": 5
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -177,12 +177,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:fp_369e662417|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-09-02T16:25:11.638786+00:00",
+      "last_ts": "2026-09-02T21:17:04.911736+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788383180.3587403,
+      "next_due_epoch": 1788396590.3478644,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -190,10 +190,10 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788380742.4783719,
+      "next_due_epoch": 1788387331.5072072,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-02T20:17:05.292513+00:00"
+  "updated": "2026-09-02T21:17:04.740048+00:00"
 }
