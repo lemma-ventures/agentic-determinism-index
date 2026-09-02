@@ -28,7 +28,7 @@ import os
 import random
 import time
 
-from .probe import one_call, utcnow
+from .probe import assert_no_tool_cases, one_call, utcnow
 from .providers import make_provider
 
 
@@ -292,6 +292,7 @@ def run_tick(
     rng = rng or random
     config = _load_json(config_path)
     cases = _load_json(cases_path)["cases"]
+    assert_no_tool_cases(cases)
     case = cases[0]
     state_path = os.path.join(watch_dir, "state.json")
     history_path = os.path.join(watch_dir, "history.jsonl")

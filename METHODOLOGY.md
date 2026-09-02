@@ -47,4 +47,4 @@ Every published score ships with: the manifest (harness version, platform, confi
 2. Judge/eval variance (how much run-to-run divergence moves LLM-judge verdicts) is planned as a separate protocol; no number is claimed until it is measured here.
 3. Streaming vs non-streaming responses may differ; v0.1 probes non-streaming only.
 4. Provider-side caching can mask variance (identical answers because you got a cache hit, not a deterministic recompute). The serial-gap and cross-day protocol partially controls for this; flagged as an open confound.
-5. Tool-call/function-call response stability is not yet a case type.
+5. Tool-call/function-call response stability is not yet a case type. Cases that specify `tools` are rejected at run time. An empty non-error parse (the shape a tool-call reply takes in today's adapters) is recorded as unsupported and excluded from n_ok.

@@ -15,6 +15,16 @@ def utcnow():
     return datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 
+def assert_no_tool_cases(cases):
+    """v0.1 does not score tool-call replies (METHODOLOGY.md §6.5)."""
+    for c in cases or []:
+        if isinstance(c, dict) and c.get("tools"):
+            raise SystemExit(
+                f"case {c.get('id')} specifies 'tools'; "
+                "tool-call cases are unsupported (§6.5)"
+            )
+
+
 def one_call(provider, case, mode):
     rec = {"ts": utcnow(), "mode": mode}
     t0 = time.monotonic()

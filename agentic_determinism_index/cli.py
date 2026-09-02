@@ -7,7 +7,7 @@ import platform
 import sys
 
 from . import __version__
-from .probe import run_probe, utcnow
+from .probe import assert_no_tool_cases, run_probe, utcnow
 from .providers import make_provider
 from .report import markdown, score_run
 from .site import build_payload, latest_scored_run, render_html
@@ -27,12 +27,7 @@ def _sha256_file(path):
 def cmd_run(args):
     config = _load(args.config)
     cases = _load(args.cases)["cases"]
-    for c in cases:
-        if c.get("tools"):
-            raise SystemExit(
-                f"case {c.get('id')} specifies 'tools'; "
-                "tool-call cases are unsupported (§6.5)"
-            )
+    assert_no_tool_cases(cases)
     watch_dir = getattr(args, "watch_dir", "runs/watch")
 
     if getattr(args, "due_only", False):
