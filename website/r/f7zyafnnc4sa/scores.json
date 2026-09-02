@@ -1,0 +1,188 @@
+[
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 8,
+  "errors": 2,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.75,
+  "first_divergence_char": 182,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.8,
+  "first_divergence_char": 132,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted (default)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "first_divergence_char": 61,
+  "fingerprints": [
+   "Amazon Bedrock"
+  ],
+  "model_versions": [
+   "amazon/nova-lite-v1"
+  ],
+  "label": "Amazon Bedrock via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "first_divergence_char": 205,
+  "fingerprints": [
+   "SiliconFlow"
+  ],
+  "model_versions": [
+   "deepseek/deepseek-chat-v3.1"
+  ],
+  "label": "SiliconFlow via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.9,
+  "first_divergence_char": 369,
+  "fingerprints": [
+   "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "CoreWeave via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.6,
+  "first_divergence_char": 407,
+  "fingerprints": [
+   "DeepInfra"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "DeepInfra via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 5,
+  "errors": 5,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_03e8423237",
+   "fp_4387d3edbb",
+   "fp_8639719ff2"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Novita via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "first_divergence_char": 147,
+  "fingerprints": [
+   "fp_369e662417"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "label": "Azure via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ }
+]

@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "SiliconFlow via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "siliconflow"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "siliconflow"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-02T15:42:17.864784+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, thus violating the associative property.",
+   "sha256": "b7b3241a6d8b4054916495e5430ece886a59408789f3559c8aeb9ab7ab136e9d",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 5397
+  },
+  {
+   "ts": "2026-09-02T15:42:17.864904+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. This rounding can cause different results depending on whether the first two numbers or the last two numbers are added together initially.",
+   "sha256": "48508e5829521a88385a324a15af7f3e4d14d286321637b5109276cbd3ff228e",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 6367
+  },
+  {
+   "ts": "2026-09-02T15:42:17.865002+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, demonstrating a lack of associativity.",
+   "sha256": "05833ecef3419a531ba63b3e7c13a74210b401cf818801a9f9153c17839da7a9",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 5339
+  },
+  {
+   "ts": "2026-09-02T15:42:17.865132+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded, and these rounding errors can vary. Therefore, (a + b) + c may produce a different result than a + (b + c) due to these differing accumulations of rounding error.",
+   "sha256": "d71a4be9b48bc5480db25d89cf5223d9e25cf91be3f7b3a079c9b64b4c4789af",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 7033
+  },
+  {
+   "ts": "2026-09-02T15:42:17.865396+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, thus violating the associative property `(a + b) + c = a + (b + c)`.",
+   "sha256": "a29959500d1c4a124a0f9a276ea1029c2bb5369032ae067ee1819b7b0a8c70f1",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 6641
+  },
+  {
+   "ts": "2026-09-02T15:42:17.865539+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, demonstrating a lack of associativity.",
+   "sha256": "05833ecef3419a531ba63b3e7c13a74210b401cf818801a9f9153c17839da7a9",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 6045
+  },
+  {
+   "ts": "2026-09-02T15:42:17.865701+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, thus breaking the associative property.",
+   "sha256": "1f7f4ed351e33f1cc4e9b6c280639b58618af88fb8c9c13b0b97eb29f22b2535",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 5675
+  },
+  {
+   "ts": "2026-09-02T15:42:17.865843+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, thus violating the associative property.",
+   "sha256": "b7b3241a6d8b4054916495e5430ece886a59408789f3559c8aeb9ab7ab136e9d",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 5991
+  },
+  {
+   "ts": "2026-09-02T15:42:29.902629+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, demonstrating a lack of associativity.",
+   "sha256": "05833ecef3419a531ba63b3e7c13a74210b401cf818801a9f9153c17839da7a9",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4766
+  },
+  {
+   "ts": "2026-09-02T15:42:39.670591+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, which causes rounding errors when representing real numbers. When adding three numbers, the order of operations determines which intermediate sums are rounded first. These different rounding points can lead to different final results, violating the associative property.",
+   "sha256": "99f0f6cb901a6c0a411ac558413fe36ff7b2c94cc36ac1df29439d55b15969c2",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4773
+  }
+ ]
+}

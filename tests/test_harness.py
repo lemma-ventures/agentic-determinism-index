@@ -179,6 +179,10 @@ class TestSite(unittest.TestCase):
             "started": "2026-01-01T00:00:00Z",
             "finished": "2026-01-01T00:01:00Z",
             "n_runs": 2,
+            "providers": 1,
+            "models": 1,
+            "cases": 1,
+            "scored_tuples": 1,
             "leaders": [
                 {
                     "rank": 1,
@@ -207,6 +211,8 @@ class TestSite(unittest.TestCase):
         self.assertIn("byte-exact", html)
         self.assertIn("row-exact", html)
         self.assertIn("medals", html.lower())
+        self.assertIn(">1</div><div class=\"label\">providers", html)
+        self.assertIn(">1</div><div class=\"label\">scored tuples", html)
         self.assertNotIn("tagcloud", html)
         self.assertIn("r/qert7m2kn4vw/", html)
         self.assertIn("abcd…wxyz", html)

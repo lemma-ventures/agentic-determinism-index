@@ -1,0 +1,127 @@
+{
+ "target": {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+  "force_deterministic": true
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta/llama-3.2-11b-vision-instruct",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {
+   "Nim_force_deterministic": "1"
+  }
+ },
+ "samples": [
+  {
+   "ts": "2026-09-02T15:43:51.997891+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results and ultimately different final results. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision when numbers are added together. As a result, the expression (a + b) + c may not be equal to a + (b + c) due to the accumulation of rounding errors.",
+   "sha256": "942db8d09e7f36082c5e1bae86b410157af584db9feac64ac28af9bd507a6c14",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 15818
+  },
+  {
+   "ts": "2026-09-02T15:43:51.998252+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results and ultimately different final results. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision when numbers are added together. As a result, the expression (a + b) + c may not be equal to a + (b + c) due to the accumulation of rounding errors.",
+   "sha256": "942db8d09e7f36082c5e1bae86b410157af584db9feac64ac28af9bd507a6c14",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 2515
+  },
+  {
+   "ts": "2026-09-02T15:43:51.998699+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results. For example, (a + b) + c may not equal a + (b + c) if the intermediate results are rounded differently. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision and rounding errors when performing calculations.",
+   "sha256": "b28015692498f59ea354b60149a01184597b06c25fa152f10ca6b48cd848deda",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 15226
+  },
+  {
+   "ts": "2026-09-02T15:43:51.999077+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results and ultimately different final results. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision when numbers are added together. As a result, the expression (a + b) + c may not be equal to a + (b + c) due to the accumulation of rounding errors.",
+   "sha256": "942db8d09e7f36082c5e1bae86b410157af584db9feac64ac28af9bd507a6c14",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 15816
+  },
+  {
+   "ts": "2026-09-02T15:43:52.000415+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"status\":429,\"title\":\"Too Many Requests\"}",
+   "latency_ms": 479
+  },
+  {
+   "ts": "2026-09-02T15:43:52.008983+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"status\":429,\"title\":\"Too Many Requests\"}",
+   "latency_ms": 472
+  },
+  {
+   "ts": "2026-09-02T15:43:52.009287+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results. For example, (a + b) + c may not equal a + (b + c) if the intermediate results are rounded differently. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision and rounding errors when performing calculations.",
+   "sha256": "b28015692498f59ea354b60149a01184597b06c25fa152f10ca6b48cd848deda",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 15215
+  },
+  {
+   "ts": "2026-09-02T15:43:52.009499+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results and ultimately different final results. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision when numbers are added together. As a result, the expression (a + b) + c may not be equal to a + (b + c) due to the accumulation of rounding errors.",
+   "sha256": "942db8d09e7f36082c5e1bae86b410157af584db9feac64ac28af9bd507a6c14",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 43404
+  },
+  {
+   "ts": "2026-09-02T15:44:40.417879+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results and ultimately different final results. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision when numbers are added together. As a result, the expression (a + b) + c may not be equal to a + (b + c) due to the accumulation of rounding errors.",
+   "sha256": "942db8d09e7f36082c5e1bae86b410157af584db9feac64ac28af9bd507a6c14",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 1928
+  },
+  {
+   "ts": "2026-09-02T15:44:47.349321+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors, which can lead to different intermediate results and ultimately different final results. This is because floating-point arithmetic is based on binary representations, which can lead to loss of precision when numbers are added together. As a result, the expression (a + b) + c may not be equal to a + (b + c) due to the accumulation of rounding errors.",
+   "sha256": "942db8d09e7f36082c5e1bae86b410157af584db9feac64ac28af9bd507a6c14",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 2227
+  }
+ ]
+}

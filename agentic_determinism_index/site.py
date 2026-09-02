@@ -521,10 +521,25 @@ def render_html(payload):
         '<tr><td colspan="9">No scored reference run found.</td></tr>'
     )
 
-    summary = payload.get("summary", {}) or {}
-    total_models = summary.get("models", 0)
-    total_providers = summary.get("providers", 0)
-    total_cases = summary.get("cases", 0)
+    # Use top-level counts (always freshly computed in build_payload) with fallbacks.
+    total_providers = payload.get("providers") or (payload.get("summary") or {}).get("providers", 0)
+    total_models = payload.get("models") or (payload.get("summary") or {}).get("models", 0)
+    total_cases = payload.get("cases") or (payload.get("summary") or {}).get("cases", 0)
+    scored_tuples = payload.get("scored_tuples") or len(payload.get("leaders") or [])
+
+    # Final safety: derive from leaders so numbers are always live with the payload data.
+    if not total_providers or not total_models:
+        pset = {e.get("provider") for e in (payload.get("leaders") or []) if e.get("provider")}
+        mset = {e.get("model") for e in (payload.get("leaders") or []) if e.get("model")}
+        total_providers = total_providers or len(pset)
+        total_models = total_models or len(mset)
+    if not total_cases:
+        try:
+            total_cases = max((int(e.get("rows") or 0) for e in (payload.get("leaders") or [])), default=0) or total_cases
+        except Exception:
+            pass
+    if scored_tuples in (None, 0):
+        scored_tuples = len(payload.get("leaders") or [])
 
     stack_drift_rows = []
     for item in payload.get("stack_drift", []):
@@ -642,7 +657,7 @@ def render_html(payload):
       <div class="stat"><div class="value">{total_providers}</div><div class="label">providers</div></div>
       <div class="stat"><div class="value">{total_models}</div><div class="label">models</div></div>
       <div class="stat"><div class="value">{total_cases}</div><div class="label">cases</div></div>
-      <div class="stat"><div class="value">{len(payload.get("leaders") or [])}</div><div class="label">scored tuples</div></div>
+      <div class="stat"><div class="value">{scored_tuples}</div><div class="label">scored tuples</div></div>
     </div>
     <table>
       <thead>
@@ -714,6 +729,15 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
             "stack_drift": build_stack_drift(run_root) if run_root else [],
         }
 
+    # Headline stats are *always* derived from the data for this run at build time.
+    prov = mod = cas = 0
+    if scores:
+        s = _summarize_run_rows(scores)
+        prov = s.get("providers", 0)
+        mod = s.get("models", 0)
+        cas = s.get("cases", 0)
+    scored_t = len(leaders or [])
+
     if watch_dir:
         try:
             from .watch import build_watch_drift, load_watch_history
@@ -745,6 +769,11 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         "finished": manifest.get("finished", ""),
         "n_runs": n_runs,
         "leaders": leaders,
+        # Explicit fresh counts so the 4 headline stats are always up-to-date with this run.
+        "providers": prov,
+        "models": mod,
+        "cases": cas,
+        "scored_tuples": scored_t,
         **first_metrics,
     }
 

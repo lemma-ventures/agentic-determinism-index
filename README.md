@@ -132,15 +132,44 @@ GitHub Pages only serves static HTML. Provider probing needs API keys.
 | After stable ticks | Interval backs off (1.5x) up to 24h; known non-exact stacks cap at 7d |
 | Full score | Byte-exact tuples about daily; **non-exact about monthly** (`--due-only`) |
 
-```bash
-# on a private host — keys in env, never in this repo
-export OPENROUTER_API_KEY=...   # shell / secret manager / private runner only
-export NVIDIA_API_KEY=...       # optional
+#### On the lemma.ventures host (recommended)
 
+The production box (self-hosted runner label `lemma-web`) already serves the site via Caddy. Use it for the private watch.
+
+```bash
+# On the box (via SSH or a one-off Actions step on the website repo that targets [self-hosted, lemma-web])
+sudo bash scripts/setup_watch_on_lemma_host.sh
+```
+
+Edit `/etc/adi-watch.env` (root-only) with:
+- `OPENROUTER_API_KEY`
+- `NVIDIA_API_KEY` (optional)
+- `ADI_PUSH_TOKEN` (fine-grained PAT: Contents read+write on `lemma-ventures/agentic-determinism-index` only)
+
+Then:
+```bash
+sudo systemctl restart adi-watch.timer
+journalctl -u adi-watch -f
+```
+
+The timer runs at :17 past the hour (same offset as the old public cron). It pulls, runs `ci_watch.sh`, commits `runs/watch/`, `runs/reference/`, `website/`, `docs/`, and pushes. The push triggers `pages.yml` automatically.
+
+Manual one-off:
+```bash
+sudo /usr/local/bin/adi-watch-tick
+```
+
+Fallback to cron (if no systemd):
+```bash
+echo '17 * * * * root /usr/local/bin/adi-watch-tick >> /var/log/adi-watch.log 2>&1' | sudo tee /etc/cron.d/adi-watch
+```
+
+#### Local / other private host
+
+```bash
+export OPENROUTER_API_KEY=...
+export NVIDIA_API_KEY=...
 ./scripts/ci_watch.sh
-# or pieces:
-python3 -m agentic_determinism_index watch --config configs/watch.json
-python3 -m agentic_determinism_index run --config configs/continuous.json --due-only --burst 8 --serial 2 --gap 10
 ```
 
 State lives in `runs/watch/` so backoff survives across runs. Commit and push artifacts when you want the public index updated.
