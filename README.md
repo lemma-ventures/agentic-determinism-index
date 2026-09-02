@@ -186,4 +186,4 @@ GitHub Pages is served from `/docs` on `main` (GitHub only allows `/` or `/docs`
 
 Read the author's launch post for the full context and thoughts behind the Agentic Determinism Index:
 
-https://lemma.ventures/blog/your-model-is-not-non-deterministic
+https://lemma.ventures/blog/your-model-is-not-non-deterministic.html
