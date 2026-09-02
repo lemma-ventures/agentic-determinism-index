@@ -67,7 +67,7 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788377194.4822989,
+      "next_due_epoch": 1788384536.1019692,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -81,12 +81,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:SiliconFlow|mv:deepseek/deepseek-chat-v3.1",
-      "last_ts": "2026-09-02T16:25:14.882152+00:00",
+      "last_ts": "2026-09-02T20:17:05.883812+00:00",
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1788378835.5399525,
+      "next_due_epoch": 1788394937.7351162,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Cloudflare via OpenRouter": {
       "interval_s": 3600,
@@ -108,12 +108,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-02T16:25:19.976853+00:00",
+      "last_ts": "2026-09-02T20:17:07.567850+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788379492.9950807,
+      "next_due_epoch": 1788394988.313018,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|DeepInfra via OpenRouter": {
       "byte_exact": false,
@@ -162,7 +162,7 @@
       "last_stack_id": "fp:Novita|mv:meta-llama/llama-3.1-8b-instruct",
       "last_ts": "2026-09-02T16:25:13.378519+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788377858.7926028,
+      "next_due_epoch": 1788393744.5507393,
       "provider": "openrouter",
       "stable_streak": 2,
       "ticks": 2
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-02T19:17:05.002631+00:00"
+  "updated": "2026-09-02T20:17:05.292513+00:00"
 }
