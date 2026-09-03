@@ -29,7 +29,7 @@
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
-      "interval_s": 14400,
+      "interval_s": 18225.0,
       "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
       "last_fingerprint": null,
       "last_mode_share": 0.75,
@@ -37,12 +37,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-03T05:17:05.465259+00:00",
+      "last_ts": "2026-09-03T09:17:05.710642+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788425880.7808807,
+      "next_due_epoch": 1788441980.0029924,
       "provider": "nvidia_nim",
-      "stable_streak": 5,
-      "ticks": 5
+      "stable_streak": 6,
+      "ticks": 6
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -100,7 +100,7 @@
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|CoreWeave via OpenRouter": {
       "byte_exact": false,
-      "interval_s": 14400,
+      "interval_s": 18225.0,
       "label": "CoreWeave via OpenRouter",
       "last_fingerprint": "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0",
       "last_mode_share": 0.9,
@@ -108,12 +108,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-03T05:17:05.277205+00:00",
+      "last_ts": "2026-09-03T09:17:05.542113+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788426377.8696303,
+      "next_due_epoch": 1788447577.223603,
       "provider": "openrouter",
-      "stable_streak": 5,
-      "ticks": 5
+      "stable_streak": 6,
+      "ticks": 6
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|DeepInfra via OpenRouter": {
       "byte_exact": false,
@@ -143,12 +143,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-03T07:17:05.046413+00:00",
+      "last_ts": "2026-09-03T09:17:04.831201+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788423717.9893742,
+      "next_due_epoch": 1788430659.8893015,
       "provider": "openrouter",
-      "stable_streak": 1,
-      "ticks": 14
+      "stable_streak": 2,
+      "ticks": 15
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -160,12 +160,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:Novita|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-03T04:17:01.668527+00:00",
+      "last_ts": "2026-09-03T09:17:05.077766+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788425798.255932,
+      "next_due_epoch": 1788441618.5352995,
       "provider": "openrouter",
-      "stable_streak": 4,
-      "ticks": 4
+      "stable_streak": 5,
+      "ticks": 5
     },
     "openrouter|openai/gpt-4o-mini|Azure via OpenRouter": {
       "byte_exact": false,
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-03T08:17:04.623407+00:00"
+  "updated": "2026-09-03T09:17:04.831130+00:00"
 }
