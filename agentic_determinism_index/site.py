@@ -458,6 +458,12 @@ def render_html(payload):
     run_id = payload.get("run_id") or short_stack_id(run_stamp or "none")
     run_id_disp = display_stack_id(run_id)
     run_href = payload.get("run_href") or f"r/{run_id}/"
+    last_tick = _short_dt(payload.get("last_watch_tick") or "")
+    watch_tick_span = (
+        f"\n      <span>Last watch tick: <strong>{html.escape(last_tick)}</strong></span>"
+        if last_tick
+        else ""
+    )
 
     rows = []
     for entry in payload.get("leaders", []):
@@ -649,7 +655,7 @@ def render_html(payload):
     <h1>{title}</h1>
     <p class="lead">Reference leaderboard by serving tuple. Top three earn medals for the latest snapshot.</p>
     <div class="summary">
-      <span>Last run: <strong>{html.escape(last_run)}</strong></span>
+      <span>Last run: <strong>{html.escape(last_run)}</strong></span>{watch_tick_span}
       <span>Reference runs: <strong>{int(n_runs)}</strong></span>
       <span>Run: <strong><a href="{html.escape(run_href, quote=True)}" title="Run detail page">r/{html.escape(run_id)}/</a></strong></span>
     </div>
@@ -738,6 +744,7 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         cas = s.get("cases", 0)
     scored_t = len(leaders or [])
 
+    last_watch_tick = ""
     if watch_dir:
         try:
             from .watch import build_watch_drift, load_watch_history
@@ -746,6 +753,8 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
             if watch_drift:
                 first_metrics = dict(first_metrics)
                 first_metrics["watch_drift"] = watch_drift
+            if hist:
+                last_watch_tick = max(e.get("ts") or "" for e in hist)
         except Exception:
             pass
 
@@ -768,6 +777,7 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         "started": manifest.get("started", ""),
         "finished": manifest.get("finished", ""),
         "n_runs": n_runs,
+        "last_watch_tick": last_watch_tick,
         "leaders": leaders,
         # Explicit fresh counts so the 4 headline stats are always up-to-date with this run.
         "providers": prov,
