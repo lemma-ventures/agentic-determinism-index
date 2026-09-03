@@ -67,7 +67,7 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788391169.0020747,
+      "next_due_epoch": 1788398066.5121558,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -134,21 +134,21 @@
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": true,
-      "drifts": 3,
+      "drifts": 4,
       "interval_s": 3600,
       "label": "Groq via OpenRouter",
-      "last_fingerprint": "fp_6a1eabf260",
+      "last_fingerprint": "fp_020e283281",
       "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.1-8b-instruct",
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
-      "last_stack_id": "fp:fp_6a1eabf260|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-02T23:17:05.188443+00:00",
+      "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
+      "last_ts": "2026-09-03T00:17:04.852594+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788394196.764131,
+      "next_due_epoch": 1788398864.8578975,
       "provider": "openrouter",
       "stable_streak": 0,
-      "ticks": 7
+      "ticks": 8
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -160,12 +160,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:Novita|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-02T16:25:13.378519+00:00",
+      "last_ts": "2026-09-03T00:17:05.087391+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788393744.5507393,
+      "next_due_epoch": 1788407887.897903,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 2
+      "stable_streak": 3,
+      "ticks": 3
     },
     "openrouter|openai/gpt-4o-mini|Azure via OpenRouter": {
       "byte_exact": false,
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-02T23:17:05.012660+00:00"
+  "updated": "2026-09-03T00:17:04.852540+00:00"
 }
