@@ -1,0 +1,191 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_020e283281",
+   "fp_e2c608b1d6"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_020e283281",
+   "fp_e2c608b1d6"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_020e283281",
+   "fp_e2c608b1d6"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_e2c608b1d6"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ }
+]

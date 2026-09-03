@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Groq via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "groq"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "groq"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-03T16:18:49.304696+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 791
+  },
+  {
+   "ts": "2026-09-03T16:18:49.304952+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 566
+  },
+  {
+   "ts": "2026-09-03T16:18:49.306272+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 553
+  },
+  {
+   "ts": "2026-09-03T16:18:49.307390+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 548
+  },
+  {
+   "ts": "2026-09-03T16:18:49.313274+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 582
+  },
+  {
+   "ts": "2026-09-03T16:18:49.314274+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 598
+  },
+  {
+   "ts": "2026-09-03T16:18:49.316256+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 578
+  },
+  {
+   "ts": "2026-09-03T16:18:49.316565+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 628
+  },
+  {
+   "ts": "2026-09-03T16:19:00.096237+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 430
+  },
+  {
+   "ts": "2026-09-03T16:19:10.526076+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number to find the number of fully loaded trucks:\n\n49 trucks\n\nNow, we need to find the number of boxes that will be left over after loading 49 trucks. To do this, we multiply the number of trucks by the number of boxes each truck can carry:\n\n49 trucks * 85 boxes/truck = 4165 boxes\n\nNow, we subtract the number of boxes loaded onto trucks from the total number of boxes to find the number of boxes remaining:\n\n4247 boxes - 4165 boxes = 82 boxes\n\nANSWER: 49,82",
+   "sha256": "e3c92e76851066d9f460a8985de3896f7cd0b37f82cbe37569dc7b89eab72c61",
+   "fingerprint": "fp_e2c608b1d6",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 422
+  }
+ ]
+}
