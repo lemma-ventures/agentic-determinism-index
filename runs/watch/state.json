@@ -29,7 +29,7 @@
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
-      "interval_s": 27337.5,
+      "interval_s": 41006.25,
       "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
       "last_fingerprint": null,
       "last_mode_share": 0.75,
@@ -37,12 +37,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-03T14:17:05.585794+00:00",
+      "last_ts": "2026-09-03T22:17:05.125437+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788473208.8107367,
+      "next_due_epoch": 1788520645.9869754,
       "provider": "nvidia_nim",
-      "stable_streak": 7,
-      "ticks": 7
+      "stable_streak": 8,
+      "ticks": 8
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -67,7 +67,7 @@
       "last_score_epoch": 1788452560.1245081,
       "last_score_stamp": "2026-09-03T161705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788470460.868643,
+      "next_due_epoch": 1788477335.5994048,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -94,7 +94,7 @@
       "last_score_epoch": 1788452560.1245081,
       "last_score_stamp": "2026-09-03T161705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788470516.4999027,
+      "next_due_epoch": 1788477983.2902458,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -190,10 +190,10 @@
       "last_score_epoch": 1788452560.1245081,
       "last_score_stamp": "2026-09-03T161705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788473472.8560936,
+      "next_due_epoch": 1788477479.7678018,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-03T21:17:04.983968+00:00"
+  "updated": "2026-09-03T22:17:04.813128+00:00"
 }
