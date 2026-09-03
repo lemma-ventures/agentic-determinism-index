@@ -190,10 +190,10 @@
       "last_score_epoch": 1788452560.1245081,
       "last_score_stamp": "2026-09-03T161705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788469648.0272493,
+      "next_due_epoch": 1788473472.8560936,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-03T20:17:05.074468+00:00"
+  "updated": "2026-09-03T21:17:04.983968+00:00"
 }
