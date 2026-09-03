@@ -7,8 +7,8 @@ import platform
 import sys
 
 from . import __version__
-from .probe import assert_no_tool_cases, run_probe, utcnow
-from .providers import make_provider
+from .probe import run_probe, utcnow, validate_cases
+from .providers import make_provider, tool_call_supported
 from .report import markdown, score_run
 from .site import build_payload, latest_scored_run, render_html
 from .watch import format_tick_summary, run_tick
@@ -27,7 +27,7 @@ def _sha256_file(path):
 def cmd_run(args):
     config = _load(args.config)
     cases = _load(args.cases)["cases"]
-    assert_no_tool_cases(cases)
+    validate_cases(cases)
     watch_dir = getattr(args, "watch_dir", "runs/watch")
 
     if getattr(args, "due_only", False):
@@ -61,6 +61,7 @@ def cmd_run(args):
         "due_only": bool(getattr(args, "due_only", False)),
         "started": utcnow(),
     }
+    skipped_tool_call_cases = []
     for target in config["targets"]:
         key_env = target.get("api_key_env")
         if key_env and not os.environ.get(key_env):
@@ -70,6 +71,17 @@ def cmd_run(args):
         provider = make_provider(target)
         for case in cases:
             label = f"{target['provider']}/{target['model']} case={case['id']}"
+            if case.get("expect") == "tool_call" and not tool_call_supported(target["provider"]):
+                reason = (f"provider '{target['provider']}' does not support "
+                          "expect == 'tool_call' cases")
+                print(f"skip {label}: {reason}", flush=True)
+                skipped_tool_call_cases.append({
+                    "provider": target["provider"],
+                    "model": target["model"],
+                    "case": case["id"],
+                    "reason": reason,
+                })
+                continue
             print(f"probing {label} (burst={args.burst}, serial={args.serial})",
                   flush=True)
             samples = run_probe(provider, case, args.burst, args.serial, args.gap)
@@ -103,6 +115,7 @@ def cmd_run(args):
                     "samples": samples,
                 }, f, indent=1)
     manifest["finished"] = utcnow()
+    manifest["skipped_tool_call_cases"] = skipped_tool_call_cases
     with open(os.path.join(run_dir, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
     print(run_dir)

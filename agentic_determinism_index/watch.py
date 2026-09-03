@@ -28,7 +28,7 @@ import os
 import random
 import time
 
-from .probe import assert_no_tool_cases, one_call, utcnow
+from .probe import one_call, utcnow, validate_cases
 from .providers import make_provider
 
 
@@ -292,7 +292,18 @@ def run_tick(
     rng = rng or random
     config = _load_json(config_path)
     cases = _load_json(cases_path)["cases"]
-    assert_no_tool_cases(cases)
+    validate_cases(cases)
+    # Watch ticks are one cheap, unconditional request per target; a
+    # tool-enabled request needs case-specific tool definitions and
+    # provider-specific translation that this lightweight path does not
+    # carry. Fail closed rather than silently probing a tool_call case as
+    # plain text.
+    for c in cases:
+        if c.get("expect") == "tool_call":
+            raise SystemExit(
+                f"watch mode does not support tool_call cases (case "
+                f"{c.get('id')}); keep {cases_path} to text/json cases"
+            )
     case = cases[0]
     state_path = os.path.join(watch_dir, "state.json")
     history_path = os.path.join(watch_dir, "history.jsonl")

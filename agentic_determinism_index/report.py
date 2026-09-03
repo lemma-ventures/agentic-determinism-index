@@ -26,7 +26,7 @@ def score_run(run_dir):
 
 def markdown(rows):
     cols = ["label", "provider", "model", "case", "n_ok", "errors", "distinct",
-            "mode_share", "first_divergence_char", "byte_identical"]
+            "mode_share", "first_divergence_char", "byte_identical", "tool_call_rate"]
     # Drop the label column when no row carries one (keeps older runs tidy).
     if not any(r.get("label") for r in rows):
         cols = [c for c in cols if c != "label"]

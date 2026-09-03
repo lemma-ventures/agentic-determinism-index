@@ -20,6 +20,73 @@ except ImportError:  # pragma: no cover
     certifi = None
 
 
+def _extract_openai_tool_calls(message):
+    """Raw (unvalidated) tool call records from an OpenAI Chat Completions
+    message, or None if the message carries none. Validation and
+    normalization happen centrally in toolcalls.py, not here: this
+    function only reshapes the wire format, it never decides whether a
+    record is well-formed."""
+    raw = message.get("tool_calls")
+    if not raw:
+        return None
+    calls = []
+    for tc in raw:
+        fn = (tc or {}).get("function") or {}
+        entry = {"name": fn.get("name"), "arguments": fn.get("arguments")}
+        if "id" in (tc or {}):
+            entry["id"] = tc["id"]
+        if "index" in (tc or {}):
+            entry["index"] = tc["index"]
+        calls.append(entry)
+    return calls
+
+
+def _extract_anthropic_tool_calls(blocks):
+    """Raw (unvalidated) tool call records from Anthropic content blocks,
+    or None if no tool_use block is present. Non-tool_use blocks (text,
+    thinking, ...) are ignored, never treated as calls."""
+    tool_use_blocks = [b for b in blocks if b.get("type") == "tool_use"]
+    if not tool_use_blocks:
+        return None
+    calls = []
+    for b in tool_use_blocks:
+        entry = {"name": b.get("name"), "arguments": b.get("input")}
+        if "id" in b:
+            entry["id"] = b["id"]
+        calls.append(entry)
+    return calls
+
+
+def _openai_tools_to_anthropic(tools):
+    """Translate the case file's neutral OpenAI-style function tool list
+    into Anthropic's tool schema. Kept in the Anthropic adapter, not in
+    generic code, because it is a provider-specific wire-format concern."""
+    out = []
+    for t in tools:
+        fn = t.get("function") or {}
+        entry = {"name": fn.get("name")}
+        if fn.get("description") is not None:
+            entry["description"] = fn["description"]
+        entry["input_schema"] = fn.get("parameters") or {
+            "type": "object", "properties": {}}
+        out.append(entry)
+    return out
+
+
+# Providers whose adapters implement a tool-call request/response mapping.
+# A case with expect == "tool_call" run against a provider not in this set
+# is skipped rather than silently sent as a text request or scored as an
+# empty result; see cli.cmd_run.
+TOOL_CALL_SUPPORTED_PROVIDERS = {
+    "openai", "openai_compatible", "anthropic",
+    "nvidia_nim", "openrouter", "huggingface",
+}
+
+
+def tool_call_supported(provider_kind):
+    return provider_kind in TOOL_CALL_SUPPORTED_PROVIDERS
+
+
 def _ssl_context():
     """Prefer certifi's CA bundle. The python.org macOS builds ship without
     a system trust store, which otherwise makes every HTTPS probe fail with
@@ -98,6 +165,8 @@ class OpenAIChat(Provider):
             payload["seed"] = p["seed"]
         if p.get("json"):
             payload["response_format"] = {"type": "json_object"}
+        if case.get("tools"):
+            payload["tools"] = case["tools"]
         base = self.target.get("base_url", self.default_base).rstrip("/")
         headers = {}
         if self.api_key:
@@ -105,8 +174,10 @@ class OpenAIChat(Provider):
         return self._post(f"{base}/chat/completions", payload, headers)
 
     def parse(self, body):
+        message = body["choices"][0]["message"]
         return {
-            "text": body["choices"][0]["message"].get("content") or "",
+            "text": message.get("content") or "",
+            "tool_calls": _extract_openai_tool_calls(message),
             "fingerprint": body.get("system_fingerprint"),
             "model_version": body.get("model"),
         }
@@ -124,6 +195,8 @@ class AnthropicMessages(Provider):
             "temperature": p.get("temperature", 0),
             "max_tokens": p.get("max_tokens", 512),
         }
+        if case.get("tools"):
+            payload["tools"] = _openai_tools_to_anthropic(case["tools"])
         headers = {
             "x-api-key": self.api_key,
             "anthropic-version": "2023-06-01",
@@ -131,9 +204,15 @@ class AnthropicMessages(Provider):
         return self._post("https://api.anthropic.com/v1/messages", payload, headers)
 
     def parse(self, body):
-        text = "".join(b.get("text", "") for b in body.get("content", [])
+        blocks = body.get("content", [])
+        text = "".join(b.get("text", "") for b in blocks
                        if b.get("type") == "text")
-        return {"text": text, "fingerprint": None, "model_version": body.get("model")}
+        return {
+            "text": text,
+            "tool_calls": _extract_anthropic_tool_calls(blocks),
+            "fingerprint": None,
+            "model_version": body.get("model"),
+        }
 
 
 class NvidiaNIM(Provider):
@@ -196,6 +275,8 @@ class OpenRouter(Provider):
             payload["seed"] = p["seed"]
         if p.get("json"):
             payload["response_format"] = {"type": "json_object"}
+        if case.get("tools"):
+            payload["tools"] = case["tools"]
         prefs = self.target.get("provider_prefs")
         if prefs:
             payload["provider"] = prefs
@@ -229,7 +310,19 @@ class HuggingFace(Provider):
 
 
 class GeminiGenerate(Provider):
+    """Gemini generateContent. Does not implement expect == "tool_call":
+    Gemini's function-calling request/response shape (functionDeclarations,
+    functionCall parts) is not exercised by any existing fixture or test in
+    this harness, and guessing it here would risk silently mis-scoring
+    responses. tool_call cases against this provider are rejected
+    explicitly; see TOOL_CALL_SUPPORTED_PROVIDERS and METHODOLOGY.md."""
+
     def request(self, case):
+        if case.get("expect") == "tool_call":
+            raise NotImplementedError(
+                "provider 'gemini' does not implement expect == 'tool_call' "
+                "request/response mapping in this harness version"
+            )
         p = case.get("params", {})
         gen = {
             "temperature": p.get("temperature", 0),
@@ -252,6 +345,7 @@ class GeminiGenerate(Provider):
         parts = body["candidates"][0].get("content", {}).get("parts", [])
         return {
             "text": "".join(p.get("text", "") for p in parts),
+            "tool_calls": None,
             "fingerprint": None,
             "model_version": body.get("modelVersion"),
         }
