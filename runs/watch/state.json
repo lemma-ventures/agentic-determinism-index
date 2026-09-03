@@ -12,7 +12,7 @@
   "targets": {
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted (default)": {
       "byte_exact": false,
-      "interval_s": 18225.0,
+      "interval_s": 27337.5,
       "label": "NIM hosted (default)",
       "last_fingerprint": null,
       "last_mode_share": 0.8,
@@ -20,12 +20,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-03T11:17:04.066514+00:00",
+      "last_ts": "2026-09-03T17:17:04.851388+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788453209.9889336,
+      "next_due_epoch": 1788483964.2525022,
       "provider": "nvidia_nim",
-      "stable_streak": 6,
-      "ticks": 6
+      "stable_streak": 7,
+      "ticks": 7
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
@@ -67,7 +67,7 @@
       "last_score_epoch": 1788452560.1245081,
       "last_score_stamp": "2026-09-03T161705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788452694.5701783,
+      "next_due_epoch": 1788458836.6250668,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -190,10 +190,10 @@
       "last_score_epoch": 1788452560.1245081,
       "last_score_stamp": "2026-09-03T161705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788455279.5648031,
+      "next_due_epoch": 1788459810.7547843,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-03T16:22:40.124540+00:00"
+  "updated": "2026-09-03T17:17:04.623729+00:00"
 }
