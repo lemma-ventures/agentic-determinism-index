@@ -29,7 +29,7 @@
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
-      "interval_s": 18225.0,
+      "interval_s": 27337.5,
       "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
       "last_fingerprint": null,
       "last_mode_share": 0.75,
@@ -37,12 +37,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-03T09:17:05.710642+00:00",
+      "last_ts": "2026-09-03T14:17:05.585794+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788441980.0029924,
+      "next_due_epoch": 1788473208.8107367,
       "provider": "nvidia_nim",
-      "stable_streak": 6,
-      "ticks": 6
+      "stable_streak": 7,
+      "ticks": 7
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -67,7 +67,7 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788441532.4516013,
+      "next_due_epoch": 1788448269.930174,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -94,7 +94,7 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788441988.1989064,
+      "next_due_epoch": 1788448983.8646476,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -162,7 +162,7 @@
       "last_stack_id": "fp:Novita|mv:meta-llama/llama-3.1-8b-instruct",
       "last_ts": "2026-09-03T09:17:05.077766+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788441618.5352995,
+      "next_due_epoch": 1788461969.6812317,
       "provider": "openrouter",
       "stable_streak": 5,
       "ticks": 5
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-03T13:17:05.038540+00:00"
+  "updated": "2026-09-03T14:17:05.168047+00:00"
 }
