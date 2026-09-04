@@ -65,7 +65,7 @@
     <p class="lead">Reference leaderboard by serving tuple. Top three earn medals for the latest snapshot.</p>
     <div class="summary">
       <span>Last run: <strong>2026-09-03 16:22 UTC</strong></span>
-      <span>Last watch tick: <strong>2026-09-04 08:17 UTC</strong></span>
+      <span>Last watch tick: <strong>2026-09-04 09:17 UTC</strong></span>
       <span>Reference runs: <strong>5</strong></span>
       <span>Run: <strong><a href="r/z8b8k5naxzmc/" title="Run detail page">r/z8b8k5naxzmc/</a></strong></span>
     </div>
@@ -95,7 +95,9 @@
     </table>
     <p class="meta">
       <strong>Byte-exact replay</strong> is the property that matters for audit trails:
-      green rows returned identical bytes on every successful repeat of the same request.
+      green rows returned identical bytes on every successful repeat of the same request
+      (for tool call cases, an identical normalized call sequence: same tool names and
+      arguments in the same order, ignoring transport ids and indexes).
       <strong>Deterministic runs</strong> counts how many scored reference runs that serving
       tuple stayed fully byte-exact (N of M), plus the current consecutive streak.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).
