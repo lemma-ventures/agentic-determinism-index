@@ -67,7 +67,7 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788542897.8614194,
+      "next_due_epoch": 1788549259.6476858,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -135,7 +135,7 @@
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": false,
       "drifts": 11,
-      "interval_s": 3600,
+      "interval_s": 14400,
       "label": "Groq via OpenRouter",
       "last_fingerprint": "fp_e2c608b1d6",
       "last_mode_share": 1.0,
@@ -143,12 +143,12 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "last_stack_id": "fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-04T16:17:05.141074+00:00",
+      "last_ts": "2026-09-04T18:17:04.982003+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788542516.096596,
+      "next_due_epoch": 1788561406.2837846,
       "provider": "openrouter",
-      "stable_streak": 0,
-      "ticks": 26
+      "stable_streak": 1,
+      "ticks": 27
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -190,10 +190,10 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788545776.1336374,
+      "next_due_epoch": 1788549888.4132433,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-04T17:22:41.701135+00:00"
+  "updated": "2026-09-04T18:17:04.817071+00:00"
 }
