@@ -49,7 +49,7 @@
       .pill-na { background: #e2e8f0; color: #475569; }
       .timeline {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 0.8rem; white-space: nowrap; overflow-x: auto; max-width: 28rem;
+        font-size: 0.8rem; white-space: nowrap; overflow-x: auto; max-width: 36rem;
       }
       .sid {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -62,7 +62,7 @@
   </head>
   <body>
     <h1>Agentic Determinism Index (ADI)</h1>
-    <p class="lead">Reference leaderboard by serving tuple. Top three earn medals for the latest snapshot.</p>
+    <p class="lead">Reference leaderboard by serving tuple. Each row uses that tuple&rsquo;s latest successful score (carried across due-only runs). Top three earn medals for this snapshot.</p>
     <div class="summary">
       <span>Last run: <strong>2026-09-03 16:22 UTC</strong></span>
       <span>Last watch tick: <strong>2026-09-04 10:17 UTC</strong></span>
@@ -70,10 +70,10 @@
       <span>Run: <strong><a href="r/z8b8k5naxzmc/" title="Run detail page">r/z8b8k5naxzmc/</a></strong></span>
     </div>
     <div class="stats">
-      <div class="stat"><div class="value">1</div><div class="label">providers</div></div>
-      <div class="stat"><div class="value">3</div><div class="label">models</div></div>
+      <div class="stat"><div class="value">2</div><div class="label">providers</div></div>
+      <div class="stat"><div class="value">5</div><div class="label">models</div></div>
       <div class="stat"><div class="value">4</div><div class="label">cases</div></div>
-      <div class="stat"><div class="value">1</div><div class="label">scored tuples</div></div>
+      <div class="stat"><div class="value">12</div><div class="label">scored tuples</div></div>
     </div>
     <table>
       <thead>
@@ -90,7 +90,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="row-exact"><td>1</td><td><span class="medal">1st</span> Groq via OpenRouter<div class="sid"><a href="r/z8b8k5naxzmc/#nqentkj9ma3s" title="Open run detail for this stack">nqen…ma3s</a></div></td><td>meta-llama/llama-3.1-8b-instruct</td><td>100.0</td><td>100%</td><td><span class="pill pill-yes">Yes · byte-exact</span></td><td><span title="3 of 3 scored reference runs fully byte-exact; current streak 3">3&nbsp;/&nbsp;3</span><div class="sid">streak 3</div></td><td>1.0000</td><td>4</td></tr>
+        <tr class="row-exact"><td>1</td><td><span class="medal">1st</span> Groq via OpenRouter<div class="sid"><a href="r/z8b8k5naxzmc/#nqentkj9ma3s" title="Open run detail for this stack">nqen…ma3s</a></div><div class="sid">score 2026-09-03T161705Z</div></td><td>meta-llama/llama-3.1-8b-instruct</td><td>100.0</td><td>100%</td><td><span class="pill pill-yes">Yes · byte-exact</span></td><td><span title="3 of 3 scored reference runs fully byte-exact; current streak 3">3&nbsp;/&nbsp;3</span><div class="sid">streak 3</div></td><td>1.0000</td><td>4</td></tr>
+<tr><td>2</td><td><span class="medal">2nd</span> CoreWeave via OpenRouter<div class="sid"><a href="r/f7zyafnnc4sa/#96qgw66nddwp" title="Open run detail for this stack">96qg…ddwp</a></div><div class="sid">score 2026-09-02T154024Z · first non-exact 2026-09-02T154024Z</div></td><td>meta-llama/llama-3.1-8b-instruct</td><td>65.5</td><td>90%</td><td><span class="pill pill-no">No</span></td><td><span title="1 of 2 scored reference runs fully byte-exact; current streak 0">1&nbsp;/&nbsp;2</span><div class="sid">streak 0</div></td><td>2.0000</td><td>1</td></tr>
+<tr><td>3</td><td><span class="medal">3rd</span> NIM hosted (default)<div class="sid"><a href="r/f7zyafnnc4sa/#nscqy9r6sj2x" title="Open run detail for this stack">nscq…sj2x</a></div><div class="sid">score 2026-09-02T154024Z · first non-exact 2026-09-01T110738Z</div></td><td>meta/llama-3.2-11b-vision-instruct</td><td>58.5</td><td>80%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 2 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;2</span><div class="sid">streak 0</div></td><td>2.0000</td><td>1</td></tr>
+<tr><td>4</td><td>NIM hosted + NIM_FORCE_DETERMINISTIC header<div class="sid"><a href="r/f7zyafnnc4sa/#khqysh6c38tq" title="Open run detail for this stack">khqy…38tq</a></div><div class="sid">score 2026-09-02T154024Z · first non-exact 2026-09-01T110738Z</div></td><td>meta/llama-3.2-11b-vision-instruct</td><td>55.0</td><td>75%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 2 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;2</span><div class="sid">streak 0</div></td><td>2.0000</td><td>1</td></tr>
+<tr><td>5</td><td>DeepInfra via OpenRouter<div class="sid"><a href="r/f7zyafnnc4sa/#cazx6rcz9sfb" title="Open run detail for this stack">cazx…9sfb</a></div><div class="sid">score 2026-09-02T154024Z · first non-exact 2026-09-01T110738Z</div></td><td>meta-llama/llama-3.1-8b-instruct</td><td>44.5</td><td>60%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 2 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;2</span><div class="sid">streak 0</div></td><td>2.0000</td><td>1</td></tr>
+<tr><td>6</td><td>gpt-4o-mini via Azure (OpenRouter)<div class="sid"><a href="r/84kh7hp6fx4k/#prevz6f4jpq4" title="Open run detail for this stack">prev…jpq4</a></div><div class="sid">score 2026-09-01T105457Z · first non-exact 2026-09-01T105457Z</div></td><td>openai/gpt-4o-mini</td><td>43.27</td><td>49%</td><td><span class="pill pill-partial">Partial · 33%</span></td><td><span title="0 of 1 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;1</span><div class="sid">streak 0</div></td><td>6.0000</td><td>3</td></tr>
+<tr><td>7</td><td>openrouter/openai/gpt-4o-mini<div class="sid"><a href="r/3wznc6y8zz47/#sdcqgzgqth8x" title="Open run detail for this stack">sdcq…th8x</a></div><div class="sid">score 2026-09-01T100929Z · first non-exact 2026-09-01T100929Z</div></td><td>openai/gpt-4o-mini</td><td>36.49</td><td>42%</td><td><span class="pill pill-partial">Partial · 25%</span></td><td><span title="0 of 1 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;1</span><div class="sid">streak 0</div></td><td>8.0000</td><td>4</td></tr>
+<tr><td>8</td><td>openrouter/meta-llama/llama-3.1-8b-instruct<div class="sid"><a href="r/3wznc6y8zz47/#2yzejb7ednhm" title="Open run detail for this stack">2yze…dnhm</a></div><div class="sid">score 2026-09-01T100929Z · first non-exact 2026-09-01T100929Z</div></td><td>meta-llama/llama-3.1-8b-instruct</td><td>31.87</td><td>44%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 1 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;1</span><div class="sid">streak 0</div></td><td>5.5000</td><td>4</td></tr>
+<tr><td>9</td><td>SiliconFlow via OpenRouter<div class="sid"><a href="r/f7zyafnnc4sa/#5kxg7dpwahgd" title="Open run detail for this stack">5kxg…ahgd</a></div><div class="sid">score 2026-09-02T154024Z · first non-exact 2026-09-01T110738Z</div></td><td>deepseek/deepseek-chat-v3.1</td><td>21.71</td><td>30%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 2 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;2</span><div class="sid">streak 0</div></td><td>7.0000</td><td>1</td></tr>
+<tr><td>10</td><td>Azure via OpenRouter<div class="sid"><a href="r/f7zyafnnc4sa/#7bw4tx39xexc" title="Open run detail for this stack">7bw4…xexc</a></div><div class="sid">score 2026-09-02T154024Z · first non-exact 2026-09-01T110738Z</div></td><td>openai/gpt-4o-mini</td><td>21.71</td><td>30%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 2 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;2</span><div class="sid">streak 0</div></td><td>7.0000</td><td>1</td></tr>
+<tr><td>11</td><td>Amazon Bedrock via OpenRouter<div class="sid"><a href="r/f7zyafnnc4sa/#sw589t25sng6" title="Open run detail for this stack">sw58…sng6</a></div><div class="sid">score 2026-09-02T154024Z · first non-exact 2026-09-01T110738Z</div></td><td>amazon/nova-lite-v1</td><td>14.62</td><td>20%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 2 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;2</span><div class="sid">streak 0</div></td><td>8.0000</td><td>1</td></tr>
+<tr><td>12</td><td>Novita via OpenRouter<div class="sid"><a href="r/cm495znnh97q/#6hdm64a55jqg" title="Open run detail for this stack">6hdm…5jqg</a></div><div class="sid">score 2026-09-01T110738Z · first non-exact 2026-09-01T110738Z</div></td><td>meta-llama/llama-3.1-8b-instruct</td><td>14.62</td><td>20%</td><td><span class="pill pill-no">No</span></td><td><span title="0 of 1 scored reference runs fully byte-exact; current streak 0">0&nbsp;/&nbsp;1</span><div class="sid">streak 0</div></td><td>8.0000</td><td>1</td></tr>
       </tbody>
     </table>
     <p class="meta">
@@ -102,15 +113,34 @@
       tuple stayed fully byte-exact (N of M), plus the current consecutive streak.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).
       All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
+      When a due-only run scores a subset, other tuples keep their previous score (shown under the stack id).
     </p>
     <h2>Stack-drift timeline</h2>
-    <p class="meta">When a provider changes <code>system_fingerprint</code> / model version across reference runs.</p>
-    <table class="drift"><thead><tr><th>Provider</th><th>Model</th><th>Drift events</th><th>Timeline</th></tr></thead><tbody>
-<tr><td>nvidia_nim</td><td>meta/llama-3.2-11b-vision-instruct</td><td>0</td><td class="timeline">2026-09-01T110738Z: [n/a] / [meta/llama-3.2-11b-vision-instruct] → 2026-09-02T154024Z: [n/a] / [meta/llama-3.2-11b-vision-instruct]</td></tr>
-<tr><td>openrouter</td><td>amazon/nova-lite-v1</td><td>0</td><td class="timeline">2026-09-01T110738Z: [Amazon Bedrock] / [amazon/nova-lite-v1] → 2026-09-02T154024Z: [Amazon Bedrock] / [amazon/nova-lite-v1]</td></tr>
-<tr><td>openrouter</td><td>deepseek/deepseek-chat-v3.1</td><td>0</td><td class="timeline">2026-09-01T110738Z: [SiliconFlow] / [deepseek/deepseek-chat-v3.1] → 2026-09-02T154024Z: [SiliconFlow] / [deepseek/deepseek-chat-v3.1]</td></tr>
-<tr><td>openrouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>3</td><td class="timeline">2026-09-01T100929Z: [DeepInfra, Novita, fp_03e8423237, fp_6a1eabf260, fp_8639719ff2] / [meta-llama/llama-3.1-8b-instruct] → 2026-09-01T110738Z: [DeepInfra, Novita, fp_03e8423237, fp_6a1eabf260, fp_8639719ff2, vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0] / [meta-llama/llama-3.1-8b-instruct] → 2026-09-02T154024Z: [DeepInfra, fp_03e8423237, fp_4387d3edbb, fp_8639719ff2, vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0] / [meta-llama/llama-3.1-8b-instruct] → 2026-09-03T161705Z: [fp_020e283281, fp_e2c608b1d6] / [meta-llama/llama-3.1-8b-instruct]</td></tr>
-<tr><td>openrouter</td><td>openai/gpt-4o-mini</td><td>0</td><td class="timeline">2026-09-01T100929Z: [fp_369e662417] / [openai/gpt-4o-mini] → 2026-09-01T105457Z: [fp_369e662417] / [openai/gpt-4o-mini] → 2026-09-01T110738Z: [fp_369e662417] / [openai/gpt-4o-mini] → 2026-09-02T154024Z: [fp_369e662417] / [openai/gpt-4o-mini]</td></tr>
+    <p class="meta">When a serving tuple changes <code>system_fingerprint</code> / model version across reference runs. First non-exact is the earliest reference stamp where byte-exact replay failed.</p>
+    <table class="drift"><thead><tr><th>Serving tuple</th><th>Model</th><th>Stack-ID drifts</th><th>First non-exact</th><th>Reference timeline</th></tr></thead><tbody>
+<tr><td>NIM hosted (default)</td><td>meta/llama-3.2-11b-vision-instruct</td><td>0</td><td>2026-09-01T110738Z</td><td class="timeline">2026-09-01T110738Z: [n/a] / [meta/llama-3.2-11b-vision-instruct] → 2026-09-02T154024Z: [n/a] / [meta/llama-3.2-11b-vision-instruct]</td></tr>
+<tr><td>NIM hosted + NIM_FORCE_DETERMINISTIC header</td><td>meta/llama-3.2-11b-vision-instruct</td><td>0</td><td>2026-09-01T110738Z</td><td class="timeline">2026-09-01T110738Z: [n/a] / [meta/llama-3.2-11b-vision-instruct] → 2026-09-02T154024Z: [n/a] / [meta/llama-3.2-11b-vision-instruct]</td></tr>
+<tr><td>Amazon Bedrock via OpenRouter</td><td>amazon/nova-lite-v1</td><td>0</td><td>2026-09-01T110738Z</td><td class="timeline">2026-09-01T110738Z: [Amazon Bedrock] / [amazon/nova-lite-v1] → 2026-09-02T154024Z: [Amazon Bedrock] / [amazon/nova-lite-v1]</td></tr>
+<tr><td>SiliconFlow via OpenRouter</td><td>deepseek/deepseek-chat-v3.1</td><td>0</td><td>2026-09-01T110738Z</td><td class="timeline">2026-09-01T110738Z: [SiliconFlow] / [deepseek/deepseek-chat-v3.1] → 2026-09-02T154024Z: [SiliconFlow] / [deepseek/deepseek-chat-v3.1]</td></tr>
+<tr><td>openrouter/meta-llama/llama-3.1-8b-instruct</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td>2026-09-01T100929Z</td><td class="timeline">2026-09-01T100929Z: [DeepInfra, Novita, fp_03e8423237, fp_6a1eabf260, fp_8639719ff2] / [meta-llama/llama-3.1-8b-instruct]</td></tr>
+<tr><td>CoreWeave via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td>2026-09-02T154024Z</td><td class="timeline">2026-09-01T110738Z: [vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0] / [meta-llama/llama-3.1-8b-instruct] → 2026-09-02T154024Z: [vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0] / [meta-llama/llama-3.1-8b-instruct]</td></tr>
+<tr><td>DeepInfra via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td>2026-09-01T110738Z</td><td class="timeline">2026-09-01T110738Z: [DeepInfra] / [meta-llama/llama-3.1-8b-instruct] → 2026-09-02T154024Z: [DeepInfra] / [meta-llama/llama-3.1-8b-instruct]</td></tr>
+<tr><td>Groq via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>2</td><td>n/a</td><td class="timeline">2026-09-01T110738Z: [fp_03e8423237, fp_6a1eabf260, fp_8639719ff2] / [meta-llama/llama-3.1-8b-instruct] → 2026-09-02T154024Z: [fp_03e8423237, fp_4387d3edbb, fp_8639719ff2] / [meta-llama/llama-3.1-8b-instruct] → 2026-09-03T161705Z: [fp_020e283281, fp_e2c608b1d6] / [meta-llama/llama-3.1-8b-instruct]</td></tr>
+<tr><td>Novita via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td>2026-09-01T110738Z</td><td class="timeline">2026-09-01T110738Z: [Novita] / [meta-llama/llama-3.1-8b-instruct]</td></tr>
+<tr><td>openrouter/openai/gpt-4o-mini</td><td>openai/gpt-4o-mini</td><td>0</td><td>2026-09-01T100929Z</td><td class="timeline">2026-09-01T100929Z: [fp_369e662417] / [openai/gpt-4o-mini]</td></tr>
+<tr><td>Azure via OpenRouter</td><td>openai/gpt-4o-mini</td><td>0</td><td>2026-09-01T110738Z</td><td class="timeline">2026-09-01T110738Z: [fp_369e662417] / [openai/gpt-4o-mini] → 2026-09-02T154024Z: [fp_369e662417] / [openai/gpt-4o-mini]</td></tr>
+<tr><td>gpt-4o-mini via Azure (OpenRouter)</td><td>openai/gpt-4o-mini</td><td>0</td><td>2026-09-01T105457Z</td><td class="timeline">2026-09-01T105457Z: [fp_369e662417] / [openai/gpt-4o-mini]</td></tr>
+</tbody></table>
+    <h2>Watch-tick stack IDs</h2><p class="meta">Hourly cheap probes on the private host. Each change of fingerprint / model version is a drift event.</p><table class="drift"><thead><tr><th>Serving tuple</th><th>Model</th><th>Drifts</th><th>Samples</th><th>Timeline</th></tr></thead><tbody>
+<tr><td>NIM hosted (default)</td><td>meta/llama-3.2-11b-vision-instruct</td><td>0</td><td>8</td><td class="timeline">2026-09-02 11:28 UTC: mv:meta/llama-3.2-11b-vision-instruct</td></tr>
+<tr><td>NIM hosted + NIM_FORCE_DETERMINISTIC header</td><td>meta/llama-3.2-11b-vision-instruct</td><td>0</td><td>8</td><td class="timeline">2026-09-02 11:28 UTC: mv:meta/llama-3.2-11b-vision-instruct</td></tr>
+<tr><td>Amazon Bedrock via OpenRouter</td><td>amazon/nova-lite-v1</td><td>0</td><td>8</td><td class="timeline">2026-09-02 11:28 UTC: fp:Amazon Bedrock|mv:amazon/nova-lite-v1</td></tr>
+<tr><td>SiliconFlow via OpenRouter</td><td>deepseek/deepseek-chat-v3.1</td><td>0</td><td>8</td><td class="timeline">2026-09-02 11:28 UTC: fp:SiliconFlow|mv:deepseek/deepseek-chat-v3.1</td></tr>
+<tr><td>CoreWeave via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td>8</td><td class="timeline">2026-09-02 11:28 UTC: fp:vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0|mv:meta-llama/llama-3.1-8b-instruct</td></tr>
+<tr><td>DeepInfra via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td>8</td><td class="timeline">2026-09-02 11:28 UTC: fp:DeepInfra|mv:meta-llama/llama-3.1-8b-instruct</td></tr>
+<tr><td>Groq via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>7</td><td>20</td><td class="timeline">2026-09-02 11:28 UTC: fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct → 2026-09-02 16:25 UTC: fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct → 2026-09-02 21:17 UTC: fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct → 2026-09-02 23:17 UTC: fp:fp_6a1eabf260|mv:meta-llama/llama-3.1-8b-instruct → 2026-09-03 00:17 UTC: fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct → 2026-09-03 03:17 UTC: fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct → 2026-09-03 04:17 UTC: fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct → 2026-09-03 06:17 UTC: fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct</td></tr>
+<tr><td>Novita via OpenRouter</td><td>meta-llama/llama-3.1-8b-instruct</td><td>0</td><td>7</td><td class="timeline">2026-09-02 11:28 UTC: fp:Novita|mv:meta-llama/llama-3.1-8b-instruct</td></tr>
+<tr><td>Azure via OpenRouter</td><td>openai/gpt-4o-mini</td><td>0</td><td>8</td><td class="timeline">2026-09-02 11:28 UTC: fp:fp_369e662417|mv:openai/gpt-4o-mini</td></tr>
 </tbody></table>
     <p class="meta" style="margin-top: 1.75rem; font-size: 0.8rem;">
       Maintained by <a href="https://lemma.ventures">Lemma Ventures AG</a>.

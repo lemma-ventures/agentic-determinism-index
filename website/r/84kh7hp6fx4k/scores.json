@@ -1,0 +1,61 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "freeform-short",
+  "n": 13,
+  "n_ok": 13,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.2308,
+  "first_divergence_char": 147,
+  "fingerprints": [
+   "fp_369e662417"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "label": "gpt-4o-mini via Azure (OpenRouter)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "json-extract",
+  "n": 13,
+  "n_ok": 13,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_369e662417"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "gpt-4o-mini via Azure (OpenRouter)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "reasoning-arith",
+  "n": 13,
+  "n_ok": 13,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.2308,
+  "first_divergence_char": 334,
+  "fingerprints": [
+   "fp_369e662417"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "label": "gpt-4o-mini via Azure (OpenRouter)"
+ }
+]

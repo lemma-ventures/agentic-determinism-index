@@ -65,6 +65,21 @@ def _norm_stack_values(values):
     return sorted({str(v).strip() for v in (values or []) if v})
 
 
+def _as_float(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _tuple_key(row):
+    """Serving tuple for ranking: provider + model + optional pin label."""
+    provider = row.get("provider") or ""
+    model = row.get("model") or "unknown"
+    label = (row.get("label") or "").strip()
+    return (provider, model, label)
+
+
 def _summarize_run_rows(rows):
     providers = set()
     models = set()
@@ -115,12 +130,15 @@ def _summarize_run_rows(rows):
 
 
 def _collect_run_stack_points(run_dir):
+    """Per serving tuple (provider, model, label) stack IDs seen in one run."""
     rows = load_scores(run_dir)
     by_target = defaultdict(lambda: {
         "provider": "",
         "model": "",
+        "label": "",
         "fingerprints": set(),
         "model_versions": set(),
+        "byte_exact": None,
     })
 
     for row in rows:
@@ -128,32 +146,44 @@ def _collect_run_stack_points(run_dir):
         model = row.get("model")
         if not provider or not model:
             continue
+        if _as_float(row.get("mode_share")) is None and not (
+            row.get("fingerprints") or row.get("model_versions")
+        ):
+            continue
 
-        key = (provider, model)
-        fp = by_target[key]["fingerprints"]
-        fv = by_target[key]["model_versions"]
-        fp.update(_norm_stack_values(row.get("fingerprints")))
-        fv.update(_norm_stack_values(row.get("model_versions")))
-        by_target[key]["provider"] = provider
-        by_target[key]["model"] = model
+        label = (row.get("label") or "").strip()
+        key = (provider, model, label)
+        bucket = by_target[key]
+        bucket["fingerprints"].update(_norm_stack_values(row.get("fingerprints")))
+        bucket["model_versions"].update(_norm_stack_values(row.get("model_versions")))
+        bucket["provider"] = provider
+        bucket["model"] = model
+        bucket["label"] = label
+        if row.get("byte_identical") is False:
+            bucket["byte_exact"] = False
+        elif row.get("byte_identical") is True and bucket["byte_exact"] is None:
+            bucket["byte_exact"] = True
 
     return {
         key: {
             "provider": data["provider"],
             "model": data["model"],
+            "label": data["label"],
             "fingerprints": sorted(data["fingerprints"]),
             "model_versions": sorted(data["model_versions"]),
+            "byte_exact": data["byte_exact"],
         }
         for key, data in by_target.items()
     }
 
 
 def build_stack_drift(run_root):
+    """Reference-run stack-ID timeline keyed by serving tuple (incl. pin label)."""
     if not run_root or not os.path.isdir(run_root):
         return []
 
     all_runs = _list_scored_runs(run_root)
-    if len(all_runs) < 2:
+    if len(all_runs) < 1:
         return []
 
     history = defaultdict(list)
@@ -163,35 +193,96 @@ def build_stack_drift(run_root):
         for item in points.values():
             if not item["fingerprints"] and not item["model_versions"]:
                 continue
-            history[(item["provider"], item["model"])].append({
+            history[(item["provider"], item["model"], item["label"])].append({
                 "run_stamp": stamp,
                 "fingerprints": item["fingerprints"],
                 "model_versions": item["model_versions"],
+                "byte_exact": item.get("byte_exact"),
             })
 
     out = []
-    for (provider, model), points in sorted(history.items(), key=lambda kv: (kv[0][0], kv[0][1])):
+    for (provider, model, label), points in sorted(
+        history.items(), key=lambda kv: (kv[0][0], kv[0][1], kv[0][2])
+    ):
         drift_count = 0
         prev_fps = None
         prev_mvs = None
+        first_diverged = None
         normalized = []
         for point in points:
             fps = point["fingerprints"]
             mvs = point["model_versions"]
             if prev_fps is not None and (fps != prev_fps or mvs != prev_mvs):
                 drift_count += 1
+            if point.get("byte_exact") is False and first_diverged is None:
+                first_diverged = point["run_stamp"]
             prev_fps, prev_mvs = fps, mvs
             normalized.append(point)
 
         out.append({
             "provider": provider,
             "model": model,
+            "label": label,
+            "display": label or f"{provider}/{model}",
             "runs": normalized,
             "drift_count": drift_count,
+            "first_diverged": first_diverged,
             "latest_fingerprints": points[-1]["fingerprints"],
             "latest_model_versions": points[-1]["model_versions"],
         })
     return out
+
+
+def first_non_exact_stamps(run_root):
+    """Earliest reference stamp where each serving tuple failed byte-exact."""
+    out = {}
+    if not run_root or not os.path.isdir(run_root):
+        return out
+    for path in _list_scored_runs(run_root):
+        stamp = os.path.basename(path)
+        try:
+            exact_map = _run_tuple_byte_exact(load_scores(path))
+        except (OSError, ValueError, TypeError, FileNotFoundError):
+            continue
+        for key, exact in exact_map.items():
+            if exact is False and key not in out:
+                out[key] = stamp
+    return out
+
+
+def collect_latest_tuple_rows(run_root):
+    """Most recent scored case rows per serving tuple across reference runs.
+
+    Due-only ticks often score a subset. The public leaderboard must keep every
+    previously scored tuple, using each tuple's latest successful snapshot.
+    Returns (flat_rows, as_of_by_key) where as_of_by_key maps _tuple_key → stamp.
+    """
+    by_key = {}
+    if not run_root or not os.path.isdir(run_root):
+        return [], {}
+
+    for path in _list_scored_runs(run_root):
+        stamp = os.path.basename(path)
+        try:
+            rows = load_scores(path)
+        except (OSError, ValueError, TypeError):
+            continue
+        grouped = defaultdict(list)
+        for row in rows:
+            if not row.get("provider"):
+                continue
+            if _as_float(row.get("mode_share")) is None:
+                continue
+            grouped[_tuple_key(row)].append(row)
+        for key, case_rows in grouped.items():
+            by_key[key] = {"rows": case_rows, "run_stamp": stamp}
+
+    flat = []
+    as_of = {}
+    for key, data in by_key.items():
+        as_of[key] = data["run_stamp"]
+        flat.extend(data["rows"])
+    return flat, as_of
 
 
 def build_first_metrics(run_dir, run_root=None):
@@ -204,21 +295,6 @@ def build_first_metrics(run_dir, run_root=None):
         "summary": summary,
         "stack_drift": drift,
     }
-
-
-def _as_float(v):
-    try:
-        return float(v)
-    except (TypeError, ValueError):
-        return None
-
-
-def _tuple_key(row):
-    """Serving tuple for ranking: provider + model + optional pin label."""
-    provider = row.get("provider") or ""
-    model = row.get("model") or "unknown"
-    label = (row.get("label") or "").strip()
-    return (provider, model, label)
 
 
 def _run_tuple_byte_exact(rows):
@@ -493,12 +569,22 @@ def render_html(payload):
             f"{det}&nbsp;/&nbsp;{seen}</span>"
             f'<div class="sid">streak {streak}</div>'
         )
+        as_of = entry.get("score_as_of") or ""
+        first_div = entry.get("first_diverged") or ""
+        as_of_bits = []
+        if as_of:
+            as_of_bits.append(f"score {html.escape(as_of)}")
+        if first_div:
+            as_of_bits.append(f"first non-exact {html.escape(first_div)}")
+        as_of_html = (
+            f'<div class="sid">{" · ".join(as_of_bits)}</div>' if as_of_bits else ""
+        )
         rows.append(
             "<tr{tr_cls}>"
             "<td>{rank}</td>"
             "<td>{medal}{display}<div class=\"sid\">"
             "<a href=\"{sid_href}\" title=\"Open run detail for this stack\">"
-            "{sid_disp}</a></div></td>"
+            "{sid_disp}</a></div>{as_of_html}</td>"
             "<td>{model}</td>"
             "<td>{score}</td>"
             "<td>{mode_share}</td>"
@@ -513,6 +599,7 @@ def render_html(payload):
                 display=html.escape(display),
                 sid_href=html.escape(sid_href, quote=True),
                 sid_disp=html.escape(sid_disp),
+                as_of_html=as_of_html,
                 model=html.escape(model) if model else "n/a",
                 score=entry.get("score", 0.0),
                 mode_share=_format_pct(entry.get("mean_mode_share")),
@@ -561,16 +648,20 @@ def render_html(payload):
                 )
             )
         timeline = " → ".join(timeline_parts) if timeline_parts else "n/a"
+        display = item.get("display") or item.get("label") or item.get("provider", "")
+        first_div = item.get("first_diverged") or ""
         stack_drift_rows.append(
             "<tr>"
-            "<td>{provider}</td>"
+            "<td>{display}</td>"
             "<td>{model}</td>"
             "<td>{drift}</td>"
+            "<td>{first}</td>"
             "<td class=\"timeline\">{timeline}</td>"
             "</tr>".format(
-                provider=html.escape(item.get("provider", "")),
+                display=html.escape(display),
                 model=html.escape(item.get("model", "")),
                 drift=item.get("drift_count", 0),
+                first=html.escape(first_div) if first_div else "n/a",
                 timeline=timeline,
             )
         )
@@ -578,16 +669,65 @@ def render_html(payload):
     if stack_drift_rows:
         drift_block = (
             '<table class="drift"><thead><tr>'
-            "<th>Provider</th><th>Model</th><th>Drift events</th><th>Timeline</th>"
+            "<th>Serving tuple</th><th>Model</th><th>Stack-ID drifts</th>"
+            "<th>First non-exact</th><th>Reference timeline</th>"
             "</tr></thead><tbody>\n"
             + "\n".join(stack_drift_rows)
             + "\n</tbody></table>"
         )
     else:
         drift_block = (
-            '<p class="meta">No multi-run stack-ID history yet. '
-            "Drift appears after two or more scored reference runs.</p>"
+            '<p class="meta">No reference-run stack-ID history yet. '
+            "Drift appears after scored reference runs record fingerprints.</p>"
         )
+
+    watch_rows = []
+    for item in payload.get("watch_drift") or []:
+        points = item.get("points") or []
+        # Compact timeline: unique consecutive stack_ids with first-seen ts.
+        compact = []
+        prev = None
+        for p in points:
+            sid = p.get("stack_id") or ""
+            if not sid or sid == prev:
+                continue
+            compact.append("{ts}: {sid}".format(
+                ts=html.escape(_short_dt(p.get("ts") or "") or (p.get("ts") or "")[:16]),
+                sid=html.escape(sid),
+            ))
+            prev = sid
+        timeline = " → ".join(compact) if compact else "n/a"
+        display = item.get("label") or f"{item.get('provider')}/{item.get('model')}"
+        watch_rows.append(
+            "<tr>"
+            "<td>{display}</td>"
+            "<td>{model}</td>"
+            "<td>{drift}</td>"
+            "<td>{samples}</td>"
+            "<td class=\"timeline\">{timeline}</td>"
+            "</tr>".format(
+                display=html.escape(display),
+                model=html.escape(item.get("model") or ""),
+                drift=item.get("drift_count", 0),
+                samples=item.get("samples", 0),
+                timeline=timeline,
+            )
+        )
+
+    if watch_rows:
+        watch_block = (
+            '<h2>Watch-tick stack IDs</h2>'
+            '<p class="meta">Hourly cheap probes on the private host. '
+            "Each change of fingerprint / model version is a drift event.</p>"
+            '<table class="drift"><thead><tr>'
+            "<th>Serving tuple</th><th>Model</th><th>Drifts</th>"
+            "<th>Samples</th><th>Timeline</th>"
+            "</tr></thead><tbody>\n"
+            + "\n".join(watch_rows)
+            + "\n</tbody></table>"
+        )
+    else:
+        watch_block = ""
 
     return f"""<!doctype html>
 <html lang="en">
@@ -640,7 +780,7 @@ def render_html(payload):
       .pill-na {{ background: #e2e8f0; color: #475569; }}
       .timeline {{
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 0.8rem; white-space: nowrap; overflow-x: auto; max-width: 28rem;
+        font-size: 0.8rem; white-space: nowrap; overflow-x: auto; max-width: 36rem;
       }}
       .sid {{
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -653,7 +793,7 @@ def render_html(payload):
   </head>
   <body>
     <h1>{title}</h1>
-    <p class="lead">Reference leaderboard by serving tuple. Top three earn medals for the latest snapshot.</p>
+    <p class="lead">Reference leaderboard by serving tuple. Each row uses that tuple&rsquo;s latest successful score (carried across due-only runs). Top three earn medals for this snapshot.</p>
     <div class="summary">
       <span>Last run: <strong>{html.escape(last_run)}</strong></span>{watch_tick_span}
       <span>Reference runs: <strong>{int(n_runs)}</strong></span>
@@ -692,10 +832,12 @@ def render_html(payload):
       tuple stayed fully byte-exact (N of M), plus the current consecutive streak.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).
       All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
+      When a due-only run scores a subset, other tuples keep their previous score (shown under the stack id).
     </p>
     <h2>Stack-drift timeline</h2>
-    <p class="meta">When a provider changes <code>system_fingerprint</code> / model version across reference runs.</p>
+    <p class="meta">When a serving tuple changes <code>system_fingerprint</code> / model version across reference runs. First non-exact is the earliest reference stamp where byte-exact replay failed.</p>
     {drift_block}
+    {watch_block}
     <p class="meta" style="margin-top: 1.75rem; font-size: 0.8rem;">
       Maintained by <a href="https://lemma.ventures">Lemma Ventures AG</a>.
       Source: <a href="https://github.com/lemma-ventures/agentic-determinism-index">lemma-ventures/agentic-determinism-index</a> (MIT).
@@ -710,14 +852,46 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
 
     ``run_dir`` may be None when only stack-watch data exists; the leaderboard
     table then shows an empty state while the drift panel can still render.
+
+    When ``run_root`` has multiple reference runs, the leaderboard carries
+    forward each serving tuple's latest successful score so due-only ticks
+    do not erase the rest of the table.
     """
     scores = load_scores(run_dir) if run_dir else []
     manifest = load_manifest(run_dir) if run_dir else {}
-    leaders = aggregate_leaderboard(scores) if scores else []
     root = run_root or (os.path.dirname(run_dir) if run_dir else None)
     n_runs = len(_list_scored_runs(root)) if root else (1 if run_dir else 0)
+
+    score_as_of = {}
+    if root and n_runs:
+        board_rows, score_as_of = collect_latest_tuple_rows(root)
+        leaders = aggregate_leaderboard(board_rows) if board_rows else []
+    else:
+        leaders = aggregate_leaderboard(scores) if scores else []
+
     if root:
         apply_survival(leaders, tuple_deterministic_survival(root))
+
+    drift_by_key = {}
+    if root:
+        for item in build_stack_drift(root):
+            drift_by_key[(item["provider"], item["model"], item.get("label") or "")] = item
+    first_fail = first_non_exact_stamps(root) if root else {}
+
+    for entry in leaders:
+        key = (
+            entry.get("provider") or "",
+            entry.get("model") or "unknown",
+            (entry.get("label") or "").strip(),
+        )
+        stamp = score_as_of.get(key) or ""
+        entry["score_as_of"] = stamp
+        ditem = drift_by_key.get(key) or {}
+        entry["first_diverged"] = (
+            first_fail.get(key)
+            or ditem.get("first_diverged")
+            or ""
+        )
 
     if run_dir:
         first_metrics = build_first_metrics(run_dir, run_root)
@@ -737,16 +911,20 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
             "stack_drift": build_stack_drift(run_root) if run_root else [],
         }
 
-    # Headline stats are *always* derived from the data for this run at build time.
-    prov = mod = cas = 0
+    # Headline stats from the carried-forward leaderboard (not the due-only tip).
+    pset = {e.get("provider") for e in leaders if e.get("provider")}
+    mset = {e.get("model") for e in leaders if e.get("model")}
+    prov = len(pset)
+    mod = len(mset)
+    cas = max((int(e.get("rows") or 0) for e in leaders), default=0)
     if scores:
         s = _summarize_run_rows(scores)
-        prov = s.get("providers", 0)
-        mod = s.get("models", 0)
-        cas = s.get("cases", 0)
+        # Keep case count at least as large as the latest run's case set.
+        cas = max(cas, s.get("cases", 0) or 0)
     scored_t = len(leaders or [])
 
     last_watch_tick = ""
+    watch_drift = []
     if watch_dir:
         try:
             from .watch import build_watch_drift, load_watch_history
@@ -763,11 +941,13 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
     run_stamp = os.path.basename(os.path.normpath(run_dir)) if run_dir else ""
     run_id = short_stack_id(run_stamp or "none")
     for entry in leaders:
+        as_of = entry.get("score_as_of") or run_stamp
+        as_of_id = short_stack_id(as_of or "none")
         sid = short_stack_id(
-            f"{entry.get('provider')}|{entry.get('model')}|{entry.get('label') or ''}|{run_stamp}"
+            f"{entry.get('provider')}|{entry.get('model')}|{entry.get('label') or ''}|{as_of}"
         )
         entry["stack_id"] = sid
-        entry["stack_href"] = f"r/{run_id}/#{sid}"
+        entry["stack_href"] = f"r/{as_of_id}/#{sid}"
 
     return {
         "title": "Agentic Determinism Index (ADI)",
@@ -781,12 +961,12 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         "n_runs": n_runs,
         "last_watch_tick": last_watch_tick,
         "leaders": leaders,
-        # Explicit fresh counts so the 4 headline stats are always up-to-date with this run.
         "providers": prov,
         "models": mod,
         "cases": cas,
         "scored_tuples": scored_t,
         **first_metrics,
+        "watch_drift": watch_drift,
     }
 
 
@@ -879,20 +1059,37 @@ def write_site(out_html, run_dir=None, run_root=None, watch_dir=None):
         f.write(render_html(payload))
     written.append(out_html)
 
-    if run_dir and os.path.isdir(run_dir):
-        scores = load_scores(run_dir)
-        run_id = payload.get("run_id") or short_stack_id(payload.get("run_stamp") or "none")
+    root = run_root or (os.path.dirname(run_dir) if run_dir else None)
+    run_dirs = _list_scored_runs(root) if root else ([run_dir] if run_dir else [])
+    import shutil
+
+    for path in run_dirs:
+        if not path or not os.path.isdir(path):
+            continue
+        try:
+            scores = load_scores(path)
+        except (OSError, ValueError, TypeError, FileNotFoundError):
+            continue
+        stamp = os.path.basename(os.path.normpath(path))
+        run_id = short_stack_id(stamp or "none")
         run_page_dir = os.path.join(out_dir, "r", run_id)
         os.makedirs(run_page_dir, exist_ok=True)
+        run_payload = {
+            **payload,
+            "run_dir": path,
+            "run_stamp": stamp,
+            "run_id": run_id,
+            "run_href": f"r/{run_id}/",
+            "started": (load_manifest(path) or {}).get("started", ""),
+            "finished": (load_manifest(path) or {}).get("finished", ""),
+        }
         run_page = os.path.join(run_page_dir, "index.html")
         with open(run_page, "w") as f:
-            f.write(render_run_page(payload, scores))
+            f.write(render_run_page(run_payload, scores))
         written.append(run_page)
-        # Also copy scores.json next to the page for transparency
         try:
-            import shutil
             shutil.copy2(
-                os.path.join(run_dir, "scores.json"),
+                os.path.join(path, "scores.json"),
                 os.path.join(run_page_dir, "scores.json"),
             )
             written.append(os.path.join(run_page_dir, "scores.json"))

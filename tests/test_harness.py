@@ -272,6 +272,75 @@ class TestStackDrift(unittest.TestCase):
             self.assertIn("fp_a", html)
             self.assertIn("fp_b", html)
 
+    def test_build_stack_drift_splits_labels(self):
+        with tempfile.TemporaryDirectory() as d:
+            for name, rows in (
+                ("r1", [
+                    {"provider": "openrouter", "model": "llama", "label": "via Groq",
+                     "mode_share": 1.0, "byte_identical": True,
+                     "fingerprints": ["fp_g1"], "model_versions": ["llama"]},
+                    {"provider": "openrouter", "model": "llama", "label": "via CoreWeave",
+                     "mode_share": 1.0, "byte_identical": True,
+                     "fingerprints": ["fp_c1"], "model_versions": ["llama"]},
+                ]),
+                ("r2", [
+                    {"provider": "openrouter", "model": "llama", "label": "via Groq",
+                     "mode_share": 1.0, "byte_identical": True,
+                     "fingerprints": ["fp_g2"], "model_versions": ["llama"]},
+                    {"provider": "openrouter", "model": "llama", "label": "via CoreWeave",
+                     "mode_share": 0.5, "byte_identical": False,
+                     "fingerprints": ["fp_c1"], "model_versions": ["llama"]},
+                ]),
+            ):
+                path = os.path.join(d, name)
+                os.makedirs(path)
+                with open(os.path.join(path, "scores.json"), "w") as f:
+                    json.dump(rows, f)
+
+            drift = build_stack_drift(d)
+            self.assertEqual(len(drift), 2)
+            by_label = {item["label"]: item for item in drift}
+            self.assertEqual(by_label["via Groq"]["drift_count"], 1)
+            self.assertEqual(by_label["via CoreWeave"]["drift_count"], 0)
+            self.assertEqual(by_label["via CoreWeave"]["first_diverged"], "r2")
+            self.assertIsNone(by_label["via Groq"]["first_diverged"])
+
+    def test_leaderboard_carries_forward_across_due_only_runs(self):
+        with tempfile.TemporaryDirectory() as d:
+            for name, rows in (
+                ("2026-09-01T000000Z", [
+                    {"provider": "openrouter", "model": "llama", "label": "via Groq",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1.0},
+                    {"provider": "openrouter", "model": "llama", "label": "via CoreWeave",
+                     "mode_share": 0.5, "byte_identical": False, "distinct": 2.0},
+                ]),
+                ("2026-09-03T000000Z", [
+                    # Due-only tip: only Groq scored; CoreWeave absent.
+                    {"provider": "openrouter", "model": "llama", "label": "via Groq",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1.0},
+                    {"provider": "openrouter", "model": "other", "label": "via Fail",
+                     "n_ok": 0, "errors": 10},
+                ]),
+            ):
+                path = os.path.join(d, name)
+                os.makedirs(path)
+                with open(os.path.join(path, "scores.json"), "w") as f:
+                    json.dump(rows, f)
+
+            payload = build_payload(
+                os.path.join(d, "2026-09-03T000000Z"), run_root=d
+            )
+            labels = {e["label"] for e in payload["leaders"]}
+            self.assertEqual(labels, {"via Groq", "via CoreWeave"})
+            self.assertEqual(payload["scored_tuples"], 2)
+            core = next(e for e in payload["leaders"] if e["label"] == "via CoreWeave")
+            self.assertEqual(core["score_as_of"], "2026-09-01T000000Z")
+            self.assertEqual(core["first_diverged"], "2026-09-01T000000Z")
+            html = render_html(payload)
+            self.assertIn("via CoreWeave", html)
+            self.assertIn("via Groq", html)
+            self.assertIn("score 2026-09-01T000000Z", html)
+
 
 if __name__ == "__main__":
     unittest.main()
