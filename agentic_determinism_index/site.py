@@ -685,7 +685,9 @@ def render_html(payload):
     </table>
     <p class="meta">
       <strong>Byte-exact replay</strong> is the property that matters for audit trails:
-      green rows returned identical bytes on every successful repeat of the same request.
+      green rows returned identical bytes on every successful repeat of the same request
+      (for tool call cases, an identical normalized call sequence: same tool names and
+      arguments in the same order, ignoring transport ids and indexes).
       <strong>Deterministic runs</strong> counts how many scored reference runs that serving
       tuple stayed fully byte-exact (N of M), plus the current consecutive streak.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).

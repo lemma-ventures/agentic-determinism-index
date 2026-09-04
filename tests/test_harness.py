@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 from agentic_determinism_index.metrics import canonical_json, first_divergence, score_samples
-from agentic_determinism_index.probe import assert_no_tool_cases
+from agentic_determinism_index.probe import validate_cases
 from agentic_determinism_index.report import markdown, score_run
 from agentic_determinism_index.site import (
     aggregate_leaderboard,
@@ -74,11 +74,11 @@ class TestMetrics(unittest.TestCase):
         self.assertEqual((m["n_ok"], m["errors"]), (2, 1))
         self.assertTrue(m["byte_identical"])
 
-    def test_tool_cases_rejected(self):
-        assert_no_tool_cases([{"id": "ok", "messages": []}])
+    def test_tool_cases_without_tool_call_expect_rejected(self):
+        validate_cases([{"id": "ok", "messages": []}])
         with self.assertRaises(SystemExit) as ctx:
-            assert_no_tool_cases([{"id": "with-tools", "tools": [{"type": "function"}]}])
-        self.assertIn("unsupported", str(ctx.exception))
+            validate_cases([{"id": "with-tools", "tools": [{"type": "function"}]}])
+        self.assertIn("unsupported combination", str(ctx.exception))
 
 
 class TestReport(unittest.TestCase):
