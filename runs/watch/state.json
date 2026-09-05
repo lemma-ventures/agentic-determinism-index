@@ -12,7 +12,7 @@
   "targets": {
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted (default)": {
       "byte_exact": false,
-      "interval_s": 61509.375,
+      "interval_s": 92264.0625,
       "label": "NIM hosted (default)",
       "last_fingerprint": null,
       "last_mode_share": 0.8,
@@ -20,12 +20,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-04T14:17:05.428957+00:00",
+      "last_ts": "2026-09-05T07:17:05.701765+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788590336.1879416,
+      "next_due_epoch": 1788684781.9364693,
       "provider": "nvidia_nim",
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
@@ -67,13 +67,13 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788592584.4887028,
+      "next_due_epoch": 1788595631.6233275,
       "provider": "openrouter",
       "stable_streak": 0
     },
     "openrouter|deepseek/deepseek-chat-v3.1|SiliconFlow via OpenRouter": {
       "byte_exact": false,
-      "interval_s": 61509.375,
+      "interval_s": 92264.0625,
       "label": "SiliconFlow via OpenRouter",
       "last_fingerprint": "SiliconFlow",
       "last_mode_share": 0.3,
@@ -81,12 +81,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:SiliconFlow|mv:deepseek/deepseek-chat-v3.1",
-      "last_ts": "2026-09-04T11:17:05.820052+00:00",
+      "last_ts": "2026-09-05T07:17:04.792622+00:00",
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1788592358.6958537,
+      "next_due_epoch": 1788696938.5206466,
       "provider": "openrouter",
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Cloudflare via OpenRouter": {
       "interval_s": 3600,
@@ -94,7 +94,7 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788589276.4276617,
+      "next_due_epoch": 1788596532.8090553,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-05T06:17:05.121696+00:00"
+  "updated": "2026-09-05T07:17:04.611209+00:00"
 }
