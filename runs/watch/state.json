@@ -64,8 +64,8 @@
     "openrouter|cohere/command-r-08-2024|Cohere via OpenRouter": {
       "interval_s": 3600,
       "label": "Cohere via OpenRouter",
-      "last_score_epoch": 1788542561.7011082,
-      "last_score_stamp": "2026-09-04T171705Z",
+      "last_score_epoch": 1788632467.317725,
+      "last_score_stamp": "2026-09-05T181701Z",
       "model": "cohere/command-r-08-2024",
       "next_due_epoch": 1788632610.837039,
       "provider": "openrouter",
@@ -91,8 +91,8 @@
     "openrouter|meta-llama/llama-3.1-8b-instruct|Cloudflare via OpenRouter": {
       "interval_s": 3600,
       "label": "Cloudflare via OpenRouter",
-      "last_score_epoch": 1788542561.7011082,
-      "last_score_stamp": "2026-09-04T171705Z",
+      "last_score_epoch": 1788632467.317725,
+      "last_score_stamp": "2026-09-05T181701Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
       "next_due_epoch": 1788632332.068898,
       "provider": "openrouter",
@@ -187,13 +187,13 @@
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
       "label": "OpenAI via OpenRouter",
-      "last_score_epoch": 1788542561.7011082,
-      "last_score_stamp": "2026-09-04T171705Z",
+      "last_score_epoch": 1788632467.317725,
+      "last_score_stamp": "2026-09-05T181701Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788628980.4039626,
+      "next_due_epoch": 1788636354.4115925,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-05T17:17:04.827004+00:00"
+  "updated": "2026-09-05T18:21:07.317747+00:00"
 }
