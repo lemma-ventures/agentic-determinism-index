@@ -29,7 +29,7 @@
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
-      "interval_s": 61509.375,
+      "interval_s": 92264.0625,
       "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
       "last_fingerprint": null,
       "last_mode_share": 0.75,
@@ -37,12 +37,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-04T12:17:07.466013+00:00",
+      "last_ts": "2026-09-05T06:17:05.684358+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1788588004.3864315,
+      "next_due_epoch": 1788676353.2169642,
       "provider": "nvidia_nim",
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -67,7 +67,7 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788588370.9959269,
+      "next_due_epoch": 1788592584.4887028,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -117,7 +117,7 @@
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|DeepInfra via OpenRouter": {
       "byte_exact": false,
-      "interval_s": 61509.375,
+      "interval_s": 92264.0625,
       "label": "DeepInfra via OpenRouter",
       "last_fingerprint": "DeepInfra",
       "last_mode_share": 0.6,
@@ -125,12 +125,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:DeepInfra|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-04T11:17:05.281129+00:00",
+      "last_ts": "2026-09-05T06:17:05.253655+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788586068.4543693,
+      "next_due_epoch": 1788671506.109256,
       "provider": "openrouter",
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": false,
@@ -190,10 +190,10 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788588943.7516193,
+      "next_due_epoch": 1788593244.2622368,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-05T05:17:04.906064+00:00"
+  "updated": "2026-09-05T06:17:05.121696+00:00"
 }
