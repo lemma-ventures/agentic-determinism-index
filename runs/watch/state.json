@@ -94,7 +94,7 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788574415.9377987,
+      "next_due_epoch": 1788578252.8130412,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-05T01:17:04.942644+00:00"
+  "updated": "2026-09-05T02:17:04.948306+00:00"
 }
