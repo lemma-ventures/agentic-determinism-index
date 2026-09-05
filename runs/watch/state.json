@@ -67,7 +67,7 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788613889.0147398,
+      "next_due_epoch": 1788617597.7385552,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -143,12 +143,12 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "last_stack_id": "fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-05T08:17:05.654643+00:00",
+      "last_ts": "2026-09-05T13:17:05.081236+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788611718.8180077,
+      "next_due_epoch": 1788626891.2602913,
       "provider": "openrouter",
-      "stable_streak": 0,
-      "ticks": 30
+      "stable_streak": 1,
+      "ticks": 31
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-05T12:17:04.755318+00:00"
+  "updated": "2026-09-05T13:17:05.081177+00:00"
 }
