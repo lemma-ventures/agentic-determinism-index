@@ -67,7 +67,7 @@
       "last_score_epoch": 1788632467.317725,
       "last_score_stamp": "2026-09-05T181701Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788700413.3702865,
+      "next_due_epoch": 1788704633.6826656,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-06T12:17:04.892693+00:00"
+  "updated": "2026-09-06T13:17:04.872147+00:00"
 }
