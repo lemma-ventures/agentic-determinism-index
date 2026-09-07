@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Installed to /usr/local/bin/adi-watch-tick on the lemma-web host.
 # Source of truth in-repo; refresh via setup_watch_on_lemma_host.sh or
-# .github/workflows/refresh-host-tick.yml.
+# website workflow install-adi-watch-tick.yml on lemma-web.
 set -euo pipefail
 
 WATCH_DIR=/opt/adi-watch
