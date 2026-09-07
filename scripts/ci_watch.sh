@@ -41,6 +41,11 @@ ingest_score_hints(watch_dir, rows, run_stamp=os.path.basename(latest))
 print(f"seeded watch hints from {latest} ({len(rows)} score rows)")
 PY
 
+# host_commit_push.sh reads this: only material events should publish Pages HTML.
+SITE_PUBLISH_MARKER="${WATCH_DIR}/SITE_PUBLISH"
+rm -f "$SITE_PUBLISH_MARKER"
+PUBLISH_REASONS=()
+
 echo "==> watch tick"
 set +e
 python3 -m agentic_determinism_index watch \
@@ -52,6 +57,9 @@ set -e
 # exit 2 = drift detected; still continue
 if [ "$WATCH_RC" -ne 0 ] && [ "$WATCH_RC" -ne 2 ]; then
   exit "$WATCH_RC"
+fi
+if [ "$WATCH_RC" -eq 2 ]; then
+  PUBLISH_REASONS+=("drift")
 fi
 
 echo "==> selective full score (--due-only)"
@@ -71,21 +79,23 @@ RUN_OUT="$(
 if [ -n "${RUN_OUT:-}" ] && [ -d "$RUN_OUT" ]; then
   echo "==> score $RUN_OUT"
   python3 -m agentic_determinism_index score "$RUN_OUT" --watch-dir "$WATCH_DIR"
-  echo "==> rebuild site"
-  python3 -m agentic_determinism_index site \
-    --run-root "$RUN_ROOT" \
-    --watch-dir "$WATCH_DIR" \
-    --out "$SITE_OUT"
-  mkdir -p docs
-  rsync -a --delete website/ docs/
+  PUBLISH_REASONS+=("full-score")
+fi
+
+# Always rebuild locally so a forced/max-age publish has fresh "Last watch tick".
+echo "==> rebuild site"
+python3 -m agentic_determinism_index site \
+  --run-root "$RUN_ROOT" \
+  --watch-dir "$WATCH_DIR" \
+  --out "$SITE_OUT"
+mkdir -p docs
+rsync -a --delete website/ docs/
+
+if [ "${#PUBLISH_REASONS[@]}" -gt 0 ]; then
+  printf '%s\n' "${PUBLISH_REASONS[*]}" >"$SITE_PUBLISH_MARKER"
+  echo "site publish marked: ${PUBLISH_REASONS[*]}"
 else
-  echo "no full score this hour; rebuilding site from existing runs"
-  python3 -m agentic_determinism_index site \
-    --run-root "$RUN_ROOT" \
-    --watch-dir "$WATCH_DIR" \
-    --out "$SITE_OUT"
-  mkdir -p docs
-  rsync -a --delete website/ docs/
+  echo "site publish not required this tick (watch-only)"
 fi
 
 echo "ci_watch done (watch_rc=$WATCH_RC)"

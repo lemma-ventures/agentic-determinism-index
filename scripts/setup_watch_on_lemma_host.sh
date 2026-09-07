@@ -6,8 +6,8 @@
 #   - Installs the harness
 #   - Creates a secure env file for keys (you paste them)
 #   - Installs a systemd timer for hourly execution (or falls back to cron)
-#   - The tick script runs ci_watch.sh, commits, and pushes results
-#     (triggers GitHub Pages via docs/ + website/ push)
+#   - The tick script runs ci_watch.sh, then scripts/host_commit_push.sh
+#     (Pages HTML only on drift / full score / max-age — not every hour)
 #
 # Secrets policy: keys live ONLY in /etc/adi-watch.env on this private box.
 # Never in the public ADI repo, never as GitHub Actions secrets on lemma-ventures/agentic-determinism-index.
@@ -84,31 +84,21 @@ git checkout main
 git pull --ff-only || true
 
 echo "==> run watch tick"
-  export WATCH_DIR=runs/watch
-  export RUN_ROOT=runs/reference
-  mkdir -p "$WATCH_DIR" "$RUN_ROOT"
+export WATCH_DIR=runs/watch
+export RUN_ROOT=runs/reference
+mkdir -p "$WATCH_DIR" "$RUN_ROOT"
 
-  # Use the same harness entry as ci_watch.sh (continues on drift)
-  set +e
-  ./scripts/ci_watch.sh
-  WATCH_RC=$?
-  set -e
-
-  echo "==> commit & push if dirty (watch_rc=$WATCH_RC)"
-git config user.name "lemma-web watch"
-git config user.email "watch@lemma.ventures"
-git add -A runs/watch runs/reference website docs || true
-
-if git diff --cached --quiet; then
-  echo "no changes"
-else
-  TS=$(date -u +%Y-%m-%dT%H%MZ)
-  git commit -m "watch: $TS (private host)"
-  if [ -n "${ADI_PUSH_TOKEN:-}" ]; then
-    git remote set-url origin "https://${ADI_PUSH_TOKEN}@github.com/lemma-ventures/agentic-determinism-index.git"
-  fi
-  git push origin main
+# ci_watch continues on drift (exit 2); other failures abort the tick.
+set +e
+./scripts/ci_watch.sh
+WATCH_RC=$?
+set -e
+if [ "$WATCH_RC" -ne 0 ] && [ "$WATCH_RC" -ne 2 ]; then
+  exit "$WATCH_RC"
 fi
+
+echo "==> commit & push (watch_rc=$WATCH_RC; site gated)"
+./scripts/host_commit_push.sh
 
 echo "adi-watch tick done"
 TICK
