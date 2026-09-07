@@ -189,6 +189,54 @@
    "base_url": "https://eigenai.eigencloud.xyz/v1",
    "api_key_env": "EIGENAI_API_KEY",
    "label": "EigenAI (EigenCloud, bit-exact claim)"
+  },
+  {
+   "provider": "openrouter",
+   "model": "thinkingmachines/inkling:free",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Thinking Machines direct (batch-invariant claim)",
+   "provider_prefs": {
+    "order": [
+     "thinkingmachines"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  {
+   "provider": "openrouter",
+   "model": "openai/gpt-oss-120b",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+   "provider_prefs": {
+    "order": [
+     "cerebras"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  {
+   "provider": "openrouter",
+   "model": "openai/gpt-oss-120b",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Phala via OpenRouter (TEE, attested stack)",
+   "provider_prefs": {
+    "order": [
+     "phala"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  {
+   "provider": "openrouter",
+   "model": "deepseek/deepseek-chat-v3.1",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "AtlasCloud via OpenRouter (SGLang partner)",
+   "provider_prefs": {
+    "order": [
+     "atlas-cloud"
+    ],
+    "allow_fallbacks": false
+   }
   }
  ]
 }
