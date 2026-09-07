@@ -4,7 +4,8 @@ name: pages
 #
 # Cost: private host watch commits runs/ hourly but only pushes website/docs on
 # drift, full score, or max-age (see scripts/host_commit_push.sh). This workflow
-# therefore fires rarely. runs-on self-hosted so residual deploys are $0 billable.
+# therefore fires ~daily (or on events), not hourly. ubuntu-latest is intentional:
+# lemma-web is a website-repo runner and is not available to this public repo.
 on:
   push:
     branches: [main]
@@ -29,7 +30,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: [self-hosted, lemma-web]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Assemble Pages site (leaderboard + run pages + assets)
@@ -54,7 +55,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [self-hosted, lemma-web]
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
