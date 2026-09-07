@@ -67,7 +67,7 @@
       "last_score_epoch": 1788722471.0018165,
       "last_score_stamp": "2026-09-06T191705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788783397.544586,
+      "next_due_epoch": 1788787065.502649,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -94,7 +94,7 @@
       "last_score_epoch": 1788722471.0018165,
       "last_score_stamp": "2026-09-06T191705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788782739.9516764,
+      "next_due_epoch": 1788787681.3250532,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -143,12 +143,12 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "last_stack_id": "fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-07T08:17:04.922684+00:00",
+      "last_ts": "2026-09-07T12:17:04.956862+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788782511.0355525,
+      "next_due_epoch": 1788799179.9486802,
       "provider": "openrouter",
-      "stable_streak": 0,
-      "ticks": 40
+      "stable_streak": 1,
+      "ticks": 41
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -195,5 +195,5 @@
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-07T11:17:04.925552+00:00"
+  "updated": "2026-09-07T12:17:04.956807+00:00"
 }
