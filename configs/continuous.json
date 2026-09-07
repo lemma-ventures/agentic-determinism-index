@@ -182,6 +182,13 @@
     ],
     "allow_fallbacks": false
    }
+  },
+  {
+   "provider": "openai_compatible",
+   "model": "gpt-oss-120b-f16",
+   "base_url": "https://eigenai.eigencloud.xyz/v1",
+   "api_key_env": "EIGENAI_API_KEY",
+   "label": "EigenAI (EigenCloud, bit-exact claim)"
   }
  ]
 }

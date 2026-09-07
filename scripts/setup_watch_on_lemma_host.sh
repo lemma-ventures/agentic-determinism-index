@@ -46,6 +46,8 @@ if [ ! -f "$ENV_FILE" ]; then
 # Rotate by editing this file + systemctl restart adi-watch.timer
 OPENROUTER_API_KEY=
 NVIDIA_API_KEY=
+# Optional: EigenAI (https://eigenai.eigencloud.xyz) — 1M free tokens via deTERMinal
+EIGENAI_API_KEY=
 # For git push (fine-grained PAT with contents:write on lemma-ventures/agentic-determinism-index)
 ADI_PUSH_TOKEN=
 EOT

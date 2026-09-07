@@ -19,6 +19,8 @@ set +a
 
 export OPENROUTER_API_KEY
 export NVIDIA_API_KEY
+# Optional: EigenAI (bit-exact claim); target is skipped if unset
+export EIGENAI_API_KEY=${EIGENAI_API_KEY:-}
 
 cd "$WATCH_DIR"
 
