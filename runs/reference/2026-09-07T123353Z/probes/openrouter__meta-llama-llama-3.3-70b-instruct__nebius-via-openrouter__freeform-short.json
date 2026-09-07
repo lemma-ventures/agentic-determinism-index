@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "Nebius via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "nebius"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "nebius"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-07T12:40:02.726126+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12377
+  },
+  {
+   "ts": "2026-09-07T12:40:02.726405+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12508
+  },
+  {
+   "ts": "2026-09-07T12:40:02.727255+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12383
+  },
+  {
+   "ts": "2026-09-07T12:40:02.728402+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 63779
+  },
+  {
+   "ts": "2026-09-07T12:40:02.729255+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12373
+  },
+  {
+   "ts": "2026-09-07T12:40:02.730369+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12378
+  },
+  {
+   "ts": "2026-09-07T12:40:02.731251+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 66215
+  },
+  {
+   "ts": "2026-09-07T12:40:02.732372+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12391
+  },
+  {
+   "ts": "2026-09-07T12:41:18.946563+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12136
+  },
+  {
+   "ts": "2026-09-07T12:41:41.083098+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the final result due to rounding errors that occur when numbers of significantly different magnitudes are added together. For example, adding a very small number to a very large number may result in the small number being rounded to zero, but if the small number is first added to another small number, the result may be significant enough to affect the final sum when added to the large number. This non-associativity can lead to different results depending on the order of operations, making it important to consider the order of additions when performing floating-point arithmetic.",
+   "sha256": "44ab705dff25c9dfd7e9a2a91bc90b23246acffbc93e53ecfdb336650d7cdd74",
+   "fingerprint": "Nebius",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 43582
+  }
+ ]
+}

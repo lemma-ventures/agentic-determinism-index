@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "Together via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "together"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "together"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-07T12:35:51.480675+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\n- Floor 1: 1284 boxes\n- Floor 2: 907 boxes\n- Floor 3: 2156 boxes\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes.\nNumber of fully loaded trucks = Total boxes / Boxes per truck = 4347 / 85\n\nPerforming the division:\n4347 \u00f7 85 = 51.08\n\nSince we can't have a fraction of a truck, this means we need 51 fully loaded trucks to ship as many boxes as possible without exceeding the capacity of the trucks.\n\nStep 3: Calculate the number of boxes that remain unshipped.\nTo find the remaining boxes, we multiply the number of fully loaded trucks by the capacity of each truck and subtract this from the total number of boxes.\nBoxes shipped = 51 trucks * 85 boxes/truck = 4335 boxes\nRemaining boxes = Total boxes - Boxes shipped = 4347 - 4335 = 12 boxes\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "082d9edfdae85dc07b5c6c5936d6317fc5dbc28807d3590d7a478d02f4bd8da0",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 5280
+  },
+  {
+   "ts": "2026-09-07T12:35:51.481445+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\n- Floor 1: 1284 boxes\n- Floor 2: 907 boxes\n- Floor 3: 2156 boxes\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes.\nNumber of fully loaded trucks = Total boxes / Boxes per truck = 4347 / 85\n\nPerforming the division:\n4347 \u00f7 85 = 51.13 (since we can't have a fraction of a truck for fully loaded trucks, we consider only the whole number part, which is 51)\n\nStep 3: Calculate the number of boxes that remain unshipped.\nTo find the remaining boxes, we subtract the total number of boxes carried by the fully loaded trucks from the total number of boxes.\nBoxes carried by fully loaded trucks = 51 trucks * 85 boxes/truck = 4335 boxes\nRemaining boxes = Total boxes - Boxes carried = 4347 - 4335 = 12 boxes\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "02d1b3d10772abe658fe65a29c5d5849617f2ec5c8bf9b8b2631aeac4533489d",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 11269
+  },
+  {
+   "ts": "2026-09-07T12:35:51.483263+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes.\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry.\nTrucks needed = Total boxes / Boxes per truck = 4347 / 85.\n\nStep 3: Perform the division to find the exact number of trucks needed and the remainder.\n4347 / 85 = 51.13 (approximately). This means we need 51 fully loaded trucks because we can't have a fraction of a truck. \n\nStep 4: Calculate the number of boxes that remain unshipped.\nTo find the remainder (boxes unshipped), we multiply the number of fully loaded trucks by the boxes each can carry and subtract this from the total number of boxes.\nBoxes shipped = 51 trucks * 85 boxes/truck = 4335 boxes.\nRemaining boxes = Total boxes - Boxes shipped = 4347 - 4335 = 12 boxes.\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\nANSWER: 51,12",
+   "sha256": "4a149749c519f25eacd86effc6023fc8fbf643381991814e1cf6962ef0f5a106",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 14188
+  },
+  {
+   "ts": "2026-09-07T12:35:51.485418+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes.\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry.\nTrucks needed = Total boxes / Boxes per truck = 4347 / 85.\n\nStep 3: Perform the division to find the exact number of trucks needed, including any remainder.\n4347 / 85 = 51.133... (The decimal part indicates that we cannot fully load the last truck, but we'll need it for the remaining boxes.)\n\nSince we can't have a fraction of a truck, we take the whole number part (51) as the number of fully loaded trucks we can fill. The remainder represents the boxes that will not be shipped in a fully loaded truck.\n\nStep 4: Calculate the number of boxes that remain unshipped.\nTo find the remainder (boxes remaining), we multiply the whole number of trucks by the boxes each can carry and subtract this from the total number of boxes.\nFully loaded trucks * Boxes per truck = 51 * 85 = 4335 boxes.\nRemaining boxes = Total boxes - Boxes shipped = 4347 - 4335 = 12 boxes.\n\nTherefore, we need 51 fully loaded trucks, and there will be 12 boxes remaining unshipped.\n\nANSWER: 51,12",
+   "sha256": "e1466fddcbd84b940c1ea241cd4629ac6bec4a3bfbe6e87d893cb7ead3c8e55b",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 6199
+  },
+  {
+   "ts": "2026-09-07T12:35:51.486264+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\n- Floor 1: 1284 boxes\n- Floor 2: 907 boxes\n- Floor 3: 2156 boxes\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes\n\nStep 2: Determine how many boxes each truck can carry.\nEach truck carries 85 boxes.\n\nStep 3: Calculate how many fully loaded trucks are needed.\nTo find this out, we divide the total number of boxes by the number of boxes each truck can carry.\nTrucks needed = Total boxes / Boxes per truck = 4347 / 85\n\nPerforming the division:\n4347 / 85 = 51.13 (approximately)\n\nSince we can't have a fraction of a truck, this means we need 51 fully loaded trucks to ship as many boxes as possible.\n\nStep 4: Calculate how many boxes remain unshipped.\nTo find the remaining boxes, we multiply the number of fully loaded trucks by the boxes each can carry, then subtract this from the total number of boxes.\nBoxes shipped = 51 trucks * 85 boxes/truck = 4335 boxes\nRemaining boxes = Total boxes - Boxes shipped = 4347 - 4335 = 12 boxes\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "78c803e1b8f3b4afa717c8d48cd1771ed7c6a5aa902bfc2ab4a5b86a4776e43c",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 12236
+  },
+  {
+   "ts": "2026-09-07T12:35:51.487430+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes.\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry.\nTrucks needed = Total boxes / Boxes per truck = 4347 / 85.\n\nStep 3: Perform the division to find the exact number of trucks needed and the remainder.\n4347 / 85 = 51.13 (approximately). This means we need 51 fully loaded trucks because we can't have a fraction of a truck. The remainder represents the boxes that will remain unshipped.\n\nStep 4: Calculate the remainder to find out how many boxes remain unshipped.\nTo find the remainder, we can multiply the whole number part of the division result (51) by the number of boxes per truck (85) and subtract this product from the total number of boxes.\nBoxes shipped = 51 trucks * 85 boxes/truck = 4335 boxes.\nRemaining boxes = Total boxes - Boxes shipped = 4347 - 4335 = 12 boxes.\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "1115798afacc6ce14ef6c9a1c4fa19b170364bbaa5c5848a6349296bdd9ab306",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 9532
+  },
+  {
+   "ts": "2026-09-07T12:35:51.488255+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\n- Floor 1: 1284 boxes\n- Floor 2: 907 boxes\n- Floor 3: 2156 boxes\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes.\nNumber of fully loaded trucks = Total boxes / Boxes per truck = 4347 / 85\n\nPerforming the division:\n4347 \u00f7 85 = 51.08\n\nSince we can't have a fraction of a truck, this means we can fully load 51 trucks.\n\nStep 3: Calculate how many boxes remain unshipped.\nTo find the remaining boxes, we multiply the number of fully loaded trucks by the boxes each can carry and subtract this from the total number of boxes.\nBoxes carried by fully loaded trucks = 51 trucks * 85 boxes/truck = 4335 boxes\nRemaining boxes = Total boxes - Boxes carried = 4347 - 4335 = 12 boxes\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "a04dbe70bb70725f68002fb89ea03c0939b7df7a5023f5549c04cd66775d24cf",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 4383
+  },
+  {
+   "ts": "2026-09-07T12:35:51.491293+00:00",
+   "mode": "burst",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes.\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry.\nTrucks needed = Total boxes / Boxes per truck = 4347 / 85.\n\nStep 3: Perform the division to find the exact number of trucks needed, including any remainder.\n4347 / 85 = 51.08 (approximately). Since we can't have a fraction of a truck, this means we need 51 fully loaded trucks (because we can't count the 0.08 as a full truck).\n\nStep 4: Calculate the number of boxes that remain unshipped.\nTo find the remainder (boxes that remain unshipped), we multiply the number of fully loaded trucks by the number of boxes each can carry and subtract this from the total number of boxes.\nBoxes shipped = 51 trucks * 85 boxes/truck = 4335 boxes.\nRemaining boxes = Total boxes - Boxes shipped = 4347 - 4335 = 12 boxes.\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "7013cf69cf40761f24b0e86b34cb9d7ad84de81a00157ec534fda619b03b78eb",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 15221
+  },
+  {
+   "ts": "2026-09-07T12:36:16.712778+00:00",
+   "mode": "serial",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes.\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry.\nTrucks needed = Total boxes / Boxes per truck = 4347 / 85.\n\nStep 3: Perform the division to find the exact number of trucks needed and the remainder.\n4347 / 85 = 51.13 (approximately). This means we need 51 fully loaded trucks because we can't have a fraction of a truck. \n\nStep 4: Calculate the number of boxes that remain unshipped.\nTo find the remaining boxes, we multiply the number of fully loaded trucks by the boxes each can carry and subtract this from the total number of boxes.\nBoxes carried by full trucks = 51 trucks * 85 boxes/truck = 4335 boxes.\nRemaining boxes = Total boxes - Boxes carried by full trucks = 4347 - 4335 = 12 boxes.\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\nANSWER: 51,12",
+   "sha256": "4860d85d0130a6c9db6c674aebab26a0e8caad544353f374cf057aa4a70cd613",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 6123
+  },
+  {
+   "ts": "2026-09-07T12:36:32.835934+00:00",
+   "mode": "serial",
+   "text": "To find out how many fully loaded trucks are needed and how many boxes remain unshipped, we first need to calculate the total number of boxes in the warehouse. Then, we divide this total by the number of boxes each truck can carry to find out how many trucks are needed. If there's a remainder, it represents the boxes that remain unshipped.\n\nStep 1: Calculate the total number of boxes in the warehouse.\nTotal boxes = 1284 + 907 + 2156 = 4347 boxes.\n\nStep 2: Determine how many fully loaded trucks are needed.\nEach truck carries 85 boxes. To find out how many trucks are needed, we divide the total number of boxes by the number of boxes each truck can carry.\nTrucks needed = Total boxes / Boxes per truck = 4347 / 85.\n\nStep 3: Perform the division to find the exact number of trucks needed and the remainder.\n4347 / 85 = 51.13 (approximately). Since we can't have a fraction of a truck, this means we need 51 fully loaded trucks because we cannot load a fraction of a truck. The remainder represents the boxes that will remain unshipped.\n\nStep 4: Calculate the remainder to find out how many boxes remain unshipped.\nTo find the remainder, we can multiply the whole number part of the trucks needed (51) by the number of boxes per truck (85) and subtract this from the total number of boxes.\nBoxes shipped = 51 trucks * 85 boxes/truck = 4335 boxes.\nRemaining boxes = Total boxes - Boxes shipped = 4347 - 4335 = 12 boxes.\n\nTherefore, 51 fully loaded trucks are needed, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "c8e5f41b2059fb170693ef5b984833273b40cea30b0600098b45841a6eff1fe4",
+   "fingerprint": "Together",
+   "model_version": "meta-llama/llama-3.3-70b-instruct",
+   "latency_ms": 16144
+  }
+ ]
+}

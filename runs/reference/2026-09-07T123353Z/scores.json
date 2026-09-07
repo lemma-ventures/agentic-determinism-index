@@ -1,0 +1,272 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 4,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "first_divergence_char": 323,
+  "fingerprints": [
+   "vllm-0.24.0-tp4-6d31f84d"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "vllm-0.24.0-tp4-6d31f84d"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.5,
+  "first_divergence_char": 228,
+  "fingerprints": [
+   "vllm-0.24.0-tp4-6d31f84d"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "first_divergence_char": 158,
+  "fingerprints": [
+   "vllm-0.24.0-tp4-6d31f84d"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "Nebius"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "Nebius"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "first_divergence_char": 819,
+  "fingerprints": [
+   "Nebius"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 4,
+  "byte_identical": false,
+  "mode_share": 0.4,
+  "first_divergence_char": 739,
+  "fingerprints": [
+   "Nebius"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "first_divergence_char": 160,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Together via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Together via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.4,
+  "first_divergence_char": 76,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Together via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "first_divergence_char": 405,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Together via OpenRouter"
+ }
+]

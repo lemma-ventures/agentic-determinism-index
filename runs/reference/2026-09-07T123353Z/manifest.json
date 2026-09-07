@@ -1,0 +1,14 @@
+{
+ "harness_version": "0.1.0",
+ "python": "3.12.3",
+ "platform": "Linux-7.0.0-1011-aws-aarch64-with-glibc2.39",
+ "config_sha256": "10041999126ee75b4cc6bc4d8792b30268f75294196c3cdc233c5e170b06ed64",
+ "cases_sha256": "5523a627641907c64fef7c8b2effbf3c778e3f267fc8402ae43944fe6b1d178c",
+ "burst": 8,
+ "serial": 2,
+ "gap_s": 10,
+ "due_only": true,
+ "started": "2026-09-07T12:33:53.307834+00:00",
+ "finished": "2026-09-07T12:50:43.917670+00:00",
+ "skipped_tool_call_cases": []
+}
