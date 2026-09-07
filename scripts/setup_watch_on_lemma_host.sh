@@ -56,54 +56,7 @@ EOT
 fi
 
 echo "==> Writing tick script $TICK_SCRIPT"
-cat > "$TICK_SCRIPT" <<'TICK'
-#!/usr/bin/env bash
-set -euo pipefail
-
-WATCH_DIR=/opt/adi-watch
-ENV_FILE=/etc/adi-watch.env
-
-if [ ! -f "$ENV_FILE" ]; then
-  echo "missing $ENV_FILE" >&2
-  exit 1
-fi
-
-# Load secrets (never logged)
-set -a
-. "$ENV_FILE"
-set +a
-
-export OPENROUTER_API_KEY
-export NVIDIA_API_KEY
-
-cd "$WATCH_DIR"
-
-echo "==> git pull"
-git fetch origin main
-git checkout main
-git pull --ff-only || true
-
-echo "==> run watch tick"
-export WATCH_DIR=runs/watch
-export RUN_ROOT=runs/reference
-mkdir -p "$WATCH_DIR" "$RUN_ROOT"
-
-# ci_watch continues on drift (exit 2); other failures abort the tick.
-set +e
-./scripts/ci_watch.sh
-WATCH_RC=$?
-set -e
-if [ "$WATCH_RC" -ne 0 ] && [ "$WATCH_RC" -ne 2 ]; then
-  exit "$WATCH_RC"
-fi
-
-echo "==> commit & push (watch_rc=$WATCH_RC; site gated)"
-./scripts/host_commit_push.sh
-
-echo "adi-watch tick done"
-TICK
-chmod +x "$TICK_SCRIPT"
-chown root:root "$TICK_SCRIPT"
+install -m 755 -o root -g root "$WATCH_DIR/scripts/adi_watch_tick.sh" "$TICK_SCRIPT"
 
 echo "==> Installing systemd timer (hourly, offset :17 like the old cron)"
 cat > "$UNIT_DIR/adi-watch.service" <<'SVC'
