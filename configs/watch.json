@@ -137,19 +137,7 @@
   },
   {
    "provider": "openrouter",
-   "model": "openai/gpt-oss-120b",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Cerebras via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "cerebras"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openrouter",
-   "model": "openai/gpt-oss-120b",
+   "model": "meta-llama/llama-3.3-70b-instruct",
    "api_key_env": "OPENROUTER_API_KEY",
    "label": "SambaNova via OpenRouter",
    "provider_prefs": {
@@ -161,7 +149,7 @@
   },
   {
    "provider": "openrouter",
-   "model": "openai/gpt-oss-120b",
+   "model": "meta-llama/llama-3.3-70b-instruct",
    "api_key_env": "OPENROUTER_API_KEY",
    "label": "Together via OpenRouter",
    "provider_prefs": {
@@ -173,12 +161,24 @@
   },
   {
    "provider": "openrouter",
-   "model": "openai/gpt-oss-120b",
+   "model": "meta-llama/llama-3.3-70b-instruct",
    "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Phala TEE via OpenRouter",
+   "label": "Nebius via OpenRouter",
    "provider_prefs": {
     "order": [
-     "phala"
+     "nebius"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  {
+   "provider": "openrouter",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Crusoe via OpenRouter",
+   "provider_prefs": {
+    "order": [
+     "crusoe"
     ],
     "allow_fallbacks": false
    }
