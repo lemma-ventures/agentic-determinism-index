@@ -67,7 +67,7 @@
       "last_score_epoch": 1788722471.0018165,
       "last_score_stamp": "2026-09-06T191705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1788737244.876255,
+      "next_due_epoch": 1788743257.0988343,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -94,7 +94,7 @@
       "last_score_epoch": 1788722471.0018165,
       "last_score_stamp": "2026-09-06T191705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1788739975.836713,
+      "next_due_epoch": 1788743595.1691084,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -190,10 +190,10 @@
       "last_score_epoch": 1788722471.0018165,
       "last_score_stamp": "2026-09-06T191705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1788737106.0226002,
+      "next_due_epoch": 1788743683.3157852,
       "provider": "openrouter",
       "stable_streak": 0
     }
   },
-  "updated": "2026-09-06T23:17:04.694103+00:00"
+  "updated": "2026-09-07T00:17:04.903112+00:00"
 }
