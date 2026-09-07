@@ -161,12 +161,16 @@ class TestSite(unittest.TestCase):
                      "mode_share": 1.0, "byte_identical": True, "distinct": 1},
                     {"provider": "openrouter", "model": "gpt", "label": "via Azure",
                      "mode_share": 1.0, "byte_identical": True, "distinct": 1},
+                    {"provider": "openrouter", "model": "oss", "label": "via Cerebras",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1},
                 ]),
                 ("r2", [
                     {"provider": "openrouter", "model": "llama", "label": "via Groq",
                      "mode_share": 1.0, "byte_identical": True, "distinct": 1},
                     {"provider": "openrouter", "model": "gpt", "label": "via Azure",
                      "mode_share": 0.5, "byte_identical": False, "distinct": 2},
+                    {"provider": "openrouter", "model": "oss", "label": "via Cerebras",
+                     "mode_share": 1.0, "byte_identical": True, "distinct": 1},
                 ]),
                 ("r3", [
                     {"provider": "openrouter", "model": "llama", "label": "via Groq",
@@ -188,6 +192,11 @@ class TestSite(unittest.TestCase):
             self.assertEqual(azure["deterministic_runs"], 1)
             self.assertEqual(azure["runs_seen"], 2)
             self.assertEqual(azure["streak"], 0)
+            # Byte-exact tuple skipped by a due-only run keeps its streak.
+            cerebras = surv[("openrouter", "oss", "via Cerebras")]
+            self.assertEqual(cerebras["deterministic_runs"], 2)
+            self.assertEqual(cerebras["runs_seen"], 2)
+            self.assertEqual(cerebras["streak"], 2)
 
     def test_render_html(self):
         payload = {

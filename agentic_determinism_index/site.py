@@ -324,9 +324,11 @@ def tuple_deterministic_survival(run_root):
         {
           "runs_seen": N,             # reference runs that scored this tuple
           "deterministic_runs": M,    # of those, fully byte-exact
-          "streak": S,                # consecutive byte-exact ending at latest run
+          "streak": S,                # consecutive byte-exact scored appearances
         }
-    Streak resets when the tuple is missing from a later run or fails byte-exact.
+    Streak resets only when a scored appearance fails byte-exact. Runs that do
+    not score the tuple (due-only cadence skips non-due targets) leave the
+    streak untouched; otherwise every partial run would zero all other streaks.
     """
     survival = {}
     for path in _list_scored_runs(run_root):
@@ -335,9 +337,7 @@ def tuple_deterministic_survival(run_root):
         except (OSError, ValueError, TypeError):
             continue
         exact_map = _run_tuple_byte_exact(rows)
-        seen_this_run = set(exact_map)
 
-        # Advance streak for tuples present this run; reset others that were active.
         for key, exact in exact_map.items():
             s = survival.setdefault(key, {
                 "runs_seen": 0,
@@ -349,11 +349,6 @@ def tuple_deterministic_survival(run_root):
                 s["deterministic_runs"] += 1
                 s["streak"] += 1
             else:
-                s["streak"] = 0
-
-        # Missing from this run breaks the streak (survived consecutive window).
-        for key, s in survival.items():
-            if key not in seen_this_run:
                 s["streak"] = 0
     return survival
 
