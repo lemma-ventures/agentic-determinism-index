@@ -1,0 +1,154 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "AtlasCloud via OpenRouter (SGLang partner)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "AtlasCloud via OpenRouter (SGLang partner)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "AtlasCloud via OpenRouter (SGLang partner)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "AtlasCloud via OpenRouter (SGLang partner)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 9,
+  "errors": 1,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "thinkingmachines/inkling:free",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Thinking Machines direct (batch-invariant claim)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "thinkingmachines/inkling:free",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Thinking Machines direct (batch-invariant claim)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "thinkingmachines/inkling:free",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Thinking Machines direct (batch-invariant claim)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "thinkingmachines/inkling:free",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Thinking Machines direct (batch-invariant claim)"
+ }
+]
