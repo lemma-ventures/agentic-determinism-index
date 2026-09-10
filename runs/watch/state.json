@@ -29,7 +29,7 @@
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
-      "interval_s": 207594.140625,
+      "interval_s": 311391.2109375,
       "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
       "last_fingerprint": null,
       "last_mode_share": 0.75,
@@ -37,12 +37,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-08T02:17:05.375745+00:00",
+      "last_ts": "2026-09-10T21:17:05.368023+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1789073475.9674158,
+      "next_due_epoch": 1789374420.2628167,
       "provider": "nvidia_nim",
-      "stable_streak": 12,
-      "ticks": 12
+      "stable_streak": 13,
+      "ticks": 13
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -64,10 +64,10 @@
     "openrouter|cohere/command-r-08-2024|Cohere via OpenRouter": {
       "interval_s": 3600,
       "label": "Cohere via OpenRouter",
-      "last_score_epoch": 1788992471.9783242,
-      "last_score_stamp": "2026-09-09T221705Z",
+      "last_score_epoch": 1789082470.4690933,
+      "last_score_stamp": "2026-09-10T231705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1789061121.0031662,
+      "next_due_epoch": 1789085687.5316093,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -82,14 +82,14 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1789060727.7598138,
+      "next_due_epoch": 1789082583.880463,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     },
     "openrouter|deepseek/deepseek-chat-v3.1|SiliconFlow via OpenRouter": {
       "byte_exact": false,
-      "interval_s": 207594.140625,
+      "interval_s": 311391.2109375,
       "label": "SiliconFlow via OpenRouter",
       "last_fingerprint": "SiliconFlow",
       "last_mode_share": 0.3,
@@ -97,20 +97,20 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:SiliconFlow|mv:deepseek/deepseek-chat-v3.1",
-      "last_ts": "2026-09-08T00:17:05.006015+00:00",
+      "last_ts": "2026-09-10T18:17:05.257352+00:00",
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1789062476.4329312,
+      "next_due_epoch": 1789430324.3020523,
       "provider": "openrouter",
-      "stable_streak": 12,
-      "ticks": 12
+      "stable_streak": 13,
+      "ticks": 13
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Cloudflare via OpenRouter": {
       "interval_s": 3600,
       "label": "Cloudflare via OpenRouter",
-      "last_score_epoch": 1788992471.9783242,
-      "last_score_stamp": "2026-09-09T221705Z",
+      "last_score_epoch": 1789082470.4690933,
+      "last_score_stamp": "2026-09-10T231705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1789060865.1910918,
+      "next_due_epoch": 1789085883.0777466,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -159,12 +159,12 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-10T17:17:04.877358+00:00",
+      "last_ts": "2026-09-10T21:17:04.928478+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1789074695.6109793,
+      "next_due_epoch": 1789090765.8220189,
       "provider": "openrouter",
-      "stable_streak": 3,
-      "ticks": 58
+      "stable_streak": 4,
+      "ticks": 59
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -230,7 +230,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1789064940.892067,
+      "next_due_epoch": 1789086104.0464346,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -273,10 +273,10 @@
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
       "label": "OpenAI via OpenRouter",
-      "last_score_epoch": 1788992471.9783242,
-      "last_score_stamp": "2026-09-09T221705Z",
+      "last_score_epoch": 1789082470.4690933,
+      "last_score_stamp": "2026-09-10T231705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1789064422.6537018,
+      "next_due_epoch": 1789086080.401609,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -307,7 +307,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1789063706.5525496,
+      "next_due_epoch": 1789082632.6079073,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -339,7 +339,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1789072697.4033682,
+      "next_due_epoch": 1789091095.886901,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -383,11 +383,11 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1789060878.3982172,
+      "next_due_epoch": 1789082812.437951,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-09-10T17:21:21.903783+00:00"
+  "updated": "2026-09-10T23:21:10.469120+00:00"
 }
