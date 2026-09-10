@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-10T17:18:49.285899+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 475
+  },
+  {
+   "ts": "2026-09-10T17:18:49.286229+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 618
+  },
+  {
+   "ts": "2026-09-10T17:18:49.287267+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1327
+  },
+  {
+   "ts": "2026-09-10T17:18:49.288370+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 499
+  },
+  {
+   "ts": "2026-09-10T17:18:49.294299+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 489
+  },
+  {
+   "ts": "2026-09-10T17:18:49.295254+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 478
+  },
+  {
+   "ts": "2026-09-10T17:18:49.297260+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 497
+  },
+  {
+   "ts": "2026-09-10T17:18:49.299443+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 481
+  },
+  {
+   "ts": "2026-09-10T17:19:00.615525+00:00",
+   "mode": "serial",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 918
+  },
+  {
+   "ts": "2026-09-10T17:19:11.533447+00:00",
+   "mode": "serial",
+   "text": "First, add the boxes on the three floors:\n\n\\[\n1284 + 907 = 2191\n\\]\n\n\\[\n2191 + 2156 = 4347\n\\]\n\nSo there are **4347 boxes** in total.\n\nEach truck can carry **85 boxes**.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part:\n\n\\[\n\\frac{4347}{85} \\approx 51.14\n\\]\n\nThe integer part is **51**, meaning 51 trucks can be fully loaded.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}\n\\]\n\n\\[\n4347 - 4335 = 12 \\text{ boxes remain}\n\\]\n\nThus, the shipment requires **51 fully loaded trucks**, and **12 boxes** will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "881046bc9c959d2c6a14553fada98ec052b9c3712644a8dc7b2cb1022cd6847b",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 295
+  }
+ ]
+}

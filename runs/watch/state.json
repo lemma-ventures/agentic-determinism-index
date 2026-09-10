@@ -67,7 +67,7 @@
       "last_score_epoch": 1788992471.9783242,
       "last_score_stamp": "2026-09-09T221705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1789053931.67451,
+      "next_due_epoch": 1789061121.0031662,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -77,12 +77,12 @@
       "label": "AtlasCloud via OpenRouter (SGLang partner)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1788970898.319833,
-      "last_score_stamp": "2026-09-09T161701Z",
+      "last_score_epoch": 1789060881.9037588,
+      "last_score_stamp": "2026-09-10T171706Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1789053995.1787732,
+      "next_due_epoch": 1789060727.7598138,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -110,7 +110,7 @@
       "last_score_epoch": 1788992471.9783242,
       "last_score_stamp": "2026-09-09T221705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1789054104.0330362,
+      "next_due_epoch": 1789060865.1910918,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -159,12 +159,12 @@
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-10T12:17:05.044830+00:00",
+      "last_ts": "2026-09-10T17:17:04.877358+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1789058829.6618865,
+      "next_due_epoch": 1789074695.6109793,
       "provider": "openrouter",
-      "stable_streak": 2,
-      "ticks": 57
+      "stable_streak": 3,
+      "ticks": 58
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -230,7 +230,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1789057132.7278666,
+      "next_due_epoch": 1789064940.892067,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -276,7 +276,7 @@
       "last_score_epoch": 1788992471.9783242,
       "last_score_stamp": "2026-09-09T221705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1789057496.8792186,
+      "next_due_epoch": 1789064422.6537018,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -302,12 +302,12 @@
       "last_fingerprint": null,
       "last_mode_share": 1.0,
       "last_model_version": null,
-      "last_score_epoch": 1788970898.319833,
-      "last_score_stamp": "2026-09-09T161701Z",
+      "last_score_epoch": 1789060881.9037588,
+      "last_score_stamp": "2026-09-10T171706Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1789056834.6064906,
+      "next_due_epoch": 1789063706.5525496,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -339,7 +339,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1789057493.6933184,
+      "next_due_epoch": 1789072697.4033682,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -378,16 +378,16 @@
       "label": "Thinking Machines direct (batch-invariant claim)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1788970898.319833,
-      "last_score_stamp": "2026-09-09T161701Z",
+      "last_score_epoch": 1789060881.9037588,
+      "last_score_stamp": "2026-09-10T171706Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1789056471.5231082,
+      "next_due_epoch": 1789060878.3982172,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-09-10T15:18:27.708939+00:00"
+  "updated": "2026-09-10T17:21:21.903783+00:00"
 }
