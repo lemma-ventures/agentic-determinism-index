@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "SambaNova via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "sambanova"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "sambanova"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-10T15:18:07.074804+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 280
+  },
+  {
+   "ts": "2026-09-10T15:18:07.075142+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 278
+  },
+  {
+   "ts": "2026-09-10T15:18:07.075476+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 284
+  },
+  {
+   "ts": "2026-09-10T15:18:07.076422+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 361
+  },
+  {
+   "ts": "2026-09-10T15:18:07.077277+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 268
+  },
+  {
+   "ts": "2026-09-10T15:18:07.080278+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 265
+  },
+  {
+   "ts": "2026-09-10T15:18:07.083269+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 265
+  },
+  {
+   "ts": "2026-09-10T15:18:07.084376+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 262
+  },
+  {
+   "ts": "2026-09-10T15:18:17.438634+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 69
+  },
+  {
+   "ts": "2026-09-10T15:18:27.508045+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":13},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":12},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 79
+  }
+ ]
+}
