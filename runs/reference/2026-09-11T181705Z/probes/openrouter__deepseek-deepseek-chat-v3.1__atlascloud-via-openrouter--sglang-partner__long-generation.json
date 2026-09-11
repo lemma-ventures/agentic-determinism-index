@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "AtlasCloud via OpenRouter (SGLang partner)",
+  "provider_prefs": {
+   "order": [
+    "atlas-cloud"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "atlas-cloud"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-11T18:20:59.979857+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 306
+  },
+  {
+   "ts": "2026-09-11T18:20:59.980182+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 312
+  },
+  {
+   "ts": "2026-09-11T18:20:59.981269+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 281
+  },
+  {
+   "ts": "2026-09-11T18:20:59.982385+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 286
+  },
+  {
+   "ts": "2026-09-11T18:20:59.988278+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 328
+  },
+  {
+   "ts": "2026-09-11T18:20:59.989264+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 301
+  },
+  {
+   "ts": "2026-09-11T18:20:59.991255+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 282
+  },
+  {
+   "ts": "2026-09-11T18:20:59.993416+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 320
+  },
+  {
+   "ts": "2026-09-11T18:21:10.317009+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 88
+  },
+  {
+   "ts": "2026-09-11T18:21:20.405571+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":7},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":7},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 120
+  }
+ ]
+}

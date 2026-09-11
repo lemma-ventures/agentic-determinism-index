@@ -1,0 +1,116 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "AtlasCloud via OpenRouter (SGLang partner)",
+  "provider_prefs": {
+   "order": [
+    "atlas-cloud"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "json-extract",
+  "expect": "json",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300,
+   "json": true
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "atlas-cloud"
+    ]
+   },
+   "response_format": {
+    "type": "json_object"
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-11T18:20:39.229131+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 261
+  },
+  {
+   "ts": "2026-09-11T18:20:39.229449+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 251
+  },
+  {
+   "ts": "2026-09-11T18:20:39.230251+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 521
+  },
+  {
+   "ts": "2026-09-11T18:20:39.231370+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 305
+  },
+  {
+   "ts": "2026-09-11T18:20:39.237272+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 236
+  },
+  {
+   "ts": "2026-09-11T18:20:39.238252+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 231
+  },
+  {
+   "ts": "2026-09-11T18:20:39.240258+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 269
+  },
+  {
+   "ts": "2026-09-11T18:20:39.242415+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 240
+  },
+  {
+   "ts": "2026-09-11T18:20:49.751918+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 95
+  },
+  {
+   "ts": "2026-09-11T18:20:59.846950+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":8},{\"step\":\"Filter by Parameters\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":6},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 132
+  }
+ ]
+}
