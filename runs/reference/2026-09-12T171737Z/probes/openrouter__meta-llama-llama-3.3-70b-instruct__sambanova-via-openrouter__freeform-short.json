@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "SambaNova via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "sambanova"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "sambanova"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-12T17:17:37.566274+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 345
+  },
+  {
+   "ts": "2026-09-12T17:17:37.566876+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 229
+  },
+  {
+   "ts": "2026-09-12T17:17:37.567252+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 225
+  },
+  {
+   "ts": "2026-09-12T17:17:37.567985+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 240
+  },
+  {
+   "ts": "2026-09-12T17:17:37.568390+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 243
+  },
+  {
+   "ts": "2026-09-12T17:17:37.568774+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 250
+  },
+  {
+   "ts": "2026-09-12T17:17:37.569328+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 243
+  },
+  {
+   "ts": "2026-09-12T17:17:37.570705+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 240
+  },
+  {
+   "ts": "2026-09-12T17:17:47.912153+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 75
+  },
+  {
+   "ts": "2026-09-12T17:17:57.987201+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 72
+  }
+ ]
+}

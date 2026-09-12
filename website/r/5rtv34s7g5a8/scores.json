@@ -1,0 +1,38 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "SambaNova via OpenRouter"
+ }
+]

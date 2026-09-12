@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "SambaNova via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "sambanova"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "sambanova"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-12T17:17:58.060283+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 234
+  },
+  {
+   "ts": "2026-09-12T17:17:58.060558+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 233
+  },
+  {
+   "ts": "2026-09-12T17:17:58.062262+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 232
+  },
+  {
+   "ts": "2026-09-12T17:17:58.063383+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 228
+  },
+  {
+   "ts": "2026-09-12T17:17:58.069279+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 229
+  },
+  {
+   "ts": "2026-09-12T17:17:58.070261+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 238
+  },
+  {
+   "ts": "2026-09-12T17:17:58.072262+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 231
+  },
+  {
+   "ts": "2026-09-12T17:17:58.074445+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 231
+  },
+  {
+   "ts": "2026-09-12T17:18:08.308863+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 75
+  },
+  {
+   "ts": "2026-09-12T17:18:18.383585+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":12},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}]}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN\"}",
+   "latency_ms": 79
+  }
+ ]
+}
