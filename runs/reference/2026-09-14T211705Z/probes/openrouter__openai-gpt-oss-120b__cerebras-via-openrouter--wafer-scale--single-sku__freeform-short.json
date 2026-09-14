@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-14T21:18:27.319636+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 397
+  },
+  {
+   "ts": "2026-09-14T21:18:27.319892+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 415
+  },
+  {
+   "ts": "2026-09-14T21:18:27.321294+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 462
+  },
+  {
+   "ts": "2026-09-14T21:18:27.322422+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 467
+  },
+  {
+   "ts": "2026-09-14T21:18:27.328297+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 551
+  },
+  {
+   "ts": "2026-09-14T21:18:27.329276+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 490
+  },
+  {
+   "ts": "2026-09-14T21:18:27.331276+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 486
+  },
+  {
+   "ts": "2026-09-14T21:18:27.332373+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 396
+  },
+  {
+   "ts": "2026-09-14T21:18:37.879831+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 310
+  },
+  {
+   "ts": "2026-09-14T21:18:48.190136+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because rounding can introduce a small error, the error incurred when adding a\u202f+\u202fb first may differ from the error when adding b\u202f+\u202fc first, and the subsequent addition propagates those differences. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "c47a4e2500afbc6c2543299fd34e2c7ce04f8dd1a17d172aae92e0cab2d84ec4",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 335
+  }
+ ]
+}
