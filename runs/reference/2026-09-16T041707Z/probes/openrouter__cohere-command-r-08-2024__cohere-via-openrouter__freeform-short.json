@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "label": "Cohere via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "cohere"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "cohere/command-r-08-2024",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cohere"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-16T04:19:51.297715+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 235
+  },
+  {
+   "ts": "2026-09-16T04:19:51.298006+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 223
+  },
+  {
+   "ts": "2026-09-16T04:19:51.299286+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 233
+  },
+  {
+   "ts": "2026-09-16T04:19:51.300419+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 226
+  },
+  {
+   "ts": "2026-09-16T04:19:51.306295+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 235
+  },
+  {
+   "ts": "2026-09-16T04:19:51.307275+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 224
+  },
+  {
+   "ts": "2026-09-16T04:19:51.309270+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 226
+  },
+  {
+   "ts": "2026-09-16T04:19:51.311441+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 223
+  },
+  {
+   "ts": "2026-09-16T04:20:01.542374+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 71
+  },
+  {
+   "ts": "2026-09-16T04:20:11.613756+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matched multiple reasons):\\nZDR violation (account settings): 1 endpoint excluded; configurable at https://openrouter.ai/settings/privacy\",\"code\":404,\"metadata\":{\"input_endpoint_count\":1,\"ineligibility_reasons\":[{\"reason\":\"zdr-violation-by-account\",\"endpoint_count\":1,\"configure_url\":\"https://openrouter.ai/settings/",
+   "latency_ms": 64
+  }
+ ]
+}
