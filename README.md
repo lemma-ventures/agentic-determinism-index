@@ -32,6 +32,27 @@ python3 -m agentic_determinism_index site --run runs/reference/<timestamp> --out
 
 `run` fires each probe case at each target, a concurrent burst plus spaced serial requests, and writes raw transcripts (`probes/*.json`) plus an environment manifest. `score` turns a run directory into `scores.json` and a human-readable `SCORES.md`. `site` renders a standalone leaderboard page from `scores.json` into a static HTML file. Nothing is uploaded anywhere; everything stays on your disk unless you choose to contribute it.
 
+## The leaderboard as data: `leaderboard.json` and MCP
+
+`site` also writes `leaderboard.json` beside `index.html` (published at
+https://lemma-ventures.github.io/agentic-determinism-index/leaderboard.json):
+every ranked serving tuple with its mean mode share, byte-exact streak, a
+`green` flag (latest scored appearance fully byte-exact - a snapshot, not a
+certification) and the `provider_prefs` the reference config sends to pin
+that tuple (OpenRouter `provider.order` / `allow_fallbacks`), so a router can
+reproduce exactly the stack that was measured.
+
+The same rows are served as MCP tools for agents (stdio, no dependencies):
+
+```bash
+python3 -m agentic_determinism_index mcp                      # the published feed
+python3 -m agentic_determinism_index mcp --run-root runs/reference   # from local runs
+```
+
+Tools: `adi_leaderboard(green_only, provider, limit)`, `adi_tuple(provider, model, label)`,
+`adi_green(provider)`. Register it in any MCP client as
+`{"command": "python3", "args": ["-m", "agentic_determinism_index", "mcp"], "cwd": "<this repo>"}`.
+
 ## What it measures
 
 Per (provider, model, case):

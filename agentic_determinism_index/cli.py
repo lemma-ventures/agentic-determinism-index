@@ -160,7 +160,8 @@ def cmd_site(args):
             file=sys.stderr,
         )
 
-    from .site import write_site
+    from .site import build_payload, write_site
+    from .feed import FEED_NAME, write_feed
 
     paths = write_site(
         out_html=args.out,
@@ -168,8 +169,18 @@ def cmd_site(args):
         run_root=args.run_root,
         watch_dir=args.watch_dir,
     )
+    # The same leaderboard as data, for routers and agents (feed.py, mcp.py).
+    payload = build_payload(run_dir, run_root=args.run_root, watch_dir=args.watch_dir)
+    paths.append(write_feed(os.path.join(os.path.dirname(args.out) or ".", FEED_NAME), payload))
     for p in paths:
         print(p)
+    return 0
+
+
+def cmd_mcp(args):
+    from .mcp import Server, serve
+
+    serve(Server(source=args.feed, run_root=args.run_root))
     return 0
 
 
@@ -249,6 +260,11 @@ def main(argv=None):
                        help="stack-watch history dir (optional drift panel)")
     sitep.add_argument("--out", default="website/index.html")
     sitep.set_defaults(fn=cmd_site)
+
+    mcpp = sub.add_parser("mcp", help="stdio MCP server over the leaderboard (tools: adi_leaderboard, adi_tuple, adi_green)")
+    mcpp.add_argument("--feed", default=None, help="leaderboard.json URL or path (default: the published feed)")
+    mcpp.add_argument("--run-root", default=None, help="build the feed from local scored runs instead")
+    mcpp.set_defaults(fn=cmd_mcp)
 
     watchp = sub.add_parser(
         "watch",
