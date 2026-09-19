@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-09-19T01:21:18.249667Z",
+ "generated_at": "2026-09-19T07:21:12.926593Z",
  "methodology": "METHODOLOGY.md v0.1 - green = latest scored appearance fully byte-exact; a snapshot, not a certification",
- "n_runs": 43,
- "run_stamp": "2026-09-19T011705Z",
+ "n_runs": 44,
+ "run_stamp": "2026-09-19T071705Z",
  "tuples": [
   {
    "base_url": null,
