@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-19T01:18:26.817422+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 601
+  },
+  {
+   "ts": "2026-09-19T01:18:26.817760+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 720
+  },
+  {
+   "ts": "2026-09-19T01:18:26.819294+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 398
+  },
+  {
+   "ts": "2026-09-19T01:18:26.820375+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 453
+  },
+  {
+   "ts": "2026-09-19T01:18:26.827314+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 398
+  },
+  {
+   "ts": "2026-09-19T01:18:26.829276+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 391
+  },
+  {
+   "ts": "2026-09-19T01:18:26.829996+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 423
+  },
+  {
+   "ts": "2026-09-19T01:18:26.835493+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 410
+  },
+  {
+   "ts": "2026-09-19T01:18:37.539051+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 220
+  },
+  {
+   "ts": "2026-09-19T01:18:47.759418+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, causing the two final rounded results to be unequal. Hence the rounding errors introduced at each step break the mathematical associativity of addition.",
+   "sha256": "bc2f8814296545a37f90f543f20326ba486b3a3c268054850618639a7ec35ea0",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 264
+  }
+ ]
+}
