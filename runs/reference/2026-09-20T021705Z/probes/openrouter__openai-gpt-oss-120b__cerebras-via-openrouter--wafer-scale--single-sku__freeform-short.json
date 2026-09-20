@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-20T02:18:27.490303+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 555
+  },
+  {
+   "ts": "2026-09-20T02:18:27.490603+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 384
+  },
+  {
+   "ts": "2026-09-20T02:18:27.492261+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 818
+  },
+  {
+   "ts": "2026-09-20T02:18:27.493389+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 406
+  },
+  {
+   "ts": "2026-09-20T02:18:27.499311+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 381
+  },
+  {
+   "ts": "2026-09-20T02:18:27.500267+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 393
+  },
+  {
+   "ts": "2026-09-20T02:18:27.502280+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 516
+  },
+  {
+   "ts": "2026-09-20T02:18:27.503389+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 398
+  },
+  {
+   "ts": "2026-09-20T02:18:38.311204+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 256
+  },
+  {
+   "ts": "2026-09-20T02:18:48.566962+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, so each operation rounds the exact real result to the nearest representable value. Because the rounding error depends on the magnitude of the operands, adding a small number to a large one may be lost, while adding the small number after an intermediate sum can change the final rounding. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "0aa79c9c70f3584850866b593052840d202b1516a3a3c0ebad5b8209cf3ea853",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 259
+  }
+ ]
+}
