@@ -1,13 +1,13 @@
 {
  "feed_version": 1,
- "generated_at": "2026-09-21T01:18:27.743376Z",
+ "generated_at": "2026-09-21T03:21:22.153722Z",
  "methodology": "METHODOLOGY.md v0.1 - green = latest scored appearance fully byte-exact; a snapshot, not a certification",
- "n_runs": 48,
- "run_stamp": "2026-09-21T011705Z",
+ "n_runs": 49,
+ "run_stamp": "2026-09-21T031706Z",
  "tuples": [
   {
    "base_url": null,
-   "deterministic_runs": 13,
+   "deterministic_runs": 14,
    "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
    "exact_match_rate": 1.0,
    "green": true,
@@ -23,10 +23,10 @@
     ]
    },
    "rank": 1,
-   "runs_seen": 13,
+   "runs_seen": 14,
    "score": 100.0,
-   "score_as_of": "2026-09-20T021705Z",
-   "streak": 13
+   "score_as_of": "2026-09-21T031706Z",
+   "streak": 14
   },
   {
    "base_url": null,
