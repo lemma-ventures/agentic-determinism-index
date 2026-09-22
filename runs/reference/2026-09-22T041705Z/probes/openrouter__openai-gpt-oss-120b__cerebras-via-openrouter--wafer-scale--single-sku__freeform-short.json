@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-22T04:18:27.405819+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 426
+  },
+  {
+   "ts": "2026-09-22T04:18:27.406072+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 433
+  },
+  {
+   "ts": "2026-09-22T04:18:27.407297+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 458
+  },
+  {
+   "ts": "2026-09-22T04:18:27.408399+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 458
+  },
+  {
+   "ts": "2026-09-22T04:18:27.414302+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 405
+  },
+  {
+   "ts": "2026-09-22T04:18:27.415273+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 512
+  },
+  {
+   "ts": "2026-09-22T04:18:27.417270+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 447
+  },
+  {
+   "ts": "2026-09-22T04:18:27.419441+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 408
+  },
+  {
+   "ts": "2026-09-22T04:18:37.928632+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 235
+  },
+  {
+   "ts": "2026-09-22T04:18:48.164154+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may differ from the intermediate sum in \\(a+(b+c)\\), causing the final rounded results to diverge. Hence the rounding errors introduced at each step break the mathematical associativity of addition in floating\u2011point arithmetic.",
+   "sha256": "4e659f981f10b2b6fadfe77e990065948b4279066cdd2b21cbae3634fc219d46",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 612
+  }
+ ]
+}
