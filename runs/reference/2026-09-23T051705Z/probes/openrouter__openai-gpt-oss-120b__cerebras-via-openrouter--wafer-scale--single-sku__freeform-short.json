@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-23T05:18:27.062287+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 409
+  },
+  {
+   "ts": "2026-09-23T05:18:27.062603+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 442
+  },
+  {
+   "ts": "2026-09-23T05:18:27.064298+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 468
+  },
+  {
+   "ts": "2026-09-23T05:18:27.065452+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 410
+  },
+  {
+   "ts": "2026-09-23T05:18:27.071319+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 682
+  },
+  {
+   "ts": "2026-09-23T05:18:27.072284+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 652
+  },
+  {
+   "ts": "2026-09-23T05:18:27.074298+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 561
+  },
+  {
+   "ts": "2026-09-23T05:18:27.076447+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 395
+  },
+  {
+   "ts": "2026-09-23T05:18:37.753919+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_752b9cb17e04d95d05c3",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 235
+  },
+  {
+   "ts": "2026-09-23T05:18:47.988874+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the error introduced by the first addition may be amplified or reduced when a third operand is added, depending on the grouping of the operations. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different rounded results, breaking the associativity property.",
+   "sha256": "6f2a38b865ed9c9d887cf1148b0c666caf290cb222d4261171edb08d0925752f",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 222
+  }
+ ]
+}
