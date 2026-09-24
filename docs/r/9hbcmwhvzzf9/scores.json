@@ -1,0 +1,110 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "cohere/command-r-08-2024",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cohere via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Cloudflare via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "OpenAI via OpenRouter"
+ }
+]
