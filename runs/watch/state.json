@@ -20,12 +20,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-09-19T06:17:05.188772+00:00",
+      "last_ts": "2026-09-25T06:17:36.496655+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1790314687.8295612,
+      "next_due_epoch": 1791001639.1614704,
       "provider": "nvidia_nim",
-      "stable_streak": 15,
-      "ticks": 15
+      "stable_streak": 16,
+      "ticks": 16
     },
     "nvidia_nim|meta/llama-3.2-11b-vision-instruct|NIM hosted + NIM_FORCE_DETERMINISTIC header": {
       "byte_exact": false,
@@ -67,7 +67,7 @@
       "last_score_epoch": 1790252489.5238812,
       "last_score_stamp": "2026-09-24T121722Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1790317392.5886416,
+      "next_due_epoch": 1790323782.71068,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -77,12 +77,12 @@
       "label": "AtlasCloud via OpenRouter (SGLang partner)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1790230879.2106068,
-      "last_score_stamp": "2026-09-24T061706Z",
+      "last_score_epoch": 1790320876.3027039,
+      "last_score_stamp": "2026-09-25T071702Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1790317378.5688474,
+      "next_due_epoch": 1790324428.9187233,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -110,7 +110,7 @@
       "last_score_epoch": 1790252489.5238812,
       "last_score_stamp": "2026-09-24T121722Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1790316589.4569333,
+      "next_due_epoch": 1790323758.7161412,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -230,7 +230,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1790314027.9410586,
+      "next_due_epoch": 1790324460.0617821,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -276,7 +276,7 @@
       "last_score_epoch": 1790252489.5238812,
       "last_score_stamp": "2026-09-24T121722Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1790317084.8079054,
+      "next_due_epoch": 1790323834.0040355,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -302,12 +302,12 @@
       "last_fingerprint": null,
       "last_mode_share": 1.0,
       "last_model_version": null,
-      "last_score_epoch": 1790230879.2106068,
-      "last_score_stamp": "2026-09-24T061706Z",
+      "last_score_epoch": 1790320876.3027039,
+      "last_score_stamp": "2026-09-25T071702Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1790316851.5341938,
+      "next_due_epoch": 1790321101.8042262,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -339,7 +339,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-09-14T19:17:22.050733+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1790320355.097797,
+      "next_due_epoch": 1790334954.2355478,
       "provider": "openrouter",
       "stable_streak": 1,
       "ticks": 1
@@ -378,16 +378,16 @@
       "label": "Thinking Machines direct (batch-invariant claim)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1790230879.2106068,
-      "last_score_stamp": "2026-09-24T061706Z",
+      "last_score_epoch": 1790320876.3027039,
+      "last_score_stamp": "2026-09-25T071702Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1790317426.9361758,
+      "next_due_epoch": 1790324606.2910862,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-09-25T05:19:00.401220+00:00"
+  "updated": "2026-09-25T07:21:16.302728+00:00"
 }
