@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Cloudflare via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "cloudflare"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cloudflare"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-26T14:20:03.985687+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 211
+  },
+  {
+   "ts": "2026-09-26T14:20:03.986006+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 204
+  },
+  {
+   "ts": "2026-09-26T14:20:03.987299+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 224
+  },
+  {
+   "ts": "2026-09-26T14:20:03.988395+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 233
+  },
+  {
+   "ts": "2026-09-26T14:20:03.994282+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 209
+  },
+  {
+   "ts": "2026-09-26T14:20:03.995257+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 214
+  },
+  {
+   "ts": "2026-09-26T14:20:03.997262+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 211
+  },
+  {
+   "ts": "2026-09-26T14:20:03.999417+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 212
+  },
+  {
+   "ts": "2026-09-26T14:20:14.222078+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 64
+  },
+  {
+   "ts": "2026-09-26T14:20:24.286533+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp8, novita/fp8, groq, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":4,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\"",
+   "latency_ms": 241
+  }
+ ]
+}
