@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-26T08:18:48.493241+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 721
+  },
+  {
+   "ts": "2026-09-26T08:18:48.493503+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 578
+  },
+  {
+   "ts": "2026-09-26T08:18:48.495251+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 735
+  },
+  {
+   "ts": "2026-09-26T08:18:48.496418+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 548
+  },
+  {
+   "ts": "2026-09-26T08:18:48.502277+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 590
+  },
+  {
+   "ts": "2026-09-26T08:18:48.503262+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 693
+  },
+  {
+   "ts": "2026-09-26T08:18:48.504365+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 584
+  },
+  {
+   "ts": "2026-09-26T08:18:48.505259+00:00",
+   "mode": "burst",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 846
+  },
+  {
+   "ts": "2026-09-26T08:18:59.352061+00:00",
+   "mode": "serial",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 365
+  },
+  {
+   "ts": "2026-09-26T08:19:09.717464+00:00",
+   "mode": "serial",
+   "text": "First, add the boxes on the three floors.\n\n\\[\n\\begin{aligned}\n\\text{Floor 1} &= 1284 \\\\\n\\text{Floor 2} &= 907 \\\\\n\\text{Floor 3} &= 2156 \\\\\n\\text{Total boxes} &= 1284 + 907 + 2156 \\\\\n&= 2191 + 2156 \\\\\n&= 4347.\n\\end{aligned}\n\\]\n\nEach truck can carry **85** boxes.  \nTo find how many trucks can be completely filled, divide the total number of boxes by 85 and keep only the whole\u2011number part.\n\n\\[\n\\frac{4347}{85} \\approx 51.14.\n\\]\n\nSo the greatest whole number of fully loaded trucks is **51**.\n\nNow compute how many boxes are left after loading those 51 trucks:\n\n\\[\n85 \\times 51 = 4335 \\text{ boxes loaded}.\n\\]\n\n\\[\n\\text{Remaining boxes} = 4347 - 4335 = 12.\n\\]\n\nThus, 51 trucks can be fully loaded, and 12 boxes will remain unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "a2729497672b16506e9d31a24fbe7181009163f5d0c859126695d137db517c39",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 313
+  }
+ ]
+}

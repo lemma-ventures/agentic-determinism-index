@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-26T08:18:27.257513+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 365
+  },
+  {
+   "ts": "2026-09-26T08:18:27.257779+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 483
+  },
+  {
+   "ts": "2026-09-26T08:18:27.259293+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 703
+  },
+  {
+   "ts": "2026-09-26T08:18:27.260403+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 447
+  },
+  {
+   "ts": "2026-09-26T08:18:27.266301+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 379
+  },
+  {
+   "ts": "2026-09-26T08:18:27.267243+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 457
+  },
+  {
+   "ts": "2026-09-26T08:18:27.269037+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 684
+  },
+  {
+   "ts": "2026-09-26T08:18:27.269378+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 390
+  },
+  {
+   "ts": "2026-09-26T08:18:37.963629+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 223
+  },
+  {
+   "ts": "2026-09-26T08:18:48.186661+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have a finite precision, so when two operands are added the result is rounded to the nearest representable value. Because rounding can discard low\u2011order bits, the intermediate sum in \\((a+b)+c\\) may lose information that would affect the final result, while the sum \\(a+(b+c)\\) may retain different bits before the final rounding. Consequently the two ways of grouping the same three numbers can produce different rounded results, breaking associativity.",
+   "sha256": "69387baf2838fbce5248bc5a2547521088e98d6bfde285df9fc95c1940acc16d",
+   "fingerprint": "fp_b546658c8e93d2e57ef2",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 306
+  }
+ ]
+}
