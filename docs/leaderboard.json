@@ -1,33 +1,10 @@
 {
  "feed_version": 1,
- "generated_at": "2026-09-27T07:18:33.899073Z",
+ "generated_at": "2026-09-27T09:21:48.062505Z",
  "methodology": "METHODOLOGY.md v0.1 - green = latest scored appearance fully byte-exact; a snapshot, not a certification",
- "n_runs": 66,
- "run_stamp": "2026-09-27T071711Z",
+ "n_runs": 67,
+ "run_stamp": "2026-09-27T091736Z",
  "tuples": [
-  {
-   "base_url": null,
-   "deterministic_runs": 19,
-   "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "exact_match_rate": 1.0,
-   "green": true,
-   "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "mean_mode_share": 1.0,
-   "medal": "1st",
-   "model": "openai/gpt-oss-120b",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "cerebras"
-    ]
-   },
-   "rank": 1,
-   "runs_seen": 19,
-   "score": 100.0,
-   "score_as_of": "2026-09-26T081705Z",
-   "streak": 19
-  },
   {
    "base_url": null,
    "deterministic_runs": 3,
@@ -36,7 +13,7 @@
    "green": false,
    "label": "Groq via OpenRouter",
    "mean_mode_share": 0.95,
-   "medal": "2nd",
+   "medal": "1st",
    "model": "meta-llama/llama-3.1-8b-instruct",
    "provider": "openrouter",
    "provider_prefs": {
@@ -45,10 +22,33 @@
      "groq"
     ]
    },
-   "rank": 2,
+   "rank": 1,
    "runs_seen": 4,
    "score": 89.25,
    "score_as_of": "2026-09-04T171705Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 19,
+   "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+   "exact_match_rate": 0.75,
+   "green": false,
+   "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+   "mean_mode_share": 0.95,
+   "medal": "2nd",
+   "model": "openai/gpt-oss-120b",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "rank": 2,
+   "runs_seen": 20,
+   "score": 89.25,
+   "score_as_of": "2026-09-27T091736Z",
    "streak": 0
   },
   {
