@@ -54,12 +54,12 @@
       "last_score_epoch": 1788365186.3993752,
       "last_score_stamp": "2026-09-02T154024Z",
       "last_stack_id": "fp:Amazon Bedrock|mv:amazon/nova-lite-v1",
-      "last_ts": "2026-09-19T13:17:04.917124+00:00",
+      "last_ts": "2026-09-26T17:17:36.469973+00:00",
       "model": "amazon/nova-lite-v1",
-      "next_due_epoch": 1790442848.116722,
+      "next_due_epoch": 1791027955.0631459,
       "provider": "openrouter",
-      "stable_streak": 15,
-      "ticks": 15
+      "stable_streak": 16,
+      "ticks": 16
     },
     "openrouter|cohere/command-r-08-2024|Cohere via OpenRouter": {
       "interval_s": 3600,
@@ -67,7 +67,7 @@
       "last_score_epoch": 1790432506.6366758,
       "last_score_stamp": "2026-09-26T141741Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1790432493.9064138,
+      "next_due_epoch": 1790493529.4795833,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -82,7 +82,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1790435793.1360915,
+      "next_due_epoch": 1790493593.011308,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -110,7 +110,7 @@
       "last_score_epoch": 1790432506.6366758,
       "last_score_stamp": "2026-09-26T141741Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1790435787.0233686,
+      "next_due_epoch": 1790496809.0329773,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -150,21 +150,21 @@
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": false,
-      "drifts": 71,
+      "drifts": 74,
       "interval_s": 14400,
       "label": "Groq via OpenRouter",
-      "last_fingerprint": "fp_e2c608b1d6",
+      "last_fingerprint": "fp_020e283281",
       "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.1-8b-instruct",
       "last_score_epoch": 1788542561.7011082,
       "last_score_stamp": "2026-09-04T171705Z",
-      "last_stack_id": "fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-09-26T11:17:21.227215+00:00",
+      "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
+      "last_ts": "2026-09-27T05:17:36.770719+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1790437871.7963874,
+      "next_due_epoch": 1790502373.6544461,
       "provider": "openrouter",
       "stable_streak": 0,
-      "ticks": 139
+      "ticks": 143
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -225,12 +225,12 @@
       "label": "SambaNova via OpenRouter",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1790403509.118231,
-      "last_score_stamp": "2026-09-26T061705Z",
+      "last_score_epoch": 1790493513.4974926,
+      "last_score_stamp": "2026-09-27T071711Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1790435897.225533,
+      "next_due_epoch": 1790493835.2447636,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -276,7 +276,7 @@
       "last_score_epoch": 1790432506.6366758,
       "last_score_stamp": "2026-09-26T141741Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1790435212.3477936,
+      "next_due_epoch": 1790493589.752104,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -307,7 +307,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1790432388.087699,
+      "next_due_epoch": 1790496857.6115472,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -339,7 +339,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-09-25T16:17:37.070407+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1790445373.0607133,
+      "next_due_epoch": 1790507232.3421867,
       "provider": "openrouter",
       "stable_streak": 2,
       "ticks": 2
@@ -383,11 +383,11 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1790435970.636706,
+      "next_due_epoch": 1790496417.6791103,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-09-26T14:21:46.636698+00:00"
+  "updated": "2026-09-27T07:18:33.497506+00:00"
 }
