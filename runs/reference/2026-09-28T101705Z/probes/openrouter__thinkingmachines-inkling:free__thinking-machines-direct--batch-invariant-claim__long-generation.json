@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "thinkingmachines/inkling:free",
+  "label": "Thinking Machines direct (batch-invariant claim)",
+  "provider_prefs": {
+   "order": [
+    "thinkingmachines"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "thinkingmachines/inkling:free",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "thinkingmachines"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-09-28T10:18:06.893543+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 338
+  },
+  {
+   "ts": "2026-09-28T10:18:06.893852+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 260
+  },
+  {
+   "ts": "2026-09-28T10:18:06.895271+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 259
+  },
+  {
+   "ts": "2026-09-28T10:18:06.896412+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 268
+  },
+  {
+   "ts": "2026-09-28T10:18:06.902285+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 278
+  },
+  {
+   "ts": "2026-09-28T10:18:06.903261+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 263
+  },
+  {
+   "ts": "2026-09-28T10:18:06.907286+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 259
+  },
+  {
+   "ts": "2026-09-28T10:18:06.909430+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 255
+  },
+  {
+   "ts": "2026-09-28T10:18:17.232036+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 60
+  },
+  {
+   "ts": "2026-09-28T10:18:27.292113+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"message\":\"thinkingmachines/inkling:free is only available on agentic harnesses. Try plugging it into a coding agent or productivity app listed on https://openrouter.ai/apps\",\"code\":403,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":1}],\"failed_routing_step\":\"Gate Free Endpoints by Agentic Harness\"}}}",
+   "latency_ms": 59
+  }
+ ]
+}
