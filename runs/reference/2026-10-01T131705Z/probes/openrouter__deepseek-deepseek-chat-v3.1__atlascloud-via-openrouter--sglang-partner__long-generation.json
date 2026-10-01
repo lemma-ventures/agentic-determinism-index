@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "AtlasCloud via OpenRouter (SGLang partner)",
+  "provider_prefs": {
+   "order": [
+    "atlas-cloud"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "atlas-cloud"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-01T13:19:30.241314+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 280
+  },
+  {
+   "ts": "2026-10-01T13:19:30.241561+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 298
+  },
+  {
+   "ts": "2026-10-01T13:19:30.243274+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 285
+  },
+  {
+   "ts": "2026-10-01T13:19:30.244396+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 255
+  },
+  {
+   "ts": "2026-10-01T13:19:30.249276+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 251
+  },
+  {
+   "ts": "2026-10-01T13:19:30.251266+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 298
+  },
+  {
+   "ts": "2026-10-01T13:19:30.252361+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 262
+  },
+  {
+   "ts": "2026-10-01T13:19:30.253260+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 280
+  },
+  {
+   "ts": "2026-10-01T13:19:40.550249+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 103
+  },
+  {
+   "ts": "2026-10-01T13:19:50.653772+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed atlas-cloud/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, siliconflow/fp8, coreweave/fp8, mara, sambanova/fp8, google-vertex/us-west2.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":7},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":6,\"reason\":\"ZDR violation (account s",
+   "latency_ms": 84
+  }
+ ]
+}

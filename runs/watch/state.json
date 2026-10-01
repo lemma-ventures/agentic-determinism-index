@@ -67,7 +67,7 @@
       "last_score_epoch": 1790792475.2409608,
       "last_score_stamp": "2026-09-30T181705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1790856910.3178647,
+      "next_due_epoch": 1790860748.4954224,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -77,12 +77,12 @@
       "label": "AtlasCloud via OpenRouter (SGLang partner)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1790770788.927558,
-      "last_score_stamp": "2026-09-30T121705Z",
+      "last_score_epoch": 1790860790.9144402,
+      "last_score_stamp": "2026-10-01T131705Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1790856509.9128141,
+      "next_due_epoch": 1790863949.8903866,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -110,7 +110,7 @@
       "last_score_epoch": 1790792475.2409608,
       "last_score_stamp": "2026-09-30T181705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1790857423.8146193,
+      "next_due_epoch": 1790864554.1252139,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -230,7 +230,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1790857733.528313,
+      "next_due_epoch": 1790864426.5571315,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -276,7 +276,7 @@
       "last_score_epoch": 1790792475.2409608,
       "last_score_stamp": "2026-09-30T181705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1790853775.4177408,
+      "next_due_epoch": 1790861237.5953126,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -339,7 +339,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-09-25T16:17:37.070407+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1790859245.0023713,
+      "next_due_epoch": 1790872805.795136,
       "provider": "openrouter",
       "stable_streak": 2,
       "ticks": 2
@@ -378,16 +378,16 @@
       "label": "Thinking Machines direct (batch-invariant claim)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1790770788.927558,
-      "last_score_stamp": "2026-09-30T121705Z",
+      "last_score_epoch": 1790860790.9144402,
+      "last_score_stamp": "2026-10-01T131705Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1790853731.4106236,
+      "next_due_epoch": 1790861275.7209299,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-10-01T11:18:30.183654+00:00"
+  "updated": "2026-10-01T13:19:50.914458+00:00"
 }
