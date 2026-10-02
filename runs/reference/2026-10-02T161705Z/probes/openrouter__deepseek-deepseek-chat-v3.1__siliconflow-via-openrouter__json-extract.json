@@ -1,0 +1,146 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "SiliconFlow via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "siliconflow"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "json-extract",
+  "expect": "json",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300,
+   "json": true
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "siliconflow"
+    ]
+   },
+   "response_format": {
+    "type": "json_object"
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-02T16:29:34.459293+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4647
+  },
+  {
+   "ts": "2026-10-02T16:29:34.459623+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 3599
+  },
+  {
+   "ts": "2026-10-02T16:29:34.461270+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 3597
+  },
+  {
+   "ts": "2026-10-02T16:29:34.462383+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4027
+  },
+  {
+   "ts": "2026-10-02T16:29:34.468328+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Aventra GmbH\", \"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "f174aa61fba71d183da38071441d00455d88342275b5f0eba8df8dc6ac12cf1b",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4887
+  },
+  {
+   "ts": "2026-10-02T16:29:34.469265+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4628
+  },
+  {
+   "ts": "2026-10-02T16:29:34.470415+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4625
+  },
+  {
+   "ts": "2026-10-02T16:29:34.472193+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 4632
+  },
+  {
+   "ts": "2026-10-02T16:29:49.356096+00:00",
+   "mode": "serial",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 3467
+  },
+  {
+   "ts": "2026-10-02T16:30:02.823077+00:00",
+   "mode": "serial",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 3806
+  }
+ ]
+}

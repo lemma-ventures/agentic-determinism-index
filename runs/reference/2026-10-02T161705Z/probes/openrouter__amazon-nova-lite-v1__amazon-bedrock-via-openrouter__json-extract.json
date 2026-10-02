@@ -1,0 +1,146 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "label": "Amazon Bedrock via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "amazon-bedrock"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "json-extract",
+  "expect": "json",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300,
+   "json": true
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'",
+     "role": "user"
+    }
+   ],
+   "model": "amazon/nova-lite-v1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "amazon-bedrock"
+    ]
+   },
+   "response_format": {
+    "type": "json_object"
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-02T16:26:44.149901+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1085
+  },
+  {
+   "ts": "2026-10-02T16:26:44.150210+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 829
+  },
+  {
+   "ts": "2026-10-02T16:26:44.151284+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 826
+  },
+  {
+   "ts": "2026-10-02T16:26:44.152425+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1093
+  },
+  {
+   "ts": "2026-10-02T16:26:44.158291+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 805
+  },
+  {
+   "ts": "2026-10-02T16:26:44.159268+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1267
+  },
+  {
+   "ts": "2026-10-02T16:26:44.161260+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 980
+  },
+  {
+   "ts": "2026-10-02T16:26:44.163281+00:00",
+   "mode": "burst",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1432
+  },
+  {
+   "ts": "2026-10-02T16:26:55.596671+00:00",
+   "mode": "serial",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 578
+  },
+  {
+   "ts": "2026-10-02T16:27:06.174710+00:00",
+   "mode": "serial",
+   "text": "```json\n{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\n    \"Baltik Systems\",\n    \"Corenz SA\"\n  ]\n}\n```",
+   "sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 576
+  }
+ ]
+}

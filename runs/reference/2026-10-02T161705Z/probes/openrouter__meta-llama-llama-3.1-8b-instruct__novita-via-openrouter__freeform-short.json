@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Novita via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "novita"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "novita"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-02T16:23:42.584695+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 can be computed as 3.3 + (1.1 + 2.2) if the intermediate result is rounded to a different value. This can lead to different final results, demonstrating that floating-point addition is not associative.",
+   "sha256": "96ec253d1f4a1816b2be603ce790e5611d3856091be38d0fcb6286b6bc9355f2",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1234
+  },
+  {
+   "ts": "2026-10-02T16:23:42.584966+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 can be computed as 3.3 + (1.1 + 2.2) = 4.4 + 3.3 = 7.7, but 1.1 + (2.2 + 3.3) = 1.1 + 5.5 = 6.6. This is because the intermediate result 1.1 + 2.2 is rounded to 3.3, which is then added to 3.3, but if 2.2 + 3.3 is computed first, the intermediate result is 5.5, which is then added to 1.1.",
+   "sha256": "5e365a6f228ecb53dab2c4b9c0aaf1842cdd593a1131e9ffec548458a001c3c0",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 2107
+  },
+  {
+   "ts": "2026-10-02T16:23:42.586284+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different final result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to affect the outcome.",
+   "sha256": "1be2c44a11579dd57c862c0fc45ae7f166a5ec9c9aaaf8c706894306f4d2370f",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1607
+  },
+  {
+   "ts": "2026-10-02T16:23:42.587400+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different final result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, leading to a loss of precision.",
+   "sha256": "c89efb16465d1fdd0b00936236d500854a0f9f1de553c9c91a019db05b168859",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1584
+  },
+  {
+   "ts": "2026-10-02T16:23:42.593281+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 can be computed as 3.3 + (1.1 + 2.2) = 4.4 + 3.3 = 7.7, but 1.1 + (2.2 + 3.3) = 1.1 + 5.5 = 6.6. This is because the intermediate result 1.1 + 2.2 is rounded to 3.3, which is then added to 3.3, but if 2.2 + 3.3 is computed first, the intermediate result is 5.5, which is then added to 1.1.",
+   "sha256": "5e365a6f228ecb53dab2c4b9c0aaf1842cdd593a1131e9ffec548458a001c3c0",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 2113
+  },
+  {
+   "ts": "2026-10-02T16:23:42.594272+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different final result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to affect the outcome.",
+   "sha256": "1be2c44a11579dd57c862c0fc45ae7f166a5ec9c9aaaf8c706894306f4d2370f",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1784
+  },
+  {
+   "ts": "2026-10-02T16:23:42.596250+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 can be computed as 3.3 + (1.1 + 2.2) = 4.4 + 3.3 = 7.7, but 1.1 + (2.2 + 3.3) = 1.1 + 5.5 = 6.6. This is because the intermediate result 1.1 + 2.2 is rounded to 3.3, which is then added to 3.3, but if 2.2 + 3.3 is computed first, the intermediate result is 5.5, which is then added to 1.1.",
+   "sha256": "5e365a6f228ecb53dab2c4b9c0aaf1842cdd593a1131e9ffec548458a001c3c0",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 2095
+  },
+  {
+   "ts": "2026-10-02T16:23:42.598264+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 can be computed as 3.3 + (1.1 + 2.2) if the intermediate result is rounded to the nearest representable value, resulting in 6.4, whereas the correct result is 6.6. This is because the intermediate result 3.3 + 3.3 is rounded to 6.3, and then 1.1 + 2.2 is rounded to 3.3, resulting in a final result of 9.6.",
+   "sha256": "29907ee1d3aacdfbbad094755ce7f54842da937a4c1da96a1fa6d2ca16260936",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1781
+  },
+  {
+   "ts": "2026-10-02T16:23:54.707399+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing a loss of precision.",
+   "sha256": "66cc444af3bd775ea5e5038f2674f4e2b6146376f1f1fd4e6a96a10756ae9938",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1125
+  },
+  {
+   "ts": "2026-10-02T16:24:05.832515+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 can be computed as 3.3 + (1.1 + 2.2) if the intermediate result is rounded to a different value. This can lead to different final results, demonstrating that floating-point addition is not associative.",
+   "sha256": "96ec253d1f4a1816b2be603ce790e5611d3856091be38d0fcb6286b6bc9355f2",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 6903
+  }
+ ]
+}

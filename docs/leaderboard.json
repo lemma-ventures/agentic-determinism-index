@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-02T14:19:46.745942Z",
+ "generated_at": "2026-10-02T16:44:43.453772Z",
  "methodology": "METHODOLOGY.md v0.1 - green = latest scored appearance fully byte-exact; a snapshot, not a certification",
- "n_runs": 82,
- "run_stamp": "2026-10-02T141701Z",
+ "n_runs": 83,
+ "run_stamp": "2026-10-02T161705Z",
  "tuples": [
   {
    "base_url": null,
@@ -55,10 +55,10 @@
    "base_url": null,
    "deterministic_runs": 1,
    "display": "CoreWeave via OpenRouter",
-   "exact_match_rate": 0.0,
+   "exact_match_rate": 0.5,
    "green": false,
    "label": "CoreWeave via OpenRouter",
-   "mean_mode_share": 0.9,
+   "mean_mode_share": 0.8195,
    "medal": "3rd",
    "model": "meta-llama/llama-3.1-8b-instruct",
    "provider": "openrouter",
@@ -69,9 +69,50 @@
     ]
    },
    "rank": 3,
-   "runs_seen": 2,
-   "score": 65.5,
-   "score_as_of": "2026-09-02T154024Z",
+   "runs_seen": 3,
+   "score": 71.68,
+   "score_as_of": "2026-10-02T161705Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+   "exact_match_rate": 0.5,
+   "green": false,
+   "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+   "mean_mode_share": 0.8,
+   "medal": "",
+   "model": "meta/llama-3.2-11b-vision-instruct",
+   "provider": "nvidia_nim",
+   "provider_prefs": null,
+   "rank": 4,
+   "runs_seen": 3,
+   "score": 70.17,
+   "score_as_of": "2026-10-02T161705Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "DeepInfra via OpenRouter",
+   "exact_match_rate": 0.5,
+   "green": false,
+   "label": "DeepInfra via OpenRouter",
+   "mean_mode_share": 0.75,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "deepinfra"
+    ]
+   },
+   "rank": 5,
+   "runs_seen": 3,
+   "score": 67.5,
+   "score_as_of": "2026-10-02T161705Z",
    "streak": 0
   },
   {
@@ -91,7 +132,7 @@
      "nebius"
     ]
    },
-   "rank": 4,
+   "rank": 6,
    "runs_seen": 1,
    "score": 61.42,
    "score_as_of": "2026-09-07T123353Z",
@@ -101,59 +142,18 @@
    "base_url": null,
    "deterministic_runs": 0,
    "display": "NIM hosted (default)",
-   "exact_match_rate": 0.0,
+   "exact_match_rate": 0.25,
    "green": false,
    "label": "NIM hosted (default)",
-   "mean_mode_share": 0.8,
+   "mean_mode_share": 0.6347,
    "medal": "",
    "model": "meta/llama-3.2-11b-vision-instruct",
    "provider": "nvidia_nim",
    "provider_prefs": null,
-   "rank": 5,
-   "runs_seen": 2,
-   "score": 58.5,
-   "score_as_of": "2026-09-02T154024Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
-   "mean_mode_share": 0.75,
-   "medal": "",
-   "model": "meta/llama-3.2-11b-vision-instruct",
-   "provider": "nvidia_nim",
-   "provider_prefs": null,
-   "rank": 6,
-   "runs_seen": 2,
-   "score": 55.0,
-   "score_as_of": "2026-09-02T154024Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "DeepInfra via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "label": "DeepInfra via OpenRouter",
-   "mean_mode_share": 0.6,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "deepinfra"
-    ]
-   },
    "rank": 7,
-   "runs_seen": 2,
-   "score": 44.5,
-   "score_as_of": "2026-09-02T154024Z",
+   "runs_seen": 3,
+   "score": 52.11,
+   "score_as_of": "2026-10-02T161705Z",
    "streak": 0
   },
   {
@@ -228,6 +228,29 @@
   {
    "base_url": null,
    "deterministic_runs": 0,
+   "display": "Azure via OpenRouter",
+   "exact_match_rate": 0.25,
+   "green": false,
+   "label": "Azure via OpenRouter",
+   "mean_mode_share": 0.425,
+   "medal": "",
+   "model": "openai/gpt-4o-mini",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "azure"
+    ]
+   },
+   "rank": 11,
+   "runs_seen": 3,
+   "score": 36.74,
+   "score_as_of": "2026-10-02T161705Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
    "display": "openrouter/openai/gpt-4o-mini",
    "exact_match_rate": 0.25,
    "green": false,
@@ -237,10 +260,56 @@
    "model": "openai/gpt-4o-mini",
    "provider": "openrouter",
    "provider_prefs": null,
-   "rank": 11,
+   "rank": 12,
    "runs_seen": 1,
    "score": 36.49,
    "score_as_of": "2026-09-01T100929Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "Amazon Bedrock via OpenRouter",
+   "exact_match_rate": 0.25,
+   "green": false,
+   "label": "Amazon Bedrock via OpenRouter",
+   "mean_mode_share": 0.4,
+   "medal": "",
+   "model": "amazon/nova-lite-v1",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "amazon-bedrock"
+    ]
+   },
+   "rank": 13,
+   "runs_seen": 3,
+   "score": 34.96,
+   "score_as_of": "2026-10-02T161705Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "Novita via OpenRouter",
+   "exact_match_rate": 0.25,
+   "green": false,
+   "label": "Novita via OpenRouter",
+   "mean_mode_share": 0.375,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "novita"
+    ]
+   },
+   "rank": 14,
+   "runs_seen": 2,
+   "score": 33.24,
+   "score_as_of": "2026-10-02T161705Z",
    "streak": 0
   },
   {
@@ -255,10 +324,33 @@
    "model": "meta-llama/llama-3.1-8b-instruct",
    "provider": "openrouter",
    "provider_prefs": null,
-   "rank": 12,
+   "rank": 15,
    "runs_seen": 1,
    "score": 31.87,
    "score_as_of": "2026-09-01T100929Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "SiliconFlow via OpenRouter",
+   "exact_match_rate": 0.0,
+   "green": false,
+   "label": "SiliconFlow via OpenRouter",
+   "mean_mode_share": 0.375,
+   "medal": "",
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "siliconflow"
+    ]
+   },
+   "rank": 16,
+   "runs_seen": 3,
+   "score": 26.99,
+   "score_as_of": "2026-10-02T161705Z",
    "streak": 0
   },
   {
@@ -278,102 +370,10 @@
      "phala"
     ]
    },
-   "rank": 13,
+   "rank": 17,
    "runs_seen": 1,
    "score": 23.4,
    "score_as_of": "2026-09-07T141801Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "SiliconFlow via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "label": "SiliconFlow via OpenRouter",
-   "mean_mode_share": 0.3,
-   "medal": "",
-   "model": "deepseek/deepseek-chat-v3.1",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "siliconflow"
-    ]
-   },
-   "rank": 14,
-   "runs_seen": 2,
-   "score": 21.71,
-   "score_as_of": "2026-09-02T154024Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Azure via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "label": "Azure via OpenRouter",
-   "mean_mode_share": 0.3,
-   "medal": "",
-   "model": "openai/gpt-4o-mini",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "azure"
-    ]
-   },
-   "rank": 15,
-   "runs_seen": 2,
-   "score": 21.71,
-   "score_as_of": "2026-09-02T154024Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Amazon Bedrock via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "label": "Amazon Bedrock via OpenRouter",
-   "mean_mode_share": 0.2,
-   "medal": "",
-   "model": "amazon/nova-lite-v1",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "amazon-bedrock"
-    ]
-   },
-   "rank": 16,
-   "runs_seen": 2,
-   "score": 14.62,
-   "score_as_of": "2026-09-02T154024Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Novita via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "label": "Novita via OpenRouter",
-   "mean_mode_share": 0.2,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "novita"
-    ]
-   },
-   "rank": 17,
-   "runs_seen": 1,
-   "score": 14.62,
-   "score_as_of": "2026-09-01T110738Z",
    "streak": 0
   }
  ]

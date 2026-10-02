@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "label": "Azure via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "azure"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-4o-mini",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "azure"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-02T16:17:05.119773+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order in which the additions are performed can affect the intermediate results, causing different rounding errors to accumulate. As a result, the final sum can vary depending on the grouping of the operands, violating the associative property.",
+   "sha256": "c124bfc242a9fbcef3faedeed4e8118b8c2e2e3719401180dba5ef6ac32f07da",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2783
+  },
+  {
+   "ts": "2026-10-02T16:17:05.120413+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order in which the additions are performed can affect the intermediate results, causing different rounding errors to accumulate. As a result, the sum of the numbers can vary depending on the grouping of the operations, violating the associative property.",
+   "sha256": "7433ac5c7e71686e537b997fe24e9586df50a6b5781cb1fd6156b1d90a1d3340",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2849
+  },
+  {
+   "ts": "2026-10-02T16:17:05.121253+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order in which the additions are performed can affect the intermediate results, causing different rounding errors to accumulate. As a result, the sum of the numbers can vary depending on the grouping of the operations, violating the associative property.",
+   "sha256": "7433ac5c7e71686e537b997fe24e9586df50a6b5781cb1fd6156b1d90a1d3340",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2849
+  },
+  {
+   "ts": "2026-10-02T16:17:05.122871+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order of operations can affect the intermediate results, causing different rounding errors depending on how the numbers are grouped. As a result, the sum of the numbers can vary based on the sequence in which the additions are performed, violating the associative property.",
+   "sha256": "b9973e28d038c14c08c15961da8a54d9306593939fc89a2687072524dad053d2",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2064
+  },
+  {
+   "ts": "2026-10-02T16:17:05.123249+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order in which the additions are performed can affect the intermediate results, causing different rounding errors to accumulate. As a result, the sum of the numbers can vary depending on the grouping of the operations, violating the associative property.",
+   "sha256": "7433ac5c7e71686e537b997fe24e9586df50a6b5781cb1fd6156b1d90a1d3340",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2104
+  },
+  {
+   "ts": "2026-10-02T16:17:05.123761+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order of operations can affect the intermediate results, causing different rounding errors depending on how the numbers are grouped. As a result, \\( (a + b) + c \\) may yield a different result than \\( a + (b + c) \\), demonstrating the non-associative nature of floating-point arithmetic.",
+   "sha256": "c4468ae2d54aeb3c91289ab9353c2b65e84dc8b30b60d1ff6e8080d0ae6ce5aa",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 3065
+  },
+  {
+   "ts": "2026-10-02T16:17:05.127276+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order in which the additions are performed can affect the intermediate results, causing different rounding errors to accumulate. As a result, the final sum can vary depending on the grouping of the additions, violating the associative property.",
+   "sha256": "aeab7949d98d15391b36b3204cdd4677e8fb1a5c3de4c6f2ce4dd1896695afd1",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2644
+  },
+  {
+   "ts": "2026-10-02T16:17:05.130295+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order in which the additions are performed can affect the intermediate results, causing different rounding errors to accumulate. As a result, the final sum can vary depending on the grouping of the numbers, violating the associative property.",
+   "sha256": "625fd34970039458a42f64775727c7455a9c48ce222f15bc3097ab3b3757f9dd",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2778
+  },
+  {
+   "ts": "2026-10-02T16:17:18.189931+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When adding three numbers, the order in which the additions are performed can affect the intermediate results, causing different rounding errors to accumulate. As a result, the sum of the numbers can vary depending on the grouping of the operations, violating the associative property.",
+   "sha256": "7433ac5c7e71686e537b997fe24e9586df50a6b5781cb1fd6156b1d90a1d3340",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 1734
+  },
+  {
+   "ts": "2026-10-02T16:17:29.924090+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative due to the limited precision of floating-point representations, which can lead to rounding errors. When the order of operations changes, the intermediate results may differ, causing the final result to vary. This discrepancy arises because small differences in the least significant bits can be lost when adding numbers of significantly different magnitudes.",
+   "sha256": "a260260fffee5db244c46bbd00f875536b5126b8b63edc335a34f5bb3cdb2d5e",
+   "fingerprint": "fp_99f88af1c5",
+   "model_version": "openai/gpt-4o-mini",
+   "latency_ms": 2911
+  }
+ ]
+}

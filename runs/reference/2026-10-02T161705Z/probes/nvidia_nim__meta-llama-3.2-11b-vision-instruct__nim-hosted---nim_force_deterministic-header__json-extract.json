@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+  "force_deterministic": true
+ },
+ "case": {
+  "id": "json-extract",
+  "expect": "json",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300,
+   "json": true
+  }
+ },
+ "request": {
+  "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'",
+     "role": "user"
+    }
+   ],
+   "model": "meta/llama-3.2-11b-vision-instruct",
+   "response_format": {
+    "type": "json_object"
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {
+   "Nim_force_deterministic": "1"
+  }
+ },
+ "samples": [
+  {
+   "ts": "2026-10-02T16:41:36.295715+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 4627
+  },
+  {
+   "ts": "2026-10-02T16:41:36.296091+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"status\":429,\"title\":\"Too Many Requests\"}",
+   "latency_ms": 216
+  },
+  {
+   "ts": "2026-10-02T16:41:36.296398+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 1484
+  },
+  {
+   "ts": "2026-10-02T16:41:36.296850+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 1372
+  },
+  {
+   "ts": "2026-10-02T16:41:36.300035+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"status\":429,\"title\":\"Too Many Requests\"}",
+   "latency_ms": 208
+  },
+  {
+   "ts": "2026-10-02T16:41:36.301386+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 1137
+  },
+  {
+   "ts": "2026-10-02T16:41:36.302279+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 1609
+  },
+  {
+   "ts": "2026-10-02T16:41:36.304330+00:00",
+   "mode": "burst",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 1674
+  },
+  {
+   "ts": "2026-10-02T16:41:50.923539+00:00",
+   "mode": "serial",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 2098
+  },
+  {
+   "ts": "2026-10-02T16:42:03.022190+00:00",
+   "mode": "serial",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 1321
+  }
+ ]
+}

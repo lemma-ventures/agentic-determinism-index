@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "label": "Amazon Bedrock via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "amazon-bedrock"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "amazon/nova-lite-v1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "amazon-bedrock"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-02T16:26:17.758782+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we will follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the total number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Subtract the number of boxes that can be shipped from the total number of boxes.\n   \\[\n   4347 - 4420 = -73\n   \\]\n   Since we can't have a negative number of boxes, this indicates that we have more boxes than we need for 52 fully loaded trucks. This means we need to adjust our calculation to ensure we don't overshoot the total number of boxes.\n\n   Instead, let's calculate the number of boxes that can be shipped with 51 fully loaded trucks:\n   \\[\n   51 \\times 85 = 4335\n   \\]\n   Now, subtract this from the total number of boxes to find the remaining boxes:\n   \\[\n   4347 - 4335 = 12\n   \\]\n\nThus, the number of fully loaded trucks needed is 51, and the number of boxes remaining unshipped is 12.\n\n**ANSWER: 51,12**",
+   "sha256": "c061ad0ab77ecefbbb0204fe0f50bf3d4d8bd0df3382b2f29ca2d769348c5ed2",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2496
+  },
+  {
+   "ts": "2026-10-02T16:26:17.759034+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we will follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes in total and 4420 boxes can be shipped with 52 trucks, we need to find out how many boxes are left after shipping 4347 boxes.\n   \\[\n   4420 - 4347 = 73\n   \\]\n   However, since we can't ship more boxes than we have, the number of boxes that remain unshipped is actually:\n   \\[\n   4347 - (51 \\times 85) = 4347 - 4335 = 12\n   \\]\n\nThus, the number of fully loaded trucks needed is 52, and the number of boxes that remain unshipped is 12.\n\n**ANSWER: 52,12**",
+   "sha256": "d01d9219e3ca5100dbba56f1edf6a83e9ecc3c8bc2fc8abf7c0f5a765d1bb6b8",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2368
+  },
+  {
+   "ts": "2026-10-02T16:26:17.760275+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we will follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes and we can ship 4420 boxes with 52 trucks (which is more than we have), we need to adjust our calculation to find the actual number of boxes that can be shipped with the available boxes.\n   \\[\n   4347 \\div 85 = 51 \\text{ trucks with a remainder of } 22 \\text{ boxes}\n   \\]\n   This means 51 trucks can be fully loaded, and the 52nd truck will only carry the remaining 22 boxes.\n\n5. **Verify the number of boxes that remain unshipped:**\n   The total number of boxes that can be shipped with 51 fully loaded trucks is:\n   \\[\n   51 \\times 85 = 4335\n   \\]\n   The remaining boxes are:\n   \\[\n   4347 - 4335 = 12\n   \\]\n\nThus, the number of fully loaded trucks needed is 52, and the number of boxes that remain unshipped is 12.\n\n**ANSWER: 52,12**",
+   "sha256": "28971f8214455e2391c2a90509b9a496e99a6dc800a0c77e8226c0223d43aef2",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2503
+  },
+  {
+   "ts": "2026-10-02T16:26:17.761402+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we need to follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes and we can ship 4420 boxes with 52 trucks (which is more than we have), we need to find out how many boxes are left after shipping the maximum number of boxes that can be shipped with the available trucks.\n   \\[\n   4347 - (51 \\times 85) = 4347 - 4335 = 12\n   \\]\n   However, since we are considering the maximum number of boxes that can be shipped with 52 trucks, we need to re-evaluate the calculation. The correct approach is to find the remainder when 4347 is divided by 85.\n   \\[\n   4347 \\mod 85 = 12\n   \\]\n\nSo, the number of fully loaded trucks needed is 52, and the number of boxes that remain unshipped is 12.\n\n**ANSWER: 52,12**",
+   "sha256": "572b83c59b03527b1b04c141fb4977714822d224e4c1374b1ea28d7a50850d85",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2369
+  },
+  {
+   "ts": "2026-10-02T16:26:17.767277+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we need to follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the total number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes and we can ship 4420 boxes with 52 trucks, the number of boxes that remain unshipped is:\n   \\[\n   4420 - 4347 = 73\n   \\]\n   However, since we can't ship more boxes than we have, the correct calculation should be:\n   \\[\n   4347 - (51 \\times 85) = 4347 - 4335 = 12\n   \\]\n   This means we actually have 12 boxes left after shipping with 51 trucks, and the 52nd truck will be partially loaded.\n\nTherefore, the number of fully loaded trucks needed is 51, and the number of boxes remaining unshipped is 12.\n\n\\[\n\\text{ANSWER: } 51,12\n\\]",
+   "sha256": "58f2c78f3d05e5ebb1e12d439517b9450ee0c3c58e7b02b18ff5f1bfde90cda6",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2386
+  },
+  {
+   "ts": "2026-10-02T16:26:17.768269+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we will follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes in total and 4420 boxes can be shipped with 52 trucks, we need to find out how many boxes are left after shipping 4347 boxes.\n   \\[\n   4420 - 4347 = 73\n   \\]\n   However, since we can't ship more boxes than we have, the number of boxes that remain unshipped is:\n   \\[\n   4347 - (51 \\times 85) = 4347 - 4335 = 12\n   \\]\n\nThus, the number of fully loaded trucks needed is 52, and the number of boxes that remain unshipped is 12.\n\n**ANSWER: 52,12**",
+   "sha256": "c69814339a53c655250c96ea77d7e581b751bf456db20632030cf8805b61609c",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2358
+  },
+  {
+   "ts": "2026-10-02T16:26:17.770251+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we need to follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the total number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes and we can ship 4420 boxes with 52 trucks (which is more than we have), we need to find out how many boxes are left after shipping the maximum number of boxes possible.\n   \\[\n   4420 - 4347 = 73\n   \\]\n   However, since 4420 is more than 4347, we actually need to recalculate the number of boxes that can be shipped with 51 trucks (since 52 trucks would exceed the total number of boxes):\n   \\[\n   51 \\times 85 = 4335\n   \\]\n   Now, we can find the number of boxes that remain unshipped:\n   \\[\n   4347 - 4335 = 12\n   \\]\n\nThus, the number of fully loaded trucks needed is 51, and the number of boxes that remain unshipped is 12.\n\n**ANSWER: 51,12**",
+   "sha256": "cdbceb9e1a16f8bbf0b8a30a3ea898f1ea743c42156a0a5618fad61af477cb06",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2732
+  },
+  {
+   "ts": "2026-10-02T16:26:17.772286+00:00",
+   "mode": "burst",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we will follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes in total and 4420 boxes can be shipped with 52 trucks, we need to find out how many boxes are left after shipping 4347 boxes.\n   \\[\n   4420 - 4347 = 73\n   \\]\n   However, since we can't ship more boxes than we have, the actual number of boxes that remain unshipped is:\n   \\[\n   4347 - (51 \\times 85) = 4347 - 4335 = 12\n   \\]\n\nThus, the number of fully loaded trucks needed is 52, and the number of boxes that remain unshipped is 12.\n\n**ANSWER:** 52,12",
+   "sha256": "fa2fa9009678af8a424cb2a8daec7279a78c2a618c503c17d44f4f37f2a075fb",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2487
+  },
+  {
+   "ts": "2026-10-02T16:26:30.502784+00:00",
+   "mode": "serial",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we need to follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of each truck and take the integer part of the result.\n   \\[\n   \\left\\lfloor \\frac{4347}{85} \\right\\rfloor = \\left\\lfloor 51.141176 \\right\\rfloor = 51\n   \\]\n   So, 51 fully loaded trucks are needed.\n\n3. **Calculate the number of boxes that have been shipped with these trucks:**\n   \\[\n   51 \\times 85 = 4335\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   \\[\n   4347 - 4335 = 12\n   \\]\n\nTherefore, the number of fully loaded trucks needed is 51, and the number of boxes that remain unshipped is 12.\n\n\\[\n\\text{ANSWER: } 51,12\n\\]",
+   "sha256": "dc9109660c4acfba43c170a5f83bef9fa37c67adec4fd914b1ae0f2cf2743f1f",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1599
+  },
+  {
+   "ts": "2026-10-02T16:26:42.102211+00:00",
+   "mode": "serial",
+   "text": "To determine how many fully loaded trucks are needed and how many boxes remain unshipped, we need to follow these steps:\n\n1. **Calculate the total number of boxes in the warehouse:**\n   \\[\n   1284 + 907 + 2156 = 4347\n   \\]\n\n2. **Determine how many fully loaded trucks are needed:**\n   Each truck carries 85 boxes. To find the number of fully loaded trucks, we divide the total number of boxes by the capacity of one truck and round up to the nearest whole number (since we can't have a fraction of a truck).\n   \\[\n   \\frac{4347}{85} \\approx 51.1412\n   \\]\n   Rounding up, we need 52 fully loaded trucks.\n\n3. **Calculate the number of boxes that can be shipped with 52 fully loaded trucks:**\n   \\[\n   52 \\times 85 = 4420\n   \\]\n\n4. **Determine the number of boxes that remain unshipped:**\n   Since we have 4347 boxes and we can ship 4420 boxes with 52 trucks (which is more than we have), we need to find out how many boxes are left after shipping the maximum number of boxes we can with the trucks we have.\n   \\[\n   4347 - (51 \\times 85) = 4347 - 4335 = 12\n   \\]\n   So, 12 boxes remain unshipped.\n\nTherefore, the number of fully loaded trucks needed is 52, and the number of boxes remaining unshipped is 12.\n\n\\[\n\\text{ANSWER: } 52,12\n\\]",
+   "sha256": "41ef631a2cf44388ff5fafe3703dc7119ea5e56d8e9e6d1dc8811f60a4cbdff6",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 2047
+  }
+ ]
+}
