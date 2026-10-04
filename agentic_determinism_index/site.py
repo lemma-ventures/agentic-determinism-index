@@ -317,39 +317,120 @@ def _run_tuple_byte_exact(rows):
     return {k: v["all_exact"] for k, v in by_key.items() if v["any"]}
 
 
+# A tuple is green only after it has returned the same bytes for the same
+# request over this many consecutive scored runs spanning at least this long
+# (METHODOLOGY.md §2 drift window: >= 3 runs over >= 72 h).
+GREEN_MIN_RUNS = 3
+GREEN_MIN_HOURS = 72
+
+
+def _stamp_epoch(stamp):
+    """Epoch seconds of a reference run stamp (2026-09-27T091736Z), or None."""
+    try:
+        dt = datetime.datetime.strptime(stamp, "%Y-%m-%dT%H%M%SZ")
+    except (TypeError, ValueError):
+        return None
+    return dt.replace(tzinfo=datetime.timezone.utc).timestamp()
+
+
+def _run_case_outputs(run_dir):
+    """Per serving tuple, per case: the hash of the most common response and
+    whether the run was byte-identical, for one scored run.
+
+    Runs scored before ``mode_sha256`` existed are rehashed from their raw
+    transcripts under ``probes/`` (scores recompute from transcripts, §5).
+    """
+    rows = [
+        r for r in load_scores(run_dir)
+        if r.get("provider") and _as_float(r.get("mode_share")) is not None
+    ]
+    if any(not r.get("mode_sha256") for r in rows):
+        from .report import score_run
+        rescored = score_run(run_dir)
+        if rescored:
+            rows = [r for r in rescored if _as_float(r.get("mode_share")) is not None]
+    out = {}
+    for r in rows:
+        out.setdefault(_tuple_key(r), {})[r.get("case") or ""] = {
+            "sha": r.get("mode_sha256"),
+            "exact": bool(r.get("byte_identical")),
+        }
+    return out
+
+
 def tuple_deterministic_survival(run_root):
-    """Across scored reference runs, how often each serving tuple stayed byte-exact.
+    """Across scored reference runs, whether each serving tuple keeps
+    returning the same bytes for the same request.
+
+    A run counts as deterministic for a tuple when every scored case was
+    byte-identical within the run AND reproduced the most common response of
+    that case's previous scored run. A stack that is identical within a day
+    but answers differently the next day is not deterministic.
 
     For each tuple key returns::
         {
           "runs_seen": N,             # reference runs that scored this tuple
-          "deterministic_runs": M,    # of those, fully byte-exact
-          "streak": S,                # consecutive byte-exact scored appearances
+          "deterministic_runs": M,    # of those, exact and same as the previous run
+          "streak": S,                # consecutive deterministic runs
+          "held_since": stamp,        # first run of the current streak
+          "held_hours": h,            # span of the current streak
+          "replay_checks": C,         # case comparisons with a previous run
+          "replay_matches": K,        # of those, same most common response
+          "replay_rate": K / C,       # None before a second run
+          "first_changed": stamp,     # first run whose output differed from the previous
+          "green": bool,              # streak >= GREEN_MIN_RUNS over >= GREEN_MIN_HOURS
         }
-    Streak resets only when a scored appearance fails byte-exact. Runs that do
-    not score the tuple (due-only cadence skips non-due targets) leave the
-    streak untouched; otherwise every partial run would zero all other streaks.
+    Runs that do not score the tuple (due-only cadence) leave it untouched.
     """
     survival = {}
+    last = {}
     for path in _list_scored_runs(run_root):
+        stamp = os.path.basename(path)
         try:
-            rows = load_scores(path)
-        except (OSError, ValueError, TypeError):
+            outputs = _run_case_outputs(path)
+        except (OSError, ValueError, TypeError, KeyError):
             continue
-        exact_map = _run_tuple_byte_exact(rows)
-
-        for key, exact in exact_map.items():
+        for key, cases in outputs.items():
             s = survival.setdefault(key, {
                 "runs_seen": 0,
                 "deterministic_runs": 0,
                 "streak": 0,
+                "held_since": "",
+                "replay_checks": 0,
+                "replay_matches": 0,
+                "first_changed": "",
             })
+            prev = last.setdefault(key, {})
             s["runs_seen"] += 1
-            if exact:
+            same = True
+            for case, o in cases.items():
+                if prev.get(case) and o["sha"]:
+                    s["replay_checks"] += 1
+                    if prev[case] == o["sha"]:
+                        s["replay_matches"] += 1
+                    else:
+                        same = False
+                if o["sha"]:
+                    prev[case] = o["sha"]
+            if not same and not s["first_changed"]:
+                s["first_changed"] = stamp
+            if same and all(o["exact"] for o in cases.values()):
                 s["deterministic_runs"] += 1
                 s["streak"] += 1
+                if s["streak"] == 1:
+                    s["held_since"] = stamp
+                s["last_stamp"] = stamp
             else:
                 s["streak"] = 0
+                s["held_since"] = ""
+    for s in survival.values():
+        begin = _stamp_epoch(s["held_since"])
+        end = _stamp_epoch(s.pop("last_stamp", ""))
+        hours = (end - begin) / 3600 if begin is not None and end is not None and s["streak"] else 0.0
+        s["held_hours"] = round(hours, 1)
+        checks = s["replay_checks"]
+        s["replay_rate"] = round(s["replay_matches"] / checks, 4) if checks else None
+        s["green"] = s["streak"] >= GREEN_MIN_RUNS and hours >= GREEN_MIN_HOURS
     return survival
 
 
@@ -442,7 +523,12 @@ def aggregate_leaderboard(rows):
 
 
 def apply_survival(leaders, survival):
-    """Attach cross-run deterministic survival counts onto leaderboard rows."""
+    """Attach cross-run survival onto leaderboard rows, then rescore and rerank.
+
+    Replay across runs carries as much weight as agreement within a run, and
+    green tuples rank first: a stack that answers the same request
+    differently tomorrow cannot top the board on within-run agreement alone.
+    """
     for entry in leaders or []:
         key = (
             entry.get("provider") or "",
@@ -457,6 +543,25 @@ def apply_survival(leaders, survival):
             else entry.get("deterministic_runs") or 0
         )
         entry["streak"] = int(s.get("streak") if s.get("streak") is not None else entry.get("streak") or 0)
+        for field in ("held_since", "held_hours", "replay_checks", "replay_matches", "replay_rate", "first_changed"):
+            if field in s:
+                entry[field] = s[field]
+        entry["green"] = bool(s.get("green"))
+        replay = entry.get("replay_rate") or 0.0
+        entry["score"] = round(100 * (
+            0.40 * (entry.get("mean_mode_share") or 0.0)
+            + 0.20 * (entry.get("exact_match_rate") or 0.0)
+            + 0.40 * replay
+        ), 2)
+    if survival:
+        (leaders or []).sort(key=lambda e: (
+            e.get("green", False),
+            e.get("score", 0.0),
+            e.get("streak", 0),
+        ), reverse=True)
+        for i, entry in enumerate(leaders or []):
+            entry["rank"] = i + 1
+            entry["medal"] = MEDALS.get(i + 1, "") if entry.get("green") else ""
     return leaders
 
 
@@ -555,14 +660,21 @@ def render_html(payload):
         det = int(entry.get("deterministic_runs") or 0)
         seen = int(entry.get("runs_seen") or 0) or 1
         streak = int(entry.get("streak") or 0)
+        checks = int(entry.get("replay_checks") or 0)
+        matches = int(entry.get("replay_matches") or 0)
+        held = float(entry.get("held_hours") or 0.0)
         survive_title = (
-            f"{det} of {seen} scored reference runs fully byte-exact; "
-            f"current streak {streak}"
+            f"{det} of {seen} scored reference runs byte-exact and identical to the previous run; "
+            f"{matches} of {checks} case replays reproduced the previous run's response; "
+            f"current streak {streak} over {held / 24:.1f} days"
         )
+        replay_line = f"same as previous run {matches}/{checks}" if checks else "no previous run yet"
         survive_cell = (
             f'<span title="{html.escape(survive_title, quote=True)}">'
             f"{det}&nbsp;/&nbsp;{seen}</span>"
-            f'<div class="sid">streak {streak}</div>'
+            f'<div class="sid">{replay_line}</div>'
+            f'<div class="sid">streak {streak} · {held / 24:.1f} d'
+            f'{" · green" if entry.get("green") else ""}</div>'
         )
         as_of = entry.get("score_as_of") or ""
         first_div = entry.get("first_diverged") or ""
@@ -823,8 +935,11 @@ def render_html(payload):
       green rows returned identical bytes on every successful repeat of the same request
       (for tool call cases, an identical normalized call sequence: same tool names and
       arguments in the same order, ignoring transport ids and indexes).
-      <strong>Deterministic runs</strong> counts how many scored reference runs that serving
-      tuple stayed fully byte-exact (N of M), plus the current consecutive streak.
+      <strong>Deterministic runs</strong> counts the scored reference runs in which that serving
+      tuple was fully byte-exact <em>and</em> returned the same response as its previous run
+      (N of M), plus the current consecutive streak. Same input must give the same output
+      across days, weeks and months, not only within one run: a tuple is green, and can take
+      a medal, only after 3 consecutive such runs spanning at least 72 hours.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).
       All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
       When a due-only run scores a subset, other tuples keep their previous score (shown under the stack id).
@@ -882,11 +997,10 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         stamp = score_as_of.get(key) or ""
         entry["score_as_of"] = stamp
         ditem = drift_by_key.get(key) or {}
-        entry["first_diverged"] = (
-            first_fail.get(key)
-            or ditem.get("first_diverged")
-            or ""
-        )
+        # Earliest of: a run disagreeing with itself, a run answering
+        # differently from the previous run, a stack-ID change.
+        marks = [m for m in (first_fail.get(key), entry.get("first_changed")) if m]
+        entry["first_diverged"] = min(marks) if marks else (ditem.get("first_diverged") or "")
 
     if run_dir:
         first_metrics = build_first_metrics(run_dir, run_root)

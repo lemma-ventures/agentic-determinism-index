@@ -16,7 +16,9 @@ Schedule (per target, independent):
 
 Full score cadence (separate from cheap ticks):
   - byte-exact: re-score about daily (``exact_score_min_interval_s``)
-  - non-byte-exact: re-score about monthly (``non_exact_score_min_interval_s``)
+  - non-byte-exact on two consecutive scored runs: re-score about monthly
+    (``non_exact_score_min_interval_s``); a single miss re-scores at the daily
+    cadence, so one bad run cannot bench a tuple for a month
 
 State and history live under ``runs/watch/`` and never touch ``runs/reference/``.
 """
@@ -117,10 +119,9 @@ def score_reprobe_due(state_row, now=None, cfg=None):
     last = state_row.get("last_score_epoch")
     if last is None:
         return True
-    exact = state_row.get("byte_exact")
-    if exact is True:
-        gap = cfg["exact_score_min_interval_s"]
-    elif exact is False:
+    # Rows written before non_exact_streak existed count as a single miss.
+    misses = int(state_row.get("non_exact_streak") or (1 if state_row.get("byte_exact") is False else 0))
+    if misses >= 2:
         gap = cfg["non_exact_score_min_interval_s"]
     else:
         gap = cfg["exact_score_min_interval_s"]
@@ -168,6 +169,12 @@ def ingest_score_hints(watch_dir, scores_rows, run_stamp=None):
     state = _load_json(state_path, default={"targets": {}, "config": dict(DEFAULTS)})
     state.setdefault("targets", {})
     now = time.time()
+    # This run's verdict per tuple: exact only if every scored case was.
+    run_exact = {}
+    for row in scores_rows or []:
+        if row.get("provider") and row.get("model") and row.get("byte_identical") is not None:
+            tkey = f"{row['provider']}|{row['model']}|{row.get('label') or ''}"
+            run_exact[tkey] = run_exact.get(tkey, True) and bool(row["byte_identical"])
     for row in scores_rows or []:
         provider = row.get("provider")
         model = row.get("model")
@@ -181,12 +188,10 @@ def ingest_score_hints(watch_dir, scores_rows, run_stamp=None):
             "label": label,
             "stable_streak": 0,
         })
-        # Aggregate: if any case is not byte-identical, the tuple is not exact.
-        bi = row.get("byte_identical")
-        if bi is False:
-            entry["byte_exact"] = False
-        elif bi is True and entry.get("byte_exact") is not False:
-            entry["byte_exact"] = True
+        # Graded on this run alone: an earlier miss must not stick forever.
+        if tkey in run_exact:
+            entry["byte_exact"] = run_exact.pop(tkey)
+            entry["non_exact_streak"] = 0 if entry["byte_exact"] else int(entry.get("non_exact_streak") or 0) + 1
         entry["last_score_epoch"] = now
         entry["last_score_stamp"] = run_stamp
         if row.get("mode_share") is not None:

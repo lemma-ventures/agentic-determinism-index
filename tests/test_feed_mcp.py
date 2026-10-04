@@ -16,7 +16,7 @@ PAYLOAD = {
         {"provider": "openrouter", "model": "openai/gpt-oss-120b", "label": "Cerebras via OpenRouter",
          "display": "Cerebras via OpenRouter", "rank": 1, "medal": "1st", "score": 98.0,
          "mean_mode_share": 1.0, "exact_match_rate": 1.0, "runs_seen": 10, "deterministic_runs": 10,
-         "streak": 10, "score_as_of": "2026-09-16T231701Z"},
+         "streak": 10, "green": True, "score_as_of": "2026-09-16T231701Z"},
         {"provider": "openrouter", "model": "meta-llama/llama-3.1-8b-instruct", "label": "Groq via OpenRouter",
          "display": "Groq via OpenRouter", "rank": 2, "medal": "2nd", "score": 90.0,
          "mean_mode_share": 0.95, "exact_match_rate": 0.75, "runs_seen": 4, "deterministic_runs": 3,
@@ -45,7 +45,7 @@ class TestFeed(unittest.TestCase):
         self.assertEqual(doc["run_stamp"], "2026-09-17T051707Z")
         rows = doc["tuples"]
         self.assertEqual(len(rows), 2)
-        self.assertTrue(rows[0]["green"], "streak 10: latest scored appearance byte-exact")
+        self.assertTrue(rows[0]["green"], "held 10 runs: same bytes run after run")
         self.assertEqual(rows[0]["provider_prefs"], {"order": ["cerebras"], "allow_fallbacks": False})
         self.assertFalse(rows[1]["green"], "a broken streak is not green however good the mean")
         self.assertEqual(rows[1]["mean_mode_share"], 0.95)

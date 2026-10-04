@@ -3,6 +3,7 @@
 Character-level rather than token-level, deliberately: token metrics would
 need provider-specific tokenizers, making scores harder for third parties to
 reproduce (METHODOLOGY.md §3, §6)."""
+import hashlib
 import json
 from collections import Counter
 
@@ -18,6 +19,12 @@ def first_divergence(texts):
         if len({t[i] for t in texts}) > 1:
             return i
     return shortest
+
+
+def _sha256(text):
+    """Hash of the most common response: what a later run of the same request
+    must reproduce (METHODOLOGY.md §4, replay across runs)."""
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
 def canonical_json(text):
@@ -39,11 +46,12 @@ def score_samples(samples, expect="text"):
     if not texts:
         return out
     counts = Counter(texts)
-    top_n = counts.most_common(1)[0][1]
+    top, top_n = counts.most_common(1)[0]
     out.update(
         distinct=len(counts),
         byte_identical=len(counts) == 1,
         mode_share=round(top_n / len(texts), 4),
+        mode_sha256=_sha256(top),
         first_divergence_char=first_divergence(texts),
         fingerprints=sorted({s["fingerprint"] for s in samples
                              if s.get("fingerprint")}),
@@ -118,10 +126,11 @@ def score_tool_call_samples(samples):
     if n_tool_call == 0:
         return out
     counts = Counter(ok_keys)
-    top_n = counts.most_common(1)[0][1]
+    top, top_n = counts.most_common(1)[0]
     out.update(
         distinct=len(counts),
         byte_identical=len(counts) == 1,
         mode_share=round(top_n / len(ok_keys), 4),
+        mode_sha256=_sha256(json.dumps(top, sort_keys=True)),
     )
     return out
