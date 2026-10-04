@@ -8,10 +8,11 @@ have stayed that way, and the exact request pins that reproduce the tuple
 the reference config sends). Everything here is derived from the same
 payload the page renders; nothing is judged that the page does not show.
 
-``green`` is the one word the feed adds: a tuple is green when its latest
-scored appearance was fully byte-exact (streak >= 1). It is a snapshot fact
-about a serving stack, not a certification, and it can turn red on the next
-reference run.
+``green`` is the one word the feed adds: a tuple is green when it has
+returned the same bytes for the same request over at least 3 consecutive
+scored runs spanning at least 72 hours (byte-exact within each run and
+identical to the previous run). It is a fact about a serving stack's recent
+history, not a certification, and it can turn red on the next reference run.
 """
 
 import glob
@@ -75,7 +76,11 @@ def build_feed(payload, config_dir="configs"):
             "runs_seen": int(entry.get("runs_seen") or 0),
             "deterministic_runs": int(entry.get("deterministic_runs") or 0),
             "streak": streak,
-            "green": streak >= 1,
+            "green": bool(entry.get("green")),
+            "held_since": entry.get("held_since") or "",
+            "held_hours": entry.get("held_hours") or 0.0,
+            "replay_rate": entry.get("replay_rate"),
+            "replay_checks": int(entry.get("replay_checks") or 0),
             "score_as_of": entry.get("score_as_of") or payload.get("run_stamp") or "",
             "provider_prefs": pins.get("provider_prefs"),
             "base_url": pins.get("base_url"),
@@ -85,7 +90,7 @@ def build_feed(payload, config_dir="configs"):
         "generated_at": payload.get("generated_at") or "",
         "run_stamp": payload.get("run_stamp") or "",
         "n_runs": payload.get("n_runs") or 0,
-        "methodology": "METHODOLOGY.md v0.1 - green = latest scored appearance fully byte-exact; a snapshot, not a certification",
+        "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
         "tuples": tuples,
     }
 

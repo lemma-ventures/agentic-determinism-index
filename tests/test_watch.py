@@ -92,6 +92,36 @@ class TestWatchSchedule(unittest.TestCase):
         )
         self.assertGreater(non_exact, exact)
 
+    def test_one_miss_does_not_bench_a_tuple_for_a_month(self):
+        import tempfile
+        from agentic_determinism_index.watch import ingest_score_hints, load_watch_state
+
+        cfg = {"non_exact_score_min_interval_s": 30 * 86400, "exact_score_min_interval_s": 86400}
+        now = 1_000_000
+        # A single non-exact run re-scores at the daily cadence...
+        self.assertTrue(score_reprobe_due(
+            {"byte_exact": False, "non_exact_streak": 1, "last_score_epoch": now - 90000}, now=now, cfg=cfg))
+        # ...two in a row wait the long interval.
+        self.assertFalse(score_reprobe_due(
+            {"byte_exact": False, "non_exact_streak": 2, "last_score_epoch": now - 90000}, now=now, cfg=cfg))
+
+        key = "openrouter|m|cerebras"
+        with tempfile.TemporaryDirectory() as d:
+            def score(stamp, *exact):
+                ingest_score_hints(d, [
+                    {"provider": "openrouter", "model": "m", "label": "cerebras", "case": f"c{i}", "byte_identical": e}
+                    for i, e in enumerate(exact)
+                ], run_stamp=stamp)
+                return load_watch_state(d)["targets"][key]
+
+            row = score("t1", True, False)
+            self.assertEqual((row["byte_exact"], row["non_exact_streak"]), (False, 1))
+            row = score("t2", False, True)
+            self.assertEqual((row["byte_exact"], row["non_exact_streak"]), (False, 2))
+            # A clean run clears an earlier miss (it used to stick forever).
+            row = score("t3", True, True)
+            self.assertEqual((row["byte_exact"], row["non_exact_streak"]), (True, 0))
+
     def test_filter_score_due_targets(self):
         import tempfile
         from agentic_determinism_index.watch import filter_score_due_targets, ingest_score_hints

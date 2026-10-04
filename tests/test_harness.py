@@ -314,6 +314,78 @@ class TestStackDrift(unittest.TestCase):
             self.assertEqual(by_label["via CoreWeave"]["first_diverged"], "r2")
             self.assertIsNone(by_label["via Groq"]["first_diverged"])
 
+    def test_same_request_must_give_the_same_bytes_across_runs(self):
+        """A tuple identical within each run but different from one run to the
+        next is not deterministic and cannot outrank one that holds."""
+        def row(label, case, sha, exact=True):
+            return {"provider": "openrouter", "model": "m", "label": label, "case": case,
+                    "mode_share": 1.0 if exact else 0.8, "byte_identical": exact,
+                    "distinct": 1 if exact else 2, "mode_sha256": sha}
+
+        stamps = ["2026-09-01T000000Z", "2026-09-02T000000Z", "2026-09-03T000000Z", "2026-09-04T000000Z"]
+        with tempfile.TemporaryDirectory() as d:
+            for i, stamp in enumerate(stamps):
+                rows = [
+                    row("holds", "a", "h-a"), row("holds", "b", "h-b"),
+                    # Byte-exact every run, a new answer every day.
+                    row("daily", "a", f"d-a-{i}"), row("daily", "b", "d-b"),
+                ]
+                os.makedirs(os.path.join(d, stamp))
+                with open(os.path.join(d, stamp, "scores.json"), "w") as f:
+                    json.dump(rows, f)
+
+            from agentic_determinism_index.site import tuple_deterministic_survival
+            surv = tuple_deterministic_survival(d)
+            holds = surv[("openrouter", "m", "holds")]
+            daily = surv[("openrouter", "m", "daily")]
+            self.assertEqual((holds["deterministic_runs"], holds["streak"]), (4, 4))
+            self.assertEqual(holds["replay_rate"], 1.0)
+            self.assertEqual(holds["held_since"], stamps[0])
+            self.assertEqual(holds["held_hours"], 72.0)
+            self.assertTrue(holds["green"])
+            self.assertEqual((daily["deterministic_runs"], daily["streak"]), (1, 0), "only the first run, before any comparison")
+            self.assertEqual(daily["replay_rate"], 0.5)
+            self.assertEqual(daily["first_changed"], stamps[1])
+            self.assertFalse(daily["green"])
+
+            payload = build_payload(os.path.join(d, stamps[-1]), run_root=d)
+            board = {e["label"]: e for e in payload["leaders"]}
+            self.assertEqual(board["holds"]["rank"], 1)
+            self.assertEqual(board["holds"]["medal"], "1st")
+            self.assertEqual(board["daily"]["medal"], "", "no medal without holding across runs")
+            self.assertGreater(board["holds"]["score"], board["daily"]["score"])
+            self.assertEqual(board["daily"]["first_diverged"], stamps[1])
+
+    def test_green_needs_three_runs_over_seventy_two_hours(self):
+        with tempfile.TemporaryDirectory() as d:
+            for stamp in ("2026-09-01T000000Z", "2026-09-01T120000Z", "2026-09-02T000000Z"):
+                os.makedirs(os.path.join(d, stamp))
+                with open(os.path.join(d, stamp, "scores.json"), "w") as f:
+                    json.dump([{"provider": "p", "model": "m", "case": "a", "mode_share": 1.0,
+                                "byte_identical": True, "distinct": 1, "mode_sha256": "x"}], f)
+            from agentic_determinism_index.site import tuple_deterministic_survival
+            s = tuple_deterministic_survival(d)[("p", "m", "")]
+            self.assertEqual(s["streak"], 3)
+            self.assertFalse(s["green"], "3 runs but only 24 h")
+
+    def test_old_scores_are_rehashed_from_transcripts(self):
+        with tempfile.TemporaryDirectory() as d:
+            for stamp, text in (("2026-09-01T000000Z", "same"), ("2026-09-02T000000Z", "other")):
+                run = os.path.join(d, stamp)
+                os.makedirs(os.path.join(run, "probes"))
+                probe = {"target": {"provider": "p", "model": "m"}, "case": {"id": "a"},
+                         "samples": [sample(text), sample(text)]}
+                with open(os.path.join(run, "probes", "p__m__a.json"), "w") as f:
+                    json.dump(probe, f)
+                rows = score_run(run)
+                for r in rows:
+                    r.pop("mode_sha256")  # as written before the field existed
+                with open(os.path.join(run, "scores.json"), "w") as f:
+                    json.dump(rows, f)
+            from agentic_determinism_index.site import tuple_deterministic_survival
+            s = tuple_deterministic_survival(d)[("p", "m", "")]
+            self.assertEqual((s["replay_checks"], s["replay_matches"]), (1, 0))
+
     def test_leaderboard_carries_forward_across_due_only_runs(self):
         with tempfile.TemporaryDirectory() as d:
             for name, rows in (

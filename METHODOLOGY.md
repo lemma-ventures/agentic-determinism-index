@@ -1,4 +1,4 @@
-# Agentic Determinism Index (ADI) · Methodology (v0.1 draft)
+# Agentic Determinism Index (ADI) · Methodology (v0.2 draft)
 
 Status: **open for public comment** while first reference scores ship. Challenge any definition below via issues; scores stay recomputable from transcripts and will be revised if the protocol changes.
 
@@ -35,6 +35,18 @@ Errors are counted and excluded from divergence metrics; a run with n_ok < N/2 i
 
 Per target, per run: metrics are reported per case, plus a **worst-case row** (the case with the lowest mode_share). Cross-run aggregation over the drift window reports the range, not just the mean · a stack that is identical within a day but drifts across days must not average into a good score.
 
+**Replay across runs (v0.2).** The property under measurement is *same request, same response*, with no time limit. Each scored row records `mode_sha256`, the SHA-256 of its most common response. For every case, a run is compared with that case's previous scored run of the same tuple:
+
+- **deterministic run** · every scored case byte-identical within the run **and** identical to the previous run's most common response for that case (the first scored run has nothing to compare with and counts on within-run identity alone).
+- **replay_rate** · over all case comparisons with a previous run, the fraction that reproduced it.
+- **streak** / **held_since** / **held_hours** · consecutive deterministic runs, when the streak began, and the time it spans.
+- **green** · streak ≥ 3 over ≥ 72 hours (the drift window of §2). Only green tuples take medals and rank first.
+- **score** · 100 × (0.40 · mean mode_share + 0.20 · exact-match rate + 0.40 · replay_rate). A tuple with no second run has replay_rate 0; agreement within a run cannot alone put it at the top.
+
+A stack that is byte-identical within every run but answers the same request differently from one day to the next is therefore *not* deterministic, and it ranks accordingly. Scores written before v0.2 carry no `mode_sha256`; they are rehashed from the raw transcripts (§5).
+
+**Score cadence.** Byte-exact tuples are re-scored about daily. A tuple that is non-exact on two consecutive scored runs waits about a month; a single miss does not bench it.
+
 Leaderboard scores come exclusively from maintainer **reference runs** (fixed cadence, disclosed harness version, config hash, account tier, region). Community-contributed runs are published as labeled **replications** and never pooled into reference scores, because provider behavior varies by account tier, region, and routing.
 
 ## 5. Reproducibility of the measurement itself
@@ -47,7 +59,8 @@ Every published score ships with: the manifest (harness version, platform, confi
 2. Judge/eval variance (how much run-to-run divergence moves LLM-judge verdicts) is planned as a separate protocol; no number is claimed until it is measured here.
 3. Streaming vs non-streaming responses may differ; v0.1 probes non-streaming only.
 4. Provider-side caching can mask variance (identical answers because you got a cache hit, not a deterministic recompute). The serial-gap and cross-day protocol partially controls for this; flagged as an open confound.
-5. Tool call and function call response stability is measured as of this revision (`expect: "tool_call"`, §7), with two carried limitations: `gemini` is not covered, and `tool_choice` is left unpinned, so `tool_call_rate` mixes the model's decision to call with the stability of what it calls once it does.
+5. **Hidden time-varying input.** Some serving stacks prepend text the client never sends. gpt-oss stacks render OpenAI's harmony system message, which carries `Current date: <today>`; a client system message cannot remove it (it is demoted to a developer message beneath). Observed 2026-10-04 on `openai/gpt-oss-120b` via OpenRouter pinned to Cerebras: byte-identical within each run on 19 of 20 runs, a different response every day. Under §4 such a stack fails replay across days by construction, and that is the correct verdict for a client: the same request does not return the same response.
+6. Tool call and function call response stability is measured as of this revision (`expect: "tool_call"`, §7), with two carried limitations: `gemini` is not covered, and `tool_choice` is left unpinned, so `tool_call_rate` mixes the model's decision to call with the stability of what it calls once it does.
 
 ## 7. Tool call cases (`expect: "tool_call"`)
 
