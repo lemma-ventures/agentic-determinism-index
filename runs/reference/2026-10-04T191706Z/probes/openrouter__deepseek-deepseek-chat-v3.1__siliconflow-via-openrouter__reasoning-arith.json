@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "SiliconFlow via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "siliconflow"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "siliconflow"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-04T19:27:34.006378+00:00",
+   "mode": "burst",
+   "text": "Alright, let's go step by step.  \n\n---\n\n**Step 1: Find the total number of boxes**  \nWe have:  \n- Floor 1: 1284 boxes  \n- Floor 2: 907 boxes  \n- Floor 3: 2156 boxes  \n\nTotal boxes:  \n\\[\n1284 + 907 + 2156\n\\]  \n\nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = **4347**.\n\n---\n\n**Step 2: Divide by truck capacity**  \nEach truck carries 85 boxes.  \n\n\\[\n4347 \\div 85\n\\]  \n\nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \n\nSo \\(4347 = 85 \\times 51 + ?\\) \u2014 wait, let's check:  \n\\(85 \\times 51 = 85 \\times 50 + 85 = 4250 + 85 = 4335\\)  \nDifference: \\(4347 - 4335 = 12\\)  \n\nSo:  \n\\[\n4347 = 85 \\times 51 + 12\n\\]  \n\n---\n\n**Step 3: Interpret the result**  \n- Fully loaded trucks: **51**  \n- Boxes left over: **12**  \n\n---\n\n**Step 4: Final answer**  \n\\[\n\\text{ANSWER: 51,12}\n\\]  \n\n---\n\nANSWER: 51,12",
+   "sha256": "2801b29d233033ebbfc0c85b3703ec6c887338d80be27b2e3c7a7ba478840194",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 13221
+  },
+  {
+   "ts": "2026-10-04T19:27:34.006724+00:00",
+   "mode": "burst",
+   "text": "Let's go step by step.  \n\n**Step 1: Total number of boxes**  \nWe add the boxes from all three floors:  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = \\(4347\\).\n\n**Step 2: Number of fully loaded trucks**  \nEach truck carries 85 boxes.  \n\\[\n4347 \\div 85\n\\]  \nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \nSo \\(85 \\times 51 = 4335\\)  \nSubtract: \\(4347 - 4335 = 12\\)  \nSo \\(85 \\times 51 = 4335\\) is less than 4347, but \\(85 \\times 52 = 4420\\) is too many.  \n\nThus, fully loaded trucks = \\(51\\).\n\n**Step 3: Boxes left over**  \n\\[\n4347 - (85 \\times 51) = 4347 - 4335 = 12\n\\]  \n\n**Step 4: Final answer**  \nFully loaded trucks = 51, leftover boxes = 12.  \n\nANSWER: 51,12",
+   "sha256": "48a4a497dd222eade7bd1fab5aecf6f18315b8a2bc5e3e074ee9375ab89b86cb",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 11402
+  },
+  {
+   "ts": "2026-10-04T19:27:34.008281+00:00",
+   "mode": "burst",
+   "text": "Alright, let's go step by step.  \n\n---\n\n**Step 1: Total number of boxes**  \nWe add the boxes from each floor:  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = \\(4347\\).\n\n---\n\n**Step 2: Boxes per truck**  \nEach truck carries \\(85\\) boxes.\n\n---\n\n**Step 3: Number of fully loaded trucks**  \nDivide total boxes by boxes per truck:  \n\\[\n4347 \\div 85\n\\]  \nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \nSo \\(97\\) boxes remain after 50 trucks.  \n\nCheck if 97 boxes can make another full truck:  \n\\(97 < 85\\), so no.  \n\nThus, fully loaded trucks = \\(50\\).\n\n---\n\n**Step 4: Remaining boxes**  \nRemaining = \\(97\\) boxes.\n\n---\n\n**Step 5: Final answer**  \nANSWER: 50,97",
+   "sha256": "3dbfb6b1f9f0d976013eaa655675d60a0b4dc9d0b0c4b0b435e15df1e8dbf67e",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 9776
+  },
+  {
+   "ts": "2026-10-04T19:27:34.009426+00:00",
+   "mode": "burst",
+   "text": "Alright, let's go step by step.  \n\n---\n\n**Step 1: Find the total number of boxes**  \nWe have:  \n- Floor 1: 1284 boxes  \n- Floor 2: 907 boxes  \n- Floor 3: 2156 boxes  \n\n\\[\n1284 + 907 + 2156\n\\]  \n\nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = **4347**.\n\n---\n\n**Step 2: Divide by truck capacity**  \nEach truck carries 85 boxes.  \n\n\\[\n4347 \\div 85\n\\]  \n\nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \n\nSo \\(4347 = 85 \\times 51 + ?\\)  \nLet\u2019s check \\(85 \\times 51 = 4335\\) (since 85 \u00d7 50 = 4250, plus 85 = 4335).  \n\nSubtract: \\(4347 - 4335 = 12\\) remainder.  \n\nSo 51 trucks carry \\(4335\\) boxes, leaving \\(12\\) boxes.\n\n---\n\n**Step 3: Interpret**  \nFully loaded trucks = 51.  \nRemaining boxes = 12.  \n\n---\n\nANSWER: 51,12",
+   "sha256": "41e45fcccb169ae519134e522262503929371a5df9d1042f35f18e26ba5f1ea4",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 18273
+  },
+  {
+   "ts": "2026-10-04T19:27:34.015296+00:00",
+   "mode": "burst",
+   "text": "Let's go step by step.  \n\n---\n\n**Step 1: Total number of boxes**  \nWe add the boxes from all three floors:  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = \\(4347\\).\n\n---\n\n**Step 2: Boxes per truck**  \nEach truck carries \\(85\\) boxes.\n\n---\n\n**Step 3: Number of fully loaded trucks**  \nDivide total boxes by boxes per truck:  \n\\[\n4347 \\div 85\n\\]  \nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \nSo \\(97\\) boxes remain after 50 trucks.  \n\nSince \\(97 \\ge 85\\), we can load one more full truck:  \n\\(85 \\times 51 = 4335\\)  \nSubtract: \\(4347 - 4335 = 12\\) boxes left.  \n\nSo fully loaded trucks = \\(51\\).\n\n---\n\n**Step 4: Remaining boxes**  \nRemaining = \\(12\\) boxes (not enough for another full truck).\n\n---\n\n**Step 5: Final answer**  \nANSWER: 51,12",
+   "sha256": "0a52963f9c2a48500014804be32336357b00c2f704c9b229454fdf279c9c67be",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 11160
+  },
+  {
+   "ts": "2026-10-04T19:27:34.016273+00:00",
+   "mode": "burst",
+   "text": "Let\u2019s go step by step.  \n\n**Step 1: Total number of boxes**  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = \\(4347\\).\n\n**Step 2: Divide by truck capacity**  \nEach truck carries 85 boxes.  \n\\[\n4347 \\div 85\n\\]  \n\nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \nSo \\(4347 = 85 \\times 50 + 97\\).\n\n**Step 3: Interpret result**  \nFully loaded trucks = \\(50\\)  \nRemaining boxes = \\(97\\) (not enough for another full truck).\n\n**Step 4: Final answer**  \n\\[\n\\text{ANSWER: } 50,97\n\\]  \n\nANSWER: 50,97",
+   "sha256": "ad9f4517749e6badca463e6c4d7aaea2d135c8e21ca53036223ed09d88969be3",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 8415
+  },
+  {
+   "ts": "2026-10-04T19:27:34.017398+00:00",
+   "mode": "burst",
+   "text": "Let's go step by step.  \n\n**Step 1: Total number of boxes**  \nWe add the boxes from each floor:  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = \\(4347\\).\n\n**Step 2: Number of fully loaded trucks**  \nEach truck carries 85 boxes.  \n\\[\n4347 \\div 85\n\\]  \nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \nSo \\(85 \\times 51 = 4335\\) (too high? Let's check: \\(85 \\times 51 = 85 \\times 50 + 85 = 4250 + 85 = 4335\\))  \nSubtract: \\(4347 - 4335 = 12\\)  \nSo \\(85 \\times 51 = 4335\\) is less than 4347, but \\(85 \\times 52 = 4420\\) is too many.  \n\nThus, fully loaded trucks = \\(51\\).\n\n**Step 3: Boxes left over**  \n\\[\n4347 - 4335 = 12\n\\]  \nSo 12 boxes remain unshipped.\n\n**Final answer:**  \nANSWER: 51,12",
+   "sha256": "56b03d0c23612bcb55dc48a4cc3a97a650e46e01fef9a13640416da1b66de5ef",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 12060
+  },
+  {
+   "ts": "2026-10-04T19:27:34.018264+00:00",
+   "mode": "burst",
+   "text": "Let's go step by step.  \n\n**Step 1: Find the total number of boxes.**  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = \\(4347\\).\n\n**Step 2: Divide by truck capacity to find full truckloads and remainder.**  \nTruck capacity = \\(85\\) boxes.  \n\n\\[\n4347 \\div 85\n\\]  \nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \nSo \\(4347 = 85 \\times 51 + ?\\) \u2014 wait, check:  \n\nActually, \\(85 \\times 51 = 85 \\times (50 + 1) = 4250 + 85 = 4335\\)  \nRemainder = \\(4347 - 4335 = 12\\)  \n\nCheck: \\(85 \\times 51 = 4335\\), remainder \\(12\\).  \n\n**Step 3: Interpret the result.**  \nFully loaded trucks = \\(51\\)  \nRemaining boxes = \\(12\\)  \n\n**Final answer:**  \nANSWER: 51,12",
+   "sha256": "dcade54afaecea27e6a661de84b339b520e6098b91ccfc352d6dea57c2835309",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 17125
+  },
+  {
+   "ts": "2026-10-04T19:28:02.282828+00:00",
+   "mode": "serial",
+   "text": "Let's go step by step.  \n\n**Step 1: Find the total number of boxes**  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, \\(1284 + 907 = 2191\\)  \nThen, \\(2191 + 2156 = 4347\\)  \n\nSo total boxes = \\(4347\\).\n\n**Step 2: Divide by truck capacity**  \nEach truck carries 85 boxes.  \n\\[\n4347 \\div 85\n\\]  \nFirst, \\(85 \\times 50 = 4250\\)  \nSubtract: \\(4347 - 4250 = 97\\)  \nSo \\(4347 = 85 \\times 51 + ?\\) \u2014 wait, let's check:  \n\nActually, \\(85 \\times 51 = 85 \\times 50 + 85 = 4250 + 85 = 4335\\)  \nSubtract: \\(4347 - 4335 = 12\\)  \n\nSo \\(4347 = 85 \\times 51 + 12\\).\n\n**Step 3: Interpret the result**  \nFully loaded trucks = \\(51\\)  \nRemaining boxes = \\(12\\)  \n\n**Step 4: Final answer**  \n\\[\n\\text{ANSWER: 51,12}\n\\]  \n\nANSWER: 51,12",
+   "sha256": "e84052d814bbea0c78d55cbb3f5435b0ab5f5ea45dc7de99bb5e8ed021449efe",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 11815
+  },
+  {
+   "ts": "2026-10-04T19:28:24.098474+00:00",
+   "mode": "serial",
+   "text": "Let's go step by step.  \n\n**Step 1: Find the total number of boxes**  \n\\[\n1284 + 907 + 2156\n\\]  \nFirst, add 1284 and 907:  \n\\[\n1284 + 907 = 2191\n\\]  \nThen add 2156:  \n\\[\n2191 + 2156 = 4347\n\\]  \n\n**Step 2: Divide by truck capacity**  \nEach truck carries 85 boxes.  \n\\[\n4347 \\div 85\n\\]  \nFirst, estimate: \\(85 \\times 50 = 4250\\), remainder \\(4347 - 4250 = 97\\).  \nBut 97 is more than 85, so we can fit one more truck:  \n\\[\n85 \\times 51 = 4335\n\\]  \nRemainder:  \n\\[\n4347 - 4335 = 12\n\\]  \n\n**Step 3: Interpret the result**  \nFully loaded trucks: 51  \nBoxes left over: 12  \n\n**Final answer:**  \n\\[\n\\text{ANSWER: 51,12}\n\\]  \n\nANSWER: 51,12",
+   "sha256": "de016be2e99289dbd57f5cf74f414fdf3199d32c9792298b0aa0c2a706a9e847",
+   "fingerprint": "SiliconFlow",
+   "model_version": "deepseek/deepseek-chat-v3.1",
+   "latency_ms": 10742
+  }
+ ]
+}

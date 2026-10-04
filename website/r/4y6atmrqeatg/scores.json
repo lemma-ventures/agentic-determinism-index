@@ -1,0 +1,964 @@
+[
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 9,
+  "errors": 1,
+  "distinct": 3,
+  "byte_identical": false,
+  "mode_share": 0.5556,
+  "mode_sha256": "632285101437176d8086aae628bbd09551bce2a34786698c7fd77b3dcbc2a04f",
+  "first_divergence_char": 132,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+  "first_divergence_char": null,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 8,
+  "errors": 2,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.25,
+  "mode_sha256": "37d7051dde868b024552d53891982abf2b24f0a63e586631d4e66bf302230f38",
+  "first_divergence_char": 1591,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 5,
+  "byte_identical": false,
+  "mode_share": 0.4,
+  "mode_sha256": "76b3772248cb7b48436c56aceb3f15e4513992ffcc913a345c59b87cb984fd21",
+  "first_divergence_char": 562,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 3,
+  "byte_identical": false,
+  "mode_share": 0.7,
+  "mode_sha256": "632285101437176d8086aae628bbd09551bce2a34786698c7fd77b3dcbc2a04f",
+  "first_divergence_char": 132,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted (default)"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 8,
+  "errors": 2,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+  "first_divergence_char": null,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "NIM hosted (default)"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 6,
+  "errors": 4,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.1667,
+  "mode_sha256": "ce81b91a185afabefa850390c9511f09dcf01a832bf7ffaa7f9f0fb0515354bd",
+  "first_divergence_char": 390,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted (default)"
+ },
+ {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 7,
+  "errors": 3,
+  "distinct": 4,
+  "byte_identical": false,
+  "mode_share": 0.4286,
+  "mode_sha256": "76b3772248cb7b48436c56aceb3f15e4513992ffcc913a345c59b87cb984fd21",
+  "first_divergence_char": 813,
+  "fingerprints": [],
+  "model_versions": [
+   "meta/llama-3.2-11b-vision-instruct"
+  ],
+  "label": "NIM hosted (default)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "95889dcde4ecbaeb15de9b3b6cb08165c193959e307e8ecacfa07f3f9515ad3f",
+  "first_divergence_char": 61,
+  "fingerprints": [
+   "Amazon Bedrock"
+  ],
+  "model_versions": [
+   "amazon/nova-lite-v1"
+  ],
+  "label": "Amazon Bedrock via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "93d6aa59a0128f4266500384da989fb7c0d4dca55b6d58221e4acd8991671baa",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "Amazon Bedrock"
+  ],
+  "model_versions": [
+   "amazon/nova-lite-v1"
+  ],
+  "json_parse_rate": 0.0,
+  "distinct_canonical_json": null,
+  "label": "Amazon Bedrock via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "31f4503e2b84a0c4622a6f8352388588a2aed551d781763918e10d0c8c88e142",
+  "first_divergence_char": 170,
+  "fingerprints": [
+   "Amazon Bedrock"
+  ],
+  "model_versions": [
+   "amazon/nova-lite-v1"
+  ],
+  "label": "Amazon Bedrock via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "e4a9913df360cc947f3af87f9211c8649d38c4845e6776e7b3c35c116153137a",
+  "first_divergence_char": 93,
+  "fingerprints": [
+   "Amazon Bedrock"
+  ],
+  "model_versions": [
+   "amazon/nova-lite-v1"
+  ],
+  "label": "Amazon Bedrock via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "05833ecef3419a531ba63b3e7c13a74210b401cf818801a9f9153c17839da7a9",
+  "first_divergence_char": 205,
+  "fingerprints": [
+   "SiliconFlow"
+  ],
+  "model_versions": [
+   "deepseek/deepseek-chat-v3.1"
+  ],
+  "label": "SiliconFlow via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "SiliconFlow"
+  ],
+  "model_versions": [
+   "deepseek/deepseek-chat-v3.1"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "SiliconFlow via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "b4281f19e8be5571e6947e5b5960586a27ca51ba0034d50b2310d84362a82879",
+  "first_divergence_char": 71,
+  "fingerprints": [
+   "SiliconFlow"
+  ],
+  "model_versions": [
+   "deepseek/deepseek-chat-v3.1"
+  ],
+  "label": "SiliconFlow via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "2801b29d233033ebbfc0c85b3703ec6c887338d80be27b2e3c7a7ba478840194",
+  "first_divergence_char": 0,
+  "fingerprints": [
+   "SiliconFlow"
+  ],
+  "model_versions": [
+   "deepseek/deepseek-chat-v3.1"
+  ],
+  "label": "SiliconFlow via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "1ef8f6d05797ff2a1986676647fc9a53533423be9ec93d57623b4abda70b9a59",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "CoreWeave via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "CoreWeave via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.8,
+  "mode_sha256": "51fcbe42c938a24b2aa6b99bd349ff540927914e45e0b44da4aee3c8ccdb9989",
+  "first_divergence_char": 687,
+  "fingerprints": [
+   "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "CoreWeave via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 3,
+  "byte_identical": false,
+  "mode_share": 0.8,
+  "mode_sha256": "073df887f69f1c6ee2275d304c86d8296cfd15fc392e8666fa8db01725cbdcc8",
+  "first_divergence_char": 265,
+  "fingerprints": [
+   "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "CoreWeave via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "8938d4295e83439369d84245cde60e6a248c15ecc19924cdf66a61d650fa394e",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "DeepInfra"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "DeepInfra via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "DeepInfra"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "DeepInfra via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "88d8a9a2aa89faa90d5a4fa8700cbaa635e6c6070a8480a2f0fffc0eb8621a16",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "DeepInfra"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "DeepInfra via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "2730b80efe58f93aced02aeae044c416012313118908bc2ebe72056af54b7372",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "DeepInfra"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "DeepInfra via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 5,
+  "byte_identical": false,
+  "mode_share": 0.4,
+  "mode_sha256": "66cc444af3bd775ea5e5038f2674f4e2b6146376f1f1fd4e6a96a10756ae9938",
+  "first_divergence_char": 90,
+  "fingerprints": [
+   "Novita"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Novita via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.9,
+  "mode_sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+  "first_divergence_char": 1,
+  "fingerprints": [
+   "Novita"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Novita via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "26c2fc8bea764ce0250eda1c3a88649ca87c34abb5bd338c7a7406b8f89ee5d1",
+  "first_divergence_char": 18,
+  "fingerprints": [
+   "Novita"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Novita via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "54de84ef41b642a01ab6b516db49205b20f676f4e842d62ab61cd292f2334d40",
+  "first_divergence_char": 265,
+  "fingerprints": [
+   "Novita"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Novita via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Nebius via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "73585ee340259eda36b6085e9082baafca7128669c6285224472aa98a3aeb1d0",
+  "first_divergence_char": 160,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Together via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Together via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "c06d1d15bb29fd585598d7cfbfb68666bf0c86c0e54d8fe56e0fb1a7877d012f",
+  "first_divergence_char": 76,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Together via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "3900ea6b8fb6af901c697cb4c0dd4d920a1ab439322a00cc73dba65682d32b25",
+  "first_divergence_char": 405,
+  "fingerprints": [
+   "Together"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "Together via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "b9973e28d038c14c08c15961da8a54d9306593939fc89a2687072524dad053d2",
+  "first_divergence_char": 147,
+  "fingerprints": [
+   "fp_99f88af1c5"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "label": "Azure via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "c7b4a06e23b8846028bb74be13437e776e493e051ec04dcdcc7e9fd87866e5cc",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_99f88af1c5"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Azure via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 9,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "mode_sha256": "148ee0c3303c33fc38d9bf7a2703733a6291c4b7f53ce7869d61762bd1340618",
+  "first_divergence_char": 129,
+  "fingerprints": [
+   "fp_99f88af1c5"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "label": "Azure via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 5,
+  "byte_identical": false,
+  "mode_share": 0.4,
+  "mode_sha256": "786f822b845716772fa47d16213358ea4d75f19ea642414ee5bd6fe547194436",
+  "first_divergence_char": 334,
+  "fingerprints": [
+   "fp_99f88af1c5"
+  ],
+  "model_versions": [
+   "openai/gpt-4o-mini"
+  ],
+  "label": "Azure via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "211432f850cba35efb26edf6d4a64f1e6cda5162fcea183aa85053c5aa32d82b",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "1eb16869a0d5743190a81bb28fae33ed745f85db76d466e5ba16dd293ded11bc",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "c190784de5bc985fdcde73bf15d440cba9ce7b3b627eb7961a6b225e61120f9f",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "mode_sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+  "first_divergence_char": 0,
+  "fingerprints": [
+   "Phala"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Phala via OpenRouter (TEE, attested stack)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "Phala"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Phala via OpenRouter (TEE, attested stack)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 5,
+  "errors": 5,
+  "distinct": 5,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "mode_sha256": "c7ec8cd0d6e342dd1a39e7f45018a86eb428608075cd73c0c4ab8656da5634f1",
+  "first_divergence_char": 6,
+  "fingerprints": [
+   "Phala"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Phala via OpenRouter (TEE, attested stack)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.4,
+  "mode_sha256": "2bdf5351b96339e3ee6dbce104e0fa55c143402d8e462f1bc43bd863722c796e",
+  "first_divergence_char": 0,
+  "fingerprints": [
+   "Phala"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Phala via OpenRouter (TEE, attested stack)"
+ }
+]

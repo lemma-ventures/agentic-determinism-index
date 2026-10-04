@@ -1,0 +1,122 @@
+{
+ "target": {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "label": "NIM hosted (default)",
+  "force_deterministic": false
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "meta/llama-3.2-11b-vision-instruct",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-04T19:34:35.338792+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 / 85 = 49.98\n\nSince we can't have a fraction of a truck, we need to round up to the nearest whole number. This means we need 50 fully loaded trucks.\n\nTo find the number of boxes that will be shipped, we multiply the number of trucks by the number of boxes each truck can carry:\n\n50 * 85 = 4250 boxes\n\nNow, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4250 = -3\n\nHowever, since we can't have a negative number of boxes, this means that we actually have 3 boxes more than we can ship. To find the number of boxes that remain unshipped, we can subtract the number of boxes that will be shipped from the total number of boxes, but we need to consider the fact that we can't ship a fraction of a box. In this case, we can ship 4247 boxes, but we can't ship 4250 boxes. So, we need to subtract 3 boxes from the total number of boxes:\n\n4247 - 3 = 4244 boxes\n\nHowever, this is still not correct. We need to find the number of boxes that will be shipped, and then subtract that from the total number of boxes. We can ship 4247 boxes, but we can't ship 4250 boxes. So, we need to find the largest multiple of 85 that is less than or equal to 4247. \n\n4247 / 85 = 49.98\n49 * 85 = 4185\n\nSo, we can ship 4185 boxes. Now, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4185 = 62 boxes\n\nANSWER: 50,62",
+   "sha256": "94e4546a0ee7c153f9051b7a2e625c18d2801f5616114e5f4ef6301550ff97b1",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 11822
+  },
+  {
+   "ts": "2026-10-04T19:34:35.339121+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"status\":429,\"title\":\"Too Many Requests\"}",
+   "latency_ms": 217
+  },
+  {
+   "ts": "2026-10-04T19:34:35.339451+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"status\":429,\"title\":\"Too Many Requests\"}",
+   "latency_ms": 219
+  },
+  {
+   "ts": "2026-10-04T19:34:35.340040+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 / 85 = 49.98\n\nSince we can't have a fraction of a truck, we need to round up to the nearest whole number. This means we need 50 fully loaded trucks.\n\nTo find the number of boxes that will be shipped, we multiply the number of trucks by the number of boxes each truck can carry:\n\n50 * 85 = 4250 boxes\n\nNow, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4250 = -3\n\nHowever, since we can't have a negative number of boxes, this means that we actually have 3 boxes more than we can ship. To find the number of boxes that remain unshipped, we can subtract the number of boxes that will be shipped from the total number of boxes, but we need to consider that we can't ship a fraction of a box. In this case, we can ship 4247 boxes, but we can't ship 4250 boxes. So, we will ship 4247 boxes and 3 boxes will remain unshipped.\n\nANSWER: 50,3",
+   "sha256": "76b3772248cb7b48436c56aceb3f15e4513992ffcc913a345c59b87cb984fd21",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 12628
+  },
+  {
+   "ts": "2026-10-04T19:34:35.342277+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 / 85 = 49.98\n\nSince we can't have a fraction of a truck, we need to round up to the nearest whole number. This means we need 50 fully loaded trucks.\n\nTo find the number of boxes that will be shipped, we multiply the number of trucks by the number of boxes each truck can carry:\n\n50 * 85 = 4250 boxes\n\nNow, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4250 = -3\n\nHowever, since we can't have a negative number of boxes, this means that we actually have 3 boxes more than we can ship. To find the number of boxes that remain unshipped, we can subtract the number of boxes that will be shipped from the total number of boxes, but we need to consider that we can't ship a fraction of a box. In this case, we can ship 4247 boxes, but we can't ship 4250 boxes. So, we will ship 4247 boxes and 3 boxes will remain unshipped.\n\nANSWER: 50,3",
+   "sha256": "76b3772248cb7b48436c56aceb3f15e4513992ffcc913a345c59b87cb984fd21",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 12809
+  },
+  {
+   "ts": "2026-10-04T19:34:35.344668+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 / 85 = 49.98\n\nSince we can't have a fraction of a truck, we need to round up to the nearest whole number. This means we need 50 fully loaded trucks.\n\nTo find the number of boxes that will be shipped, we multiply the number of trucks by the number of boxes each truck can carry:\n\n50 * 85 = 4250 boxes\n\nNow, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4250 = -3\n\nHowever, since we can't have a negative number of boxes, this means that we actually have 3 boxes more than we can ship. To find the number of boxes that remain unshipped, we can subtract the number of boxes that will be shipped from the total number of boxes, but we need to consider the fact that we can't ship a fraction of a box. In this case, we can ship 4247 boxes, but we can't ship 4250 boxes. So, we will ship 4247 boxes and 3 boxes will remain unshipped.\n\nANSWER: 50,3",
+   "sha256": "4f69050cc61f5f77072787b5df38c36901b97c23a916e13b2b58fbf02254050e",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 11067
+  },
+  {
+   "ts": "2026-10-04T19:34:35.345221+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"status\":429,\"title\":\"Too Many Requests\"}",
+   "latency_ms": 213
+  },
+  {
+   "ts": "2026-10-04T19:34:35.347398+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 / 85 = 49.98\n\nSince we can't have a fraction of a truck, we need to round up to the nearest whole number. This means we need 50 fully loaded trucks.\n\nTo find the number of boxes that will be shipped, we multiply the number of trucks by the number of boxes each truck can carry:\n\n50 * 85 = 4250 boxes\n\nNow, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4250 = -3\n\nHowever, since we can't have a negative number of boxes, this means that we actually have 3 more boxes than we can ship. To find the number of boxes that remain unshipped, we can subtract the number of boxes that will be shipped from the total number of boxes, and then take the absolute value:\n\n|4247 - 4250| = 3\n\nSo, we have 3 boxes that remain unshipped.\n\nANSWER: 50,3",
+   "sha256": "bea0eaa70668dbbd9fb1571760aca9097cfe4c2abf1360380cc912a29b62ac2a",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 9972
+  },
+  {
+   "ts": "2026-10-04T19:34:58.151850+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 / 85 = 49.98\n\nSince we can't have a fraction of a truck, we need to round up to the nearest whole number. This means we need 50 fully loaded trucks.\n\nTo find the number of boxes that will be shipped, we multiply the number of trucks by the number of boxes each truck can carry:\n\n50 * 85 = 4250 boxes\n\nNow, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4250 = -3\n\nHowever, since we can't have a negative number of boxes, this means that we actually have 3 boxes more than we can ship. To find the number of boxes that remain unshipped, we can subtract the number of boxes that will be shipped from the total number of boxes, but we need to consider that we can't ship a fraction of a box. In this case, we can ship 4247 boxes, but we can't ship 4250 boxes. So, we will ship 4247 boxes and 3 boxes will remain unshipped.\n\nANSWER: 50,3",
+   "sha256": "76b3772248cb7b48436c56aceb3f15e4513992ffcc913a345c59b87cb984fd21",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 12446
+  },
+  {
+   "ts": "2026-10-04T19:35:20.597926+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 / 85 = 49.98\n\nSince we can't have a fraction of a truck, we need to round up to the nearest whole number. This means we need 50 fully loaded trucks.\n\nTo find the number of boxes that will be shipped, we multiply the number of trucks by the number of boxes each truck can carry:\n\n50 * 85 = 4250 boxes\n\nNow, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4250 = -3\n\nHowever, since we can't have a negative number of boxes, this means that we actually have 3 boxes more than we can ship. To find the number of boxes that remain unshipped, we can subtract the number of boxes that will be shipped from the total number of boxes, but we need to consider the fact that we can't ship a fraction of a box. In this case, we can ship 4247 boxes, but we can't ship 4250 boxes. So, we need to subtract 3 boxes from the total number of boxes:\n\n4247 - 3 = 4244 boxes\n\nHowever, this is still not correct. We need to find the number of boxes that will be shipped, and then subtract that from the total number of boxes. We can ship 4247 boxes, but we can't ship 4250 boxes. So, we need to find the largest multiple of 85 that is less than or equal to 4247. \n\n4247 / 85 = 49.98\n49 * 85 = 4185\n\nSo, we can ship 4185 boxes. Now, we subtract the number of boxes that will be shipped from the total number of boxes to find the number of boxes that remain unshipped:\n\n4247 - 4185 = 62 boxes\n\nANSWER: 50,62",
+   "sha256": "94e4546a0ee7c153f9051b7a2e625c18d2801f5616114e5f4ef6301550ff97b1",
+   "fingerprint": null,
+   "model_version": "meta/llama-3.2-11b-vision-instruct",
+   "latency_ms": 14441
+  }
+ ]
+}
