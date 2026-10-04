@@ -1,18 +1,18 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-04T16:19:52.398110Z",
+ "generated_at": "2026-10-04T18:18:34.301410Z",
  "methodology": "METHODOLOGY.md v0.1 - green = latest scored appearance fully byte-exact; a snapshot, not a certification",
- "n_runs": 89,
- "run_stamp": "2026-10-04T161707Z",
+ "n_runs": 90,
+ "run_stamp": "2026-10-04T181705Z",
  "tuples": [
   {
    "base_url": null,
-   "deterministic_runs": 3,
+   "deterministic_runs": 4,
    "display": "Groq via OpenRouter",
-   "exact_match_rate": 0.75,
-   "green": false,
+   "exact_match_rate": 1.0,
+   "green": true,
    "label": "Groq via OpenRouter",
-   "mean_mode_share": 0.95,
+   "mean_mode_share": 1.0,
    "medal": "1st",
    "model": "meta-llama/llama-3.1-8b-instruct",
    "provider": "openrouter",
@@ -23,10 +23,10 @@
     ]
    },
    "rank": 1,
-   "runs_seen": 4,
-   "score": 89.25,
-   "score_as_of": "2026-09-04T171705Z",
-   "streak": 0
+   "runs_seen": 5,
+   "score": 100.0,
+   "score_as_of": "2026-10-04T181705Z",
+   "streak": 1
   },
   {
    "base_url": null,
