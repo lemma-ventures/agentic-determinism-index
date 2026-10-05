@@ -70,7 +70,7 @@
       "last_score_epoch": 1791152470.4594886,
       "last_score_stamp": "2026-10-04T221705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1791156216.2125845,
+      "next_due_epoch": 1791213979.5635645,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -85,7 +85,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1791155362.493533,
+      "next_due_epoch": 1791213920.6629,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -100,13 +100,13 @@
       "last_score_epoch": 1791143979.7946627,
       "last_score_stamp": "2026-10-04T191706Z",
       "last_stack_id": "fp:SiliconFlow|mv:deepseek/deepseek-chat-v3.1",
-      "last_ts": "2026-09-28T16:17:36.554414+00:00",
+      "last_ts": "2026-10-05T13:17:04.941487+00:00",
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1791204084.1271024,
+      "next_due_epoch": 1791709709.2821722,
       "non_exact_streak": 1,
       "provider": "openrouter",
-      "stable_streak": 16,
-      "ticks": 16
+      "stable_streak": 17,
+      "ticks": 17
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Cloudflare via OpenRouter": {
       "interval_s": 3600,
@@ -114,7 +114,7 @@
       "last_score_epoch": 1791152470.4594886,
       "last_score_stamp": "2026-10-04T221705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1791152374.525101,
+      "next_due_epoch": 1791217144.605833,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -156,7 +156,7 @@
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": false,
-      "drifts": 91,
+      "drifts": 95,
       "interval_s": 14400,
       "label": "Groq via OpenRouter",
       "last_fingerprint": "fp_020e283281",
@@ -165,12 +165,12 @@
       "last_score_epoch": 1791137913.7260787,
       "last_score_stamp": "2026-10-04T181705Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-10-04T19:17:05.506075+00:00",
+      "last_ts": "2026-10-05T12:17:05.064306+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1791153394.985143,
+      "next_due_epoch": 1791219437.5652251,
       "provider": "openrouter",
       "stable_streak": 0,
-      "ticks": 181
+      "ticks": 185
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -221,7 +221,7 @@
       "last_stack_id": "fp:Nebius|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-09-10T09:17:05.446348+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1791174949.3979385,
+      "next_due_epoch": 1791263119.5299392,
       "provider": "openrouter",
       "stable_streak": 10,
       "ticks": 10
@@ -232,12 +232,12 @@
       "label": "SambaNova via OpenRouter",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1791123507.4264467,
-      "last_score_stamp": "2026-10-04T141705Z",
+      "last_score_epoch": 1791213509.1767483,
+      "last_score_stamp": "2026-10-05T151705Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1791155430.1893625,
+      "next_due_epoch": 1791214133.005863,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -264,7 +264,7 @@
     "openrouter|openai/gpt-4o-mini|Azure via OpenRouter": {
       "byte_exact": false,
       "drifts": 1,
-      "interval_s": 14400,
+      "interval_s": 27337.5,
       "label": "Azure via OpenRouter",
       "last_fingerprint": "fp_99f88af1c5",
       "last_mode_share": 0.4,
@@ -272,13 +272,13 @@
       "last_score_epoch": 1791143979.7946627,
       "last_score_stamp": "2026-10-04T191706Z",
       "last_stack_id": "fp:fp_99f88af1c5|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-10-04T20:17:04.927057+00:00",
+      "last_ts": "2026-10-05T11:17:05.750098+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1791162187.91036,
+      "next_due_epoch": 1791230120.2217941,
       "non_exact_streak": 1,
       "provider": "openrouter",
-      "stable_streak": 4,
-      "ticks": 21
+      "stable_streak": 7,
+      "ticks": 24
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -286,7 +286,7 @@
       "last_score_epoch": 1791152470.4594886,
       "last_score_stamp": "2026-10-04T221705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1791152810.86226,
+      "next_due_epoch": 1791216609.8510425,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -307,7 +307,7 @@
     "openrouter|openai/gpt-oss-120b|Cerebras via OpenRouter (wafer-scale, single SKU)": {
       "byte_exact": true,
       "drifts": 0,
-      "interval_s": 14400,
+      "interval_s": 3600,
       "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
       "last_fingerprint": null,
       "last_mode_share": 1.0,
@@ -317,7 +317,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1791157320.5279236,
+      "next_due_epoch": 1791217213.162575,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "stable_streak": 0,
@@ -350,7 +350,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-09-25T16:17:37.070407+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1791163321.474672,
+      "next_due_epoch": 1791224212.1152322,
       "non_exact_streak": 1,
       "provider": "openrouter",
       "stable_streak": 2,
@@ -395,11 +395,11 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1791156424.860146,
+      "next_due_epoch": 1791217099.5821204,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-10-04T22:21:10.459511+00:00"
+  "updated": "2026-10-05T15:18:29.176766+00:00"
 }
