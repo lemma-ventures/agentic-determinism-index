@@ -21,6 +21,8 @@ export OPENROUTER_API_KEY
 export NVIDIA_API_KEY
 # Optional: EigenAI (bit-exact claim); target is skipped if unset
 export EIGENAI_API_KEY=${EIGENAI_API_KEY:-}
+# Optional: Nebius Token Factory (direct targets); skipped if unset
+export NEBIUS_API_KEY=${NEBIUS_API_KEY:-}
 
 cd "$WATCH_DIR"
 
