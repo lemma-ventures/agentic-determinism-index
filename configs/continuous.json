@@ -160,16 +160,32 @@
    }
   },
   {
-   "provider": "openrouter",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Nebius via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "nebius"
-    ],
-    "allow_fallbacks": false
-   }
+   "provider": "openai_compatible",
+   "model": "openai/gpt-oss-120b",
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
+   "api_key_env": "NEBIUS_API_KEY",
+   "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)"
+  },
+  {
+   "provider": "openai_compatible",
+   "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
+   "api_key_env": "NEBIUS_API_KEY",
+   "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+  },
+  {
+   "provider": "openai_compatible",
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
+   "api_key_env": "NEBIUS_API_KEY",
+   "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+  },
+  {
+   "provider": "openai_compatible",
+   "model": "google/gemma-3-27b-it",
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
+   "api_key_env": "NEBIUS_API_KEY",
+   "label": "Nebius direct (Gemma 3 27B dense)"
   },
   {
    "provider": "openrouter",
