@@ -609,18 +609,37 @@ def _short_dt(iso):
 
 
 def _byte_exact_cell(rate):
-    """Human label for average byte-identity across cases."""
+    """Human label for average byte-identity across cases in the latest score.
+
+    The pill is that one score. It does not color the row. A green row means
+    the latest scored run held against the previous run (see ``_last_run_label``).
+    """
     if rate is None:
-        return '<span class="pill pill-na">n/a</span>', ""
+        return '<span class="pill pill-na">n/a</span>'
     r = float(rate)
     if r >= 0.999:
-        return '<span class="pill pill-yes">Yes · byte-exact</span>', "row-exact"
+        return '<span class="pill pill-yes">Yes · byte-exact</span>'
     if r <= 0.001:
-        return '<span class="pill pill-no">No</span>', ""
-    return (
-        f'<span class="pill pill-partial">Partial · {_format_pct(r)}</span>',
-        "",
-    )
+        return '<span class="pill pill-no">No</span>'
+    return f'<span class="pill pill-partial">Partial · {_format_pct(r)}</span>'
+
+
+def _last_run_label(streak, seen, checks):
+    """What the latest scored run did, in the words the row color uses.
+
+    Streak ≥ 1 means that run was byte-exact and matched the previous run
+    (a first run matches on within-run identity alone). Streak 0 means it
+    did not. The N-of-M history stays under this label.
+    """
+    held = int(streak) >= 1
+    compared = int(checks) > 0 or int(seen) > 1
+    if held and compared:
+        return "Last run held"
+    if held:
+        return "First run held"
+    if compared:
+        return "Last run changed"
+    return "Not held"
 
 
 def render_html(payload):
@@ -649,8 +668,7 @@ def render_html(payload):
         if not model and entry.get("models"):
             model = ", ".join(m.get("name", "") for m in entry["models"] if m.get("name"))
         exact_rate = entry.get("exact_match_rate")
-        byte_cell, row_class = _byte_exact_cell(exact_rate)
-        tr_cls = f' class="{row_class}"' if row_class else ""
+        byte_cell = _byte_exact_cell(exact_rate)
         sid = entry.get("stack_id") or short_stack_id(
             f"{entry.get('provider')}|{entry.get('model')}|{entry.get('label') or ''}"
         )
@@ -668,13 +686,18 @@ def render_html(payload):
             f"{matches} of {checks} case replays reproduced the previous run's response; "
             f"current streak {streak} over {held / 24:.1f} days"
         )
-        replay_line = f"same as previous run {matches}/{checks}" if checks else "no previous run yet"
+        # Green row = the latest scored run held. A byte-exact pill with a
+        # broken streak (0 of 5, 1 of 22) is not a green row.
+        last_label = _last_run_label(streak, seen, checks)
+        row_class = "row-held" if streak >= 1 else ""
+        tr_cls = f' class="{row_class}"' if row_class else ""
+        replay_line = f"same response {matches}/{checks}" if checks else "no previous run yet"
+        medal_line = " · medal" if entry.get("green") else ""
         survive_cell = (
-            f'<span title="{html.escape(survive_title, quote=True)}">'
-            f"{det}&nbsp;/&nbsp;{seen}</span>"
+            f'<span title="{html.escape(survive_title, quote=True)}">{last_label}</span>'
+            f'<div class="sid">held {det} of {seen} runs</div>'
             f'<div class="sid">{replay_line}</div>'
-            f'<div class="sid">streak {streak} · {held / 24:.1f} d'
-            f'{" · green" if entry.get("green") else ""}</div>'
+            f'<div class="sid">streak {streak} · {held / 24:.1f} d{medal_line}</div>'
         )
         as_of = entry.get("score_as_of") or ""
         first_div = entry.get("first_diverged") or ""
@@ -873,8 +896,8 @@ def render_html(payload):
       table {{ width: 100%; border-collapse: collapse; background: #fff; }}
       th, td {{ border: 1px solid #e2e8f0; padding: 0.55rem 0.65rem; text-align: left; vertical-align: top; }}
       th {{ background: #f1f5f9; font-size: 0.85rem; }}
-      tr.row-exact {{ background: #ecfdf5; }}
-      tr.row-exact td {{ border-color: #a7f3d0; }}
+      tr.row-held {{ background: #ecfdf5; }}
+      tr.row-held td {{ border-color: #a7f3d0; }}
       .medal {{ margin-right: 0.15rem; }}
       .meta {{ color: #64748b; font-size: 0.9rem; margin: 1rem 0; }}
       .pill {{
@@ -921,7 +944,7 @@ def render_html(payload):
           <th>Score</th>
           <th>Mode share</th>
           <th>Byte-exact replay</th>
-          <th>Deterministic runs</th>
+          <th>Last run</th>
           <th>Mean distinct</th>
           <th>Cases</th>
         </tr>
@@ -931,15 +954,15 @@ def render_html(payload):
       </tbody>
     </table>
     <p class="meta">
-      <strong>Byte-exact replay</strong> is the property that matters for audit trails:
-      green rows returned identical bytes on every successful repeat of the same request
-      (for tool call cases, an identical normalized call sequence: same tool names and
-      arguments in the same order, ignoring transport ids and indexes).
-      <strong>Deterministic runs</strong> counts the scored reference runs in which that serving
-      tuple was fully byte-exact <em>and</em> returned the same response as its previous run
-      (N of M), plus the current consecutive streak. Same input must give the same output
-      across days, weeks and months, not only within one run: a tuple is green, and can take
-      a medal, only after 3 consecutive such runs spanning at least 72 hours.
+      <strong>Byte-exact replay</strong> is one score. Every repeat of the same request
+      in that run returned the same bytes (for tool call cases, the same normalized
+      call sequence: same tool names and arguments in the same order, ignoring
+      transport ids and indexes). The pill states that fact. It does not color the row.
+      <strong>A green row means the latest scored run held.</strong> That run was
+      byte-exact, and it returned the same response as the previous run. A broken
+      streak is not a green row. The count under the status (<em>held N of M runs</em>)
+      is history. It is not a second verdict. A medal needs 3 consecutive held runs
+      over at least 72 hours. The streak line marks that bar with the word medal.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).
       All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
       When a due-only run scores a subset, other tuples keep their previous score (shown under the stack id).
