@@ -608,36 +608,38 @@ def _short_dt(iso):
         return str(iso)[:16]
 
 
-def _byte_exact_cell(entry):
-    """The replay verdict for a leaderboard row, and its row class.
+def _byte_exact_cell(rate):
+    """Human label for average byte-identity across cases in the latest score.
 
-    Green - the same request returned the same bytes run after run - is the
-    only state shown as "Yes" and coloured green. A tuple that agrees with
-    itself inside each run but answers differently from one run to the next
-    is not byte-exact for a client, however exact its latest run was: that
-    within-run figure alone painted rows green at 0 of 5 deterministic runs.
+    The pill is that one score. It does not color the row. A green row means
+    the latest scored run held against the previous run (see ``_last_run_label``).
     """
-    rate = _as_float(entry.get("exact_match_rate"))
     if rate is None:
-        return '<span class="pill pill-na">n/a</span>', ""
-    if entry.get("green"):
-        held = float(entry.get("held_hours") or 0.0) / 24
-        return (
-            f'<span class="pill pill-yes">Yes · held {int(entry.get("streak") or 0)} runs, {held:.1f} d</span>',
-            "row-exact",
-        )
-    checks = int(entry.get("replay_checks") or 0)
-    matches = int(entry.get("replay_matches") or 0)
-    if rate >= 0.999:
-        if checks == 0:
-            return '<span class="pill pill-partial">Within a run · not yet replayed</span>', ""
-        return (
-            f'<span class="pill pill-partial">Within a run only · {matches}/{checks} same as the previous run</span>',
-            "",
-        )
-    if rate <= 0.001:
-        return '<span class="pill pill-no">No</span>', ""
-    return f'<span class="pill pill-partial">Partial · {_format_pct(rate)} of cases exact</span>', ""
+        return '<span class="pill pill-na">n/a</span>'
+    r = float(rate)
+    if r >= 0.999:
+        return '<span class="pill pill-yes">Yes · byte-exact</span>'
+    if r <= 0.001:
+        return '<span class="pill pill-no">No</span>'
+    return f'<span class="pill pill-partial">Partial · {_format_pct(r)}</span>'
+
+
+def _last_run_label(streak, seen, checks):
+    """What the latest scored run did, in the words the row color uses.
+
+    Streak ≥ 1 means that run was byte-exact and matched the previous run
+    (a first run matches on within-run identity alone). Streak 0 means it
+    did not. The N-of-M history stays under this label.
+    """
+    held = int(streak) >= 1
+    compared = int(checks) > 0 or int(seen) > 1
+    if held and compared:
+        return "Last run held"
+    if held:
+        return "First run held"
+    if compared:
+        return "Last run changed"
+    return "Not held"
 
 
 def render_html(payload):
@@ -665,8 +667,8 @@ def render_html(payload):
         model = entry.get("model") or ""
         if not model and entry.get("models"):
             model = ", ".join(m.get("name", "") for m in entry["models"] if m.get("name"))
-        byte_cell, row_class = _byte_exact_cell(entry)
-        tr_cls = f' class="{row_class}"' if row_class else ""
+        exact_rate = entry.get("exact_match_rate")
+        byte_cell = _byte_exact_cell(exact_rate)
         sid = entry.get("stack_id") or short_stack_id(
             f"{entry.get('provider')}|{entry.get('model')}|{entry.get('label') or ''}"
         )
@@ -684,13 +686,18 @@ def render_html(payload):
             f"{matches} of {checks} case replays reproduced the previous run's response; "
             f"current streak {streak} over {held / 24:.1f} days"
         )
-        replay_line = f"same as previous run {matches}/{checks}" if checks else "no previous run yet"
+        # Green row = the latest scored run held. A byte-exact pill with a
+        # broken streak (0 of 5, 1 of 22) is not a green row.
+        last_label = _last_run_label(streak, seen, checks)
+        row_class = "row-held" if streak >= 1 else ""
+        tr_cls = f' class="{row_class}"' if row_class else ""
+        replay_line = f"same response {matches}/{checks}" if checks else "no previous run yet"
+        medal_line = " · medal" if entry.get("green") else ""
         survive_cell = (
-            f'<span title="{html.escape(survive_title, quote=True)}">'
-            f"{det}&nbsp;/&nbsp;{seen}</span>"
+            f'<span title="{html.escape(survive_title, quote=True)}">{last_label}</span>'
+            f'<div class="sid">held {det} of {seen} runs</div>'
             f'<div class="sid">{replay_line}</div>'
-            f'<div class="sid">streak {streak} · {held / 24:.1f} d'
-            f'{" · green" if entry.get("green") else ""}</div>'
+            f'<div class="sid">streak {streak} · {held / 24:.1f} d{medal_line}</div>'
         )
         as_of = entry.get("score_as_of") or ""
         first_div = entry.get("first_diverged") or ""
@@ -889,8 +896,8 @@ def render_html(payload):
       table {{ width: 100%; border-collapse: collapse; background: #fff; }}
       th, td {{ border: 1px solid #e2e8f0; padding: 0.55rem 0.65rem; text-align: left; vertical-align: top; }}
       th {{ background: #f1f5f9; font-size: 0.85rem; }}
-      tr.row-exact {{ background: #ecfdf5; }}
-      tr.row-exact td {{ border-color: #a7f3d0; }}
+      tr.row-held {{ background: #ecfdf5; }}
+      tr.row-held td {{ border-color: #a7f3d0; }}
       .medal {{ margin-right: 0.15rem; }}
       .meta {{ color: #64748b; font-size: 0.9rem; margin: 1rem 0; }}
       .pill {{
@@ -937,7 +944,7 @@ def render_html(payload):
           <th>Score</th>
           <th>Mode share</th>
           <th>Byte-exact replay</th>
-          <th>Deterministic runs</th>
+          <th>Last run</th>
           <th>Mean distinct</th>
           <th>Cases</th>
         </tr>
@@ -947,18 +954,15 @@ def render_html(payload):
       </tbody>
     </table>
     <p class="meta">
-      <strong>Byte-exact replay</strong> is the property that matters for audit trails:
-      "Yes" and a green row mean the tuple returned identical bytes for the same request on
-      every repeat inside each run <em>and</em> from one run to the next, over at least 3 runs
-      and 72 hours (for tool call cases, an identical normalized call sequence: same tool
-      names and arguments in the same order, ignoring transport ids and indexes).
-      "Within a run only" means the repeats inside each run agreed but the response changed
-      between runs; that is not replay.
-      <strong>Deterministic runs</strong> counts the scored reference runs in which that serving
-      tuple was fully byte-exact <em>and</em> returned the same response as its previous run
-      (N of M), plus the current consecutive streak. Same input must give the same output
-      across days, weeks and months, not only within one run: a tuple is green, and can take
-      a medal, only after 3 consecutive such runs spanning at least 72 hours.
+      <strong>Byte-exact replay</strong> is one score. Every repeat of the same request
+      in that run returned the same bytes (for tool call cases, the same normalized
+      call sequence: same tool names and arguments in the same order, ignoring
+      transport ids and indexes). The pill states that fact. It does not color the row.
+      <strong>A green row means the latest scored run held.</strong> That run was
+      byte-exact, and it returned the same response as the previous run. A broken
+      streak is not a green row. The count under the status (<em>held N of M runs</em>)
+      is history. It is not a second verdict. A medal needs 3 consecutive held runs
+      over at least 72 hours. The streak line marks that bar with the word medal.
       Mode share is the fraction matching the most common completion (can be high without bit-identity).
       All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
       When a due-only run scores a subset, other tuples keep their previous score (shown under the stack id).
@@ -1112,7 +1116,7 @@ def render_run_page(payload, scores):
         )
         bi = row.get("byte_identical")
         if bi is True:
-            bi_html = '<span class="pill pill-yes">Yes · within this run</span>'
+            bi_html = '<span class="pill pill-yes">Yes · byte-exact</span>'
         elif bi is False:
             bi_html = '<span class="pill pill-no">No</span>'
         else:
@@ -1161,7 +1165,7 @@ def render_run_page(payload, scores):
   <table>
     <thead><tr>
       <th>Stack id</th><th>Provider</th><th>Model</th><th>Case / pin</th>
-      <th>n_ok</th><th>Mode share</th><th>Exact within this run</th><th>Distinct</th>
+      <th>n_ok</th><th>Mode share</th><th>Byte-exact</th><th>Distinct</th>
     </tr></thead>
     <tbody>
       {body_rows}

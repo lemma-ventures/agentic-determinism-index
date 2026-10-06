@@ -241,16 +241,83 @@ class TestSite(unittest.TestCase):
         self.assertIn("1st", html)
         self.assertIn("Last run", html)
         self.assertIn("byte-exact", html)
-        self.assertIn("row-exact", html)
+        self.assertIn('class="row-held"', html)
+        self.assertIn("Last run held", html)
+        self.assertIn("held 2 of 3 runs", html)
         self.assertIn("medals", html.lower())
         self.assertIn(">1</div><div class=\"label\">providers", html)
         self.assertIn(">1</div><div class=\"label\">scored tuples", html)
         self.assertNotIn("tagcloud", html)
         self.assertIn("r/qert7m2kn4vw/", html)
         self.assertIn("abcd…wxyz", html)
-        self.assertIn("Deterministic runs", html)
-        self.assertIn("2&nbsp;/&nbsp;3", html)
+        self.assertIn("Last run", html)
         self.assertIn("streak 2", html)
+
+    def test_broken_streak_is_not_a_green_row(self):
+        """A byte-exact latest score with a broken streak stays a plain row.
+
+        The live board showed 0/5 and 1/22 on green rows. Those counts are
+        history. The row color is the last run. Streak 0 means that run changed.
+        """
+        def leader(**extra):
+            row = {
+                "rank": 1,
+                "provider": "openrouter",
+                "display": "Example stack",
+                "model": "m",
+                "score": 80.0,
+                "mean_mode_share": 1.0,
+                "exact_match_rate": 1.0,
+                "mean_distinct": 1.0,
+                "rows": 4,
+                "streak": 0,
+                "replay_checks": 10,
+                "replay_matches": 6,
+            }
+            row.update(extra)
+            return row
+
+        html = render_html({
+            "title": "Agentic Determinism Index (ADI)",
+            "leaders": [
+                leader(deterministic_runs=0, runs_seen=5),
+                leader(rank=2, display="Other stack", deterministic_runs=1, runs_seen=22,
+                       replay_checks=84, replay_matches=19),
+            ],
+        })
+        self.assertNotIn('class="row-held"', html)
+        self.assertIn("Yes · byte-exact", html)
+        self.assertEqual(html.count("Last run changed"), 2)
+        self.assertIn("held 0 of 5 runs", html)
+        self.assertIn("held 1 of 22 runs", html)
+        self.assertIn("A green row means the latest scored run held.", html)
+
+    def test_medal_bar_is_named_on_the_streak_line(self):
+        html = render_html({
+            "title": "Agentic Determinism Index (ADI)",
+            "leaders": [{
+                "rank": 1,
+                "medal": "1st",
+                "provider": "openrouter",
+                "display": "Holds",
+                "model": "m",
+                "score": 99.0,
+                "mean_mode_share": 1.0,
+                "exact_match_rate": 1.0,
+                "mean_distinct": 1.0,
+                "rows": 4,
+                "deterministic_runs": 4,
+                "runs_seen": 4,
+                "streak": 4,
+                "held_hours": 96.0,
+                "green": True,
+                "replay_checks": 12,
+                "replay_matches": 12,
+            }],
+        })
+        self.assertIn('class="row-held"', html)
+        self.assertIn("Last run held", html)
+        self.assertIn("streak 4 · 4.0 d · medal", html)
 
 
 class TestReplayCell(unittest.TestCase):

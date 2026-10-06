@@ -1,448 +1,1578 @@
 {
- "feed_version": 1,
- "generated_at": "2026-10-05T23:21:12.849364Z",
- "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 97,
- "run_stamp": "2026-10-05T231705Z",
- "tuples": [
-  {
-   "base_url": null,
-   "deterministic_runs": 1,
-   "display": "CoreWeave via OpenRouter",
-   "exact_match_rate": 0.75,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "CoreWeave via OpenRouter",
-   "mean_mode_share": 0.975,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "coreweave"
-    ]
-   },
-   "rank": 1,
-   "replay_checks": 10,
-   "replay_rate": 1.0,
-   "runs_seen": 5,
-   "score": 94.0,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
+  "title": "Agentic Determinism Index (ADI)",
+  "run_dir": "runs/reference/2026-10-04T221705Z",
+  "run_stamp": "2026-10-04T221705Z",
+  "run_id": "matkf2ekbjnf",
+  "run_href": "r/matkf2ekbjnf/",
+  "generated_at": "2026-10-06T15:04:03.765305Z",
+  "started": "2026-10-04T22:17:05.060532+00:00",
+  "finished": "2026-10-04T22:21:10.250774+00:00",
+  "n_runs": 92,
+  "last_watch_tick": "",
+  "leaders": [
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "Groq via OpenRouter",
+      "display": "Groq via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 1.0,
+      "exact_match_rate": 1.0,
+      "mean_distinct": 1.0,
+      "score": 96.0,
+      "deterministic_runs": 4,
+      "runs_seen": 5,
+      "streak": 1,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.1-8b-instruct",
+          "rows": 4,
+          "mean_mode_share": 1.0,
+          "exact_match": 1.0
+        }
+      ],
+      "rank": 1,
+      "medal": "",
+      "held_since": "2026-10-04T181705Z",
+      "held_hours": 0.0,
+      "replay_checks": 10,
+      "replay_matches": 9,
+      "replay_rate": 0.9,
+      "first_changed": "2026-09-04T171705Z",
+      "green": false,
+      "score_as_of": "2026-10-04T181705Z",
+      "first_diverged": "2026-09-04T171705Z",
+      "stack_id": "exk3ep4zet3h",
+      "stack_href": "r/8era87g2b285/#exk3ep4zet3h"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "DeepInfra via OpenRouter",
+      "display": "DeepInfra via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 1.0,
+      "exact_match_rate": 1.0,
+      "mean_distinct": 1.0,
+      "score": 86.67,
+      "deterministic_runs": 0,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.1-8b-instruct",
+          "rows": 4,
+          "mean_mode_share": 1.0,
+          "exact_match": 1.0
+        }
+      ],
+      "rank": 2,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 6,
+      "replay_matches": 4,
+      "replay_rate": 0.6667,
+      "first_changed": "2026-10-02T161705Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "mhxs2qmwhhyw",
+      "stack_href": "r/4y6atmrqeatg/#mhxs2qmwhhyw"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "CoreWeave via OpenRouter",
+      "display": "CoreWeave via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.9,
+      "exact_match_rate": 0.5,
+      "mean_distinct": 1.75,
+      "score": 86.0,
+      "deterministic_runs": 1,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.1-8b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.9,
+          "exact_match": 0.5
+        }
+      ],
+      "rank": 3,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 6,
+      "replay_matches": 6,
+      "replay_rate": 1.0,
+      "first_changed": "",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-02T154024Z",
+      "stack_id": "ztxs8fgdns24",
+      "stack_href": "r/4y6atmrqeatg/#ztxs8fgdns24"
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-oss-120b",
+      "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+      "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+      "rows": 4,
+      "mean_mode_share": 1.0,
+      "exact_match_rate": 1.0,
+      "mean_distinct": 1.0,
+      "score": 69.5,
+      "deterministic_runs": 1,
+      "runs_seen": 21,
+      "streak": 0,
+      "models": [
+        {
+          "name": "openai/gpt-oss-120b",
+          "rows": 4,
+          "mean_mode_share": 1.0,
+          "exact_match": 1.0
+        }
+      ],
+      "rank": 4,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 80,
+      "replay_matches": 19,
+      "replay_rate": 0.2375,
+      "first_changed": "2026-09-08T151706Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-08T151706Z",
+      "stack_id": "shaeweq9r4wb",
+      "stack_href": "r/4y6atmrqeatg/#shaeweq9r4wb"
+    },
+    {
+      "provider": "nvidia_nim",
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "label": "NIM hosted (default)",
+      "display": "NIM hosted (default)",
+      "rows": 4,
+      "mean_mode_share": 0.5738,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 3.5,
+      "score": 47.95,
+      "deterministic_runs": 0,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta/llama-3.2-11b-vision-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.5738,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 5,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 6,
+      "replay_matches": 3,
+      "replay_rate": 0.5,
+      "first_changed": "2026-09-02T154024Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "a6x9vmfnggzy",
+      "stack_href": "r/4y6atmrqeatg/#a6x9vmfnggzy"
+    },
+    {
+      "provider": "nvidia_nim",
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+      "display": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+      "rows": 4,
+      "mean_mode_share": 0.5514,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 3.75,
+      "score": 47.06,
+      "deterministic_runs": 0,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta/llama-3.2-11b-vision-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.5514,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 6,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 6,
+      "replay_matches": 3,
+      "replay_rate": 0.5,
+      "first_changed": "2026-09-02T154024Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "jgzmfapdacbj",
+      "stack_href": "r/4y6atmrqeatg/#jgzmfapdacbj"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Nebius via OpenRouter",
+      "display": "Nebius via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.675,
+      "exact_match_rate": 0.5,
+      "mean_distinct": 3.0,
+      "score": 37.0,
+      "deterministic_runs": 0,
+      "runs_seen": 1,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.3-70b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.675,
+          "exact_match": 0.5
+        }
+      ],
+      "rank": 7,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 0,
+      "replay_matches": 0,
+      "replay_rate": null,
+      "first_changed": "",
+      "green": false,
+      "score_as_of": "2026-09-07T123353Z",
+      "first_diverged": "2026-09-07T123353Z",
+      "stack_id": "s4xns2apwskf",
+      "stack_href": "r/8ea84xg8apc6/#s4xns2apwskf"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Together via OpenRouter",
+      "display": "Together via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.475,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 5.75,
+      "score": 34.0,
+      "deterministic_runs": 0,
+      "runs_seen": 2,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.3-70b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.475,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 8,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 4,
+      "replay_matches": 1,
+      "replay_rate": 0.25,
+      "first_changed": "2026-10-04T191706Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-07T123353Z",
+      "stack_id": "2trk2tps6wne",
+      "stack_href": "r/4y6atmrqeatg/#2trk2tps6wne"
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-oss-120b",
+      "label": "Phala via OpenRouter (TEE, attested stack)",
+      "display": "Phala via OpenRouter (TEE, attested stack)",
+      "rows": 4,
+      "mean_mode_share": 0.45,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 5.25,
+      "score": 33.0,
+      "deterministic_runs": 0,
+      "runs_seen": 2,
+      "streak": 0,
+      "models": [
+        {
+          "name": "openai/gpt-oss-120b",
+          "rows": 4,
+          "mean_mode_share": 0.45,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 9,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 4,
+      "replay_matches": 1,
+      "replay_rate": 0.25,
+      "first_changed": "2026-10-04T191706Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-07T141801Z",
+      "stack_id": "3376gnnyn7pr",
+      "stack_href": "r/4y6atmrqeatg/#3376gnnyn7pr"
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "label": "Azure via OpenRouter",
+      "display": "Azure via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.475,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 5.5,
+      "score": 30.67,
+      "deterministic_runs": 0,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "openai/gpt-4o-mini",
+          "rows": 4,
+          "mean_mode_share": 0.475,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 10,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 6,
+      "replay_matches": 1,
+      "replay_rate": 0.1667,
+      "first_changed": "2026-09-02T154024Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "xab9jvqbf7ra",
+      "stack_href": "r/4y6atmrqeatg/#xab9jvqbf7ra"
+    },
+    {
+      "provider": "openrouter",
+      "model": "amazon/nova-lite-v1",
+      "label": "Amazon Bedrock via OpenRouter",
+      "display": "Amazon Bedrock via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.375,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 7.0,
+      "score": 26.67,
+      "deterministic_runs": 0,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "amazon/nova-lite-v1",
+          "rows": 4,
+          "mean_mode_share": 0.375,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 11,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 6,
+      "replay_matches": 1,
+      "replay_rate": 0.1667,
+      "first_changed": "2026-09-02T154024Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "7zs7hhajf4eh",
+      "stack_href": "r/4y6atmrqeatg/#7zs7hhajf4eh"
+    },
+    {
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat-v3.1",
+      "label": "SiliconFlow via OpenRouter",
+      "display": "SiliconFlow via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.375,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 7.0,
+      "score": 26.67,
+      "deterministic_runs": 0,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "deepseek/deepseek-chat-v3.1",
+          "rows": 4,
+          "mean_mode_share": 0.375,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 12,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 6,
+      "replay_matches": 1,
+      "replay_rate": 0.1667,
+      "first_changed": "2026-09-02T154024Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "rehesppkdfa6",
+      "stack_href": "r/4y6atmrqeatg/#rehesppkdfa6"
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "label": "gpt-4o-mini via Azure (OpenRouter)",
+      "display": "gpt-4o-mini via Azure (OpenRouter)",
+      "rows": 3,
+      "mean_mode_share": 0.4872,
+      "exact_match_rate": 0.3333,
+      "mean_distinct": 6.0,
+      "score": 26.15,
+      "deterministic_runs": 0,
+      "runs_seen": 1,
+      "streak": 0,
+      "models": [
+        {
+          "name": "openai/gpt-4o-mini",
+          "rows": 3,
+          "mean_mode_share": 0.4872,
+          "exact_match": 0.3333
+        }
+      ],
+      "rank": 13,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 0,
+      "replay_matches": 0,
+      "replay_rate": null,
+      "first_changed": "",
+      "green": false,
+      "score_as_of": "2026-09-01T105457Z",
+      "first_diverged": "2026-09-01T105457Z",
+      "stack_id": "prevz6f4jpq4",
+      "stack_href": "r/84kh7hp6fx4k/#prevz6f4jpq4"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Crusoe via OpenRouter",
+      "display": "Crusoe via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.525,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 4.5,
+      "score": 26.0,
+      "deterministic_runs": 0,
+      "runs_seen": 1,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.3-70b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.525,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 14,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 0,
+      "replay_matches": 0,
+      "replay_rate": null,
+      "first_changed": "",
+      "green": false,
+      "score_as_of": "2026-09-07T123353Z",
+      "first_diverged": "2026-09-07T123353Z",
+      "stack_id": "8bsxcdg4kndj",
+      "stack_href": "r/8ea84xg8apc6/#8bsxcdg4kndj"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "Novita via OpenRouter",
+      "display": "Novita via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.375,
+      "exact_match_rate": 0.0,
+      "mean_distinct": 6.75,
+      "score": 23.0,
+      "deterministic_runs": 0,
+      "runs_seen": 3,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.1-8b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.375,
+          "exact_match": 0.0
+        }
+      ],
+      "rank": 15,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 5,
+      "replay_matches": 1,
+      "replay_rate": 0.2,
+      "first_changed": "2026-10-02T161705Z",
+      "green": false,
+      "score_as_of": "2026-10-04T191706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "58ydf33vc29g",
+      "stack_href": "r/4y6atmrqeatg/#58ydf33vc29g"
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "label": "",
+      "display": "openrouter/openai/gpt-4o-mini",
+      "rows": 4,
+      "mean_mode_share": 0.4231,
+      "exact_match_rate": 0.25,
+      "mean_distinct": 8.0,
+      "score": 21.92,
+      "deterministic_runs": 0,
+      "runs_seen": 1,
+      "streak": 0,
+      "models": [
+        {
+          "name": "openai/gpt-4o-mini",
+          "rows": 4,
+          "mean_mode_share": 0.4231,
+          "exact_match": 0.25
+        }
+      ],
+      "rank": 16,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 0,
+      "replay_matches": 0,
+      "replay_rate": null,
+      "first_changed": "",
+      "green": false,
+      "score_as_of": "2026-09-01T100929Z",
+      "first_diverged": "2026-09-01T100929Z",
+      "stack_id": "sdcqgzgqth8x",
+      "stack_href": "r/3wznc6y8zz47/#sdcqgzgqth8x"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "",
+      "display": "openrouter/meta-llama/llama-3.1-8b-instruct",
+      "rows": 4,
+      "mean_mode_share": 0.4423,
+      "exact_match_rate": 0.0,
+      "mean_distinct": 5.5,
+      "score": 17.69,
+      "deterministic_runs": 0,
+      "runs_seen": 1,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.1-8b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.4423,
+          "exact_match": 0.0
+        }
+      ],
+      "rank": 17,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 0,
+      "replay_matches": 0,
+      "replay_rate": null,
+      "first_changed": "",
+      "green": false,
+      "score_as_of": "2026-09-01T100929Z",
+      "first_diverged": "2026-09-01T100929Z",
+      "stack_id": "2yzejb7ednhm",
+      "stack_href": "r/3wznc6y8zz47/#2yzejb7ednhm"
+    }
+  ],
+  "providers": 2,
+  "models": 7,
+  "cases": 4,
+  "scored_tuples": 17,
+  "summary": {
+    "providers": 1,
+    "models": 3,
+    "cases": 4,
+    "probe_rows": 12,
+    "scored_rows": 0,
+    "requests": 120,
+    "non_error_requests": 0,
+    "errors": 120,
+    "success_rate": 0.0
   },
-  {
-   "base_url": null,
-   "deterministic_runs": 4,
-   "display": "Groq via OpenRouter",
-   "exact_match_rate": 0.75,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Groq via OpenRouter",
-   "mean_mode_share": 0.95,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "groq"
-    ]
-   },
-   "rank": 2,
-   "replay_checks": 14,
-   "replay_rate": 0.9286,
-   "runs_seen": 6,
-   "score": 90.14,
-   "score_as_of": "2026-10-05T191705Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "DeepInfra via OpenRouter",
-   "exact_match_rate": 1.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "DeepInfra via OpenRouter",
-   "mean_mode_share": 1.0,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "deepinfra"
-    ]
-   },
-   "rank": 3,
-   "replay_checks": 10,
-   "replay_rate": 0.6,
-   "runs_seen": 5,
-   "score": 84.0,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 1,
-   "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "exact_match_rate": 1.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "mean_mode_share": 1.0,
-   "medal": "",
-   "model": "openai/gpt-oss-120b",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "cerebras"
-    ]
-   },
-   "rank": 4,
-   "replay_checks": 84,
-   "replay_rate": 0.2262,
-   "runs_seen": 22,
-   "score": 69.05,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "NIM hosted (default)",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "NIM hosted (default)",
-   "mean_mode_share": 0.5833,
-   "medal": "",
-   "model": "meta/llama-3.2-11b-vision-instruct",
-   "provider": "nvidia_nim",
-   "provider_prefs": null,
-   "rank": 5,
-   "replay_checks": 10,
-   "replay_rate": 0.5,
-   "runs_seen": 5,
-   "score": 48.33,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
-   "mean_mode_share": 0.4923,
-   "medal": "",
-   "model": "meta/llama-3.2-11b-vision-instruct",
-   "provider": "nvidia_nim",
-   "provider_prefs": null,
-   "rank": 6,
-   "replay_checks": 10,
-   "replay_rate": 0.4,
-   "runs_seen": 5,
-   "score": 40.69,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Nebius via OpenRouter",
-   "exact_match_rate": 0.5,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Nebius via OpenRouter",
-   "mean_mode_share": 0.675,
-   "medal": "",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "nebius"
-    ]
-   },
-   "rank": 7,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 37.0,
-   "score_as_of": "2026-09-07T123353Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Azure via OpenRouter",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Azure via OpenRouter",
-   "mean_mode_share": 0.425,
-   "medal": "",
-   "model": "openai/gpt-4o-mini",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "azure"
-    ]
-   },
-   "rank": 8,
-   "replay_checks": 10,
-   "replay_rate": 0.2,
-   "runs_seen": 5,
-   "score": 30.0,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Phala via OpenRouter (TEE, attested stack)",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Phala via OpenRouter (TEE, attested stack)",
-   "mean_mode_share": 0.4444,
-   "medal": "",
-   "model": "openai/gpt-oss-120b",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "phala"
-    ]
-   },
-   "rank": 9,
-   "replay_checks": 7,
-   "replay_rate": 0.2857,
-   "runs_seen": 3,
-   "score": 29.2,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Amazon Bedrock via OpenRouter",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Amazon Bedrock via OpenRouter",
-   "mean_mode_share": 0.4,
-   "medal": "",
-   "model": "amazon/nova-lite-v1",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "amazon-bedrock"
-    ]
-   },
-   "rank": 10,
-   "replay_checks": 10,
-   "replay_rate": 0.2,
-   "runs_seen": 5,
-   "score": 29.0,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "SiliconFlow via OpenRouter",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "SiliconFlow via OpenRouter",
-   "mean_mode_share": 0.4,
-   "medal": "",
-   "model": "deepseek/deepseek-chat-v3.1",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "siliconflow"
-    ]
-   },
-   "rank": 11,
-   "replay_checks": 10,
-   "replay_rate": 0.2,
-   "runs_seen": 5,
-   "score": 29.0,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "gpt-4o-mini via Azure (OpenRouter)",
-   "exact_match_rate": 0.3333,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "gpt-4o-mini via Azure (OpenRouter)",
-   "mean_mode_share": 0.4872,
-   "medal": "",
-   "model": "openai/gpt-4o-mini",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "azure"
-    ]
-   },
-   "rank": 12,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 26.15,
-   "score_as_of": "2026-09-01T105457Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Crusoe via OpenRouter",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Crusoe via OpenRouter",
-   "mean_mode_share": 0.525,
-   "medal": "",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "crusoe"
-    ]
-   },
-   "rank": 13,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 26.0,
-   "score_as_of": "2026-09-07T123353Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "openrouter/openai/gpt-4o-mini",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "",
-   "mean_mode_share": 0.4231,
-   "medal": "",
-   "model": "openai/gpt-4o-mini",
-   "provider": "openrouter",
-   "provider_prefs": null,
-   "rank": 14,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 21.92,
-   "score_as_of": "2026-09-01T100929Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Novita via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Novita via OpenRouter",
-   "mean_mode_share": 0.325,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "novita"
-    ]
-   },
-   "rank": 15,
-   "replay_checks": 9,
-   "replay_rate": 0.2222,
-   "runs_seen": 4,
-   "score": 21.89,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Together via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Together via OpenRouter",
-   "mean_mode_share": 0.375,
-   "medal": "",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "together"
-    ]
-   },
-   "rank": 16,
-   "replay_checks": 8,
-   "replay_rate": 0.125,
-   "runs_seen": 3,
-   "score": 20.0,
-   "score_as_of": "2026-10-05T201706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "openrouter/meta-llama/llama-3.1-8b-instruct",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "",
-   "mean_mode_share": 0.4423,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": null,
-   "rank": 17,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 17.69,
-   "score_as_of": "2026-09-01T100929Z",
-   "streak": 0
-  }
- ]
+  "stack_drift": [
+    {
+      "provider": "nvidia_nim",
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "label": "NIM hosted (default)",
+      "display": "NIM hosted (default)",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T110738Z",
+      "latest_fingerprints": [],
+      "latest_model_versions": [
+        "meta/llama-3.2-11b-vision-instruct"
+      ]
+    },
+    {
+      "provider": "nvidia_nim",
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+      "display": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T110738Z",
+      "latest_fingerprints": [],
+      "latest_model_versions": [
+        "meta/llama-3.2-11b-vision-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "amazon/nova-lite-v1",
+      "label": "Amazon Bedrock via OpenRouter",
+      "display": "Amazon Bedrock via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [
+            "Amazon Bedrock"
+          ],
+          "model_versions": [
+            "amazon/nova-lite-v1"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [
+            "Amazon Bedrock"
+          ],
+          "model_versions": [
+            "amazon/nova-lite-v1"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [
+            "Amazon Bedrock"
+          ],
+          "model_versions": [
+            "amazon/nova-lite-v1"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "Amazon Bedrock"
+          ],
+          "model_versions": [
+            "amazon/nova-lite-v1"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T110738Z",
+      "latest_fingerprints": [
+        "Amazon Bedrock"
+      ],
+      "latest_model_versions": [
+        "amazon/nova-lite-v1"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat-v3.1",
+      "label": "SiliconFlow via OpenRouter",
+      "display": "SiliconFlow via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [
+            "SiliconFlow"
+          ],
+          "model_versions": [
+            "deepseek/deepseek-chat-v3.1"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [
+            "SiliconFlow"
+          ],
+          "model_versions": [
+            "deepseek/deepseek-chat-v3.1"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [
+            "SiliconFlow"
+          ],
+          "model_versions": [
+            "deepseek/deepseek-chat-v3.1"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "SiliconFlow"
+          ],
+          "model_versions": [
+            "deepseek/deepseek-chat-v3.1"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T110738Z",
+      "latest_fingerprints": [
+        "SiliconFlow"
+      ],
+      "latest_model_versions": [
+        "deepseek/deepseek-chat-v3.1"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "",
+      "display": "openrouter/meta-llama/llama-3.1-8b-instruct",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T100929Z",
+          "fingerprints": [
+            "DeepInfra",
+            "Novita",
+            "fp_03e8423237",
+            "fp_6a1eabf260",
+            "fp_8639719ff2"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T100929Z",
+      "latest_fingerprints": [
+        "DeepInfra",
+        "Novita",
+        "fp_03e8423237",
+        "fp_6a1eabf260",
+        "fp_8639719ff2"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.1-8b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "CoreWeave via OpenRouter",
+      "display": "CoreWeave via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [
+            "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [
+            "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [
+            "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-02T154024Z",
+      "latest_fingerprints": [
+        "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.1-8b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "DeepInfra via OpenRouter",
+      "display": "DeepInfra via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [
+            "DeepInfra"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [
+            "DeepInfra"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [
+            "DeepInfra"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "DeepInfra"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": true
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T110738Z",
+      "latest_fingerprints": [
+        "DeepInfra"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.1-8b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "Groq via OpenRouter",
+      "display": "Groq via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [
+            "fp_03e8423237",
+            "fp_6a1eabf260",
+            "fp_8639719ff2"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [
+            "fp_03e8423237",
+            "fp_4387d3edbb",
+            "fp_8639719ff2"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-03T161705Z",
+          "fingerprints": [
+            "fp_020e283281",
+            "fp_e2c608b1d6"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-04T171705Z",
+          "fingerprints": [
+            "fp_020e283281",
+            "fp_6a1eabf260",
+            "fp_e2c608b1d6"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T181705Z",
+          "fingerprints": [
+            "fp_020e283281",
+            "fp_e2c608b1d6"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": true
+        }
+      ],
+      "drift_count": 4,
+      "first_diverged": "2026-09-04T171705Z",
+      "latest_fingerprints": [
+        "fp_020e283281",
+        "fp_e2c608b1d6"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.1-8b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "Novita via OpenRouter",
+      "display": "Novita via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [
+            "Novita"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [
+            "Novita"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "Novita"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T110738Z",
+      "latest_fingerprints": [
+        "Novita"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.1-8b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Crusoe via OpenRouter",
+      "display": "Crusoe via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-07T123353Z",
+          "fingerprints": [
+            "vllm-0.24.0-tp4-6d31f84d"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.3-70b-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-07T123353Z",
+      "latest_fingerprints": [
+        "vllm-0.24.0-tp4-6d31f84d"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.3-70b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Nebius via OpenRouter",
+      "display": "Nebius via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-07T123353Z",
+          "fingerprints": [
+            "Nebius"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.3-70b-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-07T123353Z",
+      "latest_fingerprints": [
+        "Nebius"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.3-70b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Together via OpenRouter",
+      "display": "Together via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-07T123353Z",
+          "fingerprints": [
+            "Together"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.3-70b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "Together"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.3-70b-instruct"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-07T123353Z",
+      "latest_fingerprints": [
+        "Together"
+      ],
+      "latest_model_versions": [
+        "meta-llama/llama-3.3-70b-instruct"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "label": "",
+      "display": "openrouter/openai/gpt-4o-mini",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T100929Z",
+          "fingerprints": [
+            "fp_369e662417"
+          ],
+          "model_versions": [
+            "openai/gpt-4o-mini"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T100929Z",
+      "latest_fingerprints": [
+        "fp_369e662417"
+      ],
+      "latest_model_versions": [
+        "openai/gpt-4o-mini"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "label": "Azure via OpenRouter",
+      "display": "Azure via OpenRouter",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T110738Z",
+          "fingerprints": [
+            "fp_369e662417"
+          ],
+          "model_versions": [
+            "openai/gpt-4o-mini"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-09-02T154024Z",
+          "fingerprints": [
+            "fp_369e662417"
+          ],
+          "model_versions": [
+            "openai/gpt-4o-mini"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-02T161705Z",
+          "fingerprints": [
+            "fp_99f88af1c5"
+          ],
+          "model_versions": [
+            "openai/gpt-4o-mini"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "fp_99f88af1c5"
+          ],
+          "model_versions": [
+            "openai/gpt-4o-mini"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 1,
+      "first_diverged": "2026-09-01T110738Z",
+      "latest_fingerprints": [
+        "fp_99f88af1c5"
+      ],
+      "latest_model_versions": [
+        "openai/gpt-4o-mini"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-4o-mini",
+      "label": "gpt-4o-mini via Azure (OpenRouter)",
+      "display": "gpt-4o-mini via Azure (OpenRouter)",
+      "runs": [
+        {
+          "run_stamp": "2026-09-01T105457Z",
+          "fingerprints": [
+            "fp_369e662417"
+          ],
+          "model_versions": [
+            "openai/gpt-4o-mini"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-01T105457Z",
+      "latest_fingerprints": [
+        "fp_369e662417"
+      ],
+      "latest_model_versions": [
+        "openai/gpt-4o-mini"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-oss-120b",
+      "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+      "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+      "runs": [
+        {
+          "run_stamp": "2026-09-07T141801Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-08T151706Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-09T161701Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-10T171706Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-11T181705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-12T191705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-13T201705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-14T211705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-15T221705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-16T231701Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-18T001722Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-19T011705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-20T021705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-21T031706Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-22T041705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-23T051705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-24T061706Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-25T071702Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-26T081705Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-09-27T091736Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-27T091736Z",
+      "latest_fingerprints": [
+        "fp_752b9cb17e04d95d05c3",
+        "fp_b546658c8e93d2e57ef2"
+      ],
+      "latest_model_versions": [
+        "openai/gpt-oss-120b"
+      ]
+    },
+    {
+      "provider": "openrouter",
+      "model": "openai/gpt-oss-120b",
+      "label": "Phala via OpenRouter (TEE, attested stack)",
+      "display": "Phala via OpenRouter (TEE, attested stack)",
+      "runs": [
+        {
+          "run_stamp": "2026-09-07T141801Z",
+          "fingerprints": [
+            "Phala"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "Phala"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": false
+        }
+      ],
+      "drift_count": 0,
+      "first_diverged": "2026-09-07T141801Z",
+      "latest_fingerprints": [
+        "Phala"
+      ],
+      "latest_model_versions": [
+        "openai/gpt-oss-120b"
+      ]
+    }
+  ],
+  "watch_drift": []
 }
