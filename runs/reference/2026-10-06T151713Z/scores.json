@@ -1,0 +1,306 @@
+[
+ {
+  "provider": "openai_compatible",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "e7df609859681c4818147db7c306bd1d17beb86aa3357f65e4310c442698e481",
+  "first_divergence_char": 67,
+  "fingerprints": [],
+  "model_versions": [
+   "Qwen/Qwen3-30B-A3B-Instruct-2507"
+  ],
+  "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": null,
+  "fingerprints": [],
+  "model_versions": [
+   "Qwen/Qwen3-30B-A3B-Instruct-2507"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "8338bd10abeb50869502f9c69211067a5059a1601fb18483e9d5e90b29072fb1",
+  "first_divergence_char": 115,
+  "fingerprints": [],
+  "model_versions": [
+   "Qwen/Qwen3-30B-A3B-Instruct-2507"
+  ],
+  "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "mode_sha256": "3016e31ac6f8572c63b0588e98c9f4cbd1415c0b032c4780ccd8c667f248e441",
+  "first_divergence_char": 17,
+  "fingerprints": [],
+  "model_versions": [
+   "Qwen/Qwen3-30B-A3B-Instruct-2507"
+  ],
+  "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "9baa62f00a4b72f72814bf4145c7ec7cbbe0e38e3ac671d871d8473b29ebd569",
+  "first_divergence_char": 15,
+  "fingerprints": [],
+  "model_versions": [
+   "deepseek-ai/DeepSeek-V4-Flash-0731"
+  ],
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 4,
+  "errors": 6,
+  "distinct": 4,
+  "byte_identical": false,
+  "mode_share": 0.25,
+  "mode_sha256": "f174aa61fba71d183da38071441d00455d88342275b5f0eba8df8dc6ac12cf1b",
+  "first_divergence_char": 1,
+  "fingerprints": [],
+  "model_versions": [
+   "deepseek-ai/DeepSeek-V4-Flash-0731"
+  ],
+  "json_parse_rate": 0.5,
+  "distinct_canonical_json": 2,
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 8,
+  "errors": 2,
+  "distinct": 5,
+  "byte_identical": false,
+  "mode_share": 0.375,
+  "mode_sha256": "279d394dad5ca09bf5ce86313f56390c79aad96bd1d3565d21fc3d8d0b4e5e86",
+  "first_divergence_char": 66,
+  "fingerprints": [],
+  "model_versions": [
+   "deepseek-ai/DeepSeek-V4-Flash-0731"
+  ],
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 4,
+  "byte_identical": false,
+  "mode_share": 0.6,
+  "mode_sha256": "0eabaae677015b83fe1143302ef217cd46f934bf884c79a1f10e9a41da8c84a5",
+  "first_divergence_char": 123,
+  "fingerprints": [],
+  "model_versions": [
+   "deepseek-ai/DeepSeek-V4-Flash-0731"
+  ],
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "google/gemma-3-27b-it",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 4,
+  "byte_identical": false,
+  "mode_share": 0.5,
+  "mode_sha256": "36a4c71604061295e526441dc43b7b4493479de45bf5b613ee2966116f0cccdd",
+  "first_divergence_char": 154,
+  "fingerprints": [],
+  "model_versions": [
+   "google/gemma-3-27b-it"
+  ],
+  "label": "Nebius direct (Gemma 3 27B dense)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "google/gemma-3-27b-it",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+  "first_divergence_char": null,
+  "fingerprints": [],
+  "model_versions": [
+   "google/gemma-3-27b-it"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Nebius direct (Gemma 3 27B dense)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "google/gemma-3-27b-it",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 5,
+  "byte_identical": false,
+  "mode_share": 0.4,
+  "mode_sha256": "be60b349c8af51b5b7ace8f7d563c48201f83bbe52273e963e79d1f7656596e6",
+  "first_divergence_char": 32,
+  "fingerprints": [],
+  "model_versions": [
+   "google/gemma-3-27b-it"
+  ],
+  "label": "Nebius direct (Gemma 3 27B dense)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "google/gemma-3-27b-it",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.7,
+  "mode_sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+  "first_divergence_char": 175,
+  "fingerprints": [],
+  "model_versions": [
+   "google/gemma-3-27b-it"
+  ],
+  "label": "Nebius direct (Gemma 3 27B dense)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.5,
+  "mode_sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+  "first_divergence_char": 0,
+  "fingerprints": [
+   "vllm-v0.22.0-tp4-3e04bf1c"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "vllm-v0.22.0-tp4-3e04bf1c"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 6,
+  "byte_identical": false,
+  "mode_share": 0.5,
+  "mode_sha256": "04bc278e811584a09acf64922bc0ece87600c4509c599d4dcf39623712d070bd",
+  "first_divergence_char": 7,
+  "fingerprints": [
+   "vllm-v0.22.0-tp4-3e04bf1c"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)"
+ },
+ {
+  "provider": "openai_compatible",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 4,
+  "byte_identical": false,
+  "mode_share": 0.5,
+  "mode_sha256": "43a9e4dd4d18f59c1b57df7595e9fadf161cb7ea06dc820b9d5ac6c859d69546",
+  "first_divergence_char": 201,
+  "fingerprints": [
+   "vllm-v0.22.0-tp4-3e04bf1c"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)"
+ }
+]
