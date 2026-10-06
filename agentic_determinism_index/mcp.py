@@ -11,7 +11,7 @@ one. Three tools, all read-only:
   adi_tuple(provider, model, label="")
       one tuple's row, or the rows for every pin of that (provider, model)
   adi_green(provider="")
-      only the tuples whose latest scored appearance was byte-exact
+      only the green tuples: the same bytes for the same request over at least 3 consecutive runs spanning 72 hours
 
 Source: ``--feed <url|path>`` (default: the published leaderboard.json),
 or ``--run-root runs/reference`` to build the feed from local runs.
@@ -31,7 +31,7 @@ TOOLS = [
         "inputSchema": {
             "type": "object",
             "properties": {
-                "green_only": {"type": "boolean", "description": "only tuples whose latest scored appearance was fully byte-exact"},
+                "green_only": {"type": "boolean", "description": "only green tuples: the same bytes for the same request over at least 3 consecutive runs spanning 72 hours"},
                 "provider": {"type": "string", "description": "filter by ADI provider id (openrouter, nvidia_nim, openai, anthropic, gemini, openai_compatible, huggingface)"},
                 "limit": {"type": "integer", "description": "max rows (default 50)"},
             },
@@ -52,7 +52,7 @@ TOOLS = [
     },
     {
         "name": "adi_green",
-        "description": "The serving tuples that are green right now (latest scored appearance byte-exact), best first, with their provider_prefs.",
+        "description": "The serving tuples that are green right now (the same bytes for the same request over at least 3 consecutive runs spanning 72 hours), best first, with their provider_prefs.",
         "inputSchema": {
             "type": "object",
             "properties": {"provider": {"type": "string"}},
