@@ -1,49 +1,84 @@
 {
   "title": "Agentic Determinism Index (ADI)",
-  "run_dir": "runs/reference/2026-10-04T221705Z",
-  "run_stamp": "2026-10-04T221705Z",
-  "run_id": "matkf2ekbjnf",
-  "run_href": "r/matkf2ekbjnf/",
-  "generated_at": "2026-10-06T15:04:03.765305Z",
-  "started": "2026-10-04T22:17:05.060532+00:00",
-  "finished": "2026-10-04T22:21:10.250774+00:00",
-  "n_runs": 92,
+  "run_dir": "runs/reference/2026-10-05T231705Z",
+  "run_stamp": "2026-10-05T231705Z",
+  "run_id": "jkwkcdjxw8n5",
+  "run_href": "r/jkwkcdjxw8n5/",
+  "generated_at": "2026-10-06T15:10:48.687243Z",
+  "started": "2026-10-05T23:17:05.452367+00:00",
+  "finished": "2026-10-05T23:21:11.643697+00:00",
+  "n_runs": 97,
   "last_watch_tick": "",
   "leaders": [
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "CoreWeave via OpenRouter",
+      "display": "CoreWeave via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.975,
+      "exact_match_rate": 0.75,
+      "mean_distinct": 1.25,
+      "score": 94.0,
+      "deterministic_runs": 1,
+      "runs_seen": 5,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.1-8b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.975,
+          "exact_match": 0.75
+        }
+      ],
+      "rank": 1,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 10,
+      "replay_matches": 10,
+      "replay_rate": 1.0,
+      "first_changed": "",
+      "green": false,
+      "score_as_of": "2026-10-05T201706Z",
+      "first_diverged": "2026-09-02T154024Z",
+      "stack_id": "4zsq4dqf6fyz",
+      "stack_href": "r/wxeefj2psdsn/#4zsq4dqf6fyz"
+    },
     {
       "provider": "openrouter",
       "model": "meta-llama/llama-3.1-8b-instruct",
       "label": "Groq via OpenRouter",
       "display": "Groq via OpenRouter",
       "rows": 4,
-      "mean_mode_share": 1.0,
-      "exact_match_rate": 1.0,
-      "mean_distinct": 1.0,
-      "score": 96.0,
+      "mean_mode_share": 0.95,
+      "exact_match_rate": 0.75,
+      "mean_distinct": 1.25,
+      "score": 90.14,
       "deterministic_runs": 4,
-      "runs_seen": 5,
-      "streak": 1,
+      "runs_seen": 6,
+      "streak": 0,
       "models": [
         {
           "name": "meta-llama/llama-3.1-8b-instruct",
           "rows": 4,
-          "mean_mode_share": 1.0,
-          "exact_match": 1.0
+          "mean_mode_share": 0.95,
+          "exact_match": 0.75
         }
       ],
-      "rank": 1,
+      "rank": 2,
       "medal": "",
-      "held_since": "2026-10-04T181705Z",
+      "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 10,
-      "replay_matches": 9,
-      "replay_rate": 0.9,
+      "replay_checks": 14,
+      "replay_matches": 13,
+      "replay_rate": 0.9286,
       "first_changed": "2026-09-04T171705Z",
       "green": false,
-      "score_as_of": "2026-10-04T181705Z",
+      "score_as_of": "2026-10-05T191705Z",
       "first_diverged": "2026-09-04T171705Z",
-      "stack_id": "exk3ep4zet3h",
-      "stack_href": "r/8era87g2b285/#exk3ep4zet3h"
+      "stack_id": "w2zxwbkj8mwg",
+      "stack_href": "r/9fjwzj4n9p84/#w2zxwbkj8mwg"
     },
     {
       "provider": "openrouter",
@@ -54,9 +89,9 @@
       "mean_mode_share": 1.0,
       "exact_match_rate": 1.0,
       "mean_distinct": 1.0,
-      "score": 86.67,
+      "score": 84.0,
       "deterministic_runs": 0,
-      "runs_seen": 4,
+      "runs_seen": 5,
       "streak": 0,
       "models": [
         {
@@ -66,54 +101,19 @@
           "exact_match": 1.0
         }
       ],
-      "rank": 2,
-      "medal": "",
-      "held_since": "",
-      "held_hours": 0.0,
-      "replay_checks": 6,
-      "replay_matches": 4,
-      "replay_rate": 0.6667,
-      "first_changed": "2026-10-02T161705Z",
-      "green": false,
-      "score_as_of": "2026-10-04T191706Z",
-      "first_diverged": "2026-09-01T110738Z",
-      "stack_id": "mhxs2qmwhhyw",
-      "stack_href": "r/4y6atmrqeatg/#mhxs2qmwhhyw"
-    },
-    {
-      "provider": "openrouter",
-      "model": "meta-llama/llama-3.1-8b-instruct",
-      "label": "CoreWeave via OpenRouter",
-      "display": "CoreWeave via OpenRouter",
-      "rows": 4,
-      "mean_mode_share": 0.9,
-      "exact_match_rate": 0.5,
-      "mean_distinct": 1.75,
-      "score": 86.0,
-      "deterministic_runs": 1,
-      "runs_seen": 4,
-      "streak": 0,
-      "models": [
-        {
-          "name": "meta-llama/llama-3.1-8b-instruct",
-          "rows": 4,
-          "mean_mode_share": 0.9,
-          "exact_match": 0.5
-        }
-      ],
       "rank": 3,
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 6,
+      "replay_checks": 10,
       "replay_matches": 6,
-      "replay_rate": 1.0,
-      "first_changed": "",
+      "replay_rate": 0.6,
+      "first_changed": "2026-10-02T161705Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
-      "first_diverged": "2026-09-02T154024Z",
-      "stack_id": "ztxs8fgdns24",
-      "stack_href": "r/4y6atmrqeatg/#ztxs8fgdns24"
+      "score_as_of": "2026-10-05T201706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "tmrr43vpetzs",
+      "stack_href": "r/wxeefj2psdsn/#tmrr43vpetzs"
     },
     {
       "provider": "openrouter",
@@ -124,9 +124,9 @@
       "mean_mode_share": 1.0,
       "exact_match_rate": 1.0,
       "mean_distinct": 1.0,
-      "score": 69.5,
+      "score": 69.05,
       "deterministic_runs": 1,
-      "runs_seen": 21,
+      "runs_seen": 22,
       "streak": 0,
       "models": [
         {
@@ -140,15 +140,15 @@
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 80,
+      "replay_checks": 84,
       "replay_matches": 19,
-      "replay_rate": 0.2375,
+      "replay_rate": 0.2262,
       "first_changed": "2026-09-08T151706Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
+      "score_as_of": "2026-10-05T201706Z",
       "first_diverged": "2026-09-08T151706Z",
-      "stack_id": "shaeweq9r4wb",
-      "stack_href": "r/4y6atmrqeatg/#shaeweq9r4wb"
+      "stack_id": "vd59pjneswk5",
+      "stack_href": "r/wxeefj2psdsn/#vd59pjneswk5"
     },
     {
       "provider": "nvidia_nim",
@@ -156,18 +156,18 @@
       "label": "NIM hosted (default)",
       "display": "NIM hosted (default)",
       "rows": 4,
-      "mean_mode_share": 0.5738,
+      "mean_mode_share": 0.5833,
       "exact_match_rate": 0.25,
-      "mean_distinct": 3.5,
-      "score": 47.95,
+      "mean_distinct": 3.75,
+      "score": 48.33,
       "deterministic_runs": 0,
-      "runs_seen": 4,
+      "runs_seen": 5,
       "streak": 0,
       "models": [
         {
           "name": "meta/llama-3.2-11b-vision-instruct",
           "rows": 4,
-          "mean_mode_share": 0.5738,
+          "mean_mode_share": 0.5833,
           "exact_match": 0.25
         }
       ],
@@ -175,15 +175,15 @@
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 6,
-      "replay_matches": 3,
+      "replay_checks": 10,
+      "replay_matches": 5,
       "replay_rate": 0.5,
       "first_changed": "2026-09-02T154024Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
+      "score_as_of": "2026-10-05T201706Z",
       "first_diverged": "2026-09-01T110738Z",
-      "stack_id": "a6x9vmfnggzy",
-      "stack_href": "r/4y6atmrqeatg/#a6x9vmfnggzy"
+      "stack_id": "6dgjvx89nn7w",
+      "stack_href": "r/wxeefj2psdsn/#6dgjvx89nn7w"
     },
     {
       "provider": "nvidia_nim",
@@ -191,18 +191,18 @@
       "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
       "display": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
       "rows": 4,
-      "mean_mode_share": 0.5514,
+      "mean_mode_share": 0.4923,
       "exact_match_rate": 0.25,
-      "mean_distinct": 3.75,
-      "score": 47.06,
+      "mean_distinct": 4.5,
+      "score": 40.69,
       "deterministic_runs": 0,
-      "runs_seen": 4,
+      "runs_seen": 5,
       "streak": 0,
       "models": [
         {
           "name": "meta/llama-3.2-11b-vision-instruct",
           "rows": 4,
-          "mean_mode_share": 0.5514,
+          "mean_mode_share": 0.4923,
           "exact_match": 0.25
         }
       ],
@@ -210,15 +210,15 @@
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 6,
-      "replay_matches": 3,
-      "replay_rate": 0.5,
+      "replay_checks": 10,
+      "replay_matches": 4,
+      "replay_rate": 0.4,
       "first_changed": "2026-09-02T154024Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
+      "score_as_of": "2026-10-05T201706Z",
       "first_diverged": "2026-09-01T110738Z",
-      "stack_id": "jgzmfapdacbj",
-      "stack_href": "r/4y6atmrqeatg/#jgzmfapdacbj"
+      "stack_id": "bgyvpys5h69j",
+      "stack_href": "r/wxeefj2psdsn/#bgyvpys5h69j"
     },
     {
       "provider": "openrouter",
@@ -257,22 +257,22 @@
     },
     {
       "provider": "openrouter",
-      "model": "meta-llama/llama-3.3-70b-instruct",
-      "label": "Together via OpenRouter",
-      "display": "Together via OpenRouter",
+      "model": "openai/gpt-4o-mini",
+      "label": "Azure via OpenRouter",
+      "display": "Azure via OpenRouter",
       "rows": 4,
-      "mean_mode_share": 0.475,
+      "mean_mode_share": 0.425,
       "exact_match_rate": 0.25,
-      "mean_distinct": 5.75,
-      "score": 34.0,
+      "mean_distinct": 6.5,
+      "score": 30.0,
       "deterministic_runs": 0,
-      "runs_seen": 2,
+      "runs_seen": 5,
       "streak": 0,
       "models": [
         {
-          "name": "meta-llama/llama-3.3-70b-instruct",
+          "name": "openai/gpt-4o-mini",
           "rows": 4,
-          "mean_mode_share": 0.475,
+          "mean_mode_share": 0.425,
           "exact_match": 0.25
         }
       ],
@@ -280,85 +280,50 @@
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 4,
-      "replay_matches": 1,
-      "replay_rate": 0.25,
-      "first_changed": "2026-10-04T191706Z",
+      "replay_checks": 10,
+      "replay_matches": 2,
+      "replay_rate": 0.2,
+      "first_changed": "2026-09-02T154024Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
-      "first_diverged": "2026-09-07T123353Z",
-      "stack_id": "2trk2tps6wne",
-      "stack_href": "r/4y6atmrqeatg/#2trk2tps6wne"
+      "score_as_of": "2026-10-05T201706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "4dyghxx34gkr",
+      "stack_href": "r/wxeefj2psdsn/#4dyghxx34gkr"
     },
     {
       "provider": "openrouter",
       "model": "openai/gpt-oss-120b",
       "label": "Phala via OpenRouter (TEE, attested stack)",
       "display": "Phala via OpenRouter (TEE, attested stack)",
-      "rows": 4,
-      "mean_mode_share": 0.45,
-      "exact_match_rate": 0.25,
-      "mean_distinct": 5.25,
-      "score": 33.0,
+      "rows": 3,
+      "mean_mode_share": 0.4444,
+      "exact_match_rate": 0.0,
+      "mean_distinct": 2.6667,
+      "score": 29.2,
       "deterministic_runs": 0,
-      "runs_seen": 2,
+      "runs_seen": 3,
       "streak": 0,
       "models": [
         {
           "name": "openai/gpt-oss-120b",
-          "rows": 4,
-          "mean_mode_share": 0.45,
-          "exact_match": 0.25
+          "rows": 3,
+          "mean_mode_share": 0.4444,
+          "exact_match": 0.0
         }
       ],
       "rank": 9,
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 4,
-      "replay_matches": 1,
-      "replay_rate": 0.25,
+      "replay_checks": 7,
+      "replay_matches": 2,
+      "replay_rate": 0.2857,
       "first_changed": "2026-10-04T191706Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
+      "score_as_of": "2026-10-05T201706Z",
       "first_diverged": "2026-09-07T141801Z",
-      "stack_id": "3376gnnyn7pr",
-      "stack_href": "r/4y6atmrqeatg/#3376gnnyn7pr"
-    },
-    {
-      "provider": "openrouter",
-      "model": "openai/gpt-4o-mini",
-      "label": "Azure via OpenRouter",
-      "display": "Azure via OpenRouter",
-      "rows": 4,
-      "mean_mode_share": 0.475,
-      "exact_match_rate": 0.25,
-      "mean_distinct": 5.5,
-      "score": 30.67,
-      "deterministic_runs": 0,
-      "runs_seen": 4,
-      "streak": 0,
-      "models": [
-        {
-          "name": "openai/gpt-4o-mini",
-          "rows": 4,
-          "mean_mode_share": 0.475,
-          "exact_match": 0.25
-        }
-      ],
-      "rank": 10,
-      "medal": "",
-      "held_since": "",
-      "held_hours": 0.0,
-      "replay_checks": 6,
-      "replay_matches": 1,
-      "replay_rate": 0.1667,
-      "first_changed": "2026-09-02T154024Z",
-      "green": false,
-      "score_as_of": "2026-10-04T191706Z",
-      "first_diverged": "2026-09-01T110738Z",
-      "stack_id": "xab9jvqbf7ra",
-      "stack_href": "r/4y6atmrqeatg/#xab9jvqbf7ra"
+      "stack_id": "jt7qbhbjcsdf",
+      "stack_href": "r/wxeefj2psdsn/#jt7qbhbjcsdf"
     },
     {
       "provider": "openrouter",
@@ -366,34 +331,34 @@
       "label": "Amazon Bedrock via OpenRouter",
       "display": "Amazon Bedrock via OpenRouter",
       "rows": 4,
-      "mean_mode_share": 0.375,
+      "mean_mode_share": 0.4,
       "exact_match_rate": 0.25,
-      "mean_distinct": 7.0,
-      "score": 26.67,
+      "mean_distinct": 6.5,
+      "score": 29.0,
       "deterministic_runs": 0,
-      "runs_seen": 4,
+      "runs_seen": 5,
       "streak": 0,
       "models": [
         {
           "name": "amazon/nova-lite-v1",
           "rows": 4,
-          "mean_mode_share": 0.375,
+          "mean_mode_share": 0.4,
           "exact_match": 0.25
         }
       ],
-      "rank": 11,
+      "rank": 10,
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 6,
-      "replay_matches": 1,
-      "replay_rate": 0.1667,
+      "replay_checks": 10,
+      "replay_matches": 2,
+      "replay_rate": 0.2,
       "first_changed": "2026-09-02T154024Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
+      "score_as_of": "2026-10-05T201706Z",
       "first_diverged": "2026-09-01T110738Z",
-      "stack_id": "7zs7hhajf4eh",
-      "stack_href": "r/4y6atmrqeatg/#7zs7hhajf4eh"
+      "stack_id": "82n2wtnkr3kd",
+      "stack_href": "r/wxeefj2psdsn/#82n2wtnkr3kd"
     },
     {
       "provider": "openrouter",
@@ -401,34 +366,34 @@
       "label": "SiliconFlow via OpenRouter",
       "display": "SiliconFlow via OpenRouter",
       "rows": 4,
-      "mean_mode_share": 0.375,
+      "mean_mode_share": 0.4,
       "exact_match_rate": 0.25,
       "mean_distinct": 7.0,
-      "score": 26.67,
+      "score": 29.0,
       "deterministic_runs": 0,
-      "runs_seen": 4,
+      "runs_seen": 5,
       "streak": 0,
       "models": [
         {
           "name": "deepseek/deepseek-chat-v3.1",
           "rows": 4,
-          "mean_mode_share": 0.375,
+          "mean_mode_share": 0.4,
           "exact_match": 0.25
         }
       ],
-      "rank": 12,
+      "rank": 11,
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
-      "replay_checks": 6,
-      "replay_matches": 1,
-      "replay_rate": 0.1667,
+      "replay_checks": 10,
+      "replay_matches": 2,
+      "replay_rate": 0.2,
       "first_changed": "2026-09-02T154024Z",
       "green": false,
-      "score_as_of": "2026-10-04T191706Z",
+      "score_as_of": "2026-10-05T201706Z",
       "first_diverged": "2026-09-01T110738Z",
-      "stack_id": "rehesppkdfa6",
-      "stack_href": "r/4y6atmrqeatg/#rehesppkdfa6"
+      "stack_id": "d7ypc95cvp6n",
+      "stack_href": "r/wxeefj2psdsn/#d7ypc95cvp6n"
     },
     {
       "provider": "openrouter",
@@ -451,7 +416,7 @@
           "exact_match": 0.3333
         }
       ],
-      "rank": 13,
+      "rank": 12,
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
@@ -486,7 +451,7 @@
           "exact_match": 0.25
         }
       ],
-      "rank": 14,
+      "rank": 13,
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
@@ -499,41 +464,6 @@
       "first_diverged": "2026-09-07T123353Z",
       "stack_id": "8bsxcdg4kndj",
       "stack_href": "r/8ea84xg8apc6/#8bsxcdg4kndj"
-    },
-    {
-      "provider": "openrouter",
-      "model": "meta-llama/llama-3.1-8b-instruct",
-      "label": "Novita via OpenRouter",
-      "display": "Novita via OpenRouter",
-      "rows": 4,
-      "mean_mode_share": 0.375,
-      "exact_match_rate": 0.0,
-      "mean_distinct": 6.75,
-      "score": 23.0,
-      "deterministic_runs": 0,
-      "runs_seen": 3,
-      "streak": 0,
-      "models": [
-        {
-          "name": "meta-llama/llama-3.1-8b-instruct",
-          "rows": 4,
-          "mean_mode_share": 0.375,
-          "exact_match": 0.0
-        }
-      ],
-      "rank": 15,
-      "medal": "",
-      "held_since": "",
-      "held_hours": 0.0,
-      "replay_checks": 5,
-      "replay_matches": 1,
-      "replay_rate": 0.2,
-      "first_changed": "2026-10-02T161705Z",
-      "green": false,
-      "score_as_of": "2026-10-04T191706Z",
-      "first_diverged": "2026-09-01T110738Z",
-      "stack_id": "58ydf33vc29g",
-      "stack_href": "r/4y6atmrqeatg/#58ydf33vc29g"
     },
     {
       "provider": "openrouter",
@@ -556,7 +486,7 @@
           "exact_match": 0.25
         }
       ],
-      "rank": 16,
+      "rank": 14,
       "medal": "",
       "held_since": "",
       "held_hours": 0.0,
@@ -569,6 +499,76 @@
       "first_diverged": "2026-09-01T100929Z",
       "stack_id": "sdcqgzgqth8x",
       "stack_href": "r/3wznc6y8zz47/#sdcqgzgqth8x"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "label": "Novita via OpenRouter",
+      "display": "Novita via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.325,
+      "exact_match_rate": 0.0,
+      "mean_distinct": 7.5,
+      "score": 21.89,
+      "deterministic_runs": 0,
+      "runs_seen": 4,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.1-8b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.325,
+          "exact_match": 0.0
+        }
+      ],
+      "rank": 15,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 9,
+      "replay_matches": 2,
+      "replay_rate": 0.2222,
+      "first_changed": "2026-10-02T161705Z",
+      "green": false,
+      "score_as_of": "2026-10-05T201706Z",
+      "first_diverged": "2026-09-01T110738Z",
+      "stack_id": "v6785fq4d8qd",
+      "stack_href": "r/wxeefj2psdsn/#v6785fq4d8qd"
+    },
+    {
+      "provider": "openrouter",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Together via OpenRouter",
+      "display": "Together via OpenRouter",
+      "rows": 4,
+      "mean_mode_share": 0.375,
+      "exact_match_rate": 0.0,
+      "mean_distinct": 6.5,
+      "score": 20.0,
+      "deterministic_runs": 0,
+      "runs_seen": 3,
+      "streak": 0,
+      "models": [
+        {
+          "name": "meta-llama/llama-3.3-70b-instruct",
+          "rows": 4,
+          "mean_mode_share": 0.375,
+          "exact_match": 0.0
+        }
+      ],
+      "rank": 16,
+      "medal": "",
+      "held_since": "",
+      "held_hours": 0.0,
+      "replay_checks": 8,
+      "replay_matches": 1,
+      "replay_rate": 0.125,
+      "first_changed": "2026-10-04T191706Z",
+      "green": false,
+      "score_as_of": "2026-10-05T201706Z",
+      "first_diverged": "2026-09-07T123353Z",
+      "stack_id": "8ar2qy4svwx8",
+      "stack_href": "r/wxeefj2psdsn/#8ar2qy4svwx8"
     },
     {
       "provider": "openrouter",
@@ -659,6 +659,14 @@
             "meta/llama-3.2-11b-vision-instruct"
           ],
           "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
         }
       ],
       "drift_count": 0,
@@ -700,6 +708,14 @@
         },
         {
           "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [],
+          "model_versions": [
+            "meta/llama-3.2-11b-vision-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
           "fingerprints": [],
           "model_versions": [
             "meta/llama-3.2-11b-vision-instruct"
@@ -759,6 +775,16 @@
             "amazon/nova-lite-v1"
           ],
           "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
+          "fingerprints": [
+            "Amazon Bedrock"
+          ],
+          "model_versions": [
+            "amazon/nova-lite-v1"
+          ],
+          "byte_exact": false
         }
       ],
       "drift_count": 0,
@@ -808,6 +834,16 @@
         },
         {
           "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "SiliconFlow"
+          ],
+          "model_versions": [
+            "deepseek/deepseek-chat-v3.1"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
           "fingerprints": [
             "SiliconFlow"
           ],
@@ -905,6 +941,16 @@
             "meta-llama/llama-3.1-8b-instruct"
           ],
           "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
+          "fingerprints": [
+            "vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
         }
       ],
       "drift_count": 0,
@@ -954,6 +1000,16 @@
         },
         {
           "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "DeepInfra"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
           "fingerprints": [
             "DeepInfra"
           ],
@@ -1035,12 +1091,31 @@
             "meta-llama/llama-3.1-8b-instruct"
           ],
           "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-10-05T191705Z",
+          "fingerprints": [
+            "fp_020e283281",
+            "fp_03e8423237",
+            "fp_4387d3edbb",
+            "fp_6a1eabf260",
+            "fp_8639719ff2",
+            "fp_e2c608b1d6"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
         }
       ],
-      "drift_count": 4,
+      "drift_count": 5,
       "first_diverged": "2026-09-04T171705Z",
       "latest_fingerprints": [
         "fp_020e283281",
+        "fp_03e8423237",
+        "fp_4387d3edbb",
+        "fp_6a1eabf260",
+        "fp_8639719ff2",
         "fp_e2c608b1d6"
       ],
       "latest_model_versions": [
@@ -1075,6 +1150,16 @@
         },
         {
           "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "Novita"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.1-8b-instruct"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
           "fingerprints": [
             "Novita"
           ],
@@ -1170,6 +1255,16 @@
             "meta-llama/llama-3.3-70b-instruct"
           ],
           "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
+          "fingerprints": [
+            "Together"
+          ],
+          "model_versions": [
+            "meta-llama/llama-3.3-70b-instruct"
+          ],
+          "byte_exact": false
         }
       ],
       "drift_count": 0,
@@ -1245,6 +1340,16 @@
         },
         {
           "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "fp_99f88af1c5"
+          ],
+          "model_versions": [
+            "openai/gpt-4o-mini"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
           "fingerprints": [
             "fp_99f88af1c5"
           ],
@@ -1525,6 +1630,17 @@
             "openai/gpt-oss-120b"
           ],
           "byte_exact": true
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
+          "fingerprints": [
+            "fp_752b9cb17e04d95d05c3",
+            "fp_b546658c8e93d2e57ef2"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": true
         }
       ],
       "drift_count": 0,
@@ -1555,6 +1671,16 @@
         },
         {
           "run_stamp": "2026-10-04T191706Z",
+          "fingerprints": [
+            "Phala"
+          ],
+          "model_versions": [
+            "openai/gpt-oss-120b"
+          ],
+          "byte_exact": false
+        },
+        {
+          "run_stamp": "2026-10-05T201706Z",
           "fingerprints": [
             "Phala"
           ],
