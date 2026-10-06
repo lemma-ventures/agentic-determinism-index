@@ -608,19 +608,36 @@ def _short_dt(iso):
         return str(iso)[:16]
 
 
-def _byte_exact_cell(rate):
-    """Human label for average byte-identity across cases."""
+def _byte_exact_cell(entry):
+    """The replay verdict for a leaderboard row, and its row class.
+
+    Green - the same request returned the same bytes run after run - is the
+    only state shown as "Yes" and coloured green. A tuple that agrees with
+    itself inside each run but answers differently from one run to the next
+    is not byte-exact for a client, however exact its latest run was: that
+    within-run figure alone painted rows green at 0 of 5 deterministic runs.
+    """
+    rate = _as_float(entry.get("exact_match_rate"))
     if rate is None:
         return '<span class="pill pill-na">n/a</span>', ""
-    r = float(rate)
-    if r >= 0.999:
-        return '<span class="pill pill-yes">Yes · byte-exact</span>', "row-exact"
-    if r <= 0.001:
+    if entry.get("green"):
+        held = float(entry.get("held_hours") or 0.0) / 24
+        return (
+            f'<span class="pill pill-yes">Yes · held {int(entry.get("streak") or 0)} runs, {held:.1f} d</span>',
+            "row-exact",
+        )
+    checks = int(entry.get("replay_checks") or 0)
+    matches = int(entry.get("replay_matches") or 0)
+    if rate >= 0.999:
+        if checks == 0:
+            return '<span class="pill pill-partial">Within a run · not yet replayed</span>', ""
+        return (
+            f'<span class="pill pill-partial">Within a run only · {matches}/{checks} same as the previous run</span>',
+            "",
+        )
+    if rate <= 0.001:
         return '<span class="pill pill-no">No</span>', ""
-    return (
-        f'<span class="pill pill-partial">Partial · {_format_pct(r)}</span>',
-        "",
-    )
+    return f'<span class="pill pill-partial">Partial · {_format_pct(rate)} of cases exact</span>', ""
 
 
 def render_html(payload):
@@ -648,8 +665,7 @@ def render_html(payload):
         model = entry.get("model") or ""
         if not model and entry.get("models"):
             model = ", ".join(m.get("name", "") for m in entry["models"] if m.get("name"))
-        exact_rate = entry.get("exact_match_rate")
-        byte_cell, row_class = _byte_exact_cell(exact_rate)
+        byte_cell, row_class = _byte_exact_cell(entry)
         tr_cls = f' class="{row_class}"' if row_class else ""
         sid = entry.get("stack_id") or short_stack_id(
             f"{entry.get('provider')}|{entry.get('model')}|{entry.get('label') or ''}"
@@ -932,9 +948,12 @@ def render_html(payload):
     </table>
     <p class="meta">
       <strong>Byte-exact replay</strong> is the property that matters for audit trails:
-      green rows returned identical bytes on every successful repeat of the same request
-      (for tool call cases, an identical normalized call sequence: same tool names and
-      arguments in the same order, ignoring transport ids and indexes).
+      "Yes" and a green row mean the tuple returned identical bytes for the same request on
+      every repeat inside each run <em>and</em> from one run to the next, over at least 3 runs
+      and 72 hours (for tool call cases, an identical normalized call sequence: same tool
+      names and arguments in the same order, ignoring transport ids and indexes).
+      "Within a run only" means the repeats inside each run agreed but the response changed
+      between runs; that is not replay.
       <strong>Deterministic runs</strong> counts the scored reference runs in which that serving
       tuple was fully byte-exact <em>and</em> returned the same response as its previous run
       (N of M), plus the current consecutive streak. Same input must give the same output
@@ -1093,7 +1112,7 @@ def render_run_page(payload, scores):
         )
         bi = row.get("byte_identical")
         if bi is True:
-            bi_html = '<span class="pill pill-yes">Yes · byte-exact</span>'
+            bi_html = '<span class="pill pill-yes">Yes · within this run</span>'
         elif bi is False:
             bi_html = '<span class="pill pill-no">No</span>'
         else:
@@ -1142,7 +1161,7 @@ def render_run_page(payload, scores):
   <table>
     <thead><tr>
       <th>Stack id</th><th>Provider</th><th>Model</th><th>Case / pin</th>
-      <th>n_ok</th><th>Mode share</th><th>Byte-exact</th><th>Distinct</th>
+      <th>n_ok</th><th>Mode share</th><th>Exact within this run</th><th>Distinct</th>
     </tr></thead>
     <tbody>
       {body_rows}
