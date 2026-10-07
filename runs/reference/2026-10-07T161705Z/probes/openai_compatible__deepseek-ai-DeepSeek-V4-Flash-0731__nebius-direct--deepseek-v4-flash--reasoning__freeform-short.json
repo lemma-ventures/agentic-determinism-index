@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-07T16:22:24.471151+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because numbers are stored with finite precision, so the result of each arithmetic operation is rounded to fit the available mantissa bits. When the order of addition changes, the intermediate sums differ, and the rounding applied to these different",
+   "sha256": "03a8ec392c6cdc2c19646f96680a5219b8091732e16de64a3ed489b6919bb315",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2415
+  },
+  {
+   "ts": "2026-10-07T16:22:24.471429+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because each operation rounds its exact mathematical result to the nearest representable value, introducing a small error. Since the intermediate results differ depending on the grouping of operands, the rounding errors accumulate differently, leading to different final values. For instance",
+   "sha256": "03c66153daf142dc9c269013616ae39ad88cf62837ff3f42f90d6d1083dc6942",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2241
+  },
+  {
+   "ts": "2026-10-07T16:22:24.472274+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite number of bits to represent a value, so the result of any arithmetic operation is",
+   "sha256": "fcbd7fe502e2e0099c342abcdc5d52f79cf8618b5406654b66e386142c481e49",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2463
+  },
+  {
+   "ts": "2026-10-07T16:22:24.473394+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so each arithmetic operation rounds the exact mathematical result to the nearest representable value. When adding three or more numbers, the",
+   "sha256": "9e09576ba8c44e4e50753830b00d70cecb3510828f83351e6894d27c0a544369",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2512
+  },
+  {
+   "ts": "2026-10-07T16:22:24.479268+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because each operation rounds its exact mathematical result to the nearest representable value, introducing a small error. Since the intermediate results differ depending on the grouping of operands, the rounding errors accumulate differently, leading to different final values. For instance",
+   "sha256": "03c66153daf142dc9c269013616ae39ad88cf62837ff3f42f90d6d1083dc6942",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2234
+  },
+  {
+   "ts": "2026-10-07T16:22:24.480265+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because each operation rounds its exact mathematical result to fit the finite precision of the format, introducing a small rounding error. Since the magnitude of the operands determines how much information is lost during this",
+   "sha256": "83a07fd8503e62fede6153c00165d269d6a67217c50c9fbbc90b646468b72e29",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2162
+  },
+  {
+   "ts": "2026-10-07T16:22:24.482271+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite number of bits to represent a value, so the result of any arithmetic operation is",
+   "sha256": "fcbd7fe502e2e0099c342abcdc5d52f79cf8618b5406654b66e386142c481e49",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2449
+  },
+  {
+   "ts": "2026-10-07T16:22:24.484417+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the finite precision of the mantissa forces intermediate results to be rounded to the nearest representable value. For example, adding a very small number to a very large number can completely lose the small number due to rounding, whereas adding the small numbers together first preserves their sum before combining with the large number. Consequently, different groupings of the same operands produce different intermediate roundings, leading to different final results.",
+   "sha256": "5bfdd349840ce310557f091e1bbf0fa9b6db84420d4cde3b2cce2495c78465f6",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2115
+  },
+  {
+   "ts": "2026-10-07T16:22:36.986567+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because numbers are stored with finite precision, so the result of each operation is rounded to fit the available mantissa bits. When the order of operations changes, the intermediate sums differ, causing different values to be rounded at different stages",
+   "sha256": "3bd498283f264bb6aa3b29d2b4a9e4120c81e306e43c27079773c9136ed88b61",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1696
+  },
+  {
+   "ts": "2026-10-07T16:22:48.682482+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have finite precision, so the exact result of each addition is rounded to the nearest representable value. Because the intermediate sums in a sequence of additions are rounded differently depending on the grouping, the rounding errors accumulate in distinct ways. Consequently, (a + b) + c",
+   "sha256": "ac0c85fb8124a807984da188a64e2bc144ae6be087c9ab18891212bd26ddd695",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 3037
+  }
+ ]
+}
