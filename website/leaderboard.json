@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-09T23:18:36.799677Z",
+ "generated_at": "2026-10-10T00:20:04.673802Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 117,
- "run_stamp": "2026-10-09T231706Z",
+ "n_runs": 118,
+ "run_stamp": "2026-10-10T001707Z",
  "tuples": [
   {
    "base_url": null,
@@ -106,11 +106,11 @@
     ]
    },
    "rank": 4,
-   "replay_checks": 96,
-   "replay_rate": 0.1979,
-   "runs_seen": 25,
-   "score": 67.92,
-   "score_as_of": "2026-10-08T231705Z",
+   "replay_checks": 100,
+   "replay_rate": 0.2,
+   "runs_seen": 26,
+   "score": 68.0,
+   "score_as_of": "2026-10-10T001707Z",
    "streak": 0
   },
   {
