@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-13T00:19:57.348429Z",
+ "generated_at": "2026-10-13T03:20:04.298409Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 130,
- "run_stamp": "2026-10-13T001705Z",
+ "n_runs": 131,
+ "run_stamp": "2026-10-13T031709Z",
  "tuples": [
   {
    "base_url": null,
@@ -87,6 +87,33 @@
    "streak": 0
   },
   {
+   "base_url": null,
+   "deterministic_runs": 1,
+   "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+   "exact_match_rate": 0.75,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+   "mean_mode_share": 0.975,
+   "medal": "",
+   "model": "openai/gpt-oss-120b",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "rank": 4,
+   "replay_checks": 112,
+   "replay_rate": 0.1964,
+   "runs_seen": 29,
+   "score": 61.86,
+   "score_as_of": "2026-10-13T031709Z",
+   "streak": 0
+  },
+  {
    "base_url": "https://api.tokenfactory.nebius.com/v1",
    "deterministic_runs": 0,
    "display": "Nebius direct (Gemma 3 27B dense)",
@@ -100,39 +127,12 @@
    "model": "google/gemma-3-27b-it",
    "provider": "openai_compatible",
    "provider_prefs": null,
-   "rank": 4,
+   "rank": 5,
    "replay_checks": 4,
    "replay_rate": 0.5,
    "runs_seen": 2,
    "score": 55.0,
    "score_as_of": "2026-10-07T161705Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 1,
-   "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "exact_match_rate": 0.5,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "mean_mode_share": 0.875,
-   "medal": "",
-   "model": "openai/gpt-oss-120b",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "cerebras"
-    ]
-   },
-   "rank": 5,
-   "replay_checks": 108,
-   "replay_rate": 0.1944,
-   "runs_seen": 28,
-   "score": 52.78,
-   "score_as_of": "2026-10-12T021705Z",
    "streak": 0
   },
   {
