@@ -146,7 +146,7 @@
       "last_score_epoch": 1791782473.1252801,
       "last_score_stamp": "2026-10-12T051705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1791847354.8992546,
+      "next_due_epoch": 1791853850.516045,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -156,12 +156,12 @@
       "label": "AtlasCloud via OpenRouter (SGLang partner)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1791760790.3265715,
-      "last_score_stamp": "2026-10-11T231705Z",
+      "last_score_epoch": 1791850796.2440627,
+      "last_score_stamp": "2026-10-13T001705Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1791844021.6173632,
+      "next_due_epoch": 1791854458.936248,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -190,7 +190,7 @@
       "last_score_epoch": 1791782473.1252801,
       "last_score_stamp": "2026-10-12T051705Z",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1791847464.501051,
+      "next_due_epoch": 1791854352.3785155,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -314,7 +314,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1791843958.8520236,
+      "next_due_epoch": 1791854931.3239117,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -363,7 +363,7 @@
       "last_score_epoch": 1791782473.1252801,
       "last_score_stamp": "2026-10-12T051705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1791847433.374109,
+      "next_due_epoch": 1791854745.1191275,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -467,16 +467,16 @@
       "label": "Thinking Machines direct (batch-invariant claim)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1791760790.3265715,
-      "last_score_stamp": "2026-10-11T231705Z",
+      "last_score_epoch": 1791850796.2440627,
+      "last_score_stamp": "2026-10-13T001705Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1791843509.2182596,
+      "next_due_epoch": 1791851319.448154,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-10-12T22:18:28.805059+00:00"
+  "updated": "2026-10-13T00:19:56.244082+00:00"
 }
