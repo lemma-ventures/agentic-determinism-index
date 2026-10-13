@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "SambaNova via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "sambanova"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "sambanova"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-13T23:17:05.936230+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 316
+  },
+  {
+   "ts": "2026-10-13T23:17:05.936930+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 301
+  },
+  {
+   "ts": "2026-10-13T23:17:05.937309+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 277
+  },
+  {
+   "ts": "2026-10-13T23:17:05.937635+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 286
+  },
+  {
+   "ts": "2026-10-13T23:17:05.938478+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 287
+  },
+  {
+   "ts": "2026-10-13T23:17:05.939280+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 298
+  },
+  {
+   "ts": "2026-10-13T23:17:05.940281+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 280
+  },
+  {
+   "ts": "2026-10-13T23:17:05.941468+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 489
+  },
+  {
+   "ts": "2026-10-13T23:17:16.431268+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 113
+  },
+  {
+   "ts": "2026-10-13T23:17:26.544718+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Guardrails removed cloudflare/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, sambanova-turbo, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Filter by Gua",
+   "latency_ms": 104
+  }
+ ]
+}
