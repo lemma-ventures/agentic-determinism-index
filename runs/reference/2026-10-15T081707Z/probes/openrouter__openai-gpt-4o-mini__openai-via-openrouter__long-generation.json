@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "label": "OpenAI via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "openai"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-4o-mini",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "openai"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-15T08:18:08.900672+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 247
+  },
+  {
+   "ts": "2026-10-15T08:18:08.900950+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 280
+  },
+  {
+   "ts": "2026-10-15T08:18:08.902277+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 296
+  },
+  {
+   "ts": "2026-10-15T08:18:08.903405+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 292
+  },
+  {
+   "ts": "2026-10-15T08:18:08.909275+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 309
+  },
+  {
+   "ts": "2026-10-15T08:18:08.910261+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 291
+  },
+  {
+   "ts": "2026-10-15T08:18:08.912263+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 300
+  },
+  {
+   "ts": "2026-10-15T08:18:08.914440+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 299
+  },
+  {
+   "ts": "2026-10-15T08:18:19.218955+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 122
+  },
+  {
+   "ts": "2026-10-15T08:18:29.340889+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-4o-mini. Every candidate endpoint was removed during routing: Filter by Regional Surcharge removed azure/swedencentral; Filter by Guardrails removed openai (ZDR violation (account settings)); Filter by Fallback removed azure.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Regional Surcharge\",\"endpoint_count\":2},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":1,\"reason\":\"ZDR violat",
+   "latency_ms": 97
+  }
+ ]
+}
