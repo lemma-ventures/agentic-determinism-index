@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Cloudflare via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "cloudflare"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cloudflare"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-17T10:18:28.337719+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 11948
+  },
+  {
+   "ts": "2026-10-17T10:18:28.337977+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 11471
+  },
+  {
+   "ts": "2026-10-17T10:18:28.339290+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 9203
+  },
+  {
+   "ts": "2026-10-17T10:18:28.340398+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 9657
+  },
+  {
+   "ts": "2026-10-17T10:18:28.346299+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 9343
+  },
+  {
+   "ts": "2026-10-17T10:18:28.347258+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 11526
+  },
+  {
+   "ts": "2026-10-17T10:18:28.349273+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 9984
+  },
+  {
+   "ts": "2026-10-17T10:18:28.350405+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 8599
+  },
+  {
+   "ts": "2026-10-17T10:18:50.286311+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 9321
+  },
+  {
+   "ts": "2026-10-17T10:19:09.607850+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can change the result due to rounding errors. For example, (1.1 + 2.2) + 3.3 is not equal to 1.1 + (2.2 + 3.3) because the intermediate result 3.3 + 2.2 is rounded to 5.5, but 1.1 + 3.3 is rounded to 4.4, and then 4.4 + 5.5 is rounded to 9.9, but 1.1 + 4.4 is rounded to 5.5, and then 5.5 + 5.5 is rounded to 11.0. This is because the rounding errors accumulate and propagate through the calculation, making the order of operations matter.",
+   "sha256": "750f791840e2fea110c32f727e10009cb407bbb6dc833409e35ecac7aa23ff90",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 9197
+  }
+ ]
+}

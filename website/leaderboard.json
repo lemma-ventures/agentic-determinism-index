@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-17T07:18:25.125718Z",
+ "generated_at": "2026-10-17T10:26:19.324550Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 147,
- "run_stamp": "2026-10-17T071702Z",
+ "n_runs": 148,
+ "run_stamp": "2026-10-17T101706Z",
  "tuples": [
   {
    "base_url": null,
@@ -62,6 +62,33 @@
   {
    "base_url": null,
    "deterministic_runs": 0,
+   "display": "Cloudflare via OpenRouter",
+   "exact_match_rate": 0.75,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Cloudflare via OpenRouter",
+   "mean_mode_share": 0.8,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "cloudflare"
+    ]
+   },
+   "rank": 3,
+   "replay_checks": 4,
+   "replay_rate": 0.75,
+   "runs_seen": 2,
+   "score": 77.0,
+   "score_as_of": "2026-10-17T101706Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
    "display": "DeepInfra via OpenRouter",
    "exact_match_rate": 0.5,
    "green": false,
@@ -78,7 +105,7 @@
      "deepinfra"
     ]
    },
-   "rank": 3,
+   "rank": 4,
    "replay_checks": 18,
    "replay_rate": 0.6667,
    "runs_seen": 7,
@@ -105,7 +132,7 @@
      "cerebras"
     ]
    },
-   "rank": 4,
+   "rank": 5,
    "replay_checks": 112,
    "replay_rate": 0.1964,
    "runs_seen": 29,
@@ -127,7 +154,7 @@
    "model": "google/gemma-3-27b-it",
    "provider": "openai_compatible",
    "provider_prefs": null,
-   "rank": 5,
+   "rank": 6,
    "replay_checks": 4,
    "replay_rate": 0.5,
    "runs_seen": 2,
@@ -149,7 +176,7 @@
    "model": "meta/llama-3.2-11b-vision-instruct",
    "provider": "nvidia_nim",
    "provider_prefs": null,
-   "rank": 6,
+   "rank": 7,
    "replay_checks": 10,
    "replay_rate": 0.5,
    "runs_seen": 5,
@@ -171,7 +198,7 @@
    "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
    "provider": "openai_compatible",
    "provider_prefs": null,
-   "rank": 7,
+   "rank": 8,
    "replay_checks": 4,
    "replay_rate": 0.25,
    "runs_seen": 2,
@@ -193,7 +220,7 @@
    "model": "meta/llama-3.2-11b-vision-instruct",
    "provider": "nvidia_nim",
    "provider_prefs": null,
-   "rank": 8,
+   "rank": 9,
    "replay_checks": 10,
    "replay_rate": 0.4,
    "runs_seen": 5,
@@ -215,39 +242,12 @@
    "model": "meta-llama/llama-3.3-70b-instruct",
    "provider": "openrouter",
    "provider_prefs": null,
-   "rank": 9,
+   "rank": 10,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
    "score": 37.0,
    "score_as_of": "2026-09-07T123353Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Cloudflare via OpenRouter",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Cloudflare via OpenRouter",
-   "mean_mode_share": 0.7,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "cloudflare"
-    ]
-   },
-   "rank": 10,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 33.0,
-   "score_as_of": "2026-10-16T091709Z",
    "streak": 0
   },
   {
