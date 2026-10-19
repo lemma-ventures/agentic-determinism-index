@@ -146,7 +146,7 @@
       "last_score_epoch": 1792322389.3378892,
       "last_score_stamp": "2026-10-18T111705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1792386794.5417857,
+      "next_due_epoch": 1792394320.8394635,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -156,12 +156,12 @@
       "label": "AtlasCloud via OpenRouter (SGLang partner)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1792300792.2879791,
-      "last_score_stamp": "2026-10-18T051706Z",
+      "last_score_epoch": 1792390805.5116796,
+      "last_score_stamp": "2026-10-19T061721Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1792383996.3054,
+      "next_due_epoch": 1792391308.0950353,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -322,7 +322,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1792387174.5994058,
+      "next_due_epoch": 1792394624.645471,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -371,7 +371,7 @@
       "last_score_epoch": 1792322389.3378892,
       "last_score_stamp": "2026-10-18T111705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1792383936.0986562,
+      "next_due_epoch": 1792391019.6819003,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -475,16 +475,16 @@
       "label": "Thinking Machines direct (batch-invariant claim)",
       "last_fingerprint": null,
       "last_model_version": null,
-      "last_score_epoch": 1792300792.2879791,
-      "last_score_stamp": "2026-10-18T051706Z",
+      "last_score_epoch": 1792390805.5116796,
+      "last_score_stamp": "2026-10-19T061721Z",
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1792386749.5067422,
+      "next_due_epoch": 1792391183.0608659,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-10-19T04:18:44.225327+00:00"
+  "updated": "2026-10-19T06:20:05.511698+00:00"
 }
