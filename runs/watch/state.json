@@ -78,7 +78,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "next_due_epoch": 1792396611.772629,
+      "next_due_epoch": 1792413746.5749223,
       "non_exact_streak": 2,
       "provider": "openai_compatible",
       "stable_streak": 0,
@@ -116,7 +116,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1792390853.6092222,
+      "next_due_epoch": 1792411428.7351346,
       "non_exact_streak": 2,
       "provider": "openai_compatible",
       "stable_streak": 0,
@@ -146,7 +146,7 @@
       "last_score_epoch": 1792322389.3378892,
       "last_score_stamp": "2026-10-18T111705Z",
       "model": "cohere/command-r-08-2024",
-      "next_due_epoch": 1792394320.8394635,
+      "next_due_epoch": 1792401694.349388,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -161,7 +161,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1792391308.0950353,
+      "next_due_epoch": 1792405491.722813,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -249,13 +249,13 @@
       "last_score_epoch": 1791677913.6156876,
       "last_score_stamp": "2026-10-11T001705Z",
       "last_stack_id": "fp:fp_e2c608b1d6|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-10-19T02:17:36.270544+00:00",
+      "last_ts": "2026-10-19T07:17:04.899591+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1792392618.3017082,
+      "next_due_epoch": 1792407447.4429667,
       "non_exact_streak": 2,
       "provider": "openrouter",
-      "stable_streak": 1,
-      "ticks": 284
+      "stable_streak": 2,
+      "ticks": 285
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -283,8 +283,8 @@
       "last_fingerprint": "vllm-0.24.0-tp4-6d31f84d",
       "last_mode_share": 0.3,
       "last_model_version": "meta-llama/llama-3.3-70b-instruct",
-      "last_score_epoch": 1792311507.888081,
-      "last_score_stamp": "2026-10-18T081705Z",
+      "last_score_epoch": 1792401508.606938,
+      "last_score_stamp": "2026-10-19T091705Z",
       "last_stack_id": "fp:vllm-0.24.0-tp4-6d31f84d|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-09-13T10:17:05.699046+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
@@ -322,7 +322,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1792394624.645471,
+      "next_due_epoch": 1792402041.3508823,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
@@ -371,7 +371,7 @@
       "last_score_epoch": 1792322389.3378892,
       "last_score_stamp": "2026-10-18T111705Z",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1792391019.6819003,
+      "next_due_epoch": 1792404816.5723228,
       "provider": "openrouter",
       "stable_streak": 0
     },
@@ -402,7 +402,7 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1792392608.4384933,
+      "next_due_epoch": 1792407561.445606,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "stable_streak": 0,
@@ -435,7 +435,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-10-08T04:17:05.943450+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1792394592.746162,
+      "next_due_epoch": 1792413538.9936867,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "stable_streak": 4,
@@ -480,11 +480,11 @@
       "last_stack_id": null,
       "last_ts": null,
       "model": "thinkingmachines/inkling:free",
-      "next_due_epoch": 1792391183.0608659,
+      "next_due_epoch": 1792405582.398872,
       "provider": "openrouter",
       "stable_streak": 0,
       "ticks": 0
     }
   },
-  "updated": "2026-10-19T06:20:05.511698+00:00"
+  "updated": "2026-10-19T09:18:28.606954+00:00"
 }
