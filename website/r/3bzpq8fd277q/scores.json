@@ -1,0 +1,124 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 0,
+  "errors": 10,
+  "label": "Crusoe via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.7,
+  "mode_sha256": "a25fa7c8d27231d14fa4b1b21ae74cf4d495332fa588725d23438068a031686c",
+  "first_divergence_char": 51,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.8,
+  "mode_sha256": "2fdf18dabe183b382616dae0909a2117effc68e4e8f51a0f54c14e7fc15f0b9d",
+  "first_divergence_char": 75,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "2098f72232395060117f0858334df74dd51d2fd2bb70221e2c7eb22ca717b58f",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_752b9cb17e04d95d05c3",
+   "fp_b546658c8e93d2e57ef2"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ }
+]

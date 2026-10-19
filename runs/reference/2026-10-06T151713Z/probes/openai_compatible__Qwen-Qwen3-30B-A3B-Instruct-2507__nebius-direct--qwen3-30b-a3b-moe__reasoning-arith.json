@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-06T15:20:42.688292+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Number of boxes on three floors:  \n  1284, 907, and 2156\n\n- Each truck carries 85 boxes.\n\nWe need to find:\n- How many **fully loaded** trucks are needed?\n- How many **boxes remain unshipped**?\n\n---\n\n### Step 1: Add up the total number of boxes\n\n$$\n1284 + 907 + 2156\n$$\n\nFirst, add 1284 and 907:\n\n$$\n1284 + 907 = 2191\n$$\n\nNow add 2191 and 2156:\n\n$$\n2191 + 2156 = 4347\n$$\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity (85)\n\nWe want to know how many full trucks (each carrying 85 boxes) are needed, and how many boxes are left over.\n\nUse integer division:\n\n$$\n4347 \\div 85\n$$\n\nLet\u2019s compute how many times 85 fits into 4347.\n\nFirst, estimate:\n\n$$\n85 \\times 50 = 4250\n$$\n\nSubtract:\n\n$$\n4347 - 4250 = 97\n$$\n\nNow, how many times does 85 go into 97?\n\n$$\n85 \\times 1 = 85 \\quad \\text{(leaves } 97 - 85 = 12\\text{)}\n$$\n\nSo total full trucks:  \n$$\n50 + 1 = 51\n$$\n\nRemaining boxes: **12**\n\nCheck:\n\n$$\n85 \\times 51 = 85 \\times 50 + 85 \\times 1 = 4250 + 85 = 4335\n$$\n\nNow subtract from total:\n\n$$\n4347 - 4335 = 12\n$$\n\n\u2705 Correct.\n\n---\n\n### Final Answer:\n\n- Fully loaded trucks: **51**\n- Remaining unshipped boxes: **12**\n\nANSWER: 51,12",
+   "sha256": "3016e31ac6f8572c63b0588e98c9f4cbd1415c0b032c4780ccd8c667f248e441",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 33081
+  },
+  {
+   "ts": "2026-10-06T15:20:42.688546+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Number of boxes on three floors:  \n  1284, 907, and 2156  \n- Each truck carries 85 boxes  \n- We need to find how many **fully loaded trucks** are needed and how many **boxes remain unshipped**\n\n---\n\n### Step 1: Add up the total number of boxes\n\n$$\n1284 + 907 + 2156\n$$\n\nFirst, add 1284 and 907:\n\n$$\n1284 + 907 = 2191\n$$\n\nNow add 2191 and 2156:\n\n$$\n2191 + 2156 = 4347\n$$\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity (85)\n\nWe want to find how many **fully loaded** trucks can be sent, and how many boxes are left over.\n\nUse integer division (division with remainder):\n\n$$\n4347 \\div 85\n$$\n\nLet\u2019s compute how many times 85 fits into 4347.\n\nFirst, estimate:\n\n$$\n85 \\times 50 = 4250\n$$\n\nSubtract:\n\n$$\n4347 - 4250 = 97\n$$\n\nNow, how many times does 85 go into 97?\n\n$$\n85 \\times 1 = 85 \\quad \\text{(leaves 12)}\n$$\n\nSo:\n\n$$\n85 \\times 51 = 4250 + 85 = 4335\n$$\n\nNow:\n\n$$\n4347 - 4335 = 12\n$$\n\nSo, 85 goes into 4347 a total of **51 times** with a remainder of **12**.\n\n---\n\n### Step 3: Interpret the result\n\n- **Fully loaded trucks**: 51  \n- **Remaining boxes**: 12 (not enough to fill another truck)\n\n---\n\n### Final Answer:\n\nANSWER: 51,12",
+   "sha256": "bbb1e449d8df057bfc619838fb95a8a00b0613e1f0345e4bc75a952178cc8b4a",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 32903
+  },
+  {
+   "ts": "2026-10-06T15:20:42.690282+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Number of boxes on three floors:  \n  1284, 907, and 2156\n\n- Each truck carries 85 boxes.\n\nWe need to find:\n- How many **fully loaded** trucks are needed?\n- How many **boxes remain unshipped**?\n\n---\n\n### Step 1: Add up the total number of boxes\n\n$$\n1284 + 907 + 2156\n$$\n\nFirst, add 1284 and 907:\n\n$$\n1284 + 907 = 2191\n$$\n\nNow add 2191 and 2156:\n\n$$\n2191 + 2156 = 4347\n$$\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity (85)\n\nWe want to know how many full trucks (each carrying 85 boxes) are needed, and how many boxes are left over.\n\nUse integer division:\n\n$$\n4347 \\div 85\n$$\n\nLet\u2019s compute how many times 85 fits into 4347.\n\nFirst, estimate:\n\n$$\n85 \\times 50 = 4250\n$$\n\nSubtract:\n\n$$\n4347 - 4250 = 97\n$$\n\nNow, how many times does 85 go into 97?\n\n$$\n85 \\times 1 = 85 \\quad \\text{(leaves } 97 - 85 = 12\\text{)}\n$$\n\nSo total full trucks:  \n$$\n50 + 1 = 51\n$$\n\nRemaining boxes: **12**\n\nCheck:\n\n$$\n85 \\times 51 = 85 \\times 50 + 85 \\times 1 = 4250 + 85 = 4335\n$$\n\nNow subtract from total:\n\n$$\n4347 - 4335 = 12\n$$\n\n\u2705 Correct.\n\n---\n\n### Final Answer:\n\n- Fully loaded trucks: **51**\n- Remaining unshipped boxes: **12**\n\nANSWER: 51,12",
+   "sha256": "3016e31ac6f8572c63b0588e98c9f4cbd1415c0b032c4780ccd8c667f248e441",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 33079
+  },
+  {
+   "ts": "2026-10-06T15:20:42.691415+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Number of boxes on three floors:  \n  1284, 907, and 2156  \n- Each truck carries 85 boxes  \n- We need to find how many **fully loaded trucks** are needed and how many **boxes remain unshipped**\n\n---\n\n### Step 1: Add up the total number of boxes\n\n$$\n1284 + 907 + 2156\n$$\n\nFirst, add 1284 and 907:\n\n$$\n1284 + 907 = 2191\n$$\n\nNow add 2191 and 2156:\n\n$$\n2191 + 2156 = 4347\n$$\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity (85)\n\nWe want to know how many full trucks (each carrying 85 boxes) are needed, and how many boxes are left over.\n\n$$\n4347 \\div 85\n$$\n\nLet\u2019s perform the division.\n\nFirst, estimate how many times 85 fits into 4347.\n\nWe can do this step by step:\n\n- $ 85 \\times 50 = 4250 $\n- $ 4347 - 4250 = 97 $\n- Now, $ 85 \\times 1 = 85 $, and $ 97 - 85 = 12 $\n\nSo:\n\n$$\n85 \\times 51 = 4250 + 85 = 4335\n$$\n\nNow:\n\n$$\n4347 - 4335 = 12\n$$\n\nSo, 85 goes into 4347 **51 times** with a remainder of **12**.\n\n---\n\n### Step 3: Interpret the result\n\n- **Fully loaded trucks**: 51  \n- **Boxes remaining unshipped**: 12\n\n---\n\n### Final Answer:\n\nANSWER: 51,12",
+   "sha256": "89699b3132eae4bcaa6c93323ffada92b8f1283a6ef127fb4f87222f4e90e641",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 26428
+  },
+  {
+   "ts": "2026-10-06T15:20:42.697300+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Boxes on three floors:  \n  - Floor 1: 1284 boxes  \n  - Floor 2: 907 boxes  \n  - Floor 3: 2156 boxes  \n\n- Each truck carries 85 boxes.\n\nWe need to find:\n1. The total number of boxes.\n2. How many fully loaded trucks are needed.\n3. How many boxes remain unshipped.\n\n---\n\n### Step 1: Add up all the boxes\n\nTotal boxes = 1284 + 907 + 2156\n\nLet\u2019s compute:\n\n1284 + 907 = 2191  \n2191 + 2156 = 4347\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity\n\nEach truck carries 85 boxes.\n\nWe want to find how many **fully loaded** trucks are needed, and how many boxes are left over.\n\nSo, divide 4347 by 85:\n\nWe can do this using division:\n\n4347 \u00f7 85\n\nFirst, estimate:\n\n85 \u00d7 50 = 4250  \n4347 - 4250 = 97\n\nNow, 85 \u00d7 1 = 85  \n97 - 85 = 12\n\nSo, 85 \u00d7 51 = 4250 + 85 = 4335\n\n4347 - 4335 = 12\n\nSo:\n\n- 85 \u00d7 51 = 4335 \u2192 fully loaded trucks: 51\n- Remaining boxes: 4347 - 4335 = 12\n\n---\n\n### Final Answer:\n\n- Fully loaded trucks: 51\n- Remaining unshipped boxes: 12\n\nANSWER: 51,12",
+   "sha256": "692ca6d279ac0a84dc35120541e78211ff1c6c98e0a313c0213e40357c589ff7",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 25196
+  },
+  {
+   "ts": "2026-10-06T15:20:42.698272+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Boxes on three floors:  \n  - Floor 1: 1284 boxes  \n  - Floor 2: 907 boxes  \n  - Floor 3: 2156 boxes  \n\n- Each truck carries 85 boxes.\n\nWe need to find:\n1. The total number of boxes.\n2. How many fully loaded trucks are needed.\n3. How many boxes remain unshipped.\n\n---\n\n### Step 1: Add up all the boxes\n\nTotal boxes = 1284 + 907 + 2156\n\nLet\u2019s compute:\n\n1284 + 907 = 2191  \n2191 + 2156 = 4347\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity\n\nEach truck carries 85 boxes.\n\nWe want to find how many **fully loaded** trucks are needed, and how many boxes are left over.\n\nSo, divide 4347 by 85:\n\nWe can do this using division:\n\n4347 \u00f7 85\n\nFirst, estimate:\n\n85 \u00d7 50 = 4250  \n4347 - 4250 = 97\n\nNow, 85 \u00d7 1 = 85  \n97 - 85 = 12\n\nSo, 85 \u00d7 51 = 4250 + 85 = 4335\n\n4347 - 4335 = 12\n\nSo:\n\n- 85 \u00d7 51 = 4335 \u2192 fully loaded trucks: 51\n- Remaining boxes: 4347 - 4335 = 12\n\n---\n\n### Final Answer:\n\n- Fully loaded trucks: 51\n- Remaining unshipped boxes: 12\n\nANSWER: 51,12",
+   "sha256": "692ca6d279ac0a84dc35120541e78211ff1c6c98e0a313c0213e40357c589ff7",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 25198
+  },
+  {
+   "ts": "2026-10-06T15:20:42.699399+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Boxes on three floors:  \n  - Floor 1: 1284 boxes  \n  - Floor 2: 907 boxes  \n  - Floor 3: 2156 boxes  \n\n- Each truck carries 85 boxes.\n\nWe need to find:\n\n1. The total number of boxes.\n2. How many fully loaded trucks are needed (i.e., how many groups of 85 boxes can be formed).\n3. How many boxes remain unshipped (the remainder after dividing total boxes by 85).\n\n---\n\n### Step 1: Add up all the boxes\n\nTotal boxes = 1284 + 907 + 2156\n\nLet\u2019s compute:\n\n1284 + 907 = 2191  \n2191 + 2156 = 4347\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by 85 to find how many fully loaded trucks are needed\n\nWe divide 4347 by 85:\n\nWe can do this using long division or estimation.\n\nFirst, estimate:\n\n85 \u00d7 50 = 4250  \n4347 - 4250 = 97\n\nNow, 85 \u00d7 1 = 85  \n97 - 85 = 12\n\nSo, 85 \u00d7 51 = 4250 + 85 = 4335\n\n4347 - 4335 = 12\n\nSo:\n\n- 85 \u00d7 51 = 4335 (fully loaded trucks)\n- Remaining boxes = 4347 - 4335 = 12\n\nThus, **51 fully loaded trucks** are needed, and **12 boxes remain unshipped**.\n\n---\n\n### Final Answer:\n\nANSWER: 51,12",
+   "sha256": "6972f407117be58c73217bbfda1277ff08b1669ac2d8d3e505fd49a8b633c110",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 31224
+  },
+  {
+   "ts": "2026-10-06T15:20:42.700082+00:00",
+   "mode": "burst",
+   "text": "We are given:\n\n- Number of boxes on three floors:  \n  1284, 907, and 2156\n\n- Each truck carries 85 boxes.\n\nWe need to find:\n- How many **fully loaded** trucks are needed\n- How many **boxes remain unshipped**\n\n---\n\n### Step 1: Find the total number of boxes\n\nAdd the boxes from all three floors:\n\n$$\n1284 + 907 = 2191\n$$\n$$\n2191 + 2156 = 4347\n$$\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity\n\nEach truck carries 85 boxes. We want to know how many full trucks we can load and how many boxes are left over.\n\nWe perform integer division:\n\n$$\n4347 \\div 85\n$$\n\nLet\u2019s compute this.\n\nFirst, estimate:\n\n$$\n85 \\times 50 = 4250\n$$\n\n$$\n4347 - 4250 = 97\n$$\n\nNow, how many more trucks can we load with 97 boxes?\n\n$$\n85 \\times 1 = 85 \\quad \\text{(fits in 97)}\n$$\n$$\n97 - 85 = 12\n$$\n\nSo:\n\n$$\n85 \\times 51 = 4250 + 85 = 4335\n$$\n\n$$\n4347 - 4335 = 12\n$$\n\nSo, 51 full trucks can be loaded, and 12 boxes remain.\n\n---\n\n### Step 3: Final Answer\n\n- Fully loaded trucks: **51**\n- Remaining boxes: **12**\n\n---\n\nANSWER: 51,12",
+   "sha256": "24b590471d70667ad7e606290350837bc63a0ef6978e9a9ed5bd5ef0a8b49c3d",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 30199
+  },
+  {
+   "ts": "2026-10-06T15:21:25.769988+00:00",
+   "mode": "serial",
+   "text": "We are given:\n\n- Boxes on three floors:  \n  - Floor 1: 1284 boxes  \n  - Floor 2: 907 boxes  \n  - Floor 3: 2156 boxes  \n\n- Each truck carries 85 boxes.\n\nWe need to find:\n\n1. The total number of boxes.\n2. How many fully loaded trucks are needed.\n3. How many boxes remain unshipped.\n\n---\n\n### Step 1: Add up all the boxes\n\nTotal boxes = 1284 + 907 + 2156\n\nLet\u2019s compute:\n\n1284 + 907 = 2191  \n2191 + 2156 = 4347\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity (85)\n\nWe want to know how many full trucks can be loaded, and how many boxes are left over.\n\nUse integer division:  \n4347 \u00f7 85\n\nLet\u2019s compute:\n\nFirst, estimate:  \n85 \u00d7 50 = 4250  \n4347 - 4250 = 97\n\nNow, 85 \u00d7 1 = 85  \n97 - 85 = 12\n\nSo, 85 \u00d7 51 = 4250 + 85 = 4335\n\n4347 - 4335 = 12\n\nSo, 51 full trucks can be loaded, and 12 boxes remain.\n\n---\n\n### Step 3: Confirm\n\n- 51 trucks \u00d7 85 boxes = 4335 boxes shipped  \n- Remaining: 4347 - 4335 = 12 boxes\n\nYes, correct.\n\n---\n\n### Final Answer:\n\n**51 fully loaded trucks** are needed, and **12 boxes** remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "ac942b6c2adca1199c2dd8f0501f3c7f4e7e8013f8442ac07fce4474b87d6c9b",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 37583
+  },
+  {
+   "ts": "2026-10-06T15:22:13.353641+00:00",
+   "mode": "serial",
+   "text": "We are given:\n\n- Number of boxes on three floors:  \n  1284, 907, and 2156\n\n- Each truck carries 85 boxes.\n\nWe need to find:\n- How many **fully loaded** trucks are needed?\n- How many **boxes remain unshipped**?\n\n---\n\n### Step 1: Add up the total number of boxes\n\n$$\n1284 + 907 + 2156\n$$\n\nFirst, add 1284 and 907:\n\n$$\n1284 + 907 = 2191\n$$\n\nNow add 2191 and 2156:\n\n$$\n2191 + 2156 = 4347\n$$\n\nSo, total boxes = **4347**\n\n---\n\n### Step 2: Divide total boxes by truck capacity (85)\n\nWe want to know how many full trucks of 85 boxes we can load, and how many boxes are left over.\n\n$$\n4347 \\div 85\n$$\n\nLet\u2019s perform the division.\n\nFirst, estimate:\n\n$$\n85 \\times 50 = 4250\n$$\n\n$$\n4347 - 4250 = 97\n$$\n\nNow, how many more full trucks can we load with 97 boxes?\n\n$$\n85 \\times 1 = 85 \\quad \\text{(fits in 97)}\n$$\n\n$$\n97 - 85 = 12\n$$\n\nSo:\n\n$$\n85 \\times 51 = 4250 + 85 = 4335\n$$\n\n$$\n4347 - 4335 = 12\n$$\n\nSo, 51 full trucks can be loaded, and 12 boxes remain.\n\n---\n\n### Final Answer:\n\n- Fully loaded trucks: **51**\n- Remaining unshipped boxes: **12**\n\n---\n\nANSWER: 51,12",
+   "sha256": "f3b08748403ffbfc605202e0e96d6aee29ec1932b4c93dbe1539a9d810588f45",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 14201
+  }
+ ]
+}

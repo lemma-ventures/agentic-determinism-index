@@ -1,74 +1,20 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-04T22:21:11.335056Z",
+ "generated_at": "2026-10-19T12:20:09.088878Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 92,
- "run_stamp": "2026-10-04T221705Z",
+ "n_runs": 156,
+ "run_stamp": "2026-10-19T121722Z",
  "tuples": [
-  {
-   "base_url": null,
-   "deterministic_runs": 4,
-   "display": "Groq via OpenRouter",
-   "exact_match_rate": 1.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "2026-10-04T181705Z",
-   "label": "Groq via OpenRouter",
-   "mean_mode_share": 1.0,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "groq"
-    ]
-   },
-   "rank": 1,
-   "replay_checks": 10,
-   "replay_rate": 0.9,
-   "runs_seen": 5,
-   "score": 96.0,
-   "score_as_of": "2026-10-04T181705Z",
-   "streak": 1
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "DeepInfra via OpenRouter",
-   "exact_match_rate": 1.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "DeepInfra via OpenRouter",
-   "mean_mode_share": 1.0,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "deepinfra"
-    ]
-   },
-   "rank": 2,
-   "replay_checks": 6,
-   "replay_rate": 0.6667,
-   "runs_seen": 4,
-   "score": 86.67,
-   "score_as_of": "2026-10-04T191706Z",
-   "streak": 0
-  },
   {
    "base_url": null,
    "deterministic_runs": 1,
    "display": "CoreWeave via OpenRouter",
-   "exact_match_rate": 0.5,
+   "exact_match_rate": 0.75,
    "green": false,
    "held_hours": 0.0,
    "held_since": "",
    "label": "CoreWeave via OpenRouter",
-   "mean_mode_share": 0.9,
+   "mean_mode_share": 0.975,
    "medal": "",
    "model": "meta-llama/llama-3.1-8b-instruct",
    "provider": "openrouter",
@@ -78,24 +24,105 @@
      "coreweave"
     ]
    },
-   "rank": 3,
-   "replay_checks": 6,
+   "rank": 1,
+   "replay_checks": 10,
    "replay_rate": 1.0,
-   "runs_seen": 4,
-   "score": 86.0,
-   "score_as_of": "2026-10-04T191706Z",
+   "runs_seen": 5,
+   "score": 94.0,
+   "score_as_of": "2026-10-05T201706Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 7,
+   "display": "Groq via OpenRouter",
+   "exact_match_rate": 0.75,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Groq via OpenRouter",
+   "mean_mode_share": 0.95,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "groq"
+    ]
+   },
+   "rank": 2,
+   "replay_checks": 34,
+   "replay_rate": 0.9412,
+   "runs_seen": 11,
+   "score": 90.65,
+   "score_as_of": "2026-10-11T001705Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "Cloudflare via OpenRouter",
+   "exact_match_rate": 0.75,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Cloudflare via OpenRouter",
+   "mean_mode_share": 0.8,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "cloudflare"
+    ]
+   },
+   "rank": 3,
+   "replay_checks": 4,
+   "replay_rate": 0.75,
+   "runs_seen": 2,
+   "score": 77.0,
+   "score_as_of": "2026-10-17T101706Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "DeepInfra via OpenRouter",
+   "exact_match_rate": 0.5,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "DeepInfra via OpenRouter",
+   "mean_mode_share": 0.825,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "deepinfra"
+    ]
+   },
+   "rank": 4,
+   "replay_checks": 18,
+   "replay_rate": 0.6667,
+   "runs_seen": 7,
+   "score": 69.67,
+   "score_as_of": "2026-10-07T221705Z",
    "streak": 0
   },
   {
    "base_url": null,
    "deterministic_runs": 1,
    "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "exact_match_rate": 1.0,
+   "exact_match_rate": 0.75,
    "green": false,
    "held_hours": 0.0,
    "held_since": "",
    "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "mean_mode_share": 1.0,
+   "mean_mode_share": 0.975,
    "medal": "",
    "model": "openai/gpt-oss-120b",
    "provider": "openrouter",
@@ -105,12 +132,34 @@
      "cerebras"
     ]
    },
-   "rank": 4,
-   "replay_checks": 80,
-   "replay_rate": 0.2375,
-   "runs_seen": 21,
-   "score": 69.5,
-   "score_as_of": "2026-10-04T191706Z",
+   "rank": 5,
+   "replay_checks": 112,
+   "replay_rate": 0.1964,
+   "runs_seen": 29,
+   "score": 61.86,
+   "score_as_of": "2026-10-13T031709Z",
+   "streak": 0
+  },
+  {
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
+   "deterministic_runs": 0,
+   "display": "Nebius direct (Gemma 3 27B dense)",
+   "exact_match_rate": 0.25,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Nebius direct (Gemma 3 27B dense)",
+   "mean_mode_share": 0.75,
+   "medal": "",
+   "model": "google/gemma-3-27b-it",
+   "provider": "openai_compatible",
+   "provider_prefs": null,
+   "rank": 6,
+   "replay_checks": 4,
+   "replay_rate": 0.5,
+   "runs_seen": 2,
+   "score": 55.0,
+   "score_as_of": "2026-10-07T161705Z",
    "streak": 0
   },
   {
@@ -122,17 +171,39 @@
    "held_hours": 0.0,
    "held_since": "",
    "label": "NIM hosted (default)",
-   "mean_mode_share": 0.5738,
+   "mean_mode_share": 0.5833,
    "medal": "",
    "model": "meta/llama-3.2-11b-vision-instruct",
    "provider": "nvidia_nim",
    "provider_prefs": null,
-   "rank": 5,
-   "replay_checks": 6,
+   "rank": 7,
+   "replay_checks": 10,
    "replay_rate": 0.5,
-   "runs_seen": 4,
-   "score": 47.95,
-   "score_as_of": "2026-10-04T191706Z",
+   "runs_seen": 5,
+   "score": 48.33,
+   "score_as_of": "2026-10-05T201706Z",
+   "streak": 0
+  },
+  {
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
+   "deterministic_runs": 0,
+   "display": "Nebius direct (Qwen3 30B-A3B MoE)",
+   "exact_match_rate": 0.25,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Nebius direct (Qwen3 30B-A3B MoE)",
+   "mean_mode_share": 0.675,
+   "medal": "",
+   "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "provider": "openai_compatible",
+   "provider_prefs": null,
+   "rank": 8,
+   "replay_checks": 4,
+   "replay_rate": 0.25,
+   "runs_seen": 2,
+   "score": 42.0,
+   "score_as_of": "2026-10-07T161705Z",
    "streak": 0
   },
   {
@@ -144,17 +215,17 @@
    "held_hours": 0.0,
    "held_since": "",
    "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
-   "mean_mode_share": 0.5514,
+   "mean_mode_share": 0.4923,
    "medal": "",
    "model": "meta/llama-3.2-11b-vision-instruct",
    "provider": "nvidia_nim",
    "provider_prefs": null,
-   "rank": 6,
-   "replay_checks": 6,
-   "replay_rate": 0.5,
-   "runs_seen": 4,
-   "score": 47.06,
-   "score_as_of": "2026-10-04T191706Z",
+   "rank": 9,
+   "replay_checks": 10,
+   "replay_rate": 0.4,
+   "runs_seen": 5,
+   "score": 40.69,
+   "score_as_of": "2026-10-05T201706Z",
    "streak": 0
   },
   {
@@ -170,13 +241,8 @@
    "medal": "",
    "model": "meta-llama/llama-3.3-70b-instruct",
    "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "nebius"
-    ]
-   },
-   "rank": 7,
+   "provider_prefs": null,
+   "rank": 10,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
@@ -185,57 +251,25 @@
    "streak": 0
   },
   {
-   "base_url": null,
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
    "deterministic_runs": 0,
-   "display": "Together via OpenRouter",
+   "display": "Nebius direct (gpt-oss-120b, vLLM fingerprint)",
    "exact_match_rate": 0.25,
    "green": false,
    "held_hours": 0.0,
    "held_since": "",
-   "label": "Together via OpenRouter",
-   "mean_mode_share": 0.475,
-   "medal": "",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "together"
-    ]
-   },
-   "rank": 8,
-   "replay_checks": 4,
-   "replay_rate": 0.25,
-   "runs_seen": 2,
-   "score": 34.0,
-   "score_as_of": "2026-10-04T191706Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Phala via OpenRouter (TEE, attested stack)",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Phala via OpenRouter (TEE, attested stack)",
-   "mean_mode_share": 0.45,
+   "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)",
+   "mean_mode_share": 0.425,
    "medal": "",
    "model": "openai/gpt-oss-120b",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "phala"
-    ]
-   },
-   "rank": 9,
+   "provider": "openai_compatible",
+   "provider_prefs": null,
+   "rank": 11,
    "replay_checks": 4,
    "replay_rate": 0.25,
    "runs_seen": 2,
-   "score": 33.0,
-   "score_as_of": "2026-10-04T191706Z",
+   "score": 32.0,
+   "score_as_of": "2026-10-07T161705Z",
    "streak": 0
   },
   {
@@ -247,7 +281,7 @@
    "held_hours": 0.0,
    "held_since": "",
    "label": "Azure via OpenRouter",
-   "mean_mode_share": 0.475,
+   "mean_mode_share": 0.425,
    "medal": "",
    "model": "openai/gpt-4o-mini",
    "provider": "openrouter",
@@ -257,12 +291,39 @@
      "azure"
     ]
    },
-   "rank": 10,
-   "replay_checks": 6,
-   "replay_rate": 0.1667,
-   "runs_seen": 4,
-   "score": 30.67,
-   "score_as_of": "2026-10-04T191706Z",
+   "rank": 12,
+   "replay_checks": 10,
+   "replay_rate": 0.2,
+   "runs_seen": 5,
+   "score": 30.0,
+   "score_as_of": "2026-10-05T201706Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "Phala via OpenRouter (TEE, attested stack)",
+   "exact_match_rate": 0.0,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Phala via OpenRouter (TEE, attested stack)",
+   "mean_mode_share": 0.4444,
+   "medal": "",
+   "model": "openai/gpt-oss-120b",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "phala"
+    ]
+   },
+   "rank": 13,
+   "replay_checks": 7,
+   "replay_rate": 0.2857,
+   "runs_seen": 3,
+   "score": 29.2,
+   "score_as_of": "2026-10-05T201706Z",
    "streak": 0
   },
   {
@@ -274,7 +335,7 @@
    "held_hours": 0.0,
    "held_since": "",
    "label": "Amazon Bedrock via OpenRouter",
-   "mean_mode_share": 0.375,
+   "mean_mode_share": 0.4,
    "medal": "",
    "model": "amazon/nova-lite-v1",
    "provider": "openrouter",
@@ -284,12 +345,12 @@
      "amazon-bedrock"
     ]
    },
-   "rank": 11,
-   "replay_checks": 6,
-   "replay_rate": 0.1667,
-   "runs_seen": 4,
-   "score": 26.67,
-   "score_as_of": "2026-10-04T191706Z",
+   "rank": 14,
+   "replay_checks": 10,
+   "replay_rate": 0.2,
+   "runs_seen": 5,
+   "score": 29.0,
+   "score_as_of": "2026-10-05T201706Z",
    "streak": 0
   },
   {
@@ -301,7 +362,7 @@
    "held_hours": 0.0,
    "held_since": "",
    "label": "SiliconFlow via OpenRouter",
-   "mean_mode_share": 0.375,
+   "mean_mode_share": 0.4,
    "medal": "",
    "model": "deepseek/deepseek-chat-v3.1",
    "provider": "openrouter",
@@ -311,12 +372,12 @@
      "siliconflow"
     ]
    },
-   "rank": 12,
-   "replay_checks": 6,
-   "replay_rate": 0.1667,
-   "runs_seen": 4,
-   "score": 26.67,
-   "score_as_of": "2026-10-04T191706Z",
+   "rank": 15,
+   "replay_checks": 10,
+   "replay_rate": 0.2,
+   "runs_seen": 5,
+   "score": 29.0,
+   "score_as_of": "2026-10-05T201706Z",
    "streak": 0
   },
   {
@@ -338,7 +399,7 @@
      "azure"
     ]
    },
-   "rank": 13,
+   "rank": 16,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
@@ -365,39 +426,12 @@
      "crusoe"
     ]
    },
-   "rank": 14,
+   "rank": 17,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
    "score": 26.0,
    "score_as_of": "2026-09-07T123353Z",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Novita via OpenRouter",
-   "exact_match_rate": 0.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Novita via OpenRouter",
-   "mean_mode_share": 0.375,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "novita"
-    ]
-   },
-   "rank": 15,
-   "replay_checks": 5,
-   "replay_rate": 0.2,
-   "runs_seen": 3,
-   "score": 23.0,
-   "score_as_of": "2026-10-04T191706Z",
    "streak": 0
   },
   {
@@ -414,12 +448,88 @@
    "model": "openai/gpt-4o-mini",
    "provider": "openrouter",
    "provider_prefs": null,
-   "rank": 16,
+   "rank": 18,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
    "score": 21.92,
    "score_as_of": "2026-09-01T100929Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "Novita via OpenRouter",
+   "exact_match_rate": 0.0,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Novita via OpenRouter",
+   "mean_mode_share": 0.325,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "novita"
+    ]
+   },
+   "rank": 19,
+   "replay_checks": 9,
+   "replay_rate": 0.2222,
+   "runs_seen": 4,
+   "score": 21.89,
+   "score_as_of": "2026-10-05T201706Z",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "Together via OpenRouter",
+   "exact_match_rate": 0.0,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Together via OpenRouter",
+   "mean_mode_share": 0.375,
+   "medal": "",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "together"
+    ]
+   },
+   "rank": 20,
+   "replay_checks": 8,
+   "replay_rate": 0.125,
+   "runs_seen": 3,
+   "score": 20.0,
+   "score_as_of": "2026-10-05T201706Z",
+   "streak": 0
+  },
+  {
+   "base_url": "https://api.tokenfactory.nebius.com/v1",
+   "deterministic_runs": 0,
+   "display": "Nebius direct (DeepSeek V4 Flash, reasoning)",
+   "exact_match_rate": 0.0,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Nebius direct (DeepSeek V4 Flash, reasoning)",
+   "mean_mode_share": 0.4583,
+   "medal": "",
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "provider": "openai_compatible",
+   "provider_prefs": null,
+   "rank": 21,
+   "replay_checks": 4,
+   "replay_rate": 0.0,
+   "runs_seen": 2,
+   "score": 18.33,
+   "score_as_of": "2026-10-07T161705Z",
    "streak": 0
   },
   {
@@ -436,7 +546,7 @@
    "model": "meta-llama/llama-3.1-8b-instruct",
    "provider": "openrouter",
    "provider_prefs": null,
-   "rank": 17,
+   "rank": 22,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,

@@ -1,0 +1,125 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-06T15:25:50.917564+00:00",
+   "mode": "burst",
+   "text": "A hash table is a fundamental data structure that provides average-case O(1) time complexity for insertions, deletions, and lookups. It achieves this by using a hash function to map keys to indices in an underlying array. However, because the universe of possible keys is typically much larger than the array size, the hash function will inevitably map two distinct keys to the same index. This situation is known as a collision. The efficiency of a hash table hinges entirely on how effectively it resolves these collisions. The two primary strategies are separate chaining and open addressing, both of which are complemented by dynamic resizing to maintain performance.\n\n**Separate Chaining**\n\nIn separate chaining, each slot in the hash table's array does not hold a single element but rather a pointer to a secondary data structure, most commonly a linked list (or a balanced tree in advanced implementations). When a collision occurs, the new key-value pair is simply appended to the linked list at that index. \n\nThe performance of this method is dictated by the **load factor** (\u03b1), defined as the number of elements (n) divided by the number of slots (m), or \u03b1 = n/m. On average, each list contains \u03b1 elements. Therefore, a successful lookup requires hashing the key to find the index and then traversing the list, which takes O(1 + \u03b1) time. If \u03b1 remains low (e.g., < 1.0), the lists are short, and operations are effectively constant time. However, if the hash function is poor or the table is not resized, \u03b1 can grow, degrading performance to O(n) in the worst case where all keys collide into a single list. Deletion in separate chaining is straightforward: locate the list and unlink the node. The primary advantage of chaining is its simplicity and robustness; it degrades gracefully under high load factors and does not suffer from the \"full table\" problem.\n\n**Open Addressing**\n\nOpen addressing stores all elements directly within the array itself, eliminating the need for pointers. When a collision occurs, the algorithm probes subsequent slots in the array according to a defined sequence until an empty slot is found. The most common probing techniques are:\n\n1.  **Linear Probing**: Probes slots at `(hash(key) + i) mod m` for i = 0, 1, 2, ... This is simple and cache-friendly but suffers from **primary clustering**, where long runs of occupied slots form, causing many probes for insertions and lookups.\n2.  **Quadratic Probing**: Probes at `(hash(key) + i\u00b2) mod m`. This reduces primary clustering by jumping further away, but it can suffer from **secondary clustering** (keys with the same initial hash follow the same probe sequence) and may fail to find an empty slot if the table is not sized appropriately (e.g., a prime number",
+   "sha256": "700660950ce51e90b25719eb20817d217e09f8408fe83352e5604e4f52a70a86",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11496
+  },
+  {
+   "ts": "2026-10-06T15:25:50.917838+00:00",
+   "mode": "burst",
+   "text": "A hash table is a fundamental data structure that provides average-case O(1) time complexity for insertions, deletions, and lookups by mapping keys to array indices via a hash function. However, because the number of possible keys vastly exceeds the number of available slots, the pigeonhole principle guarantees that two distinct keys will eventually hash to the same index. This event is called a **collision**, and the strategy used to resolve it is critical to the table's performance and memory footprint. The two primary collision resolution techniques are **separate chaining** and **open addressing**, both of which are complemented by a dynamic **resizing** mechanism.\n\n**Separate Chaining** is the most straightforward approach. Instead of storing a single key-value pair in each bucket, each bucket holds a pointer to a secondary data structure\u2014typically a linked list, but often a balanced binary search tree or a dynamic array in modern implementations. When a collision occurs, the new entry is simply appended to the list at that index. Lookups require traversing the list to find the matching key, which yields a time complexity of O(1 + \u03b1), where \u03b1 (the load factor) is the ratio of stored elements (n) to the number of buckets (m). With a well-distributed hash function and a load factor kept below 1.0, the average list length remains short, preserving near-constant time operations. The primary advantage of chaining is its simplicity and robustness; it degrades gracefully even under high load factors. However, it suffers from poor cache locality because list nodes are scattered in memory, and it incurs the overhead of storing pointers. To mitigate worst-case scenarios where many keys hash to the same bucket, some implementations (e.g., Java's `HashMap`) automatically convert a linked list into a red-black tree once a bucket exceeds a threshold (typically 8 entries), reducing the worst-case lookup from O(n) to O(log n).\n\n**Open Addressing**, in contrast, stores all entries directly within the array itself, eliminating the need for auxiliary data structures. When a collision occurs, the algorithm probes subsequent slots according to a defined sequence until an empty slot is found. The most common probing strategies are **linear probing** (checking slots i+1, i+2, ...), **quadratic probing** (i+1, i+4, i+9, ...), and **double hashing** (using a second hash function to determine the step size). Linear probing is cache-friendly but suffers from *primary clustering*, where long contiguous runs of occupied slots form, drastically increasing probe lengths. Quadratic probing reduces primary",
+   "sha256": "f85b1952e2fd0445a16560df3e0ceecbbec0b5ec2b932aa0b104737c7b760e8f",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11876
+  },
+  {
+   "ts": "2026-10-06T15:25:50.919272+00:00",
+   "mode": "burst",
+   "text": "A hash table is a fundamental data structure that provides average-case O(1) time complexity for insertions, deletions, and lookups by mapping keys to array indices via a hash function. However, because the number of possible keys vastly exceeds the number of available slots, the hash function will inevitably map two distinct keys to the same index. This event is called a collision. The efficiency of a hash table hinges entirely on how these collisions are resolved. The two primary strategies are separate chaining and open addressing, both of which are complemented by dynamic resizing to maintain performance.\n\n**Separate Chaining**\n\nIn separate chaining, each slot in the underlying array (often called a bucket) does not store a single element but rather a pointer to a secondary data structure, typically a linked list. When a collision occurs, the new key-value pair is simply appended to the linked list at that bucket's index. For example, if keys 5 and 15 both hash to index 5 (using a modulo operation), the bucket at index 5 will contain a linked list holding both entries. \n\nThe performance of separate chaining is characterized by the load factor, denoted as \u03b1 (alpha), which is the ratio of the number of stored elements (n) to the number of buckets (m), or \u03b1 = n/m. The average search time is O(1 + \u03b1), meaning that as long as \u03b1 remains low (typically below 1.0), the lists are short and operations are effectively constant time. The worst-case scenario\u2014where all keys hash to the same bucket\u2014degrades to O(n). To mitigate this, modern implementations, such as Java's `HashMap`, will convert a linked list into a balanced binary search tree (e.g., a red-black tree) once a bucket's list exceeds a threshold (like 8 elements), guaranteeing O(log n) worst-case performance. Separate ch",
+   "sha256": "279d394dad5ca09bf5ce86313f56390c79aad96bd1d3565d21fc3d8d0b4e5e86",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11621
+  },
+  {
+   "ts": "2026-10-06T15:25:50.920405+00:00",
+   "mode": "burst",
+   "text": "A hash table is a fundamental data structure that provides average-case O(1) time complexity for insertions, deletions, and lookups by mapping keys to array indices via a hash function. However, because the number of possible keys vastly exceeds the number of available slots, the hash function will inevitably map two distinct keys to the same index. This event is called a collision. The efficiency of a hash table hinges entirely on how these collisions are resolved. The two primary strategies are separate chaining and open addressing, both of which are complemented by dynamic resizing to maintain performance.\n\n**Separate Chaining**\n\nIn separate chaining, each slot in the underlying array (often called a bucket) does not store a single element but rather a pointer to a secondary data structure, typically a linked list. When a collision occurs, the new key-value pair is simply appended to the linked list at that bucket's index. For example, if keys 5 and 15 both hash to index 5 (using a modulo operation), the bucket at index 5 will contain a linked list holding both entries. \n\nThe performance of separate chaining is characterized by the load factor, denoted as \u03b1 (alpha), which is the ratio of the number of stored elements (n) to the number of buckets (m), or \u03b1 = n/m. The average search time is O(1 + \u03b1), meaning that as long as \u03b1 remains low (typically below 1.0), the lists are short and operations are effectively constant time. The worst-case scenario\u2014where all keys hash to the same bucket\u2014degrades to O(n). To mitigate this, modern implementations, such as Java's `HashMap`, will convert a linked list into a balanced binary search tree (e.g., a red-black tree) once a bucket's list exceeds a threshold (like 8 elements), guaranteeing O(log n) worst-case performance. Separate ch",
+   "sha256": "279d394dad5ca09bf5ce86313f56390c79aad96bd1d3565d21fc3d8d0b4e5e86",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11629
+  },
+  {
+   "ts": "2026-10-06T15:25:50.926276+00:00",
+   "mode": "burst",
+   "text": "A hash table is a fundamental data structure that provides average-case O(1) time complexity for insertions, deletions, and lookups by mapping keys to array indices via a hash function. However, because the number of possible keys vastly exceeds the number of available slots, the pigeonhole principle guarantees that two distinct keys will eventually hash to the same index. This event is called a **collision**, and the strategy used to resolve it is critical to the table's performance and memory footprint. The two primary collision resolution techniques are **separate chaining** and **open addressing**, both of which are complemented by a dynamic **resizing** mechanism.\n\n**Separate Chaining** is the most straightforward approach. Instead of storing a single key-value pair in each bucket, each bucket holds a pointer to a secondary data structure\u2014typically a linked list, but often a balanced binary search tree or a dynamic array in modern implementations. When a collision occurs, the new entry is simply appended to the list at that index. Lookups require traversing the list to find the matching key, which yields a time complexity of O(1 + \u03b1), where \u03b1 (the load factor) is the ratio of stored elements (n) to the number of buckets (m). With a well-distributed hash function and a load factor kept below 1.0, the average list length remains short, preserving near-constant time operations. The primary advantage of chaining is its simplicity and robustness; it degrades gracefully even under high load factors. However, it suffers from poor cache locality because list nodes are scattered in memory, and it incurs the overhead of storing pointers. To mitigate worst-case scenarios where many keys hash to the same bucket, some implementations (e.g., Java's `HashMap`) automatically convert a linked list into a red-black tree once a bucket exceeds a threshold (typically 8 entries), reducing the worst-case lookup from O(n) to O(log n).\n\n**Open Addressing**, in contrast, stores all entries directly within the array itself, eliminating the need for auxiliary data structures. When a collision occurs, the algorithm probes subsequent slots according to a defined sequence until an empty slot is found. The most common probing strategies are **linear probing** (checking slots i+1, i+2, ...), **quadratic probing** (i+1, i+4, i+9, ...), and **double hashing** (using a second hash function to determine the step size). Linear probing is cache-friendly but suffers from *primary clustering*, where long contiguous runs of occupied slots form, drastically increasing probe lengths. Quadratic probing reduces primary",
+   "sha256": "f85b1952e2fd0445a16560df3e0ceecbbec0b5ec2b932aa0b104737c7b760e8f",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11863
+  },
+  {
+   "ts": "2026-10-06T15:25:50.927257+00:00",
+   "mode": "burst",
+   "error": "unsupported: empty completion (tool call or similar)",
+   "latency_ms": 10960
+  },
+  {
+   "ts": "2026-10-06T15:25:50.929257+00:00",
+   "mode": "burst",
+   "error": "unsupported: empty completion (tool call or similar)",
+   "latency_ms": 10949
+  },
+  {
+   "ts": "2026-10-06T15:25:50.931414+00:00",
+   "mode": "burst",
+   "text": "A hash table is a fundamental data structure that provides average-case O(1) time complexity for insertions, deletions, and lookups by mapping keys to array indices via a hash function. However, because the number of possible keys vastly exceeds the number of available slots, the hash function will inevitably map two distinct keys to the same index. This event is called a collision. The efficiency of a hash table hinges entirely on how these collisions are resolved. The two primary strategies are separate chaining and open addressing, both of which are complemented by dynamic resizing to maintain performance.\n\n**Separate Chaining**\n\nIn separate chaining, each slot in the underlying array (often called a bucket) does not store a single element but rather a pointer to a secondary data structure, typically a linked list. When a collision occurs, the new key-value pair is simply appended to the linked list at that bucket's index. For example, if keys 5 and 15 both hash to index 5 (using a modulo operation), the bucket at index 5 will contain a linked list holding both entries. \n\nThe performance of separate chaining is characterized by the load factor, denoted as \u03b1 (alpha), which is the ratio of the number of stored elements (n) to the number of buckets (m), or \u03b1 = n/m. The average search time is O(1 + \u03b1), meaning that as long as \u03b1 remains low (typically below 1.0), the lists are short and operations are effectively constant time. The worst-case scenario\u2014where all keys hash to the same bucket\u2014degrades to O(n). To mitigate this, modern implementations, such as Java's `HashMap`, will convert a linked list into a balanced binary search tree (e.g., a red-black tree) once a bucket's list exceeds a threshold (like 8 elements), guaranteeing O(log n) worst-case performance. Separate ch",
+   "sha256": "279d394dad5ca09bf5ce86313f56390c79aad96bd1d3565d21fc3d8d0b4e5e86",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11611
+  },
+  {
+   "ts": "2026-10-06T15:26:12.794564+00:00",
+   "mode": "serial",
+   "text": "A hash table is a fundamental data structure that provides average-case O(1) time complexity for insertions, deletions, and lookups by mapping keys to array indices via a hash function. The core challenge arises from the fact that the universe of possible keys is vastly larger than the allocated array size. Consequently, the hash function will inevitably map two distinct keys to the same index\u2014a situation known as a collision. The efficiency of a hash table hinges entirely on how these collisions are resolved. The two primary strategies are separate chaining and open addressing, both of which are complemented by dynamic resizing to maintain performance.\n\n**Separate Chaining**\n\nIn separate chaining, each slot in the underlying array (often called a bucket) does not store a single element but rather a pointer to a secondary data structure, typically a linked list. When a collision occurs, the new key-value pair is simply appended to the linked list at that bucket's index. To retrieve a value, the hash function computes the index, and the algorithm traverses the linked list, comparing keys until a match is found or the list ends. The performance is dictated by the load factor, \u03b1 = n/m, where *n* is the number of stored keys and *m* is the number of buckets. If \u03b1 is kept low (e.g., < 1.0), the average list length is short, and operations remain effectively O(1). However, in the worst case\u2014where every key hashes to the same bucket\u2014the structure degrades to a linked list with O(n) complexity. To mitigate this, modern implementations (like Java's `HashMap`) may convert a bucket's linked list into a balanced tree (e.g., a red-black tree) once the list exceeds a threshold (typically 8), guaranteeing O(log n) worst-case performance. Deletion in chaining is straightforward: locate the bucket and unlink the node from the list.\n\n**Open Addressing**\n\nOpen addressing stores all elements directly within the array itself, eliminating the overhead of pointers. When a collision occurs, the",
+   "sha256": "42ebfd1486744f8e628ffec8f4d357c631e8de4811427c9b1c14097e42dfe083",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11989
+  },
+  {
+   "ts": "2026-10-06T15:26:34.783525+00:00",
+   "mode": "serial",
+   "text": "A hash table is a fundamental data structure that provides average O(1) time complexity for insertions, deletions, and lookups by mapping keys to array indices via a hash function. However, because the number of possible keys vastly exceeds the number of available slots, collisions\u2014where two distinct keys hash to the same index\u2014are inevitable. The efficiency of a hash table hinges entirely on how these collisions are resolved. The two primary strategies are separate chaining and open addressing, both of which are complemented by dynamic resizing to maintain performance.\n\n**Separate Chaining** is the most straightforward approach. Instead of storing a single element per slot, each slot (or \"bucket\") in the underlying array holds a pointer to a secondary data structure, typically a linked list, though modern implementations may use balanced trees or dynamic arrays. When a collision occurs, the new key-value pair is simply appended to the linked list at that index. Lookup involves hashing the key, traversing the linked list, and comparing keys using the `equals` method. The worst-case time complexity degrades to O(n) if all keys hash to the same bucket, but with a well-distributed hash function, the average list length is equal to the load factor (\u03b1 = n/m, where n is the number of entries and m is the number of buckets). To mitigate pathological worst cases, advanced implementations (e.g., Java's `HashMap`) convert a linked list to a red-black tree when a bucket exceeds a threshold (typically 8 entries), reducing worst-case lookup to O(log n). Chaining is robust because it allows the load factor to exceed 1.0 without immediate failure, and deletion is trivial\u2014just remove the node from the list.\n\n**Open Addressing**, in contrast, stores all elements directly within the array itself, eliminating the overhead of pointers. When a collision occurs, the table probes subsequent slots according to a deterministic sequence until an empty slot is found. The most common probing strategies are linear probing (checking `index + 1`, `index + 2`, ...), quadratic probing (`index + 1\u00b2`, `index + 2\u00b2`, ...), and double hashing (`index + i * hash2(key)`). Linear probing suffers from primary clustering, where long contiguous blocks of occupied slots form, degrading performance. Quadratic probing reduces primary clustering but introduces secondary clustering, where keys with the same initial hash follow identical probe sequences. Double hashing, which uses a second independent hash function to determine the step size, minimizes clustering but is computationally more expensive. A critical complication in open addressing is deletion: simply setting a slot to `null` would break the probe chain for subsequent lookups, causing false negatives. Therefore, deleted slots must be marked with a special \"tombstone\" sentinel, which is skipped during probing but can be overwritten during insertion. Because open addressing relies on finding empty slots, the load factor must be kept strictly below 1.0\u2014typically around 0.7\u2014to prevent the probe sequence from becoming excessively long or infinite.\n\n**Resizing** is the universal mechanism that keeps both strategies performant. As the load factor increases, collision rates rise, and operations slow down. When the load factor exceeds a predefined threshold (commonly 0.75), the table allocates a new, larger array\u2014usually double the size, often chosen as a prime number to improve hash distribution\u2014and rehashes every existing key-value pair into the new array. This process is critical because the hash function's modulo operation depends on the array size; simply copying entries would place them at incorrect indices. Rehashing is an O(n) operation, but because",
+   "sha256": "6a48c5c2a6263ff30b0376ac4bb88ecb1641ce40c4475beb23c57d5c4726faa1",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 11505
+  }
+ ]
+}

@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-07T16:22:51.720466+00:00",
+   "mode": "burst",
+   "text": "Total boxes: 1284 + 907 + 2156 = 4347 boxes.\n\nEach truck carries 85 boxes.\n\nDivide: 4347 \u00f7 85 = 51 remainder 12, because 85 \u00d7 51 = 4335 and 4347 \u2212 4335 = 12.\n\nSo 51 trucks can be fully loaded, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "579ff2eba5e4438d422820496dd56bb559ae372e40622d4a26ff4b76e812b84e",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2114
+  },
+  {
+   "ts": "2026-10-07T16:22:51.720719+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, which is the largest multiple of 85 less than or equal to 4347.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "4753dea786d6ab5f1a50ae77cc852b7fb3dab2267af4c14544797885d4ce9890",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1710
+  },
+  {
+   "ts": "2026-10-07T16:22:51.722277+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, so 51 full trucks carry 4335 boxes.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "6d5a7141cdf908c3095857f39b90438924dc8505c74269aa954557247294dda7",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2054
+  },
+  {
+   "ts": "2026-10-07T16:22:51.723385+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, which is the largest multiple of 85 less than or equal to 4347.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "4753dea786d6ab5f1a50ae77cc852b7fb3dab2267af4c14544797885d4ce9890",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1712
+  },
+  {
+   "ts": "2026-10-07T16:22:51.729269+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, so 51 full trucks carry 4335 boxes.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "6d5a7141cdf908c3095857f39b90438924dc8505c74269aa954557247294dda7",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2042
+  },
+  {
+   "ts": "2026-10-07T16:22:51.730261+00:00",
+   "mode": "burst",
+   "text": "Total boxes: 1284 + 907 + 2156 = 4347 boxes.\n\nEach truck carries 85 boxes.\n\nDivide: 4347 \u00f7 85 = 51 remainder 12, because 85 \u00d7 51 = 4335 and 4347 \u2212 4335 = 12.\n\nSo 51 trucks can be fully loaded, and 12 boxes remain unshipped.\n\nANSWER: 51,12",
+   "sha256": "579ff2eba5e4438d422820496dd56bb559ae372e40622d4a26ff4b76e812b84e",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2425
+  },
+  {
+   "ts": "2026-10-07T16:22:51.732257+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, so 51 full trucks carry 4335 boxes.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "6d5a7141cdf908c3095857f39b90438924dc8505c74269aa954557247294dda7",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2045
+  },
+  {
+   "ts": "2026-10-07T16:22:51.732532+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, which is the largest multiple of 85 less than or equal to 4347.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "4753dea786d6ab5f1a50ae77cc852b7fb3dab2267af4c14544797885d4ce9890",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1697
+  },
+  {
+   "ts": "2026-10-07T16:23:04.156651+00:00",
+   "mode": "serial",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, which is the largest multiple of 85 less than or equal to 4347.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "4753dea786d6ab5f1a50ae77cc852b7fb3dab2267af4c14544797885d4ce9890",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1370
+  },
+  {
+   "ts": "2026-10-07T16:23:15.526509+00:00",
+   "mode": "serial",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, which is the largest multiple of 85 not exceeding 4347.\n\nRemaining boxes = 4347 - 4335 = 12.\n\nANSWER: 51,12",
+   "sha256": "0eabaae677015b83fe1143302ef217cd46f934bf884c79a1f10e9a41da8c84a5",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1028
+  }
+ ]
+}

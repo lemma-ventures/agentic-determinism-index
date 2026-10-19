@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Cloudflare via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "cloudflare"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cloudflare"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-16T09:19:21.338513+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = 27\n\nSo, 27 boxes remain unshipped.\n\nANSWER: 52,27",
+   "sha256": "b8b01c9629ccdb03a4c5d69a7f072e7a0235228437c04f8df917ea85a449c597",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 10028
+  },
+  {
+   "ts": "2026-10-16T09:19:21.338777+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = 27\n\nSo, 27 boxes remain unshipped.\n\nANSWER: 52,27",
+   "sha256": "b8b01c9629ccdb03a4c5d69a7f072e7a0235228437c04f8df917ea85a449c597",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 10025
+  },
+  {
+   "ts": "2026-10-16T09:19:21.340282+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that we actually need 51 trucks to carry 4287 boxes, and there will be 60 boxes left unshipped.\n\nANSWER: 51,60",
+   "sha256": "ccd5e96f6b51bdeb702de220c37e155cea8a4da92c3581d37dfcd15f537a5647",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 14023
+  },
+  {
+   "ts": "2026-10-16T09:19:21.341401+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that we actually need 51 trucks to carry 4287 boxes, and there will be 60 boxes left unshipped.\n\nANSWER: 51,60",
+   "sha256": "ccd5e96f6b51bdeb702de220c37e155cea8a4da92c3581d37dfcd15f537a5647",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 11907
+  },
+  {
+   "ts": "2026-10-16T09:19:21.347298+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that we actually need 51 trucks to carry 4287 boxes, and there will be 60 boxes left unshipped.\n\nANSWER: 51,60",
+   "sha256": "ccd5e96f6b51bdeb702de220c37e155cea8a4da92c3581d37dfcd15f537a5647",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 13599
+  },
+  {
+   "ts": "2026-10-16T09:19:21.348260+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that we actually need 51 trucks to carry 4287 boxes, and there will be 60 boxes left unshipped.\n\nANSWER: 51,60",
+   "sha256": "ccd5e96f6b51bdeb702de220c37e155cea8a4da92c3581d37dfcd15f537a5647",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 12182
+  },
+  {
+   "ts": "2026-10-16T09:19:21.350262+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes that remain unshipped, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that 73 boxes will remain unshipped.\n\nANSWER: 52,73",
+   "sha256": "de1c20629d902635eba17fe2a2669819f645427917e91996c69ca9a8bcc04598",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 11826
+  },
+  {
+   "ts": "2026-10-16T09:19:21.350861+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that we actually need 51 trucks to carry 4287 boxes, and there will be 60 boxes left unshipped.\n\nANSWER: 51,60",
+   "sha256": "ccd5e96f6b51bdeb702de220c37e155cea8a4da92c3581d37dfcd15f537a5647",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 12494
+  },
+  {
+   "ts": "2026-10-16T09:19:45.364052+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that we actually need 51 trucks to carry 4287 boxes, and there will be 60 boxes left unshipped.\n\nANSWER: 51,60",
+   "sha256": "ccd5e96f6b51bdeb702de220c37e155cea8a4da92c3581d37dfcd15f537a5647",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 10592
+  },
+  {
+   "ts": "2026-10-16T09:20:05.956435+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the number of boxes on each floor:\n\n1284 + 907 + 2156 = 4347\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find out how many fully loaded trucks are needed:\n\n4347 \u00f7 85 = 51.07\n\nSince we can't have a fraction of a truck, we round up to the nearest whole number to ensure all boxes are shipped. Therefore, we need 52 fully loaded trucks.\n\nTo find the number of boxes remaining, we multiply the number of boxes each truck can carry by the number of trucks needed, then subtract that from the total number of boxes:\n\n52 * 85 = 4420\n4347 - 4420 = -73\n\nSince we can't have a negative number of boxes, this means that we actually need 51 trucks to carry 4287 boxes, and there will be 60 boxes left unshipped.\n\nANSWER: 51,60",
+   "sha256": "ccd5e96f6b51bdeb702de220c37e155cea8a4da92c3581d37dfcd15f537a5647",
+   "fingerprint": "Cloudflare",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 11516
+  }
+ ]
+}

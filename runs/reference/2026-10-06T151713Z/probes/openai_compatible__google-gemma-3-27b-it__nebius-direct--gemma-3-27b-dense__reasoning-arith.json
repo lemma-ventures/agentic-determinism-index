@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "google/gemma-3-27b-it",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (Gemma 3 27B dense)"
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "google/gemma-3-27b-it",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-06T15:27:12.632882+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result: 51 trucks.\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "f64fe77c630f29175aa50a2750f5e77e897e96cafa99edc78bf48613729793dc",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 3895
+  },
+  {
+   "ts": "2026-10-06T15:27:12.633205+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity to find the number of trucks needed:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result from step 2.\n   51 trucks\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 4048
+  },
+  {
+   "ts": "2026-10-06T15:27:12.634280+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity to find the number of trucks needed:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result from step 2.\n   51 trucks\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 4046
+  },
+  {
+   "ts": "2026-10-06T15:27:12.635415+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity to find the number of trucks needed:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result from step 2.\n   51 trucks\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 4046
+  },
+  {
+   "ts": "2026-10-06T15:27:12.641282+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity to find the number of trucks needed:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result from step 2.\n   51 trucks\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 4038
+  },
+  {
+   "ts": "2026-10-06T15:27:12.642260+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity to find the number of trucks needed:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result from step 2.\n   51 trucks\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 4039
+  },
+  {
+   "ts": "2026-10-06T15:27:12.644262+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result: 51 trucks.\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "f64fe77c630f29175aa50a2750f5e77e897e96cafa99edc78bf48613729793dc",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 3912
+  },
+  {
+   "ts": "2026-10-06T15:27:12.646421+00:00",
+   "mode": "burst",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity to find the number of trucks needed:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result from step 2.\n   51 trucks\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 4034
+  },
+  {
+   "ts": "2026-10-06T15:27:26.682096+00:00",
+   "mode": "serial",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result: 51 trucks.\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "f64fe77c630f29175aa50a2750f5e77e897e96cafa99edc78bf48613729793dc",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2701
+  },
+  {
+   "ts": "2026-10-06T15:27:39.382830+00:00",
+   "mode": "serial",
+   "text": "Here's how to solve the problem step-by-step:\n\n1. **Calculate the total number of boxes:**\n   1284 + 907 + 2156 = 4347 boxes\n\n2. **Divide the total boxes by the truck capacity to find the number of trucks needed:**\n   4347 / 85 = 51.141...\n\n3. **Determine the number of fully loaded trucks:**\n   Since we can only have whole trucks, we take the integer part of the result from step 2.\n   51 trucks\n\n4. **Calculate the number of boxes shipped on the fully loaded trucks:**\n   51 trucks * 85 boxes/truck = 4335 boxes\n\n5. **Calculate the number of remaining boxes:**\n   4347 total boxes - 4335 shipped boxes = 12 boxes\n\nANSWER: 51,12",
+   "sha256": "c7f1d948bc9ab0f4926673a35490664f643079f3d2d0365e39625529f7e38e06",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 3016
+  }
+ ]
+}

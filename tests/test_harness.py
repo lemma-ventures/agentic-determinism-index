@@ -226,6 +226,8 @@ class TestSite(unittest.TestCase):
                     "deterministic_runs": 2,
                     "runs_seen": 3,
                     "streak": 2,
+                    "green": True,
+                    "held_hours": 80.0,
                     "stack_id": "abcd1234wxyz",
                     "stack_href": "r/qert7m2kn4vw/#abcd1234wxyz",
                     "models": [
@@ -316,6 +318,47 @@ class TestSite(unittest.TestCase):
         self.assertIn('class="row-held"', html)
         self.assertIn("Last run held", html)
         self.assertIn("streak 4 · 4.0 d · medal", html)
+
+
+class TestReplayCell(unittest.TestCase):
+    """The table must not call a tuple byte-exact, or colour it green, on the
+    strength of its latest run alone (2026-10-06: DeepInfra and Cerebras rows
+    green at 0/5 and 1/22 deterministic runs)."""
+
+    def test_within_run_exact_is_not_replay(self):
+        from agentic_determinism_index.site import _byte_exact_cell, _last_run_label
+        # Byte-exact 1.0 with broken streak → plain pill, Last run changed
+        cell = _byte_exact_cell(1.0)
+        self.assertIn("Yes · byte-exact", cell)
+        # Streak 0, seen 5, compared → not green
+        label = _last_run_label(0, 5, 10)
+        self.assertEqual(label, "Last run changed")
+
+        # No previous run → Not held
+        label = _last_run_label(0, 1, 0)
+        self.assertEqual(label, "Not held")
+
+        # Streak ≥ 1 → held
+        label = _last_run_label(4, 4, 12)
+        self.assertEqual(label, "Last run held")
+
+        # Partial → pill says Partial
+        cell = _byte_exact_cell(0.75)
+        self.assertIn("Partial", cell)
+
+    def test_rendered_table_matches_the_verdict(self):
+        payload = {"leaders": [{
+            "provider": "openrouter", "model": "openai/gpt-oss-120b", "label": "Cerebras via OpenRouter",
+            "rank": 4, "score": 69.05, "mean_mode_share": 1.0, "exact_match_rate": 1.0,
+            "deterministic_runs": 1, "runs_seen": 22, "streak": 0, "green": False,
+            "replay_checks": 84, "replay_matches": 19, "rows": 4,
+        }]}
+        html = render_html(payload)
+        self.assertNotIn('class="row-held"', html)
+        # The Last run column says Last run changed, not just Yes
+        self.assertIn("Last run changed", html)
+        self.assertIn("held 1 of 22 runs", html)
+        self.assertIn("same response 19/84", html)
 
 
 class TestStackDrift(unittest.TestCase):

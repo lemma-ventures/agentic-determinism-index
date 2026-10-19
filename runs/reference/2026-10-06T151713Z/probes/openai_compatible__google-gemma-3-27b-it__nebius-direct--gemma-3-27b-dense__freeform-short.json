@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "google/gemma-3-27b-it",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (Gemma 3 27B dense)"
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "google/gemma-3-27b-it",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-06T15:26:46.289245+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during floating-point addition, and the order in which operations are performed can affect *which* numbers are rounded. Consequently, (a + b) + c may yield a slightly different result than a + (b + c) due to these accumulated rounding discrepancies, breaking the associative property.\n\n\n\n",
+   "sha256": "b728b1ffbc75ac2a011b7129164b491a2d17277ea2649f1f9e40b0d55ca8ec2c",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2925
+  },
+  {
+   "ts": "2026-10-06T15:26:46.289580+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during addition, and the order in which these operations are performed can affect the final result. Consequently, (a + b) + c may not equal a + (b + c) due to these accumulated and varying rounding discrepancies, demonstrating a lack of associativity.\n\n\n\n",
+   "sha256": "36a4c71604061295e526441dc43b7b4493479de45bf5b613ee2966116f0cccdd",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2500
+  },
+  {
+   "ts": "2026-10-06T15:26:46.289891+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during addition, and the order in which these operations are performed can affect the final result. Consequently, (a + b) + c may not equal a + (b + c) due to these accumulated and differing rounding errors, demonstrating a lack of associativity.\n\n\n\n",
+   "sha256": "e022b042a901267dad1bf9056bf5ab46759699309afabbce532ef6edeb91340f",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2481
+  },
+  {
+   "ts": "2026-10-06T15:26:46.290370+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during addition, and the order in which these operations are performed can affect the final result. Consequently, (a + b) + c may not equal a + (b + c) due to these accumulated and varying rounding discrepancies, demonstrating a lack of associativity.\n\n\n\n",
+   "sha256": "36a4c71604061295e526441dc43b7b4493479de45bf5b613ee2966116f0cccdd",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2499
+  },
+  {
+   "ts": "2026-10-06T15:26:46.292427+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during addition, and the order in which these operations are performed can affect the final result. Consequently, (a + b) + c may not equal a + (b + c) due to these accumulated and varying rounding discrepancies, demonstrating a lack of associativity.\n\n\n\n",
+   "sha256": "36a4c71604061295e526441dc43b7b4493479de45bf5b613ee2966116f0cccdd",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2497
+  },
+  {
+   "ts": "2026-10-06T15:26:46.294294+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during floating-point addition, and the order in which operations are performed can affect *which* numbers are rounded. Consequently, (a + b) + c may yield a slightly different result than a + (b + c) due to these accumulated rounding discrepancies, breaking the associative property.\n\n\n\n",
+   "sha256": "b728b1ffbc75ac2a011b7129164b491a2d17277ea2649f1f9e40b0d55ca8ec2c",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2920
+  },
+  {
+   "ts": "2026-10-06T15:26:46.299281+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during floating-point addition, and the order in which operations are performed can affect *which* numbers are rounded. Consequently, (a + b) + c may yield a slightly different result than a + (b + c) due to these accumulated rounding discrepancies, breaking the associative property.\n\n\n\n",
+   "sha256": "b728b1ffbc75ac2a011b7129164b491a2d17277ea2649f1f9e40b0d55ca8ec2c",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2928
+  },
+  {
+   "ts": "2026-10-06T15:26:46.301483+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during addition, and the order in which these operations are performed can affect the final result. Consequently, (a + b) + c may not equal a + (b + c) due to these accumulated and varying rounding discrepancies, demonstrating a lack of associativity.\n\n\n\n",
+   "sha256": "36a4c71604061295e526441dc43b7b4493479de45bf5b613ee2966116f0cccdd",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 2487
+  },
+  {
+   "ts": "2026-10-06T15:26:59.228346+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during addition, and the order in which these operations are performed can affect the final result. Consequently, (a + b) + c may not equal a + (b + c) due to the accumulation of these tiny, order-dependent rounding differences.\n\n\n\n",
+   "sha256": "01513010afe80c9fe05adf284f8d36487278810bb6c2879c676586d8ba79ad5f",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1521
+  },
+  {
+   "ts": "2026-10-06T15:27:10.749851+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have limited precision, meaning not every real number can be represented exactly. This imprecision leads to rounding errors during addition, and the order in which these operations are performed can affect the final result. Consequently, (a + b) + c may not equal a + (b + c) due to these accumulated and varying rounding discrepancies, demonstrating a lack of associativity.\n\n\n\n",
+   "sha256": "36a4c71604061295e526441dc43b7b4493479de45bf5b613ee2966116f0cccdd",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1882
+  }
+ ]
+}

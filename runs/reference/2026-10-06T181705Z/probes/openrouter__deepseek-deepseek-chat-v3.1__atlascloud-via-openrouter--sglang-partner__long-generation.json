@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "AtlasCloud via OpenRouter (SGLang partner)",
+  "provider_prefs": {
+   "order": [
+    "atlas-cloud"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "atlas-cloud"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-06T18:19:29.591731+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 242
+  },
+  {
+   "ts": "2026-10-06T18:19:29.592016+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 281
+  },
+  {
+   "ts": "2026-10-06T18:19:29.593272+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 267
+  },
+  {
+   "ts": "2026-10-06T18:19:29.594378+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 262
+  },
+  {
+   "ts": "2026-10-06T18:19:29.599619+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 253
+  },
+  {
+   "ts": "2026-10-06T18:19:29.600236+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 249
+  },
+  {
+   "ts": "2026-10-06T18:19:29.603271+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 259
+  },
+  {
+   "ts": "2026-10-06T18:19:29.604422+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 239
+  },
+  {
+   "ts": "2026-10-06T18:19:39.873727+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 119
+  },
+  {
+   "ts": "2026-10-06T18:19:49.993136+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp4, coreweave/fp8, sambanova/fp8, siliconflow/fp8, mara.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":5},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":5},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"user_3IMfVeePEel89yG85q868uAmhwN",
+   "latency_ms": 97
+  }
+ ]
+}
