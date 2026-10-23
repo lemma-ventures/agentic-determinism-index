@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "Crusoe via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "crusoe"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "crusoe"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-23T13:18:08.019040+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 472
+  },
+  {
+   "ts": "2026-10-23T13:18:08.019385+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 269
+  },
+  {
+   "ts": "2026-10-23T13:18:08.020295+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 274
+  },
+  {
+   "ts": "2026-10-23T13:18:08.021421+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 235
+  },
+  {
+   "ts": "2026-10-23T13:18:08.027296+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 534
+  },
+  {
+   "ts": "2026-10-23T13:18:08.027718+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 253
+  },
+  {
+   "ts": "2026-10-23T13:18:08.029276+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 275
+  },
+  {
+   "ts": "2026-10-23T13:18:08.032285+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 261
+  },
+  {
+   "ts": "2026-10-23T13:18:18.562433+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 66
+  },
+  {
+   "ts": "2026-10-23T13:18:28.628391+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, novita/bf16, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, google-vertex/us-central1, google-vertex, together, sambanova-turbo.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":11},{\"step\":\"Apply Status Sorting\",\"endpoint_count\":11},{\"step\":\"Filter by Fallback\",\"endp",
+   "latency_ms": 74
+  }
+ ]
+}

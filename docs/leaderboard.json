@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-23T10:19:54.665508Z",
+ "generated_at": "2026-10-23T13:18:30.063202Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 170,
- "run_stamp": "2026-10-23T101706Z",
+ "n_runs": 171,
+ "run_stamp": "2026-10-23T131705Z",
  "tuples": [
   {
    "base_url": null,
