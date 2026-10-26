@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
+  "provider_prefs": {
+   "order": [
+    "crusoe"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "crusoe"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T16:20:20.989494+00:00",
+   "mode": "burst",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor:   907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\[\n1\u202f284 + 907 = 2\u202f191 \\\\\n2\u202f191 + 2\u202f156 = 4\u202f347 \\text{ boxes}\n\\]\n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck holds 85 boxes.  \nDivide the total number of boxes by 85:\n\n\\[\n\\frac{4\u202f347}{85} \\approx 51.14\n\\]\n\nThe integer part tells us the number of completely filled trucks:\n\n\\[\n85 \\times 51 = 4\u202f335 \\text{ boxes}\n\\]\n\nSo **51 trucks** can be fully loaded.\n\n**Step\u202f3: Find the boxes left over**  \nSubtract the boxes that fit on the 51 full trucks from the total:\n\n\\[\n4\u202f347 - 4\u202f335 = 12 \\text{ boxes}\n\\]\n\nThese 12 boxes cannot fill another truck, so they remain unshipped.\n\n---\n\n**ANSWER: 51,12**",
+   "sha256": "504fb020da7c7e6058089f7b5e49d9640167bd9fc470cae617eba39eaf0bf436",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2077
+  },
+  {
+   "ts": "2026-10-26T16:20:20.989770+00:00",
+   "mode": "burst",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347 \\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by 85:\n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   The integer part tells us the number of *fully* loaded trucks:\n   \\[\n   51 \\text{ trucks}\n   \\]\n\n3. **Find the number of boxes that remain unshipped**  \n   Multiply the number of full trucks by the capacity per truck and subtract from the total:\n   \\[\n   51 \\times 85 = 4335 \\text{ boxes shipped}\n   \\]\n   \\[\n   4347 - 4335 = 12 \\text{ boxes left}\n   \\]\n\n**Result**\n\n- Fully loaded trucks needed: **51**  \n- Boxes remaining unshipped: **12**\n\n**ANSWER: 51,12**",
+   "sha256": "cd0c129fcdb018ad533803ba87355767d229aafc097596f3592a8d66ab519255",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2202
+  },
+  {
+   "ts": "2026-10-26T16:20:20.991295+00:00",
+   "mode": "burst",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor: 907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\(1\u202f284 + 907 = 2\u202f191\\)  \n\\(2\u202f191 + 2\u202f156 = 4\u202f347\\)  \n\nSo the warehouse holds **4\u202f347 boxes**.\n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck can carry 85 boxes.\n\nFind the largest integer \\(k\\) such that \\(85k \\le 4\u202f347\\).\n\n- \\(85 \\times 50 = 4\u202f250\\)  \n- \\(85 \\times 51 = 4\u202f250 + 85 = 4\u202f335\\)  \n- \\(85 \\times 52 = 4\u202f335 + 85 = 4\u202f420\\) (which exceeds 4\u202f347)\n\nThus the maximum number of completely loaded trucks is **51**.\n\n**Step\u202f3: Compute how many boxes are shipped on those trucks**  \n\\(51 \\text{ trucks} \\times 85 \\text{ boxes/truck} = 4\u202f335\\) boxes.\n\n**Step\u202f4: Find the remaining (unshipped) boxes**  \n\\(4\u202f347 \\text{ total boxes} - 4\u202f335 \\text{ shipped boxes} = 12\\) boxes.\n\n---\n\n**ANSWER: 51,12**",
+   "sha256": "99e5199d50c04779f63d00270cf679e9124aeeb1b5d652869e8e5abee220125f",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2378
+  },
+  {
+   "ts": "2026-10-26T16:20:20.992419+00:00",
+   "mode": "burst",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor: 907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\(1\u202f284 + 907 = 2\u202f191\\)  \n\\(2\u202f191 + 2\u202f156 = 4\u202f347\\) boxes  \n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck holds 85 boxes.  \nDivide the total by 85:\n\n\\[\n\\frac{4\u202f347}{85} \\approx 51.14\n\\]\n\nOnly whole trucks can be fully loaded, so we take the integer part: **51 trucks**.\n\n**Step\u202f3: Calculate how many boxes those 51 trucks carry**  \n\n\\(51 \\times 85 = 4\u202f335\\) boxes.\n\n**Step\u202f4: Find the remaining boxes**  \n\n\\(4\u202f347 - 4\u202f335 = 12\\) boxes are left unshipped.\n\n---\n\n**ANSWER: 51,12**",
+   "sha256": "83d678270555e0b15cd90c1c413a45354ce661acc61590bd0f4c49c2efc6ab5a",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2032
+  },
+  {
+   "ts": "2026-10-26T16:20:20.998289+00:00",
+   "mode": "burst",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor:   907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\[\n1\u202f284 + 907 = 2\u202f191 \\\\\n2\u202f191 + 2\u202f156 = 4\u202f347 \\text{ boxes}\n\\]\n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck holds 85 boxes.  \nDivide the total number of boxes by 85:\n\n\\[\n\\frac{4\u202f347}{85} \\approx 51.14\n\\]\n\nThe integer part tells us the number of completely filled trucks:\n\n\\[\n85 \\times 51 = 4\u202f335 \\text{ boxes}\n\\]\n\nSo **51 trucks** can be fully loaded.\n\n**Step\u202f3: Find the boxes left over**  \nSubtract the boxes that fit on the 51 full trucks from the total:\n\n\\[\n4\u202f347 - 4\u202f335 = 12 \\text{ boxes}\n\\]\n\nThese 12 boxes cannot fill another truck, so they remain unshipped.\n\n---\n\n**ANSWER: 51,12**",
+   "sha256": "504fb020da7c7e6058089f7b5e49d9640167bd9fc470cae617eba39eaf0bf436",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2107
+  },
+  {
+   "ts": "2026-10-26T16:20:20.999267+00:00",
+   "mode": "burst",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor: 907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\(1\u202f284 + 907 = 2\u202f191\\)  \n\\(2\u202f191 + 2\u202f156 = 4\u202f347\\) boxes  \n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck holds 85 boxes.  \nDivide the total number of boxes by the truck capacity:\n\n\\[\n\\frac{4\u202f347}{85} \\approx 51.14\n\\]\n\nOnly whole trucks can be fully loaded, so we take the integer part:\n\n\\[\n\\text{Full trucks} = 51\n\\]\n\n**Step\u202f3: Find the number of boxes left over**  \nBoxes loaded on 51 trucks: \\(51 \\times 85 = 4\u202f335\\) boxes  \n\nRemaining boxes:  \n\n\\[\n4\u202f347 - 4\u202f335 = 12\n\\]\n\n**Result**\n\n- Fully loaded trucks needed: **51**  \n- Boxes that remain unshipped: **12**\n\n**ANSWER: 51,12**",
+   "sha256": "2d017f5f563f48a45be17a136007377679c0d24d68de78e9e3f4dabfa81575ce",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2007
+  },
+  {
+   "ts": "2026-10-26T16:20:21.000424+00:00",
+   "mode": "burst",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor: 907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\(1\u202f284 + 907 = 2\u202f191\\)  \n\\(2\u202f191 + 2\u202f156 = 4\u202f347\\) boxes  \n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck holds 85 boxes.  \nDivide the total number of boxes by the truck capacity:\n\n\\[\n\\frac{4\u202f347}{85} \\approx 51.14\n\\]\n\nOnly whole trucks can be fully loaded, so we take the integer part:\n\n\\[\n\\text{Full trucks} = 51\n\\]\n\n**Step\u202f3: Find the number of boxes left over**  \nBoxes loaded on 51 trucks: \\(51 \\times 85 = 4\u202f335\\) boxes  \n\nRemaining boxes:  \n\n\\[\n4\u202f347 - 4\u202f335 = 12\n\\]\n\n**Result**\n\n- Fully loaded trucks needed: **51**  \n- Boxes that remain unshipped: **12**\n\n**ANSWER: 51,12**",
+   "sha256": "2d017f5f563f48a45be17a136007377679c0d24d68de78e9e3f4dabfa81575ce",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2041
+  },
+  {
+   "ts": "2026-10-26T16:20:21.000972+00:00",
+   "mode": "burst",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor: 907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\(1\u202f284 + 907 = 2\u202f191\\)  \n\\(2\u202f191 + 2\u202f156 = 4\u202f347\\)  \n\nSo the warehouse holds **4\u202f347 boxes**.\n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck can carry 85 boxes.\n\nFind the largest integer \\(k\\) such that \\(85k \\le 4\u202f347\\).\n\n- \\(85 \\times 50 = 4\u202f250\\)  \n- \\(85 \\times 51 = 4\u202f250 + 85 = 4\u202f335\\)  \n- \\(85 \\times 52 = 4\u202f335 + 85 = 4\u202f420\\) (which exceeds 4\u202f347)\n\nThus the maximum number of completely loaded trucks is **51**.\n\n**Step\u202f3: Compute how many boxes are shipped on those trucks**  \n\\(51 \\text{ trucks} \\times 85 \\text{ boxes/truck} = 4\u202f335\\) boxes.\n\n**Step\u202f4: Find the remaining (unshipped) boxes**  \n\\(4\u202f347 \\text{ total boxes} - 4\u202f335 \\text{ shipped boxes} = 12\\) boxes.\n\n---\n\n**ANSWER: 51,12**",
+   "sha256": "99e5199d50c04779f63d00270cf679e9124aeeb1b5d652869e8e5abee220125f",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2520
+  },
+  {
+   "ts": "2026-10-26T16:20:33.521793+00:00",
+   "mode": "serial",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor:   907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\[\n1\u202f284 + 907 = 2\u202f191 \\\\\n2\u202f191 + 2\u202f156 = 4\u202f347 \\text{ boxes}\n\\]\n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck holds 85 boxes.  \nFind the greatest integer \\(k\\) such that \\(85k \\le 4\u202f347\\).\n\n\\[\n85 \\times 50 = 4\u202f250 \\\\\n85 \\times 51 = 4\u202f335 \\\\\n85 \\times 52 = 4\u202f420 \\;(>4\u202f347)\n\\]\n\nSo the maximum number of completely filled trucks is **51**.\n\n**Step\u202f3: Compute the boxes left over**  \n\\[\n\\text{Boxes shipped in full trucks}=85 \\times 51 = 4\u202f335\n\\]\n\\[\n\\text{Remaining boxes}=4\u202f347 - 4\u202f335 = 12\n\\]\n\n**Result**  \n- Fully loaded trucks needed: **51**  \n- Boxes that remain unshipped: **12**\n\n**ANSWER: 51,12**",
+   "sha256": "8527d7bbaac19347d47e19e4fc16598651adcdd3b32deb704e82ff833e5424f1",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1892
+  },
+  {
+   "ts": "2026-10-26T16:20:45.413849+00:00",
+   "mode": "serial",
+   "text": "**Step\u202f1: Add the boxes on all three floors**  \n- First floor: 1\u202f284 boxes  \n- Second floor:   907 boxes  \n- Third floor: 2\u202f156 boxes  \n\nTotal boxes  \n\\(1\u202f284 + 907 = 2\u202f191\\)  \n\\(2\u202f191 + 2\u202f156 = 4\u202f347\\) boxes  \n\n**Step\u202f2: Determine how many full trucks can be loaded**  \nEach truck holds 85 boxes.  \nDivide the total by 85:\n\n\\[\n\\frac{4\u202f347}{85} \\approx 51.14\n\\]\n\nThe integer part tells us the number of completely filled trucks: **51 trucks**.\n\n**Step\u202f3: Find the number of boxes that remain after those trucks are filled**  \nBoxes used by 51 trucks:  \n\\(51 \\times 85 = 4\u202f335\\) boxes  \n\nRemaining boxes:  \n\\(4\u202f347 - 4\u202f335 = 12\\) boxes  \n\n**Result**  \n- Fully loaded trucks needed: **51**  \n- Boxes left unshipped: **12**\n\n**ANSWER: 51,12**",
+   "sha256": "429851bc33ccb1d34ea52914254f363bc1b9bc0c53d20eda0bdb52545effd59d",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1614
+  }
+ ]
+}
