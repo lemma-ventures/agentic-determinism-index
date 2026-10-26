@@ -31,24 +31,26 @@ def load_manifest(run_dir):
     return _safe_read_json(manifest) if os.path.isfile(manifest) else {}
 
 
+def _run_has_success(path):
+    """A run is a score only if at least one request in it returned a usable
+    sample. A run where every request failed (HTTP 404/403, empty
+    completions) keeps its transcripts under runs/ but is not a score: it is
+    not counted, linked, or used as the "last run" date."""
+    from .watch import row_has_success
+    try:
+        rows = load_scores(path)
+    except (OSError, ValueError, TypeError, FileNotFoundError):
+        return False
+    return any(row_has_success(r) for r in rows or [] if isinstance(r, dict))
+
+
 def latest_scored_run(run_root):
-    if not os.path.isdir(run_root):
-        return None
-    candidates = []
-    for name in sorted(os.listdir(run_root)):
-        path = os.path.join(run_root, name)
-        if not os.path.isdir(path):
-            continue
-        scores = os.path.join(path, "scores.json")
-        if os.path.isfile(scores):
-            candidates.append(path)
-    if not candidates:
-        return None
-    return candidates[-1]
+    runs = _list_scored_runs(run_root)
+    return runs[-1] if runs else None
 
 
 def _list_scored_runs(run_root):
-    if not os.path.isdir(run_root):
+    if not run_root or not os.path.isdir(run_root):
         return []
     runs = []
     for name in sorted(os.listdir(run_root)):
@@ -56,9 +58,44 @@ def _list_scored_runs(run_root):
         if not os.path.isdir(path):
             continue
         scores = os.path.join(path, "scores.json")
-        if os.path.isfile(scores):
+        if os.path.isfile(scores) and _run_has_success(path):
             runs.append(path)
     return runs
+
+
+def load_rotation(score_config=None, parked_config=None):
+    """Which serving tuples are in the score rotation and which are parked.
+
+    Returns ``{"active": set of keys, "parked": {key: entry}}`` from the score
+    config (targets without ``parked_reason``) and configs/parked.json.
+    Missing files give empty sets, and then no row is annotated."""
+    def _targets(path):
+        if not path or not os.path.isfile(path):
+            return []
+        try:
+            doc = _safe_read_json(path)
+        except (OSError, ValueError):
+            return []
+        targets = doc.get("targets") if isinstance(doc, dict) else doc
+        return [t for t in targets or [] if isinstance(t, dict)]
+
+    active = set()
+    for t in _targets(score_config):
+        if not t.get("parked_reason"):
+            active.add(_tuple_key(t))
+    parked = {}
+    for t in _targets(parked_config):
+        key = _tuple_key(t)
+        parked[key] = {
+            "provider": key[0],
+            "model": key[1],
+            "label": key[2],
+            "display": key[2] or f"{key[0]}/{key[1]}",
+            "reason": t.get("parked_reason") or "parked",
+            "parked_on": t.get("parked_on") or "",
+        }
+        active.discard(key)
+    return {"active": active, "parked": parked}
 
 
 def _norm_stack_values(values):
@@ -659,6 +696,30 @@ def render_html(payload):
         if last_tick
         else ""
     )
+    latest_score = payload.get("latest_score_as_of") or ""
+    latest_score_span = (
+        f"\n      <span>Latest score: <strong>{html.escape(latest_score)}</strong></span>"
+        if latest_score
+        else ""
+    )
+    parked_items = []
+    for p in payload.get("parked") or []:
+        last = p.get("last_score_as_of") or "never scored"
+        since = f", parked {html.escape(p['parked_on'])}" if p.get("parked_on") else ""
+        parked_items.append(
+            f"<li><strong>{html.escape(p.get('display') or '')}</strong> "
+            f"(<code>{html.escape(p.get('model') or '')}</code>): "
+            f"{html.escape(p.get('reason') or '')} "
+            f'<span class="sid">last score {html.escape(last)}{since}</span></li>'
+        )
+    parked_block = (
+        "<h2>Parked tuples</h2>\n"
+        '    <p class="meta">Out of the score and watch rotation. Their history stays in the '
+        "repository and earlier scores stay on the board, marked parked. "
+        "A run where every request failed is never published as a score.</p>\n"
+        f"    <ul>{''.join(parked_items)}</ul>"
+        if parked_items else ""
+    )
 
     rows = []
     for entry in payload.get("leaders", []):
@@ -709,6 +770,14 @@ def render_html(payload):
         as_of_html = (
             f'<div class="sid">{" · ".join(as_of_bits)}</div>' if as_of_bits else ""
         )
+        status = entry.get("status") or ""
+        if status == "parked":
+            as_of_html += (
+                '<div class="sid"><strong>parked</strong>: '
+                f'{html.escape(entry.get("parked_reason") or "")}</div>'
+            )
+        elif status == "retired":
+            as_of_html += '<div class="sid">retired: not in the current rotation</div>'
         rows.append(
             "<tr{tr_cls}>"
             "<td>{rank}</td>"
@@ -925,7 +994,7 @@ def render_html(payload):
     <h1>{title}</h1>
     <p class="lead">Reference leaderboard by serving tuple. Each row uses that tuple&rsquo;s latest successful score (carried across due-only runs). Top three earn medals for this snapshot.</p>
     <div class="summary">
-      <span>Last run: <strong>{html.escape(last_run)}</strong></span>{watch_tick_span}
+      <span>Last scored run: <strong>{html.escape(last_run)}</strong></span>{latest_score_span}{watch_tick_span}
       <span>Reference runs: <strong>{int(n_runs)}</strong></span>
       <span>Run: <strong><a href="{html.escape(run_href, quote=True)}" title="Run detail page">r/{html.escape(run_id)}/</a></strong></span>
     </div>
@@ -967,6 +1036,7 @@ def render_html(payload):
       All-error probes are omitted. Scores recompute from raw transcripts; community replications are not merged.
       When a due-only run scores a subset, other tuples keep their previous score (shown under the stack id).
     </p>
+    {parked_block}
     <h2>Stack-drift timeline</h2>
     <p class="meta">When a serving tuple changes <code>system_fingerprint</code> / model version across reference runs. First non-exact is the earliest reference stamp where byte-exact replay failed.</p>
     {drift_block}
@@ -980,7 +1050,7 @@ def render_html(payload):
 """
 
 
-def build_payload(run_dir=None, run_root=None, watch_dir=None):
+def build_payload(run_dir=None, run_root=None, watch_dir=None, rotation=None):
     """Build page payload from a scored run and optional watch history.
 
     ``run_dir`` may be None when only stack-watch data exists; the leaderboard
@@ -1070,6 +1140,32 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         except Exception:
             pass
 
+    # Rotation status per row: active (still scored), parked (out of the
+    # rotation for a stated reason), retired (an older tuple no current
+    # config names). Only annotated when the caller passes the rotation.
+    parked_list = []
+    if rotation:
+        parked_map = rotation.get("parked") or {}
+        active = rotation.get("active") or set()
+        for entry in leaders:
+            key = (
+                entry.get("provider") or "",
+                entry.get("model") or "unknown",
+                (entry.get("label") or "").strip(),
+            )
+            if key in parked_map:
+                entry["status"] = "parked"
+                entry["parked_reason"] = parked_map[key]["reason"]
+            elif key in active:
+                entry["status"] = "active"
+            else:
+                entry["status"] = "retired"
+        for key, p in sorted(parked_map.items()):
+            parked_list.append({**p, "last_score_as_of": score_as_of.get(key) or ""})
+
+    latest_score_as_of = max(
+        (e.get("score_as_of") or "" for e in leaders), default="")
+
     run_stamp = os.path.basename(os.path.normpath(run_dir)) if run_dir else ""
     run_id = short_stack_id(run_stamp or "none")
     for entry in leaders:
@@ -1091,6 +1187,8 @@ def build_payload(run_dir=None, run_root=None, watch_dir=None):
         "started": manifest.get("started", ""),
         "finished": manifest.get("finished", ""),
         "n_runs": n_runs,
+        "latest_score_as_of": latest_score_as_of,
+        "parked": parked_list,
         "last_watch_tick": last_watch_tick,
         "leaders": leaders,
         "providers": prov,
@@ -1181,9 +1279,9 @@ def render_run_page(payload, scores):
 """
 
 
-def write_site(out_html, run_dir=None, run_root=None, watch_dir=None):
+def write_site(out_html, run_dir=None, run_root=None, watch_dir=None, rotation=None):
     """Write leaderboard + per-run detail pages. Returns list of paths written."""
-    payload = build_payload(run_dir, run_root=run_root, watch_dir=watch_dir)
+    payload = build_payload(run_dir, run_root=run_root, watch_dir=watch_dir, rotation=rotation)
     out_dir = os.path.dirname(out_html) or "."
     os.makedirs(out_dir, exist_ok=True)
     written = []

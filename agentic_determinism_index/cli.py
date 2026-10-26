@@ -29,21 +29,42 @@ def cmd_run(args):
     cases = _load(args.cases)["cases"]
     validate_cases(cases)
     watch_dir = getattr(args, "watch_dir", "runs/watch")
+    from .watch import filter_score_due_targets, is_parked, parse_force_before
+
+    # Parked targets and targets whose key is absent on this host cannot
+    # produce a sample; drop them before a run directory exists so a tick
+    # with nothing runnable writes nothing (an empty run used to fail the
+    # score step and abort the whole tick).
+    runnable = []
+    for target in config.get("targets") or []:
+        name = f"{target['provider']}/{target.get('model')}"
+        if is_parked(target):
+            print(f"skip {name}: parked ({target['parked_reason']})", flush=True)
+            continue
+        key_env = target.get("api_key_env")
+        if key_env and not os.environ.get(key_env):
+            print(f"skip {name}: {key_env} not set", flush=True)
+            continue
+        runnable.append(target)
+    config = dict(config)
+    config["targets"] = runnable
 
     if getattr(args, "due_only", False):
-        from .watch import filter_score_due_targets
-        due, skipped = filter_score_due_targets(config.get("targets") or [], watch_dir)
+        due, skipped = filter_score_due_targets(
+            runnable, watch_dir,
+            force_before=parse_force_before(config.get("force_rescore_before")),
+        )
         for s in skipped:
             print(
                 f"skip score {s['target']}: not due "
                 f"(byte_exact={s.get('byte_exact')})",
                 flush=True,
             )
-        config = dict(config)
         config["targets"] = due
-        if not due:
-            print("no targets due for full score; watch-only cadence applies")
-            return 0
+
+    if not config["targets"]:
+        print("no targets due for full score; watch-only cadence applies")
+        return 0
 
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     run_dir = os.path.join(args.out, stamp)
@@ -63,11 +84,6 @@ def cmd_run(args):
     }
     skipped_tool_call_cases = []
     for target in config["targets"]:
-        key_env = target.get("api_key_env")
-        if key_env and not os.environ.get(key_env):
-            print(f"skip {target['provider']}/{target.get('model')}: "
-                  f"{key_env} not set", flush=True)
-            continue
         provider = make_provider(target)
         for case in cases:
             label = f"{target['provider']}/{target['model']} case={case['id']}"
@@ -142,6 +158,13 @@ def cmd_score(args):
     except Exception as e:
         print(f"note: score hints not written ({e})", file=sys.stderr)
     print(md, end="")
+    from .watch import row_has_success
+    if not any(row_has_success(r) for r in rows):
+        # Transcripts stay on disk as a record, but nothing here is a score:
+        # callers (ci_watch.sh) must not publish it as one.
+        print(f"no successful sample in {args.run_dir}; not a score",
+              file=sys.stderr)
+        return 3
     return 0
 
 
@@ -160,17 +183,20 @@ def cmd_site(args):
             file=sys.stderr,
         )
 
-    from .site import build_payload, write_site
+    from .site import build_payload, load_rotation, write_site
     from .feed import FEED_NAME, write_feed
 
+    rotation = load_rotation(args.score_config, args.parked)
     paths = write_site(
         out_html=args.out,
         run_dir=run_dir,
         run_root=args.run_root,
         watch_dir=args.watch_dir,
+        rotation=rotation,
     )
     # The same leaderboard as data, for routers and agents (feed.py, mcp.py).
-    payload = build_payload(run_dir, run_root=args.run_root, watch_dir=args.watch_dir)
+    payload = build_payload(run_dir, run_root=args.run_root,
+                            watch_dir=args.watch_dir, rotation=rotation)
     paths.append(write_feed(os.path.join(os.path.dirname(args.out) or ".", FEED_NAME), payload))
     for p in paths:
         print(p)
@@ -259,6 +285,10 @@ def main(argv=None):
     sitep.add_argument("--watch-dir", default="runs/watch",
                        help="stack-watch history dir (optional drift panel)")
     sitep.add_argument("--out", default="website/index.html")
+    sitep.add_argument("--score-config", default="configs/continuous.json",
+                       help="score rotation; its targets are shown as active")
+    sitep.add_argument("--parked", default="configs/parked.json",
+                       help="parked targets with parked_reason, shown on the page and feed")
     sitep.set_defaults(fn=cmd_site)
 
     mcpp = sub.add_parser("mcp", help="stdio MCP server over the leaderboard (tools: adi_leaderboard, adi_tuple, adi_green)")

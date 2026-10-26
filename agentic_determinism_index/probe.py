@@ -93,7 +93,11 @@ def one_call(provider, case, mode):
         else:
             txt = r.get("text") or ""
             if not txt:
-                rec["error"] = "unsupported: empty completion (tool call or similar)"
+                if r.get("finish_reason") == "length" and r.get("reasoning_present"):
+                    rec["error"] = ("empty completion: max_tokens spent on "
+                                    "reasoning (finish_reason=length)")
+                else:
+                    rec["error"] = "unsupported: empty completion (tool call or similar)"
             else:
                 rec.update(
                     text=txt,

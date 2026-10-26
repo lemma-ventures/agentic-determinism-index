@@ -167,5 +167,137 @@ class TestWatchSchedule(unittest.TestCase):
             self.assertEqual(len(skipped), 2)
 
 
+class TestFailedScores(unittest.TestCase):
+    """A score run where every request failed must not count as a score."""
+
+    KEY = "openrouter|m|L"
+
+    def _ingest(self, d, n_ok, stamp):
+        from agentic_determinism_index.watch import ingest_score_hints, load_watch_state
+        rows = [{"provider": "openrouter", "model": "m", "label": "L", "case": c,
+                 "n": 10, "n_ok": n_ok, "errors": 10 - n_ok,
+                 **({"mode_share": 0.5, "byte_identical": False} if n_ok else {})}
+                for c in ("c1", "c2")]
+        ingest_score_hints(d, rows, run_stamp=stamp)
+        return load_watch_state(d)["targets"][self.KEY]
+
+    def test_zero_ok_run_keeps_last_score_and_is_retried(self):
+        import time
+        with tempfile.TemporaryDirectory() as d:
+            good = self._ingest(d, 10, "2026-10-05T201706Z")
+            good = self._ingest(d, 10, "2026-10-06T201706Z")
+            last_epoch = good["last_score_epoch"]
+            self.assertEqual(good["non_exact_streak"], 2)
+
+            row = self._ingest(d, 0, "2026-10-25T181705Z")
+            self.assertEqual(row["last_score_stamp"], "2026-10-06T201706Z")
+            self.assertEqual(row["last_score_epoch"], last_epoch)
+            self.assertEqual(row["last_score_attempt_stamp"], "2026-10-25T181705Z")
+            self.assertEqual(row["score_failures"], 1)
+            self.assertEqual(row["non_exact_streak"], 2, "a failed run is no verdict")
+
+            cfg = {"failed_score_retry_s": 3600}
+            now = row["last_score_attempt_epoch"]
+            # Not hammered on the next tick, retried after the retry gap,
+            # not after the month a measured non-exact stack waits.
+            self.assertFalse(score_reprobe_due(row, now=now + 60, cfg=cfg))
+            self.assertTrue(score_reprobe_due(row, now=now + 3601, cfg=cfg))
+
+            row = self._ingest(d, 0, "2026-10-26T181705Z")
+            self.assertEqual(row["score_failures"], 2)
+            row = self._ingest(d, 7, "2026-10-27T181705Z")
+            self.assertEqual(row["score_failures"], 0)
+            self.assertEqual(row["last_score_stamp"], "2026-10-27T181705Z")
+            self.assertGreaterEqual(row["last_score_epoch"], time.time() - 60)
+
+    def test_force_rescore_before_makes_older_scores_due_once(self):
+        from agentic_determinism_index.watch import parse_force_before
+        force = parse_force_before("2026-10-26T10:00:00Z")
+        import datetime
+        self.assertEqual(force, datetime.datetime(
+            2026, 10, 26, 10, tzinfo=datetime.timezone.utc).timestamp())
+        cfg = {"non_exact_score_min_interval_s": 30 * 86400}
+        old = {"byte_exact": False, "non_exact_streak": 2, "last_score_epoch": force - 9 * 86400}
+        self.assertFalse(score_reprobe_due(old, now=force + 600, cfg=cfg))
+        self.assertTrue(score_reprobe_due(old, now=force + 600, cfg=cfg, force_before=force))
+        fresh = {**old, "last_score_epoch": force + 300}
+        self.assertFalse(score_reprobe_due(fresh, now=force + 600, cfg=cfg, force_before=force))
+
+    def test_parked_targets_are_never_due(self):
+        from agentic_determinism_index.watch import filter_score_due_targets
+        with tempfile.TemporaryDirectory() as d:
+            due, skipped = filter_score_due_targets([
+                {"provider": "openrouter", "model": "m", "label": "live"},
+                {"provider": "openrouter", "model": "m", "label": "gone",
+                 "parked_reason": "endpoint withdrawn"},
+            ], d)
+        self.assertEqual([t["label"] for t in due], ["live"])
+        self.assertEqual(skipped[0]["reason"], "parked")
+
+    def test_reasoning_targets_get_a_larger_watch_budget_only(self):
+        from agentic_determinism_index.watch import watch_case_for
+        case = {"id": "stack-ping", "params": {"temperature": 0, "seed": 42, "max_tokens": 8}}
+        self.assertIs(watch_case_for(case, {"model": "m"}), case)
+        bumped = watch_case_for(case, {"model": "m", "watch_max_tokens": 512})
+        self.assertEqual(bumped["params"], {"temperature": 0, "seed": 42, "max_tokens": 512})
+        self.assertEqual(case["params"]["max_tokens"], 8, "the shared case is not mutated")
+
+
+class TestRunCommand(unittest.TestCase):
+    def test_nothing_runnable_writes_no_run_directory(self):
+        from agentic_determinism_index.cli import main
+        with tempfile.TemporaryDirectory() as d:
+            cfg = os.path.join(d, "cfg.json")
+            with open(cfg, "w") as f:
+                json.dump({"targets": [
+                    {"provider": "openai_compatible", "model": "m", "label": "keyless",
+                     "api_key_env": "ADI_TEST_KEY_THAT_IS_NOT_SET"},
+                    {"provider": "openrouter", "model": "m", "label": "parked",
+                     "parked_reason": "endpoint withdrawn"},
+                ]}, f)
+            out = os.path.join(d, "runs")
+            os.environ.pop("ADI_TEST_KEY_THAT_IS_NOT_SET", None)
+            rc = main(["run", "--config", cfg, "--out", out, "--due-only",
+                       "--watch-dir", os.path.join(d, "watch")])
+            self.assertEqual(rc, 0)
+            self.assertFalse(os.path.exists(out) and os.listdir(out))
+
+    def test_score_of_an_all_failed_run_exits_3(self):
+        from agentic_determinism_index.cli import main
+        with tempfile.TemporaryDirectory() as d:
+            run = os.path.join(d, "2026-10-25T181705Z")
+            os.makedirs(os.path.join(run, "probes"))
+            with open(os.path.join(run, "probes", "p.json"), "w") as f:
+                json.dump({"target": {"provider": "openrouter", "model": "m", "label": "L"},
+                           "case": {"id": "c", "expect": "text"},
+                           "samples": [{"error": "RuntimeError: HTTP 404"}] * 3}, f)
+            watch_dir = os.path.join(d, "watch")
+            self.assertEqual(main(["score", run, "--watch-dir", watch_dir]), 3)
+            with open(os.path.join(watch_dir, "state.json")) as f:
+                row = json.load(f)["targets"]["openrouter|m|L"]
+            self.assertNotIn("last_score_epoch", row)
+            self.assertEqual(row["score_failures"], 1)
+
+
+class TestReasoningEmptyCompletion(unittest.TestCase):
+    def test_budget_spent_on_reasoning_is_named(self):
+        from agentic_determinism_index.probe import one_call
+        from agentic_determinism_index.providers import OpenAIChat
+
+        class Fake(OpenAIChat):
+            def call(self, case, timeout=180):
+                return self.parse({"model": "m", "choices": [{
+                    "finish_reason": "length",
+                    "message": {"content": None, "reasoning": "The user says"}}]})
+
+        rec = one_call(Fake({"model": "m"}), {"id": "c", "messages": []}, "watch")
+        self.assertIn("max_tokens spent on reasoning", rec["error"])
+
+    def test_account_ids_are_redacted_from_errors(self):
+        from agentic_determinism_index.providers import redact_error_detail
+        body = '{"error":{"code":404},"user_id":"user_abc123"}'
+        self.assertEqual(redact_error_detail(body), '{"error":{"code":404},"user_id":"<redacted>"}')
+
+
 if __name__ == "__main__":
     unittest.main()

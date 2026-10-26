@@ -10,6 +10,7 @@ transcripts or manifests.
 """
 import json
 import os
+import re
 import ssl
 import urllib.error
 import urllib.request
@@ -87,6 +88,15 @@ def tool_call_supported(provider_kind):
     return provider_kind in TOOL_CALL_SUPPORTED_PROVIDERS
 
 
+# Gateways echo account identifiers in error bodies (OpenRouter: "user_id").
+# Error text lands in public transcripts and watch history, so drop them.
+_ACCOUNT_ID_RE = re.compile(r'"user_id"\s*:\s*"[^"]*"')
+
+
+def redact_error_detail(detail):
+    return _ACCOUNT_ID_RE.sub('"user_id":"<redacted>"', detail or "")
+
+
 def _ssl_context():
     """Prefer certifi's CA bundle. The python.org macOS builds ship without
     a system trust store, which otherwise makes every HTTPS probe fail with
@@ -136,7 +146,7 @@ class Provider:
             ) as resp:
                 body = json.loads(resp.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
-            detail = e.read().decode("utf-8", "replace")[:500]
+            detail = redact_error_detail(e.read().decode("utf-8", "replace"))[:500]
             raise RuntimeError(f"HTTP {e.code}: {detail}") from None
         return self.parse(body)
 
@@ -174,12 +184,20 @@ class OpenAIChat(Provider):
         return self._post(f"{base}/chat/completions", payload, headers)
 
     def parse(self, body):
-        message = body["choices"][0]["message"]
+        choice = body["choices"][0]
+        message = choice["message"]
         return {
             "text": message.get("content") or "",
             "tool_calls": _extract_openai_tool_calls(message),
             "fingerprint": body.get("system_fingerprint"),
             "model_version": body.get("model"),
+            # Diagnostics only (never scored): a reasoning model that spends
+            # max_tokens on its reasoning returns no content and
+            # finish_reason "length". OpenRouter names the field "reasoning",
+            # vLLM/SGLang servers "reasoning_content".
+            "finish_reason": choice.get("finish_reason"),
+            "reasoning_present": bool(
+                message.get("reasoning") or message.get("reasoning_content")),
         }
 
 

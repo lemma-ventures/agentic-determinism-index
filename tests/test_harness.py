@@ -107,13 +107,80 @@ class TestSite(unittest.TestCase):
             os.makedirs(os.path.join(d, "20260201", "probes"))
             os.makedirs(os.path.join(d, "20260301"))
 
+            ok_row = [{"provider": "p", "model": "m", "case": "c", "n": 2, "n_ok": 2,
+                       "mode_share": 1.0, "byte_identical": True}]
             with open(os.path.join(d, "20260101", "scores.json"), "w") as f:
-                json.dump([], f)
+                json.dump(ok_row, f)
             with open(os.path.join(d, "20260201", "scores.json"), "w") as f:
-                json.dump([], f)
+                json.dump(ok_row, f)
 
             latest = latest_scored_run(d)
             self.assertEqual(os.path.basename(latest), "20260201")
+
+    def test_run_where_every_request_failed_is_not_a_score(self):
+        from agentic_determinism_index.feed import build_feed
+        from agentic_determinism_index.site import build_payload, render_html
+
+        ok = {"provider": "p", "model": "m", "label": "L", "case": "c", "n": 2,
+              "n_ok": 2, "errors": 0, "distinct": 1, "mode_share": 1.0,
+              "byte_identical": True, "mode_sha256": "aa"}
+        failed = {"provider": "p", "model": "m", "label": "L", "case": "c",
+                  "n": 2, "n_ok": 0, "errors": 2}
+        with tempfile.TemporaryDirectory() as d:
+            for stamp, rows in (("2026-10-17T101706Z", [ok]),
+                                ("2026-10-25T181705Z", [failed])):
+                os.makedirs(os.path.join(d, stamp))
+                with open(os.path.join(d, stamp, "scores.json"), "w") as f:
+                    json.dump(rows, f)
+            self.assertEqual(os.path.basename(latest_scored_run(d)), "2026-10-17T101706Z")
+            payload = build_payload(latest_scored_run(d), run_root=d)
+            self.assertEqual(payload["n_runs"], 1)
+            self.assertEqual(payload["latest_score_as_of"], "2026-10-17T101706Z")
+            self.assertEqual(payload["leaders"][0]["score_as_of"], "2026-10-17T101706Z")
+            feed = build_feed(payload, config_dir=None)
+            self.assertEqual(feed["run_stamp"], "2026-10-17T101706Z")
+            self.assertEqual(feed["latest_score_as_of"], "2026-10-17T101706Z")
+            self.assertNotIn("2026-10-25T181705Z", render_html(payload))
+
+    def test_parked_and_retired_tuples_are_marked(self):
+        from agentic_determinism_index.feed import build_feed
+        from agentic_determinism_index.site import build_payload, load_rotation, render_html
+
+        def row(label):
+            return {"provider": "p", "model": "m", "label": label, "case": "c",
+                    "n": 2, "n_ok": 2, "distinct": 1, "mode_share": 1.0,
+                    "byte_identical": True, "mode_sha256": "aa"}
+        with tempfile.TemporaryDirectory() as d:
+            run = os.path.join(d, "runs", "2026-10-26T101706Z")
+            os.makedirs(run)
+            with open(os.path.join(run, "scores.json"), "w") as f:
+                json.dump([row("live"), row("gone"), row("old")], f)
+            score_cfg = os.path.join(d, "continuous.json")
+            parked_cfg = os.path.join(d, "parked.json")
+            with open(score_cfg, "w") as f:
+                json.dump({"targets": [{"provider": "p", "model": "m", "label": "live"}]}, f)
+            with open(parked_cfg, "w") as f:
+                json.dump({"targets": [
+                    {"provider": "p", "model": "m", "label": "gone",
+                     "parked_on": "2026-10-26", "parked_reason": "endpoint withdrawn"},
+                    {"provider": "p", "model": "m2", "label": "never",
+                     "parked_reason": "not zero-data-retention"},
+                ]}, f)
+            rotation = load_rotation(score_cfg, parked_cfg)
+            payload = build_payload(run, run_root=os.path.dirname(run), rotation=rotation)
+            status = {e["label"]: e["status"] for e in payload["leaders"]}
+            self.assertEqual(status, {"live": "active", "gone": "parked", "old": "retired"})
+            self.assertEqual([p["label"] for p in payload["parked"]], ["gone", "never"])
+            self.assertEqual(payload["parked"][1]["last_score_as_of"], "")
+            html = render_html(payload)
+            self.assertIn("Parked tuples", html)
+            self.assertIn("endpoint withdrawn", html)
+            self.assertIn("not zero-data-retention", html)
+            feed = build_feed(payload, config_dir=None)
+            by_label = {t["label"]: t for t in feed["tuples"]}
+            self.assertEqual(by_label["gone"]["status"], "parked")
+            self.assertEqual(by_label["gone"]["parked_reason"], "endpoint withdrawn")
+            self.assertEqual(len(feed["parked"]), 2)
 
     def test_aggregate_leaderboard_and_medals(self):
         rows = [

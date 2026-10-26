@@ -8,6 +8,11 @@ have stayed that way, and the exact request pins that reproduce the tuple
 the reference config sends). Everything here is derived from the same
 payload the page renders; nothing is judged that the page does not show.
 
+``status`` says whether a tuple is still measured: ``active`` (in the score
+rotation), ``parked`` (out of rotation, ``parked_reason`` says why; its pins
+no longer serve the request), or ``retired`` (an older tuple no current
+config names). Only ``active`` tuples are candidates for routing.
+
 ``green`` is the one word the feed adds: a tuple is green when it has
 returned the same bytes for the same request over at least 3 consecutive
 scored runs spanning at least 72 hours (byte-exact within each run and
@@ -82,6 +87,8 @@ def build_feed(payload, config_dir="configs"):
             "replay_rate": entry.get("replay_rate"),
             "replay_checks": int(entry.get("replay_checks") or 0),
             "score_as_of": entry.get("score_as_of") or payload.get("run_stamp") or "",
+            "status": entry.get("status") or "",
+            "parked_reason": entry.get("parked_reason") or "",
             "provider_prefs": pins.get("provider_prefs"),
             "base_url": pins.get("base_url"),
         })
@@ -90,6 +97,13 @@ def build_feed(payload, config_dir="configs"):
         "generated_at": payload.get("generated_at") or "",
         "run_stamp": payload.get("run_stamp") or "",
         "n_runs": payload.get("n_runs") or 0,
+        "latest_score_as_of": payload.get("latest_score_as_of") or "",
+        "parked": [
+            {k: p.get(k) or "" for k in (
+                "provider", "model", "label", "display", "reason",
+                "parked_on", "last_score_as_of")}
+            for p in payload.get("parked") or []
+        ],
         "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
         "tuples": tuples,
     }

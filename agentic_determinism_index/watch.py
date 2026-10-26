@@ -19,6 +19,14 @@ Full score cadence (separate from cheap ticks):
   - non-byte-exact on two consecutive scored runs: re-score about monthly
     (``non_exact_score_min_interval_s``); a single miss re-scores at the daily
     cadence, so one bad run cannot bench a tuple for a month
+  - a score attempt with no successful sample (every request errored) is not
+    a score: it leaves the last score date alone and retries after
+    ``failed_score_retry_s`` (default 1 day)
+  - a score config may set ``force_rescore_before`` (ISO time): any target
+    whose last successful score is older is due once, whatever its cadence
+
+Targets carrying ``parked_reason`` are out of rotation (configs/parked.json)
+and are never probed.
 
 State and history live under ``runs/watch/`` and never touch ``runs/reference/``.
 """
@@ -46,7 +54,42 @@ DEFAULTS = {
     # forced; exact stacks may re-score about daily.
     "non_exact_score_min_interval_s": 30 * 86400,  # ~30 days
     "exact_score_min_interval_s": 86400,            # 1 day when byte-exact
+    # A score attempt where every request failed is not a score. Retry it at
+    # the daily cadence whatever the tuple's last verdict was, never hourly.
+    "failed_score_retry_s": 86400,
 }
+
+
+def is_parked(target):
+    """Parked targets stay in history but out of the score/watch rotation."""
+    return bool((target or {}).get("parked_reason"))
+
+
+def row_has_success(row):
+    """A score row counts only if at least one request returned a usable
+    sample. An all-error row (HTTP 404/403, empty completions) is a failed
+    attempt, not a score. Rows without ``n_ok`` (hand-built hints) count
+    when they carry a verdict."""
+    if "n_ok" in row:
+        try:
+            return int(row.get("n_ok") or 0) > 0
+        except (TypeError, ValueError):
+            return False
+    return row.get("mode_share") is not None or row.get("byte_identical") is not None
+
+
+def parse_force_before(value):
+    """Epoch seconds of a ``force_rescore_before`` config value, or None."""
+    if value in (None, ""):
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    dt = _parse_iso(str(value))
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=datetime.timezone.utc)
+    return dt.timestamp()
 
 
 def _load_json(path, default=None):
@@ -107,17 +150,26 @@ def next_interval_s(state_row, cfg=None):
     return min(max_i, max(cfg["min_interval_s"], base))
 
 
-def score_reprobe_due(state_row, now=None, cfg=None):
+def score_reprobe_due(state_row, now=None, cfg=None, force_before=None):
     """Whether a full score re-run is worth the tokens for this tuple.
 
     Byte-exact stacks may be re-scored daily (default). Non-exact stacks wait
     about a month unless forced; repeated full bursts on a known-divergent
     stack waste spend without new information beyond the cheap stack-ID watch.
+
+    A failed attempt (no successful sample) newer than the last score retries
+    after ``failed_score_retry_s``. ``force_before`` (epoch) makes a tuple
+    whose last successful score is older than it due once.
     """
     cfg = {**DEFAULTS, **(cfg or {})}
     now = now or time.time()
     last = state_row.get("last_score_epoch")
+    attempt = state_row.get("last_score_attempt_epoch")
+    if attempt is not None and (last is None or float(attempt) > float(last)):
+        return now >= float(attempt) + cfg["failed_score_retry_s"]
     if last is None:
+        return True
+    if force_before is not None and float(last) < float(force_before):
         return True
     # Rows written before non_exact_streak existed count as a single miss.
     misses = int(state_row.get("non_exact_streak") or (1 if state_row.get("byte_exact") is False else 0))
@@ -132,7 +184,7 @@ def target_key(target):
     return _target_key(target)
 
 
-def filter_score_due_targets(targets, watch_dir, now=None, cfg=None):
+def filter_score_due_targets(targets, watch_dir, now=None, cfg=None, force_before=None):
     """Return (due_targets, skipped) using watch state score cadence."""
     cfg = {**DEFAULTS, **(cfg or {})}
     now = now or time.time()
@@ -143,8 +195,11 @@ def filter_score_due_targets(targets, watch_dir, now=None, cfg=None):
     skipped = []
     for target in targets or []:
         tkey = _target_key(target)
+        if is_parked(target):
+            skipped.append({"target": tkey, "reason": "parked"})
+            continue
         row = rows.get(tkey) or {}
-        if score_reprobe_due(row, now=now, cfg=cfg):
+        if score_reprobe_due(row, now=now, cfg=cfg, force_before=force_before):
             due.append(target)
         else:
             skipped.append({
@@ -164,38 +219,47 @@ def load_watch_state(watch_dir):
 
 
 def ingest_score_hints(watch_dir, scores_rows, run_stamp=None):
-    """Update watch state from a scored run so non-exact tuples back off."""
+    """Update watch state from a scored run so non-exact tuples back off.
+
+    Only a tuple with at least one successful sample in this run counts as
+    scored. A tuple whose every request failed records a failed attempt
+    (``last_score_attempt_*``, ``score_failures``) and keeps its last score
+    date, so it is retried rather than benched as if it had been measured.
+    """
     state_path = os.path.join(watch_dir, "state.json")
     state = _load_json(state_path, default={"targets": {}, "config": dict(DEFAULTS)})
     state.setdefault("targets", {})
     now = time.time()
-    # This run's verdict per tuple: exact only if every scored case was.
-    run_exact = {}
+    by_tuple = {}
     for row in scores_rows or []:
-        if row.get("provider") and row.get("model") and row.get("byte_identical") is not None:
+        if row.get("provider") and row.get("model"):
             tkey = f"{row['provider']}|{row['model']}|{row.get('label') or ''}"
-            run_exact[tkey] = run_exact.get(tkey, True) and bool(row["byte_identical"])
-    for row in scores_rows or []:
-        provider = row.get("provider")
-        model = row.get("model")
-        if not provider or not model:
-            continue
-        label = row.get("label") or ""
-        tkey = f"{provider}|{model}|{label}"
+            by_tuple.setdefault(tkey, []).append(row)
+    for tkey, rows in by_tuple.items():
         entry = state["targets"].setdefault(tkey, {
-            "provider": provider,
-            "model": model,
-            "label": label,
+            "provider": rows[0]["provider"],
+            "model": rows[0]["model"],
+            "label": rows[0].get("label") or "",
             "stable_streak": 0,
         })
-        # Graded on this run alone: an earlier miss must not stick forever.
-        if tkey in run_exact:
-            entry["byte_exact"] = run_exact.pop(tkey)
+        entry["last_score_attempt_epoch"] = now
+        entry["last_score_attempt_stamp"] = run_stamp
+        if not any(row_has_success(r) for r in rows):
+            entry["score_failures"] = int(entry.get("score_failures") or 0) + 1
+            continue
+        entry["score_failures"] = 0
+        # This run's verdict: exact only if every scored case was. Graded on
+        # this run alone so an earlier miss does not stick forever.
+        verdicts = [bool(r["byte_identical"]) for r in rows
+                    if r.get("byte_identical") is not None]
+        if verdicts:
+            entry["byte_exact"] = all(verdicts)
             entry["non_exact_streak"] = 0 if entry["byte_exact"] else int(entry.get("non_exact_streak") or 0) + 1
         entry["last_score_epoch"] = now
         entry["last_score_stamp"] = run_stamp
-        if row.get("mode_share") is not None:
-            entry["last_mode_share"] = row.get("mode_share")
+        shares = [r["mode_share"] for r in rows if r.get("mode_share") is not None]
+        if shares:
+            entry["last_mode_share"] = shares[-1]
     state["updated"] = utcnow()
     _write_json(state_path, state)
     return state
@@ -284,6 +348,18 @@ def build_watch_drift(history_rows):
     return out
 
 
+def watch_case_for(case, target):
+    """The watch ping for one target. A reasoning model spends the ping's
+    8-token budget on reasoning and returns no content, so such targets set
+    ``watch_max_tokens`` (watch config only; score cases are unchanged)."""
+    budget = target.get("watch_max_tokens")
+    if not budget:
+        return case
+    params = dict(case.get("params") or {})
+    params["max_tokens"] = int(budget)
+    return {**case, "params": params}
+
+
 def run_tick(
     config_path,
     cases_path,
@@ -328,6 +404,9 @@ def run_tick(
     }
 
     for target in config.get("targets") or []:
+        if is_parked(target):
+            summary["skipped"].append({"target": _target_key(target), "reason": "parked"})
+            continue
         key_env = target.get("api_key_env")
         if key_env and not os.environ.get(key_env):
             summary["skipped"].append({
@@ -363,7 +442,7 @@ def run_tick(
 
         try:
             provider = make_provider(target)
-            sample = one_call(provider, case, "watch")
+            sample = one_call(provider, watch_case_for(case, target), "watch")
         except Exception as e:
             err = f"{type(e).__name__}: {e}"
             summary["errors"].append({"target": tkey, "error": err})

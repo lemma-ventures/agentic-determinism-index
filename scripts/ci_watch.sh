@@ -78,8 +78,17 @@ RUN_OUT="$(
 
 if [ -n "${RUN_OUT:-}" ] && [ -d "$RUN_OUT" ]; then
   echo "==> score $RUN_OUT"
+  set +e
   python3 -m agentic_determinism_index score "$RUN_OUT" --watch-dir "$WATCH_DIR"
-  PUBLISH_REASONS+=("full-score")
+  SCORE_RC=$?
+  set -e
+  # 3 = every request failed: transcripts are kept, but it is not a score and
+  # must not trigger a site publish as one.
+  if [ "$SCORE_RC" -eq 0 ]; then
+    PUBLISH_REASONS+=("full-score")
+  elif [ "$SCORE_RC" -ne 3 ]; then
+    exit "$SCORE_RC"
+  fi
 fi
 
 # Always rebuild locally so a forced/max-age publish has fresh "Last watch tick".
