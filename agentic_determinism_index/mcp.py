@@ -79,6 +79,13 @@ class Server:
         return self._feed
 
     # ---- tools -----------------------------------------------------------
+    @staticmethod
+    def _routable_green(row):
+        """Green and still served: a parked or retired tuple's pins no longer
+        reproduce the measured stack, whatever its history says. Feeds
+        older than the status field have no status and are taken as is."""
+        return bool(row.get("green")) and (row.get("status") or "active") == "active"
+
     def tool(self, name, args):
         args = args or {}
         rows = list(self.feed().get("tuples") or [])
@@ -87,11 +94,11 @@ class Server:
             rows = [r for r in rows if (r.get("provider") or "").lower() == provider]
         if name == "adi_leaderboard":
             if args.get("green_only"):
-                rows = [r for r in rows if r.get("green")]
+                rows = [r for r in rows if self._routable_green(r)]
             limit = int(args.get("limit") or 50)
             return rows[:limit]
         if name == "adi_green":
-            return [r for r in rows if r.get("green")]
+            return [r for r in rows if self._routable_green(r)]
         if name == "adi_tuple":
             model = (args.get("model") or "").strip().lower()
             label = (args.get("label") or "").strip()

@@ -57,6 +57,22 @@ class TestFeed(unittest.TestCase):
         self.assertEqual([r["model"] for r in doc["tuples"]], ["openai/gpt-oss-120b", "meta-llama/llama-3.1-8b-instruct"])
 
 
+class TestMCPParked(unittest.TestCase):
+    def test_parked_green_tuple_is_not_offered_for_routing(self):
+        payload = json.loads(json.dumps(PAYLOAD))
+        payload["leaders"][0]["status"] = "parked"
+        payload["leaders"][0]["parked_reason"] = "endpoint withdrawn"
+        tmp = tempfile.mkdtemp()
+        feed = os.path.join(tmp, "leaderboard.json")
+        write_feed(feed, payload, config_dir=None)
+        server = Server(source=feed)
+        self.assertEqual(server.tool("adi_green", {}), [])
+        self.assertEqual(server.tool("adi_leaderboard", {"green_only": True}), [])
+        rows = server.tool("adi_leaderboard", {})
+        self.assertEqual(rows[0]["status"], "parked")
+        self.assertTrue(rows[0]["green"], "history is still reported as measured")
+
+
 class TestMCP(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()

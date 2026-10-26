@@ -90,5 +90,16 @@ git commit -m "$msg"
 if [ -n "${ADI_PUSH_TOKEN:-}" ]; then
   git remote set-url origin "https://${ADI_PUSH_TOKEN}@github.com/lemma-ventures/agentic-determinism-index.git"
 fi
+# Code and config commits can land on main while a long score tick runs.
+# Without this, the push is rejected, the next tick's `git pull --ff-only`
+# fails on the diverged branch, and the host keeps running stale code and
+# never publishes again. Host commits only touch runs/, website/ and docs/,
+# so replaying them on top of origin/main does not conflict with code.
+git fetch origin main
+if ! git rebase origin/main; then
+  git rebase --abort || true
+  echo "rebase onto origin/main failed; local commit kept, not pushed" >&2
+  exit 1
+fi
 git push origin main
 echo "pushed: $msg"
