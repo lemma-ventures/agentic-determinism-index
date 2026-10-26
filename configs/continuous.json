@@ -1,18 +1,6 @@
 {
- "_comment": "Continuous reference scoring targets (same pins as configs/watch.json). Used by the hourly Actions job with --due-only so non-exact stacks are re-scored about monthly and byte-exact about daily.",
+ "_comment": "Continuous reference scoring targets (same pins as configs/watch.json). Used by the hourly host tick with --due-only so non-exact stacks are re-scored about monthly and byte-exact about daily. Targets that can no longer run live in configs/parked.json with a reason. force_rescore_before makes every target whose last successful score is older than that time due once.",
  "targets": [
-  {
-   "provider": "openrouter",
-   "model": "openai/gpt-4o-mini",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "OpenAI via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "openai"
-    ],
-    "allow_fallbacks": false
-   }
-  },
   {
    "provider": "openrouter",
    "model": "openai/gpt-4o-mini",
@@ -75,18 +63,6 @@
   },
   {
    "provider": "openrouter",
-   "model": "cohere/command-r-08-2024",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Cohere via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "cohere"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openrouter",
    "model": "amazon/nova-lite-v1",
    "api_key_env": "OPENROUTER_API_KEY",
    "label": "Amazon Bedrock via OpenRouter",
@@ -139,22 +115,10 @@
    "provider": "openrouter",
    "model": "meta-llama/llama-3.3-70b-instruct",
    "api_key_env": "OPENROUTER_API_KEY",
-   "label": "SambaNova via OpenRouter",
+   "label": "SambaNova Turbo via OpenRouter",
    "provider_prefs": {
     "order": [
-     "sambanova"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openrouter",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Together via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "together"
+     "sambanova-turbo"
     ],
     "allow_fallbacks": false
    }
@@ -189,37 +153,6 @@
   },
   {
    "provider": "openrouter",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Crusoe via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "crusoe"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openai_compatible",
-   "model": "gpt-oss-120b-f16",
-   "base_url": "https://eigenai.eigencloud.xyz/v1",
-   "api_key_env": "EIGENAI_API_KEY",
-   "label": "EigenAI (EigenCloud, bit-exact claim)"
-  },
-  {
-   "provider": "openrouter",
-   "model": "thinkingmachines/inkling:free",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Thinking Machines direct (batch-invariant claim)",
-   "provider_prefs": {
-    "order": [
-     "thinkingmachines"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openrouter",
    "model": "openai/gpt-oss-120b",
    "api_key_env": "OPENROUTER_API_KEY",
    "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
@@ -241,18 +174,7 @@
     ],
     "allow_fallbacks": false
    }
-  },
-  {
-   "provider": "openrouter",
-   "model": "deepseek/deepseek-chat-v3.1",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "AtlasCloud via OpenRouter (SGLang partner)",
-   "provider_prefs": {
-    "order": [
-     "atlas-cloud"
-    ],
-    "allow_fallbacks": false
-   }
   }
- ]
+ ],
+ "force_rescore_before": "2026-10-26T10:00:00Z"
 }

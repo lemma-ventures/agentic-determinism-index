@@ -40,7 +40,12 @@ every ranked serving tuple with its mean mode share, byte-exact streak, a
 `green` flag (latest scored appearance fully byte-exact - a snapshot, not a
 certification) and the `provider_prefs` the reference config sends to pin
 that tuple (OpenRouter `provider.order` / `allow_fallbacks`), so a router can
-reproduce exactly the stack that was measured.
+reproduce exactly the stack that was measured. Each tuple also carries a
+`status`: `active` (still scored), `parked` (out of rotation, with
+`parked_reason`; its pins no longer serve the request) or `retired` (an older
+tuple no current config names). Route only to `active` tuples.
+`latest_score_as_of` is the newest successful score; a run where every
+request failed is never counted or dated as a score.
 
 The same rows are served as MCP tools for agents (stdio, no dependencies):
 
@@ -152,6 +157,16 @@ GitHub Pages only serves static HTML. Provider probing needs API keys.
 | Hourly (or as scheduled privately) | `watch` cheap stack-ID tick (1 short request per due target) |
 | After stable ticks | Interval backs off (1.5x) up to 24h; known non-exact stacks cap at 7d |
 | Full score | Byte-exact tuples about daily; **non-exact about monthly** (`--due-only`) |
+| Failed score | Every request for a tuple failed: transcripts are kept, but it is not a score (no new score date, no publish); retried after a day |
+
+Tuples that can no longer run (endpoint withdrawn, endpoint not
+zero-data-retention, access gated, no key on the host) move to
+`configs/parked.json` with `parked_on` and a one-line `parked_reason`. They
+leave the score and watch rotation; their history stays under `runs/`, and the
+page and feed show them as parked. A provider that now serves a different
+model or endpoint for the same pin becomes a new tuple with its own label.
+After such a change, set `force_rescore_before` in `configs/continuous.json`
+to make every target whose last successful score is older due once.
 
 #### On the lemma.ventures host (recommended)
 

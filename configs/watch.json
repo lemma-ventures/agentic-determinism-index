@@ -1,18 +1,6 @@
 {
- "_comment": "Cheap stack-ID watch targets (one short request per due tick). Same serving tuples as continuous scoring. Requires OPENROUTER_API_KEY and optionally NVIDIA_API_KEY.",
+ "_comment": "Cheap stack-ID watch targets (one short request per due tick). Same serving tuples as continuous scoring. Requires OPENROUTER_API_KEY and optionally NVIDIA_API_KEY and NEBIUS_API_KEY. Reasoning models set watch_max_tokens: they spend the ping's 8-token budget on reasoning and return no content otherwise.",
  "targets": [
-  {
-   "provider": "openrouter",
-   "model": "openai/gpt-4o-mini",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "OpenAI via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "openai"
-    ],
-    "allow_fallbacks": false
-   }
-  },
   {
    "provider": "openrouter",
    "model": "openai/gpt-4o-mini",
@@ -75,18 +63,6 @@
   },
   {
    "provider": "openrouter",
-   "model": "cohere/command-r-08-2024",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Cohere via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "cohere"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openrouter",
    "model": "amazon/nova-lite-v1",
    "api_key_env": "OPENROUTER_API_KEY",
    "label": "Amazon Bedrock via OpenRouter",
@@ -139,22 +115,10 @@
    "provider": "openrouter",
    "model": "meta-llama/llama-3.3-70b-instruct",
    "api_key_env": "OPENROUTER_API_KEY",
-   "label": "SambaNova via OpenRouter",
+   "label": "SambaNova Turbo via OpenRouter",
    "provider_prefs": {
     "order": [
-     "sambanova"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openrouter",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Together via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "together"
+     "sambanova-turbo"
     ],
     "allow_fallbacks": false
    }
@@ -164,7 +128,8 @@
    "model": "openai/gpt-oss-120b",
    "base_url": "https://api.tokenfactory.nebius.com/v1",
    "api_key_env": "NEBIUS_API_KEY",
-   "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)"
+   "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)",
+   "watch_max_tokens": 512
   },
   {
    "provider": "openai_compatible",
@@ -178,7 +143,8 @@
    "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
    "base_url": "https://api.tokenfactory.nebius.com/v1",
    "api_key_env": "NEBIUS_API_KEY",
-   "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+   "label": "Nebius direct (DeepSeek V4 Flash, reasoning)",
+   "watch_max_tokens": 512
   },
   {
    "provider": "openai_compatible",
@@ -186,37 +152,6 @@
    "base_url": "https://api.tokenfactory.nebius.com/v1",
    "api_key_env": "NEBIUS_API_KEY",
    "label": "Nebius direct (Gemma 3 27B dense)"
-  },
-  {
-   "provider": "openrouter",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Crusoe via OpenRouter",
-   "provider_prefs": {
-    "order": [
-     "crusoe"
-    ],
-    "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openai_compatible",
-   "model": "gpt-oss-120b-f16",
-   "base_url": "https://eigenai.eigencloud.xyz/v1",
-   "api_key_env": "EIGENAI_API_KEY",
-   "label": "EigenAI (EigenCloud, bit-exact claim)"
-  },
-  {
-   "provider": "openrouter",
-   "model": "thinkingmachines/inkling:free",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "Thinking Machines direct (batch-invariant claim)",
-   "provider_prefs": {
-    "order": [
-     "thinkingmachines"
-    ],
-    "allow_fallbacks": false
-   }
   },
   {
    "provider": "openrouter",
@@ -228,7 +163,8 @@
      "cerebras"
     ],
     "allow_fallbacks": false
-   }
+   },
+   "watch_max_tokens": 512
   },
   {
    "provider": "openrouter",
@@ -240,19 +176,8 @@
      "phala"
     ],
     "allow_fallbacks": false
-   }
-  },
-  {
-   "provider": "openrouter",
-   "model": "deepseek/deepseek-chat-v3.1",
-   "api_key_env": "OPENROUTER_API_KEY",
-   "label": "AtlasCloud via OpenRouter (SGLang partner)",
-   "provider_prefs": {
-    "order": [
-     "atlas-cloud"
-    ],
-    "allow_fallbacks": false
-   }
+   },
+   "watch_max_tokens": 512
   }
  ]
 }

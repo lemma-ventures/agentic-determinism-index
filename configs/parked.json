@@ -1,0 +1,112 @@
+{
+ "_comment": "Serving tuples out of the score and watch rotation. Their transcripts and scores stay under runs/, and the public page and leaderboard.json show each one as parked with its reason. To re-activate a tuple, move it back into configs/continuous.json and configs/watch.json and drop parked_on/parked_reason. A model that a provider replaces is a new tuple with its own label, never a continuation of the old one.",
+ "targets": [
+  {
+   "provider": "openrouter",
+   "model": "openai/gpt-4o-mini",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "OpenAI via OpenRouter",
+   "provider_prefs": {
+    "order": [
+     "openai"
+    ],
+    "allow_fallbacks": false
+   },
+   "parked_on": "2026-10-26",
+   "parked_reason": "OpenAI's endpoint for this model on OpenRouter is not zero-data-retention (ZDR), and the index account only routes to ZDR endpoints. Every request since the tuple was added on 2 Sep 2026 has failed with HTTP 404; never scored."
+  },
+  {
+   "provider": "openrouter",
+   "model": "cohere/command-r-08-2024",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Cohere via OpenRouter",
+   "provider_prefs": {
+    "order": [
+     "cohere"
+    ],
+    "allow_fallbacks": false
+   },
+   "parked_on": "2026-10-26",
+   "parked_reason": "Cohere's endpoint for this model on OpenRouter is not zero-data-retention (ZDR), and the index account only routes to ZDR endpoints. Every request since the tuple was added on 2 Sep 2026 has failed with HTTP 404; never scored."
+  },
+  {
+   "provider": "openrouter",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "SambaNova via OpenRouter",
+   "provider_prefs": {
+    "order": [
+     "sambanova"
+    ],
+    "allow_fallbacks": false
+   },
+   "parked_on": "2026-10-26",
+   "parked_reason": "OpenRouter no longer routes the 'sambanova' slug for this model; SambaNova serves it only as the 'sambanova-turbo' endpoint, measured as a separate tuple (SambaNova Turbo via OpenRouter). Never scored under this pin."
+  },
+  {
+   "provider": "openrouter",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Together via OpenRouter",
+   "provider_prefs": {
+    "order": [
+     "together"
+    ],
+    "allow_fallbacks": false
+   },
+   "parked_on": "2026-10-26",
+   "parked_reason": "Together no longer serves this model on OpenRouter (last served 17 Oct 2026; pinned requests fail with HTTP 404 since 25 Oct 2026). Earlier scores are history."
+  },
+  {
+   "provider": "openrouter",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Crusoe via OpenRouter",
+   "provider_prefs": {
+    "order": [
+     "crusoe"
+    ],
+    "allow_fallbacks": false
+   },
+   "parked_on": "2026-10-26",
+   "parked_reason": "Crusoe no longer serves this model on OpenRouter (last served 13 Sep 2026; pinned requests fail with HTTP 404 since 16 Sep 2026). Earlier scores are history."
+  },
+  {
+   "provider": "openai_compatible",
+   "model": "gpt-oss-120b-f16",
+   "base_url": "https://eigenai.eigencloud.xyz/v1",
+   "api_key_env": "EIGENAI_API_KEY",
+   "label": "EigenAI (EigenCloud, bit-exact claim)",
+   "parked_on": "2026-10-26",
+   "parked_reason": "No API key is configured on the scoring host, so the target was always skipped. Never scored. Re-activate when a key is available."
+  },
+  {
+   "provider": "openrouter",
+   "model": "thinkingmachines/inkling:free",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Thinking Machines direct (batch-invariant claim)",
+   "provider_prefs": {
+    "order": [
+     "thinkingmachines"
+    ],
+    "allow_fallbacks": false
+   },
+   "parked_on": "2026-10-26",
+   "parked_reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
+  },
+  {
+   "provider": "openrouter",
+   "model": "deepseek/deepseek-chat-v3.1",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "AtlasCloud via OpenRouter (SGLang partner)",
+   "provider_prefs": {
+    "order": [
+     "atlas-cloud"
+    ],
+    "allow_fallbacks": false
+   },
+   "parked_on": "2026-10-26",
+   "parked_reason": "AtlasCloud no longer serves this model on OpenRouter, and none of its OpenRouter endpoints is zero-data-retention. Never scored."
+  }
+ ]
+}
