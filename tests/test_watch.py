@@ -241,6 +241,24 @@ class TestFailedScores(unittest.TestCase):
         bumped = watch_case_for(case, {"model": "m", "watch_max_tokens": 512})
         self.assertEqual(bumped["params"], {"temperature": 0, "seed": 42, "max_tokens": 512})
         self.assertEqual(case["params"]["max_tokens"], 8, "the shared case is not mutated")
+    def test_gpt_oss_zdr_targets_are_active_and_pinned(self):
+        expected = {
+            "Together via OpenRouter (gpt-oss-120b, ZDR)": "together",
+            "Crusoe via OpenRouter (gpt-oss-120b, ZDR)": "crusoe",
+        }
+        root = os.path.join(os.path.dirname(__file__), "..")
+        for filename in ("continuous.json", "watch.json"):
+            with open(os.path.join(root, "configs", filename)) as f:
+                targets = {t["label"]: t for t in json.load(f)["targets"]}
+            for label, slug in expected.items():
+                target = targets[label]
+                self.assertEqual(target["provider"], "openrouter")
+                self.assertEqual(target["model"], "openai/gpt-oss-120b")
+                self.assertEqual(target["provider_prefs"], {
+                    "order": [slug], "allow_fallbacks": False})
+                self.assertNotIn("parked_reason", target)
+                if filename == "watch.json":
+                    self.assertEqual(target["watch_max_tokens"], 512)
 
 
 class TestRunCommand(unittest.TestCase):

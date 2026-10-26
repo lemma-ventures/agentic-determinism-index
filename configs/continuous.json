@@ -167,6 +167,30 @@
    "provider": "openrouter",
    "model": "openai/gpt-oss-120b",
    "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Together via OpenRouter (gpt-oss-120b, ZDR)",
+   "provider_prefs": {
+    "order": [
+     "together"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  {
+   "provider": "openrouter",
+   "model": "openai/gpt-oss-120b",
+   "api_key_env": "OPENROUTER_API_KEY",
+   "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
+   "provider_prefs": {
+    "order": [
+     "crusoe"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  {
+   "provider": "openrouter",
+   "model": "openai/gpt-oss-120b",
+   "api_key_env": "OPENROUTER_API_KEY",
    "label": "Phala via OpenRouter (TEE, attested stack)",
    "provider_prefs": {
     "order": [
