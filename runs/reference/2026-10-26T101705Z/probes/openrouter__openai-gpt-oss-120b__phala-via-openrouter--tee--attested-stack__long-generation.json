@@ -1,0 +1,115 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Phala via OpenRouter (TEE, attested stack)",
+  "provider_prefs": {
+   "order": [
+    "phala"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "phala"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:11:36.644885+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 355
+  },
+  {
+   "ts": "2026-10-26T11:11:36.645213+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 485
+  },
+  {
+   "ts": "2026-10-26T11:11:36.646270+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 396
+  },
+  {
+   "ts": "2026-10-26T11:11:36.647395+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 367
+  },
+  {
+   "ts": "2026-10-26T11:11:36.653272+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 381
+  },
+  {
+   "ts": "2026-10-26T11:11:36.654265+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 416
+  },
+  {
+   "ts": "2026-10-26T11:11:36.656268+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 407
+  },
+  {
+   "ts": "2026-10-26T11:11:36.657435+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 364
+  },
+  {
+   "ts": "2026-10-26T11:11:47.131336+00:00",
+   "mode": "serial",
+   "text": "**Hash\u2011Table Collision Management \u2013 A Technical Overview**\n\nA hash table maps keys to positions (buckets) in an array by applying a *hash function* `h(k) \u2192 [0, m\u20111]`, where `m` is the current table capacity. Because the hash function compresses an arbitrarily large key space into a finite set of indices, two distinct keys can be assigned the same bucket; this is a *collision*. A robust hash\u2011table implementation must therefore provide a deterministic strategy for locating, inserting, and deleting entries when collisions occur, while preserving the expected *O(1)* average\u2011case performance. The three canonical techniques are **separate chaining**, **open addressing**, and **dynamic resizing** (which is orthogonal but essential for maintaining low load factors). The following sections dissect each method, their invariants, and the algorithmic details that make them work in practice.\n\n---\n\n## 1. Separate Chaining\n\n### 1.1 Data layout\nIn separate chaining each bucket holds a *container* (most commonly a singly\u2011linked list, but sometimes a balanced tree or a dynamic array) that stores all key\u2011value pairs whose hash maps to that bucket. The table itself is an array `B[0 \u2026 m\u20111]` of pointers to the head of each container.\n\n### 1.2 Insertion\n```\nfunction insert(k, v):\n    i = h(k) mod m\n    node = B[i]\n    while node != null:\n        if node.key == k:               // key already present \u2192 update\n            node.value = v\n            return\n        node = node.next\n    // not found \u2192 prepend new node\n    B[i] = new Node(k, v, B[i])\n```\n*Complexity*: O(1) expected, because the expected chain length equals the **load factor** \u03b1 = n/m (n = number of stored entries). When \u03b1 is kept \u2264 1, the average chain traversed is constant.\n\n### 1.3 Search & Deletion\nSearch follows the same linear walk through the chain. Deletion requires a predecessor pointer (or a dummy head) to splice out the target node. Both operations are O(\u03b1) in the worst case, but O(1) on average.\n\n### 1.4 Advantages & Trade\u2011offs\n* **Simplicity** \u2013 no need to relocate existing entries when a new one is added.\n* **Graceful degradation** \u2013 even if many keys collide, the table still works (the chain just grows).\n* **Memory overhead** \u2013 each entry needs an extra pointer (or two for doubly\u2011linked lists) and the allocator\u2019s per\u2011object overhead.\n* **Cache friendliness** \u2013 linked nodes are scattered in memory, leading to more cache misses compared with open addressing.\n\n---\n\n## 2. Open Addressing\n\nOpen addressing stores *all* entries directly inside the array; a collision triggers a *probe sequence* that searches for the next free slot. The table therefore never contains auxiliary structures; the array itself is the container.\n\n### 2.1 Probe families\n| Scheme | Probe function `p(i, j)` | Characteristics |\n|--------|--------------------------|-----------------|\n| Linear probing | `p(i, j) = (i + j) mod m` | Simple, good locality, primary clustering |\n| Quadratic probing | `p(i, j) = (i + c1\u00b7j + c2\u00b7j\u00b2) mod m` | Reduces primary clustering, requires careful constants |\n| Double hashing | `p(i, j) = (i + j\u00b7h\u2082(k)) mod m` | Near\u2011random distribution, mitigates clustering |\n\n`i = h(k) mod m` is the initial index; `j` is the probe count (0,1,2,\u2026).\n\n### 2.2 Insertion\n```\nfunction insert(k, v):\n    i = h(k) mod m\n    for j = 0 to m-1:\n        idx = probe(i, j)\n        if table[idx] is EMPTY or DELETED:\n            table[idx] = Entry(k, v)\n            return\n        else if table[idx].key == k:\n            table[idx].value = v          // update existing key\n            return\n    raise TableFullError\n```\nA special *tombstone* marker (`DELETED`) is used to preserve probe continuity after deletions.\n\n### 2.3 Search\n```\nfunction find(k):\n    i = h(k) mod m\n    for j = 0 to m-1:\n        idx = probe(i, j)\n        if table[idx] is EMPTY: return NOT_FOUND\n        if table[idx] is OCCUPIED and table[idx].key == k: return table[idx].value\n    return NOT_FOUND\n```\nThe search stops at the first empty slot because any key that would have been placed later must have passed through that slot during insertion.\n\n### 2.4 Deletion\n```\nfunction delete(k):\n    i = h(k) mod m\n    for j = 0 to m-1:\n        idx = probe(i, j)\n        if table[idx] is EMPTY: return NOT_FOUND\n        if table[idx].key == k:\n            table[idx] = DELETED\n            return\n```\nTombstones increase probe length; periodic *rehashing* (see resizing) removes them.\n\n### 2.5 Advantages & Trade\u2011offs\n* **Cache efficiency** \u2013 entries are contiguous, leading to fewer cache misses.\n* **Memory compactness** \u2013 no per\u2011entry pointers.\n* **Sensitive to load factor** \u2013 performance degrades sharply as \u03b1 approaches 1; typical implementations keep \u03b1 \u2264 0.7.\n* **Complex deletion** \u2013 tombstones must be managed, otherwise searches may incorrectly terminate.\n\n---\n\n## 3. Resizing (Rehashing)\n\nBoth chaining and open addressing rely on a *load factor* \u03b1 = n/m to bound expected probe/chain lengths. When \u03b1 exceeds a pre\u2011chosen threshold (e.g., 0.75 for chaining, 0.5\u20130.7 for open addressing), the table is *resized* to a larger capacity, usually a power of two or a prime number, and all existing entries are *rehash\u2011inserted* into the new array.\n\n### 3.1 Trigger\n```\nif n + 1 > \u03b1_max * m:\n    resize()\n```\n`\u03b1_max` is the maximum acceptable load factor.\n\n### 3.2 Resize algorithm\n```\nfunction resize():\n    oldTable = table\n    m = nextSize(m)               // e.g., 2*m or next prime > 2*m\n    table = allocate array of size m, all EMPTY\n    n = 0\n    for each slot s in oldTable:\n        if s is OCCUPIED:\n            insert(s.key, s.value)   // re\u2011hash using new m\n```\nThe re\u2011insertion uses the same insertion routine, guaranteeing that each element ends up in the bucket dictated by the new modulus `m`. For separate chaining, the old linked lists are traversed and each node is moved; for open addressing, the probe sequence is recomputed with the new capacity.\n\n### 3.3 Complexity considerations\n* **Amortized cost** \u2013 Although a single resize costs O(n), it occurs only when the table size roughly doubles, so the amortized cost per insertion remains O",
+   "sha256": "ecc6b698be8944b851ad83dcb8c6b261ce42533241ebab97bbd439a7a6cbfc4a",
+   "fingerprint": "Phala",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 7812
+  },
+  {
+   "ts": "2026-10-26T11:12:04.943216+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 233
+  }
+ ]
+}

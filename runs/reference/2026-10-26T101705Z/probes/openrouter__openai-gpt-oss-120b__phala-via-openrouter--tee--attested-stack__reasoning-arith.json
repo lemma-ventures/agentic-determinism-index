@@ -1,0 +1,121 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Phala via OpenRouter (TEE, attested stack)",
+  "provider_prefs": {
+   "order": [
+    "phala"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "phala"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:10:44.583212+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 453
+  },
+  {
+   "ts": "2026-10-26T11:10:44.583512+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 396
+  },
+  {
+   "ts": "2026-10-26T11:10:44.585291+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 395
+  },
+  {
+   "ts": "2026-10-26T11:10:44.586392+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 538
+  },
+  {
+   "ts": "2026-10-26T11:10:44.592310+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 355
+  },
+  {
+   "ts": "2026-10-26T11:10:44.593275+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 363
+  },
+  {
+   "ts": "2026-10-26T11:10:44.595262+00:00",
+   "mode": "burst",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   - First floor: 1\u202f284 boxes  \n   - Second floor: 907 boxes  \n   - Third floor: 2\u202f156 boxes  \n\n   Total boxes  \n   \\[\n   1\\,284 + 907 + 2\\,156 = 4\\,347 \\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:\n\n   \\[\n   \\frac{4\\,347}{85} \\approx 51.14\n   \\]\n\n   The integer part tells us the number of completely filled trucks:\n   \\[\n   51 \\text{ trucks}\n   \\]\n\n   (Because \\(85 \\times 51 = 4\\,335\\) boxes, and \\(85 \\times 52 = 4\\,420\\) would exceed the total.)\n\n3. **Find the boxes that remain unshipped**  \n   Subtract the boxes that fit on the 51 full trucks from the total:\n\n   \\[\n   4\\,347 - (85 \\times 51) = 4\\,347 - 4\\,335 = 12 \\text{ boxes}\n   \\]\n\n   These 12 boxes cannot fill another truck.\n\n**Result**\n\n- Fully loaded trucks needed: **51**  \n- Boxes left unshipped: **12**\n\n**ANSWER: 51,12**",
+   "sha256": "60b5e2067fe5affa434088e0ef29372ca897b3a12ecc8f3128ae93c601c6626c",
+   "fingerprint": "Phala",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 3477
+  },
+  {
+   "ts": "2026-10-26T11:10:44.597438+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 420
+  },
+  {
+   "ts": "2026-10-26T11:10:58.073486+00:00",
+   "mode": "serial",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   - First floor: 1\u202f284 boxes  \n   - Second floor: 907 boxes  \n   - Third floor: 2\u202f156 boxes  \n\n   Total boxes  \n   \\[\n   1\\,284 + 907 = 2\\,191 \\\\\n   2\\,191 + 2\\,156 = 4\\,347\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:\n\n   \\[\n   \\frac{4\\,347}{85} \\approx 51.14\n   \\]\n\n   The integer part (the number of completely filled trucks) is **51**.\n\n3. **Find the number of boxes that remain unshipped**  \n   Multiply the number of full trucks by the truck capacity and subtract from the total:\n\n   \\[\n   51 \\times 85 = 4\\,335\n   \\]\n   \\[\n   \\text{Remaining boxes} = 4\\,347 - 4\\,335 = 12\n   \\]\n\n**Result**\n\n- Fully loaded trucks needed: **51**  \n- Boxes left unshipped: **12**\n\n**ANSWER: 51,12**",
+   "sha256": "54b872d45892fdf254ac0184ff1f7fdd8d572443e9bc045bb4b0cfe21c6fd6c7",
+   "fingerprint": "Phala",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2374
+  },
+  {
+   "ts": "2026-10-26T11:11:10.447283+00:00",
+   "mode": "serial",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   - First floor: 1\u202f284 boxes  \n   - Second floor: 907 boxes  \n   - Third floor: 2\u202f156 boxes  \n\n   Total boxes  \n   \\[\n   1\\,284 + 907 = 2\\,191 \\\\\n   2\\,191 + 2\\,156 = 4\\,347\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:\n\n   \\[\n   \\frac{4\\,347}{85} \\approx 51.14\n   \\]\n\n   The integer part (the number of completely filled trucks) is **51**.\n\n3. **Calculate how many boxes are left after loading those trucks**  \n   Boxes used by 51 full trucks:  \n   \\[\n   51 \\times 85 = 4\\,335\n   \\]\n\n   Remaining boxes:  \n   \\[\n   4\\,347 - 4\\,335 = 12\n   \\]\n\n**Result**\n\n- Fully loaded trucks needed: **51**  \n- Boxes that remain unshipped: **12**\n\nANSWER: 51,12",
+   "sha256": "ef72444464c5d6776565f0a5c6724b825f80a33539271d95dd9938ad477fff3e",
+   "fingerprint": "Phala",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2723
+  }
+ ]
+}

@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:02:14.605592+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each arithmetic operation can vary depending on the order of computation. For example, (a + b) + c may yield a different result than a + (b + c) due to intermediate rounding. This occurs because floating-point numbers have limited precision, so the order in which additions are performed affects which bits are lost during rounding.",
+   "sha256": "95d15dc2cd4785866a0bc97d73dbfb2c90df276bb3b24ef4df5c1364e8dc40b3",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 916
+  },
+  {
+   "ts": "2026-10-26T11:02:14.605835+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the finite precision of floating-point representations introduces rounding errors that depend on the order of operations. When adding three numbers, the intermediate result of the first two may be rounded differently depending on which pair is added first, leading to different final results. For example, (a + b) + c may yield a different value than a + (b + c) due to these accumulated rounding discrepancies.",
+   "sha256": "25db8dc3da00a80f31d0e02f083c6de4df718b0aca07a0a6d45103f0ae0127c3",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 894
+  },
+  {
+   "ts": "2026-10-26T11:02:14.607275+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each operation can vary depending on the order of computation. For example, (a + b) + c may yield a different result than a + (b + c) due to intermediate rounding. This occurs because floating-point numbers have limited precision, so the order in which additions are performed affects which digits are lost to rounding.",
+   "sha256": "bc6ea9f51f776eb9101a623b8a9f87d0eabfec436b96fa775e69ea0327871f6c",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 881
+  },
+  {
+   "ts": "2026-10-26T11:02:14.608390+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each operation can vary depending on the order of computation. For example, (a + b) + c may yield a different result than a + (b + c) due to intermediate rounding. This occurs because floating-point numbers have limited precision, so the order in which additions are performed affects which digits are lost to rounding.",
+   "sha256": "bc6ea9f51f776eb9101a623b8a9f87d0eabfec436b96fa775e69ea0327871f6c",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 876
+  },
+  {
+   "ts": "2026-10-26T11:02:14.614282+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each operation can vary depending on the order of computation. For example, adding a very small number to a large number may result in no change due to limited precision, but the outcome depends on which numbers are added first. As a result, (a + b) + c may yield a different result than a + (b + c) when floating-point arithmetic is used.",
+   "sha256": "c5e5d8ede7dc0398c27f3eb12f0350084decf5e896ef0da2efe7573f32671896",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 973
+  },
+  {
+   "ts": "2026-10-26T11:02:14.615255+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each operation can accumulate differently depending on the order of computation. For example, (a + b) + c may yield a different result than a + (b + c) due to precision limits in representing the intermediate sums. This non-associativity arises from the finite number of bits used to represent floating-point numbers, which causes loss of precision when numbers of vastly different magnitudes are added.",
+   "sha256": "3443083dc551377a686388c90c0677ab4ac77d8396f8f1706badc19fdbf267a0",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 1083
+  },
+  {
+   "ts": "2026-10-26T11:02:14.616370+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each operation can vary depending on the order of computation. For example, (a + b) + c may yield a different result than a + (b + c) due to intermediate rounding. This occurs because floating-point numbers have limited precision, so the order in which additions are performed affects which digits are lost to rounding.",
+   "sha256": "bc6ea9f51f776eb9101a623b8a9f87d0eabfec436b96fa775e69ea0327871f6c",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 805
+  },
+  {
+   "ts": "2026-10-26T11:02:14.617259+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the finite precision of floating-point representations can lead to rounding errors during intermediate calculations. When adding three numbers, the order in which they are grouped affects which intermediate results are rounded, potentially producing different final results. For example, (a + b) + c may yield a different value than a + (b + c) due to differing rounding at each step.",
+   "sha256": "62b1b7b3fbe206775bdceae02db489da64a7d9a82868b102d00612574116457d",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 924
+  },
+  {
+   "ts": "2026-10-26T11:02:25.699217+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each operation can vary depending on the order of computation. For example, (a + b) + c may yield a different result than a + (b + c) due to intermediate rounding. This occurs because floating-point numbers have limited precision, so the order in which additions are performed affects which bits are lost during rounding.",
+   "sha256": "e7df609859681c4818147db7c306bd1d17beb86aa3357f65e4310c442698e481",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 746
+  },
+  {
+   "ts": "2026-10-26T11:02:36.445196+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because rounding errors introduced during each operation can vary depending on the order of computation. For example, (a + b) + c may yield a different result than a + (b + c) due to intermediate rounding. This occurs because floating-point numbers have limited precision, so the order in which additions are performed affects which digits are lost to rounding.",
+   "sha256": "bc6ea9f51f776eb9101a623b8a9f87d0eabfec436b96fa775e69ea0327871f6c",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 774
+  }
+ ]
+}

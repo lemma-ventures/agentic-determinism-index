@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:04:26.442311+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide: 4347 \u00f7 85 = 51 remainder 12, because 85 \u00d7 51 = 4335 and 4347 \u2212 4335 = 12.\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "e3ec56d47a4fad16a51b3950cecaf338169ae0c4492aec7495bc8ddc004d8ac5",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1904
+  },
+  {
+   "ts": "2026-10-26T11:04:26.442611+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide 4347 by 85:\n85 \u00d7 51 = 4335\n4347 \u2212 4335 = 12\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "bf3c23fc74fc723dfb2133d8443fa99fd0dcd4eeb9b4ab71d9828ecb0a381bbd",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1838
+  },
+  {
+   "ts": "2026-10-26T11:04:26.444299+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide 4347 by 85:\n85 \u00d7 51 = 4335\n4347 \u2212 4335 = 12\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "bf3c23fc74fc723dfb2133d8443fa99fd0dcd4eeb9b4ab71d9828ecb0a381bbd",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1788
+  },
+  {
+   "ts": "2026-10-26T11:04:26.445403+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide: 4347 \u00f7 85 = 51 remainder 12, because 85 \u00d7 51 = 4335 and 4347 \u2212 4335 = 12.\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "e3ec56d47a4fad16a51b3950cecaf338169ae0c4492aec7495bc8ddc004d8ac5",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1899
+  },
+  {
+   "ts": "2026-10-26T11:04:26.451328+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide 4347 by 85:\n85 \u00d7 51 = 4335\n4347 \u2212 4335 = 12\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "bf3c23fc74fc723dfb2133d8443fa99fd0dcd4eeb9b4ab71d9828ecb0a381bbd",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1834
+  },
+  {
+   "ts": "2026-10-26T11:04:26.452287+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide 4347 by 85:\n85 \u00d7 51 = 4335\n4347 \u2212 4335 = 12\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "bf3c23fc74fc723dfb2133d8443fa99fd0dcd4eeb9b4ab71d9828ecb0a381bbd",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1769
+  },
+  {
+   "ts": "2026-10-26T11:04:26.453411+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide 4347 by 85:\n85 \u00d7 51 = 4335\n4347 \u2212 4335 = 12\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "bf3c23fc74fc723dfb2133d8443fa99fd0dcd4eeb9b4ab71d9828ecb0a381bbd",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1768
+  },
+  {
+   "ts": "2026-10-26T11:04:26.454283+00:00",
+   "mode": "burst",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide 4347 by 85:\n85 \u00d7 51 = 4335\n4347 \u2212 4335 = 12\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "bf3c23fc74fc723dfb2133d8443fa99fd0dcd4eeb9b4ab71d9828ecb0a381bbd",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1826
+  },
+  {
+   "ts": "2026-10-26T11:04:38.346689+00:00",
+   "mode": "serial",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\nDivide 4347 by 85:\n85 \u00d7 51 = 4335\n4347 \u2212 4335 = 12\n\nSo 51 trucks are fully loaded, and 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "bf3c23fc74fc723dfb2133d8443fa99fd0dcd4eeb9b4ab71d9828ecb0a381bbd",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1415
+  },
+  {
+   "ts": "2026-10-26T11:04:49.761583+00:00",
+   "mode": "serial",
+   "text": "Total boxes = 1284 + 907 + 2156 = 4347.\n\nEach truck carries 85 boxes.\n\n85 \u00d7 51 = 4335, so 51 fully loaded trucks carry 4335 boxes.\n\n4347 \u2212 4335 = 12 boxes remain.\n\nANSWER: 51,12",
+   "sha256": "e507108bb98f53e69b9f3e09b42f8dc166c621118c98d0403066de11c0a99fa1",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1460
+  }
+ ]
+}

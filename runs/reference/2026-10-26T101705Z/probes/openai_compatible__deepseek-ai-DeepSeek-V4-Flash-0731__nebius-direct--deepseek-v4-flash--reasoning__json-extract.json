@@ -1,0 +1,108 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ "case": {
+  "id": "json-extract",
+  "expect": "json",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300,
+   "json": true
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "response_format": {
+    "type": "json_object"
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:04:51.222895+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2538
+  },
+  {
+   "ts": "2026-10-26T11:04:51.223243+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2358
+  },
+  {
+   "ts": "2026-10-26T11:04:51.223992+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2620
+  },
+  {
+   "ts": "2026-10-26T11:04:51.226431+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2532
+  },
+  {
+   "ts": "2026-10-26T11:04:51.227355+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2357
+  },
+  {
+   "ts": "2026-10-26T11:04:51.229283+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2424
+  },
+  {
+   "ts": "2026-10-26T11:04:51.231445+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2616
+  },
+  {
+   "ts": "2026-10-26T11:04:51.234312+00:00",
+   "mode": "burst",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 2413
+  },
+  {
+   "ts": "2026-10-26T11:05:03.848061+00:00",
+   "mode": "serial",
+   "text": "{\n  \"company\": \"Aventra GmbH\",\n  \"amount_eur\": 45000,\n  \"date\": \"2024-03-12\",\n  \"parties\": [\"Baltik Systems\", \"Corenz SA\"]\n}",
+   "sha256": "9556214339a24b82b0455cb823f60e7f131a38eb2cb6d66e0838beaff1172f4f",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1054
+  },
+  {
+   "ts": "2026-10-26T11:05:14.902504+00:00",
+   "mode": "serial",
+   "error": "empty completion: max_tokens spent on reasoning (finish_reason=length)",
+   "latency_ms": 1727
+  }
+ ]
+}

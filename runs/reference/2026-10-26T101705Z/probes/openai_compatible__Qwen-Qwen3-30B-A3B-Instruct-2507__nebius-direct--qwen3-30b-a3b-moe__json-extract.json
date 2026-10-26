@@ -1,0 +1,135 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (Qwen3 30B-A3B MoE)"
+ },
+ "case": {
+  "id": "json-extract",
+  "expect": "json",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300,
+   "json": true
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'",
+     "role": "user"
+    }
+   ],
+   "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "response_format": {
+    "type": "json_object"
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:03:04.960401+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 779
+  },
+  {
+   "ts": "2026-10-26T11:03:04.960705+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 772
+  },
+  {
+   "ts": "2026-10-26T11:03:04.962289+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 792
+  },
+  {
+   "ts": "2026-10-26T11:03:04.963406+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 811
+  },
+  {
+   "ts": "2026-10-26T11:03:04.969285+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 791
+  },
+  {
+   "ts": "2026-10-26T11:03:04.970255+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 864
+  },
+  {
+   "ts": "2026-10-26T11:03:04.972255+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 774
+  },
+  {
+   "ts": "2026-10-26T11:03:04.972931+00:00",
+   "mode": "burst",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 899
+  },
+  {
+   "ts": "2026-10-26T11:03:15.873345+00:00",
+   "mode": "serial",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 681
+  },
+  {
+   "ts": "2026-10-26T11:03:26.554273+00:00",
+   "mode": "serial",
+   "text": "{\"company\":\"Aventra GmbH\",\"amount_eur\":45000,\"date\":\"2024-03-12\",\"parties\":[\"Baltik Systems\",\"Corenz SA\"]}",
+   "sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+   "fingerprint": null,
+   "model_version": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "latency_ms": 588
+  }
+ ]
+}

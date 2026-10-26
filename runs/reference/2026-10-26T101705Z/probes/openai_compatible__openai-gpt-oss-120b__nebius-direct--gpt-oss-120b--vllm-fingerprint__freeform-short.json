@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "openai/gpt-oss-120b",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)"
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:00:28.625331+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 890
+  },
+  {
+   "ts": "2026-10-26T11:00:28.625662+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1071
+  },
+  {
+   "ts": "2026-10-26T11:00:28.627258+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 871
+  },
+  {
+   "ts": "2026-10-26T11:00:28.628393+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "6fde70d65d54908e35ea43f200ce2d12e363559d4b0830f17f910ea0301f622f",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 868
+  },
+  {
+   "ts": "2026-10-26T11:00:28.634297+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic numbers are stored",
+   "sha256": "a91a025cfb485a5c04d5fd1465b08aefe08cf599902873db50b3003cd14fe1d8",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1227
+  },
+  {
+   "ts": "2026-10-26T11:00:28.635275+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 897
+  },
+  {
+   "ts": "2026-10-26T11:00:28.636401+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "6fffe631d0e2ad4a295818ef582048824792d0d5aa8a13d978028e60079e1964",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 901
+  },
+  {
+   "ts": "2026-10-26T11:00:28.636831+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, the rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you add the other two first. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "7e48301b66a8ac519d6de6482dedb97749423ebdd38761eb45d6a61ff770cc7f",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 987
+  },
+  {
+   "ts": "2026-10-26T11:00:39.862371+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 766
+  },
+  {
+   "ts": "2026-10-26T11:00:50.628703+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 722
+  }
+ ]
+}

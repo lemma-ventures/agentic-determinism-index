@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "DeepInfra via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "deepinfra"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "deepinfra"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T10:21:01.434843+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a and b can be different from the sum of b and a, even if a and b are the same numbers.",
+   "sha256": "8938d4295e83439369d84245cde60e6a248c15ecc19924cdf66a61d650fa394e",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 2697
+  },
+  {
+   "ts": "2026-10-26T10:21:01.435125+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a + b + c can be different from (a + b) + c due to rounding errors, making floating-point addition non-associative.",
+   "sha256": "b7f340e467c432122aecd35bb6fb69c9b7a2579c3c0e426ca537e2f14aa4010a",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 3823
+  },
+  {
+   "ts": "2026-10-26T10:21:01.436279+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a + b + c can be different from (a + b) + c due to rounding errors, making floating-point addition non-associative.",
+   "sha256": "b7f340e467c432122aecd35bb6fb69c9b7a2579c3c0e426ca537e2f14aa4010a",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 3631
+  },
+  {
+   "ts": "2026-10-26T10:21:01.437403+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a and b can be different from the sum of b and a, even if a and b are the same numbers.",
+   "sha256": "8938d4295e83439369d84245cde60e6a248c15ecc19924cdf66a61d650fa394e",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 2695
+  },
+  {
+   "ts": "2026-10-26T10:21:01.443288+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a + b + c can be different from (a + b) + c due to rounding errors, making floating-point addition non-associative.",
+   "sha256": "b7f340e467c432122aecd35bb6fb69c9b7a2579c3c0e426ca537e2f14aa4010a",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 3778
+  },
+  {
+   "ts": "2026-10-26T10:21:01.444266+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a + b + c can be different from (a + b) + c due to rounding errors, making floating-point addition non-associative.",
+   "sha256": "b7f340e467c432122aecd35bb6fb69c9b7a2579c3c0e426ca537e2f14aa4010a",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 3774
+  },
+  {
+   "ts": "2026-10-26T10:21:01.446265+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a and b can be different from the sum of b and a, even if a and b are the same numbers.",
+   "sha256": "8938d4295e83439369d84245cde60e6a248c15ecc19924cdf66a61d650fa394e",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 2705
+  },
+  {
+   "ts": "2026-10-26T10:21:01.448284+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a and b can be different from the sum of b and a, even if a and b are the same numbers.",
+   "sha256": "8938d4295e83439369d84245cde60e6a248c15ecc19924cdf66a61d650fa394e",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 2693
+  },
+  {
+   "ts": "2026-10-26T10:21:15.259319+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a + b + c can be different from (a + b) + c due to rounding errors, making floating-point addition non-associative.",
+   "sha256": "b7f340e467c432122aecd35bb6fb69c9b7a2579c3c0e426ca537e2f14aa4010a",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 3517
+  },
+  {
+   "ts": "2026-10-26T10:21:28.776870+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to the way floating-point numbers are represented and stored in computer memory. This is because the addition of floating-point numbers involves a combination of integer arithmetic and rounding, which can lead to different results depending on the order of operations. For example, the sum of a + b + c can be different from (a + b) + c due to rounding errors, making floating-point addition non-associative.",
+   "sha256": "b7f340e467c432122aecd35bb6fb69c9b7a2579c3c0e426ca537e2f14aa4010a",
+   "fingerprint": "DeepInfra",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 3625
+  }
+ ]
+}

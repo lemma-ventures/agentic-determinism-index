@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Novita via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "novita"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "novita"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T10:24:40.408312+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different final result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to affect the outcome.",
+   "sha256": "1be2c44a11579dd57c862c0fc45ae7f166a5ec9c9aaaf8c706894306f4d2370f",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1171
+  },
+  {
+   "ts": "2026-10-26T10:24:40.408585+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different final result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, leading to a loss of precision.",
+   "sha256": "c89efb16465d1fdd0b00936236d500854a0f9f1de553c9c91a019db05b168859",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1162
+  },
+  {
+   "ts": "2026-10-26T10:24:40.410262+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing a loss of precision.",
+   "sha256": "66cc444af3bd775ea5e5038f2674f4e2b6146376f1f1fd4e6a96a10756ae9938",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1435
+  },
+  {
+   "ts": "2026-10-26T10:24:40.411386+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to affect the final result.",
+   "sha256": "b8dc5be6ae69b679695557602f01309dc57c4c4fde9640b67171f97c41ca1ee6",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1176
+  },
+  {
+   "ts": "2026-10-26T10:24:40.417297+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to affect the final result.",
+   "sha256": "b8dc5be6ae69b679695557602f01309dc57c4c4fde9640b67171f97c41ca1ee6",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1209
+  },
+  {
+   "ts": "2026-10-26T10:24:40.418263+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to affect the final result.",
+   "sha256": "b8dc5be6ae69b679695557602f01309dc57c4c4fde9640b67171f97c41ca1ee6",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1185
+  },
+  {
+   "ts": "2026-10-26T10:24:40.419376+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to affect the final result.",
+   "sha256": "b8dc5be6ae69b679695557602f01309dc57c4c4fde9640b67171f97c41ca1ee6",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1207
+  },
+  {
+   "ts": "2026-10-26T10:24:40.420269+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different final result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, leading to a loss of precision.",
+   "sha256": "c89efb16465d1fdd0b00936236d500854a0f9f1de553c9c91a019db05b168859",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1172
+  },
+  {
+   "ts": "2026-10-26T10:24:51.845948+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, causing the order of operations to matter.",
+   "sha256": "22dfbec79cb5e0b9b4f01eaa94e82e3403734f9186631c87ce37f177debd112a",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1153
+  },
+  {
+   "ts": "2026-10-26T10:25:02.999550+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which you add numbers can affect the result due to rounding errors. For example, (a + b) + c \u2260 a + (b + c) because the intermediate result of a + b may not be exactly representable as a floating-point number, leading to a different final result when adding c. This is because floating-point arithmetic is based on a finite set of representable numbers, and the intermediate results may not be exactly representable, leading to a loss of precision.",
+   "sha256": "c89efb16465d1fdd0b00936236d500854a0f9f1de553c9c91a019db05b168859",
+   "fingerprint": "Novita",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 1006
+  }
+ ]
+}

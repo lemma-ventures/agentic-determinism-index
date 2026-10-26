@@ -1,0 +1,118 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Phala via OpenRouter (TEE, attested stack)",
+  "provider_prefs": {
+   "order": [
+    "phala"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "phala"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:10:20.646236+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 350
+  },
+  {
+   "ts": "2026-10-26T11:10:20.646523+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable value because numbers are stored with a finite number of bits. This rounding can change the magnitude of intermediate results, so adding a tiny number to a large one may be lost, while adding the tiny numbers together first can preserve them. As a result, \\((a+b)+c\\) and \\(a+(b+c)\\) can yield different rounded values, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "d086632905b6d727e9d06010184e5b1a464e5e110130579c5ce4b9f7668e9e69",
+   "fingerprint": "Phala",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1915
+  },
+  {
+   "ts": "2026-10-26T11:10:20.648251+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 506
+  },
+  {
+   "ts": "2026-10-26T11:10:20.649375+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 370
+  },
+  {
+   "ts": "2026-10-26T11:10:20.655266+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 367
+  },
+  {
+   "ts": "2026-10-26T11:10:20.656239+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 344
+  },
+  {
+   "ts": "2026-10-26T11:10:20.664260+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 391
+  },
+  {
+   "ts": "2026-10-26T11:10:20.666387+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 486
+  },
+  {
+   "ts": "2026-10-26T11:10:32.562233+00:00",
+   "mode": "serial",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable value because numbers are stored with a finite number of bits. This rounding can change the magnitude of intermediate results, so adding a tiny number to a large one may be lost, while adding the tiny numbers together first can preserve them. Consequently, \\((a+b)+c\\) and \\(a+(b+c)\\) can be rounded to different values, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "28b6fa7e59eb5aae1fe72b1c07537cfc8b3e76103e2e456b65d47716e92591f9",
+   "fingerprint": "Phala",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1818
+  },
+  {
+   "ts": "2026-10-26T11:10:44.380367+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations\",\"provider_name\":\"Phala\",\"is_byok\":false,\"provider_error_code\":\"rate_limit_exceeded\",\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to a",
+   "latency_ms": 202
+  }
+ ]
+}

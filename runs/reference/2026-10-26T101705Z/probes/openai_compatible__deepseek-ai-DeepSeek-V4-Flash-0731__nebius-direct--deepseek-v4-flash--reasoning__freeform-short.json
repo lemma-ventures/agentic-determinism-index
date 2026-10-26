@@ -1,0 +1,131 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:03:59.810632+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so every arithmetic operation's exact result is rounded to fit the available mant",
+   "sha256": "9a417fc6f0e6e7a7f59a562169cc2bc91b7941baeaa52528c31148df8a99289f",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2639
+  },
+  {
+   "ts": "2026-10-26T11:03:59.810944+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so every arithmetic operation's exact result is rounded to fit the",
+   "sha256": "a21fecaf811e337e45152ba49b0b385f2e476a59b2ba9e8bee4e2b2410db48d5",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2507
+  },
+  {
+   "ts": "2026-10-26T11:03:59.812256+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so every arithmetic operation's exact result is rounded to fit the",
+   "sha256": "a21fecaf811e337e45152ba49b0b385f2e476a59b2ba9e8bee4e2b2410db48d5",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2502
+  },
+  {
+   "ts": "2026-10-26T11:03:59.813365+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so the exact result of each arithmetic operation is rounded to the nearest representable value. Because the intermediate sums in different association orders (e.g., (a+b)+c vs. a+(b+c))",
+   "sha256": "d75b9fef9eefb5288b4f6a500c7a34ac9d7c5301dd2ed8849fdb9e4c7a9bfca8",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2443
+  },
+  {
+   "ts": "2026-10-26T11:03:59.819275+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so the exact result of each arithmetic operation is rounded to the nearest representable value. Because the intermediate sums in different association orders (e.g., (a+b)+c vs. a+(b+c))",
+   "sha256": "d75b9fef9eefb5288b4f6a500c7a34ac9d7c5301dd2ed8849fdb9e4c7a9bfca8",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2487
+  },
+  {
+   "ts": "2026-10-26T11:03:59.820241+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so the exact result of each arithmetic operation is rounded to the nearest representable value. Because the intermediate sums in different association orders (e.g., (a+b)+c vs. a+(b+c))",
+   "sha256": "d75b9fef9eefb5288b4f6a500c7a34ac9d7c5301dd2ed8849fdb9e4c7a9bfca8",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2345
+  },
+  {
+   "ts": "2026-10-26T11:03:59.822245+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so the exact result of each arithmetic operation is rounded to the nearest representable value. Because the intermediate sums in different association orders (e.g., (a+b)+c vs. a+(b+c))",
+   "sha256": "d75b9fef9eefb5288b4f6a500c7a34ac9d7c5301dd2ed8849fdb9e4c7a9bfca8",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2287
+  },
+  {
+   "ts": "2026-10-26T11:03:59.824257+00:00",
+   "mode": "burst",
+   "text": "Floating-point numbers have finite precision, so every arithmetic operation's exact result is rounded to fit the available mant",
+   "sha256": "9a417fc6f0e6e7a7f59a562169cc2bc91b7941baeaa52528c31148df8a99289f",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2635
+  },
+  {
+   "ts": "2026-10-26T11:04:12.460043+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because numbers are stored with finite precision, so each intermediate sum must be rounded to fit the available mantissa bits. The order in which additions are performed determines which intermediate results are rounded,",
+   "sha256": "b6e3017d121ce1a27c3112a837df31d374bdbddfd15be28cd270870a1f43da9b",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 1884
+  },
+  {
+   "ts": "2026-10-26T11:04:24.344439+00:00",
+   "mode": "serial",
+   "text": "Floating-point numbers have finite precision, so the exact result of each addition is rounded to the nearest representable value. Because the order of operations changes which intermediate sums are formed, the rounding errors introduced at each step differ. Consequently, (a + b) + c can yield a different result",
+   "sha256": "7eceeba02ee4a7fa3072f8e8a971cd312d0344362ed2a3c43b354941d3338745",
+   "fingerprint": null,
+   "model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "latency_ms": 2097
+  }
+ ]
+}

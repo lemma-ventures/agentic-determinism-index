@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-26T11:08:51.779560+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 487
+  },
+  {
+   "ts": "2026-10-26T11:08:51.779842+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 489
+  },
+  {
+   "ts": "2026-10-26T11:08:51.781288+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 547
+  },
+  {
+   "ts": "2026-10-26T11:08:51.782415+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 595
+  },
+  {
+   "ts": "2026-10-26T11:08:51.788306+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 873
+  },
+  {
+   "ts": "2026-10-26T11:08:51.789271+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 907
+  },
+  {
+   "ts": "2026-10-26T11:08:51.791282+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 490
+  },
+  {
+   "ts": "2026-10-26T11:08:51.792396+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 475
+  },
+  {
+   "ts": "2026-10-26T11:09:02.696752+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 440
+  },
+  {
+   "ts": "2026-10-26T11:09:13.136914+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point addition is performed with a limited number of bits, so after each operation the exact real result is rounded to the nearest representable value. Because the rounding is applied after every intermediate sum, the error introduced can differ depending on whether the numbers are grouped as \\((a+b)+c\\) or \\(a+(b+c)\\). Consequently the two groupings can produce distinct rounded results, showing that floating\u2011point addition is not associative.",
+   "sha256": "4e25a0318eea9833035abe23cf02eb7156883e784f8aa470f9c9cf0b6032a29e",
+   "fingerprint": "fp_a9089f3cce52797e7952",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 274
+  }
+ ]
+}
