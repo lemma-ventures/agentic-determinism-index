@@ -82,20 +82,20 @@
       "label": "Nebius direct (DeepSeek V4 Flash, reasoning)",
       "last_fingerprint": null,
       "last_mode_share": 0.7,
-      "last_model_version": null,
+      "last_model_version": "deepseek-ai/DeepSeek-V4-Flash-0731",
       "last_score_attempt_epoch": 1793013125.889248,
       "last_score_attempt_stamp": "2026-10-26T101705Z",
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
-      "last_stack_id": null,
-      "last_ts": null,
+      "last_stack_id": "mv:deepseek-ai/DeepSeek-V4-Flash-0731",
+      "last_ts": "2026-10-26T12:17:06.315861+00:00",
       "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "next_due_epoch": 1793016076.3985145,
+      "next_due_epoch": 1793033157.371267,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 0
+      "stable_streak": 1,
+      "ticks": 1
     },
     "openai_compatible|google/gemma-3-27b-it|Nebius direct (Gemma 3 27B dense)": {
       "byte_exact": false,
@@ -124,22 +124,22 @@
       "drifts": 0,
       "interval_s": 14400,
       "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)",
-      "last_fingerprint": null,
+      "last_fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
       "last_mode_share": 0.2,
-      "last_model_version": null,
+      "last_model_version": "openai/gpt-oss-120b",
       "last_score_attempt_epoch": 1793013125.889248,
       "last_score_attempt_stamp": "2026-10-26T101705Z",
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
-      "last_stack_id": null,
-      "last_ts": null,
+      "last_stack_id": "fp:vllm-v0.22.0-tp4-3e04bf1c|mv:openai/gpt-oss-120b",
+      "last_ts": "2026-10-26T12:17:05.804512+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793014404.7654371,
+      "next_due_epoch": 1793030707.2205038,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 0
+      "stable_streak": 1,
+      "ticks": 1
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -364,14 +364,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
-      "last_ts": "2026-10-26T10:17:05.240880+00:00",
+      "last_ts": "2026-10-26T12:17:04.847287+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1793013970.9187222,
+      "next_due_epoch": 1793021124.5966475,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 1,
-      "ticks": 1
+      "stable_streak": 2,
+      "ticks": 2
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -503,14 +503,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-08T04:17:05.943450+00:00",
+      "last_ts": "2026-10-26T12:17:07.426797+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793017017.1835246,
+      "next_due_epoch": 1793031975.7136784,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 4,
-      "ticks": 4
+      "stable_streak": 5,
+      "ticks": 5
     },
     "openrouter|openai/gpt-oss-120b|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -557,5 +557,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-26T11:17:04.638240+00:00"
+  "updated": "2026-10-26T12:17:04.847210+00:00"
 }
