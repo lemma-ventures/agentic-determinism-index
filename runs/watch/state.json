@@ -88,14 +88,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:deepseek-ai/DeepSeek-V4-Flash-0731",
-      "last_ts": "2026-10-26T12:17:06.315861+00:00",
+      "last_ts": "2026-10-26T17:17:04.837531+00:00",
       "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "next_due_epoch": 1793033157.371267,
+      "next_due_epoch": 1793050396.4668546,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 1,
-      "ticks": 1
+      "stable_streak": 2,
+      "ticks": 2
     },
     "openai_compatible|google/gemma-3-27b-it|Nebius direct (Gemma 3 27B dense)": {
       "byte_exact": false,
@@ -527,7 +527,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-10-26T12:17:07.426797+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793031975.7136784,
+      "next_due_epoch": 1793050173.2166846,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-26T16:21:52.841471+00:00"
+  "updated": "2026-10-26T17:17:04.837448+00:00"
 }
