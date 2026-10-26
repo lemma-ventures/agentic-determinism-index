@@ -44,14 +44,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
-      "last_ts": "2026-10-20T20:17:05.015127+00:00",
+      "last_ts": "2026-10-26T15:17:04.845985+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1793026897.7320008,
+      "next_due_epoch": 1793719618.4469247,
       "non_exact_streak": 3,
       "provider": "nvidia_nim",
       "score_failures": 0,
-      "stable_streak": 19,
-      "ticks": 19
+      "stable_streak": 20,
+      "ticks": 20
     },
     "openai_compatible|Qwen/Qwen3-30B-A3B-Instruct-2507|Nebius direct (Qwen3 30B-A3B MoE)": {
       "byte_exact": false,
@@ -557,5 +557,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-26T14:17:04.910094+00:00"
+  "updated": "2026-10-26T15:17:04.845911+00:00"
 }
