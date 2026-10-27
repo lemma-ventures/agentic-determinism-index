@@ -285,14 +285,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-10-27T02:17:04.712856+00:00",
+      "last_ts": "2026-10-27T04:17:05.744820+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1793071410.4535394,
+      "next_due_epoch": 1793077915.80042,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 322
+      "stable_streak": 1,
+      "ticks": 323
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -354,7 +354,7 @@
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova Turbo via OpenRouter": {
       "byte_exact": true,
       "drifts": 0,
-      "interval_s": 18225.0,
+      "interval_s": 27337.5,
       "label": "SambaNova Turbo via OpenRouter",
       "last_fingerprint": "fastcoe",
       "last_mode_share": 1.0,
@@ -364,14 +364,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
-      "last_ts": "2026-10-26T22:17:04.844597+00:00",
+      "last_ts": "2026-10-27T04:17:05.899984+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1793071406.1209874,
+      "next_due_epoch": 1793105891.891707,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 6,
-      "ticks": 6
+      "stable_streak": 7,
+      "ticks": 7
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -410,25 +410,25 @@
     },
     "openrouter|openai/gpt-4o-mini|Azure via OpenRouter": {
       "byte_exact": false,
-      "drifts": 1,
-      "interval_s": 604800,
+      "drifts": 2,
+      "interval_s": 14400,
       "label": "Azure via OpenRouter",
-      "last_fingerprint": "fp_99f88af1c5",
+      "last_fingerprint": "fp_4b2adf74ff",
       "last_mode_share": 0.3,
       "last_model_version": "openai/gpt-4o-mini",
       "last_score_attempt_epoch": 1793013125.889248,
       "last_score_attempt_stamp": "2026-10-26T101705Z",
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
-      "last_stack_id": "fp:fp_99f88af1c5|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-10-21T05:17:04.941593+00:00",
+      "last_stack_id": "fp:fp_4b2adf74ff|mv:openai/gpt-4o-mini",
+      "last_ts": "2026-10-27T04:17:04.755133+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1793072563.211811,
+      "next_due_epoch": 1793090638.548014,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 15,
-      "ticks": 32
+      "stable_streak": 0,
+      "ticks": 33
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-27T03:17:04.763922+00:00"
+  "updated": "2026-10-27T04:17:04.755088+00:00"
 }
