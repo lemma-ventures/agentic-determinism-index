@@ -88,14 +88,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:deepseek-ai/DeepSeek-V4-Flash-0731",
-      "last_ts": "2026-10-26T22:17:06.168000+00:00",
+      "last_ts": "2026-10-27T02:17:05.588984+00:00",
       "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "next_due_epoch": 1793065879.3729823,
+      "next_due_epoch": 1793081845.1203897,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 3,
-      "ticks": 3
+      "stable_streak": 4,
+      "ticks": 4
     },
     "openai_compatible|google/gemma-3-27b-it|Nebius direct (Gemma 3 27B dense)": {
       "byte_exact": false,
@@ -211,7 +211,7 @@
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Cloudflare via OpenRouter": {
       "byte_exact": false,
-      "interval_s": 311391.2109375,
+      "interval_s": 467086.81640625,
       "label": "Cloudflare via OpenRouter",
       "last_fingerprint": "Cloudflare",
       "last_mode_share": 0.6,
@@ -221,14 +221,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:Cloudflare|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-10-23T01:17:04.891713+00:00",
+      "last_ts": "2026-10-27T02:17:04.974983+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1793064061.608412,
+      "next_due_epoch": 1793534728.9542618,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 13,
-      "ticks": 13
+      "stable_streak": 14,
+      "ticks": 14
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|CoreWeave via OpenRouter": {
       "byte_exact": false,
@@ -274,25 +274,25 @@
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": true,
-      "drifts": 162,
+      "drifts": 163,
       "interval_s": 3600,
       "label": "Groq via OpenRouter",
-      "last_fingerprint": "fp_03e8423237",
+      "last_fingerprint": "fp_020e283281",
       "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.1-8b-instruct",
       "last_score_attempt_epoch": 1793013125.889248,
       "last_score_attempt_stamp": "2026-10-26T101705Z",
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
-      "last_stack_id": "fp:fp_03e8423237|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-10-27T01:17:04.835723+00:00",
+      "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
+      "last_ts": "2026-10-27T02:17:04.712856+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1793066779.4370015,
+      "next_due_epoch": 1793071410.4535394,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
       "stable_streak": 0,
-      "ticks": 321
+      "ticks": 322
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -489,14 +489,14 @@
       "last_score_epoch": 1793031712.8414388,
       "last_score_stamp": "2026-10-26T161708Z",
       "last_stack_id": "fp:vllm-0.27.1-tp4-80ed3009|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-26T22:17:07.449279+00:00",
+      "last_ts": "2026-10-27T02:17:06.976767+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793064796.5103364,
+      "next_due_epoch": 1793079646.2228074,
       "non_exact_streak": 1,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 3,
-      "ticks": 3
+      "stable_streak": 4,
+      "ticks": 4
     },
     "openrouter|openai/gpt-oss-120b|Phala TEE via OpenRouter": {
       "drifts": 0,
@@ -575,14 +575,14 @@
       "last_score_epoch": 1793031712.8414388,
       "last_score_stamp": "2026-10-26T161708Z",
       "last_stack_id": "fp:Together|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-26T22:17:06.869979+00:00",
+      "last_ts": "2026-10-27T02:17:06.473272+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793066197.5269809,
+      "next_due_epoch": 1793079035.3904564,
       "non_exact_streak": 1,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 3,
-      "ticks": 3
+      "stable_streak": 4,
+      "ticks": 4
     },
     "openrouter|thinkingmachines/inkling:free|Thinking Machines direct (batch-invariant claim)": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-27T01:17:04.835673+00:00"
+  "updated": "2026-10-27T02:17:04.712809+00:00"
 }
