@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-27T04:17:07.497464Z",
- "latest_score_as_of": "2026-10-26T161708Z",
+ "generated_at": "2026-10-27T11:22:23.646986Z",
+ "latest_score_as_of": "2026-10-27T111706Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 50,
+ "n_runs": 51,
  "parked": [
   {
    "display": "EigenAI (EigenCloud, bit-exact claim)",
@@ -78,16 +78,45 @@
    "reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
   }
  ],
- "run_stamp": "2026-10-26T161708Z",
+ "run_stamp": "2026-10-27T111706Z",
  "tuples": [
   {
    "base_url": null,
-   "deterministic_runs": 7,
+   "deterministic_runs": 2,
+   "display": "SambaNova Turbo via OpenRouter",
+   "exact_match_rate": 1.0,
+   "green": false,
+   "held_hours": 25.0,
+   "held_since": "2026-10-26T101705Z",
+   "label": "SambaNova Turbo via OpenRouter",
+   "mean_mode_share": 1.0,
+   "medal": "",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "parked_reason": "",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "sambanova-turbo"
+    ]
+   },
+   "rank": 1,
+   "replay_checks": 4,
+   "replay_rate": 1.0,
+   "runs_seen": 2,
+   "score": 100.0,
+   "score_as_of": "2026-10-27T111706Z",
+   "status": "active",
+   "streak": 2
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 8,
    "display": "Groq via OpenRouter",
    "exact_match_rate": 1.0,
    "green": false,
    "held_hours": 0.0,
-   "held_since": "",
+   "held_since": "2026-10-27T111706Z",
    "label": "Groq via OpenRouter",
    "mean_mode_share": 1.0,
    "medal": "",
@@ -100,14 +129,14 @@
      "groq"
     ]
    },
-   "rank": 1,
-   "replay_checks": 38,
-   "replay_rate": 0.9211,
-   "runs_seen": 12,
-   "score": 96.84,
-   "score_as_of": "2026-10-26T101705Z",
+   "rank": 2,
+   "replay_checks": 42,
+   "replay_rate": 0.9286,
+   "runs_seen": 13,
+   "score": 97.14,
+   "score_as_of": "2026-10-27T111706Z",
    "status": "active",
-   "streak": 0
+   "streak": 1
   },
   {
    "base_url": null,
@@ -129,7 +158,7 @@
      "coreweave"
     ]
    },
-   "rank": 2,
+   "rank": 3,
    "replay_checks": 14,
    "replay_rate": 1.0,
    "runs_seen": 6,
@@ -158,12 +187,12 @@
      "cerebras"
     ]
    },
-   "rank": 3,
-   "replay_checks": 116,
-   "replay_rate": 0.1983,
-   "runs_seen": 30,
-   "score": 67.93,
-   "score_as_of": "2026-10-26T101705Z",
+   "rank": 4,
+   "replay_checks": 120,
+   "replay_rate": 0.2083,
+   "runs_seen": 31,
+   "score": 68.33,
+   "score_as_of": "2026-10-27T111706Z",
    "status": "active",
    "streak": 0
   },
@@ -187,7 +216,7 @@
      "deepinfra"
     ]
    },
-   "rank": 4,
+   "rank": 5,
    "replay_checks": 22,
    "replay_rate": 0.6364,
    "runs_seen": 8,
@@ -195,35 +224,6 @@
    "score_as_of": "2026-10-26T101705Z",
    "status": "active",
    "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 1,
-   "display": "SambaNova Turbo via OpenRouter",
-   "exact_match_rate": 1.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "2026-10-26T101705Z",
-   "label": "SambaNova Turbo via OpenRouter",
-   "mean_mode_share": 1.0,
-   "medal": "",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "parked_reason": "",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "sambanova-turbo"
-    ]
-   },
-   "rank": 5,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 60.0,
-   "score_as_of": "2026-10-26T101705Z",
-   "status": "active",
-   "streak": 1
   },
   {
    "base_url": null,
