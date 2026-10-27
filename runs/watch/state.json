@@ -457,7 +457,7 @@
     "openrouter|openai/gpt-oss-120b|Cerebras via OpenRouter (wafer-scale, single SKU)": {
       "byte_exact": true,
       "drifts": 0,
-      "interval_s": 12150.0,
+      "interval_s": 18225.0,
       "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
       "last_fingerprint": "fp_a9089f3cce52797e7952",
       "last_mode_share": 1.0,
@@ -467,14 +467,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fp_a9089f3cce52797e7952|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-26T23:17:07.856150+00:00",
+      "last_ts": "2026-10-27T03:17:04.764024+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793070298.495408,
+      "next_due_epoch": 1793090125.494682,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 5,
-      "ticks": 5
+      "stable_streak": 6,
+      "ticks": 6
     },
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
@@ -515,7 +515,7 @@
     "openrouter|openai/gpt-oss-120b|Phala via OpenRouter (TEE, attested stack)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 18225.0,
+      "interval_s": 27337.5,
       "label": "Phala via OpenRouter (TEE, attested stack)",
       "last_fingerprint": "Phala",
       "last_mode_share": 0.3333,
@@ -525,14 +525,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-26T22:17:07.912606+00:00",
+      "last_ts": "2026-10-27T03:17:05.165124+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793070452.8100364,
+      "next_due_epoch": 1793100018.9136124,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 6,
-      "ticks": 6
+      "stable_streak": 7,
+      "ticks": 7
     },
     "openrouter|openai/gpt-oss-120b|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-27T02:17:04.712809+00:00"
+  "updated": "2026-10-27T03:17:04.763922+00:00"
 }
