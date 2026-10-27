@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
+  "provider_prefs": {
+   "order": [
+    "crusoe"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "crusoe"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-27T17:20:18.783782+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1096
+  },
+  {
+   "ts": "2026-10-27T17:20:18.784095+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1228
+  },
+  {
+   "ts": "2026-10-27T17:20:18.785271+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1226
+  },
+  {
+   "ts": "2026-10-27T17:20:18.786385+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\), the rounding after the first addition can change the magnitude of the intermediate sum, affecting the rounding of the second addition; doing the additions as \\(a+(b+c)\\) rounds a different intermediate value, leading to a potentially different final result. Because the rounding errors depend on the order of operations, the associative law \\((a+b)+c = a+(b+c)\\) does not hold for floating\u2011point arithmetic.",
+   "sha256": "4a01bb204afdf16e6070dbc4b8de366521fc530c800307a40f771582203e40f0",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1310
+  },
+  {
+   "ts": "2026-10-27T17:20:18.792296+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, the rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you add the other two first. Consequently, \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, breaking associativity.",
+   "sha256": "2a5d7dfaa3fdd3d0c820fad4418079a503b68ba591004c826745b896852a28a5",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1126
+  },
+  {
+   "ts": "2026-10-27T17:20:18.793246+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real\u2011valued sum to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, producing slightly different rounded results. Because these rounding errors depend on the order of operations, the two sums are not guaranteed to be equal, breaking associativity.",
+   "sha256": "702a76047d719a06a20dcb79c09cd53dd7e4912e0b87c0530db5c576e73d711e",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1175
+  },
+  {
+   "ts": "2026-10-27T17:20:18.795262+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1184
+  },
+  {
+   "ts": "2026-10-27T17:20:18.797279+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate sum, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "d4657ee296521a61dda09e924174338f6828827309ab2870000a45583c9005a5",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1185
+  },
+  {
+   "ts": "2026-10-27T17:20:30.098865+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers, rounding after the first addition can change the magnitude of the intermediate result, causing a different rounding error than if you round after the second addition. Consequently, (a\u202f+\u202fb)\u202f+\u202fc and a\u202f+\u202f(b\u202f+\u202fc) can produce distinct floating\u2011point results, breaking associativity.",
+   "sha256": "cd5aa8d665b5eb678c038f74c36f0fa110e10f576125d0d93115d760e291f0f5",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1069
+  },
+  {
+   "ts": "2026-10-27T17:20:41.168254+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite precision, so each operation rounds the exact real result to the nearest representable value. When you add three numbers as \\((a+b)+c\\) versus \\(a+(b+c)\\), the intermediate rounding can differ, producing slightly different rounded results. Because these rounding errors depend on the order of operations, the two sums are not guaranteed to be equal, breaking associativity.",
+   "sha256": "13135fe59fe57b89775ad43d2120f97fa1e6e2d113175e3861cb6b6d3f50633d",
+   "fingerprint": "vllm-0.27.1-tp4-80ed3009",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1282
+  }
+ ]
+}

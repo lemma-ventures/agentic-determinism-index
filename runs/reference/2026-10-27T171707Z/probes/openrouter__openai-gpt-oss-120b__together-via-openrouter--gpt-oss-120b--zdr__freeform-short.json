@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Together via OpenRouter (gpt-oss-120b, ZDR)",
+  "provider_prefs": {
+   "order": [
+    "together"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "together"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-27T17:17:08.002893+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each number is stored with a limited number of bits, so the exact real result of an operation is rounded to the nearest representable value. Because this rounding can alter the magnitude of an intermediate sum, computing \\((a+b)+c\\) may round differently than computing \\(a+(b+c)\\). Consequently, the two expressions can produce different floating\u2011point results, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "31a60e31fb93468d8d193993b56b50d3a848c35c1b4c9bba65c85e4cf1d2e9ed",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 3107
+  },
+  {
+   "ts": "2026-10-27T17:17:08.004321+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable value because numbers are stored with a finite number of bits. This rounding can change the magnitude of intermediate results, so adding a tiny number to a huge one may be lost, while adding the tiny numbers together first can preserve them. As a result, \\((a+b)+c\\) and \\(a+(b+c)\\) can be rounded to different values, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "99a6ce269286ad44eef23d366c0a81ddafa0f3107926961b0a56244d9bb9fe4f",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2842
+  },
+  {
+   "ts": "2026-10-27T17:17:08.004829+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each number is stored with a finite number of bits, so after an addition the exact real result is rounded to the nearest representable value. Because this rounding is applied after every operation, the accumulated rounding error depends on how the operands are grouped. Therefore \\((a+b)+c\\) and \\(a+(b+c)\\) can be rounded to different values, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "338da4c0609bad52620fe268c74807c538cd8f778b4b5a25b0306325d31b57c6",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2862
+  },
+  {
+   "ts": "2026-10-27T17:17:08.005825+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each number is stored with a limited number of bits, so after every operation the exact real result is rounded to the nearest representable value. Because this rounding can alter the magnitude of an intermediate sum, grouping the operands differently can lead to different rounded intermediate results. Consequently, \\((a+b)+c\\) and \\(a+(b+c)\\) may produce different floating\u2011point values, so addition is not associative.",
+   "sha256": "592d7ffc3a5baa2326268327cc690bb5cd0eeddb2e07a9e9d87d56b16c416450",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2903
+  },
+  {
+   "ts": "2026-10-27T17:17:08.006497+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable value because numbers are stored with a finite number of bits. This rounding can change the magnitude of intermediate results, so adding a tiny number to a huge one may be lost, while adding the tiny numbers together first can preserve them. As a result, \\((a+b)+c\\) and \\(a+(b+c)\\) can be rounded to different values, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "99a6ce269286ad44eef23d366c0a81ddafa0f3107926961b0a56244d9bb9fe4f",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2871
+  },
+  {
+   "ts": "2026-10-27T17:17:08.007373+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each number is stored with a limited number of bits, so the exact real result of an operation is rounded to the nearest representable value. Because this rounding can alter the magnitude of an intermediate sum, computing \\((a+b)+c\\) may round differently than computing \\(a+(b+c)\\). Consequently, the two expressions can produce different floating\u2011point results, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "31a60e31fb93468d8d193993b56b50d3a848c35c1b4c9bba65c85e4cf1d2e9ed",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 3078
+  },
+  {
+   "ts": "2026-10-27T17:17:08.007947+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable value because numbers are stored with a finite number of bits. This rounding can change the magnitude of intermediate results, so adding a tiny number to a huge one may be lost, while adding the tiny numbers together first can preserve them. As a result, \\((a+b)+c\\) and \\(a+(b+c)\\) can be rounded to different values, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "99a6ce269286ad44eef23d366c0a81ddafa0f3107926961b0a56244d9bb9fe4f",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2825
+  },
+  {
+   "ts": "2026-10-27T17:17:08.008395+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each number is stored with a limited number of bits, so the exact real result of an operation is rounded to the nearest representable value. Because this rounding can alter the magnitude of an intermediate sum, computing \\((a+b)+c\\) may round differently than computing \\(a+(b+c)\\). Consequently, the two expressions can produce different floating\u2011point results, demonstrating that floating\u2011point addition is not associative.",
+   "sha256": "31a60e31fb93468d8d193993b56b50d3a848c35c1b4c9bba65c85e4cf1d2e9ed",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 3077
+  },
+  {
+   "ts": "2026-10-27T17:17:21.110868+00:00",
+   "mode": "serial",
+   "text": "In floating\u2011point arithmetic numbers are stored with a finite number of bits, so each operation rounds the exact real result to the nearest representable value. Because rounding is performed after every addition, the rounding error depends on the order in which the operands are combined. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can be rounded to different values, showing that floating\u2011point addition is not associative.",
+   "sha256": "5cc9803e0720abf108ab158e61699581a3116b21f7bcc0dffd3f7c2cd24cc9ea",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2612
+  },
+  {
+   "ts": "2026-10-27T17:17:33.722968+00:00",
+   "mode": "serial",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable value because numbers are stored with a finite number of bits. Because rounding can change the magnitude of an intermediate result, \\((a+b)+c\\) may round \\(a+b\\) before adding \\(c\\), while \\(a+(b+c)\\) rounds \\(b+c\\) first, producing different final values. Thus the limited precision and mandatory rounding break the mathematical associativity of addition.",
+   "sha256": "29f19f90fa6ac3c1d816be914e6ecfcbfa929bec9890820d2a600043b1cb60c9",
+   "fingerprint": "Together",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 3189
+  }
+ ]
+}

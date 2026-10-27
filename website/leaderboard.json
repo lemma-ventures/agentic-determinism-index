@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-27T11:22:23.646986Z",
- "latest_score_as_of": "2026-10-27T111706Z",
+ "generated_at": "2026-10-27T17:22:14.574005Z",
+ "latest_score_as_of": "2026-10-27T171707Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 51,
+ "n_runs": 52,
  "parked": [
   {
    "display": "EigenAI (EigenCloud, bit-exact claim)",
@@ -78,7 +78,7 @@
    "reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
   }
  ],
- "run_stamp": "2026-10-27T111706Z",
+ "run_stamp": "2026-10-27T171707Z",
  "tuples": [
   {
    "base_url": null,
@@ -411,6 +411,35 @@
   {
    "base_url": null,
    "deterministic_runs": 0,
+   "display": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
+   "exact_match_rate": 0.25,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
+   "mean_mode_share": 0.5,
+   "medal": "",
+   "model": "openai/gpt-oss-120b",
+   "parked_reason": "",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "crusoe"
+    ]
+   },
+   "rank": 13,
+   "replay_checks": 4,
+   "replay_rate": 0.25,
+   "runs_seen": 2,
+   "score": 35.0,
+   "score_as_of": "2026-10-27T171707Z",
+   "status": "active",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
    "display": "SiliconFlow via OpenRouter",
    "exact_match_rate": 0.25,
    "green": false,
@@ -428,7 +457,7 @@
      "siliconflow"
     ]
    },
-   "rank": 13,
+   "rank": 14,
    "replay_checks": 14,
    "replay_rate": 0.2857,
    "runs_seen": 6,
@@ -452,12 +481,41 @@
    "parked_reason": "",
    "provider": "openai_compatible",
    "provider_prefs": null,
-   "rank": 14,
+   "rank": 15,
    "replay_checks": 8,
    "replay_rate": 0.25,
    "runs_seen": 3,
    "score": 34.0,
    "score_as_of": "2026-10-26T101705Z",
+   "status": "active",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 0,
+   "display": "Together via OpenRouter (gpt-oss-120b, ZDR)",
+   "exact_match_rate": 0.25,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Together via OpenRouter (gpt-oss-120b, ZDR)",
+   "mean_mode_share": 0.45,
+   "medal": "",
+   "model": "openai/gpt-oss-120b",
+   "parked_reason": "",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "together"
+    ]
+   },
+   "rank": 16,
+   "replay_checks": 4,
+   "replay_rate": 0.25,
+   "runs_seen": 2,
+   "score": 33.0,
+   "score_as_of": "2026-10-27T171707Z",
    "status": "active",
    "streak": 0
   },
@@ -481,7 +539,7 @@
      "amazon-bedrock"
     ]
    },
-   "rank": 15,
+   "rank": 17,
    "replay_checks": 14,
    "replay_rate": 0.2857,
    "runs_seen": 6,
@@ -505,7 +563,7 @@
    "parked_reason": "",
    "provider": "openai_compatible",
    "provider_prefs": null,
-   "rank": 16,
+   "rank": 18,
    "replay_checks": 8,
    "replay_rate": 0.25,
    "runs_seen": 3,
@@ -534,7 +592,7 @@
      "novita"
     ]
    },
-   "rank": 17,
+   "rank": 19,
    "replay_checks": 13,
    "replay_rate": 0.2308,
    "runs_seen": 5,
@@ -558,7 +616,7 @@
    "parked_reason": "",
    "provider": "openai_compatible",
    "provider_prefs": null,
-   "rank": 18,
+   "rank": 20,
    "replay_checks": 8,
    "replay_rate": 0.0,
    "runs_seen": 3,
@@ -587,7 +645,7 @@
      "azure"
     ]
    },
-   "rank": 19,
+   "rank": 21,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
@@ -616,7 +674,7 @@
      "crusoe"
     ]
    },
-   "rank": 20,
+   "rank": 22,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
@@ -640,71 +698,13 @@
    "parked_reason": "",
    "provider": "openrouter",
    "provider_prefs": null,
-   "rank": 21,
+   "rank": 23,
    "replay_checks": 0,
    "replay_rate": null,
    "runs_seen": 1,
    "score": 21.92,
    "score_as_of": "2026-09-01T100929Z",
    "status": "retired",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
-   "mean_mode_share": 0.4,
-   "medal": "",
-   "model": "openai/gpt-oss-120b",
-   "parked_reason": "",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "crusoe"
-    ]
-   },
-   "rank": 22,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 21.0,
-   "score_as_of": "2026-10-26T161708Z",
-   "status": "active",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 0,
-   "display": "Together via OpenRouter (gpt-oss-120b, ZDR)",
-   "exact_match_rate": 0.25,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Together via OpenRouter (gpt-oss-120b, ZDR)",
-   "mean_mode_share": 0.4,
-   "medal": "",
-   "model": "openai/gpt-oss-120b",
-   "parked_reason": "",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "together"
-    ]
-   },
-   "rank": 23,
-   "replay_checks": 0,
-   "replay_rate": null,
-   "runs_seen": 1,
-   "score": 21.0,
-   "score_as_of": "2026-10-26T161708Z",
-   "status": "active",
    "streak": 0
   },
   {
