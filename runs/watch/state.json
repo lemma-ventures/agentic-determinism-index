@@ -122,7 +122,7 @@
     "openai_compatible|openai/gpt-oss-120b|Nebius direct (gpt-oss-120b, vLLM fingerprint)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 14400,
+      "interval_s": 18225.0,
       "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)",
       "last_fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
       "last_mode_share": 0.2,
@@ -132,14 +132,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:vllm-v0.22.0-tp4-3e04bf1c|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-27T05:17:04.942788+00:00",
+      "last_ts": "2026-10-27T09:17:05.832273+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793092014.89849,
+      "next_due_epoch": 1793107285.7693849,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 5,
-      "ticks": 5
+      "stable_streak": 6,
+      "ticks": 6
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -275,7 +275,7 @@
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": true,
       "drifts": 163,
-      "interval_s": 5400.0,
+      "interval_s": 8100.0,
       "label": "Groq via OpenRouter",
       "last_fingerprint": "fp_020e283281",
       "last_mode_share": 1.0,
@@ -285,14 +285,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-10-27T07:17:04.723542+00:00",
+      "last_ts": "2026-10-27T09:17:05.675897+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1793090418.1323695,
+      "next_due_epoch": 1793100038.5922496,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 3,
-      "ticks": 325
+      "stable_streak": 4,
+      "ticks": 326
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -421,14 +421,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fp_4b2adf74ff|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-10-27T04:17:04.755133+00:00",
+      "last_ts": "2026-10-27T09:17:04.755307+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1793090638.548014,
+      "next_due_epoch": 1793104179.6082995,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 33
+      "stable_streak": 1,
+      "ticks": 34
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -457,7 +457,7 @@
     "openrouter|openai/gpt-oss-120b|Cerebras via OpenRouter (wafer-scale, single SKU)": {
       "byte_exact": true,
       "drifts": 0,
-      "interval_s": 18225.0,
+      "interval_s": 27337.5,
       "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
       "last_fingerprint": "fp_a9089f3cce52797e7952",
       "last_mode_share": 1.0,
@@ -467,14 +467,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fp_a9089f3cce52797e7952|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-27T03:17:04.764024+00:00",
+      "last_ts": "2026-10-27T09:17:06.326351+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793090125.494682,
+      "next_due_epoch": 1793123755.305067,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 6,
-      "ticks": 6
+      "stable_streak": 7,
+      "ticks": 7
     },
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-27T08:17:04.768487+00:00"
+  "updated": "2026-10-27T09:17:04.755266+00:00"
 }
