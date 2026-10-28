@@ -306,14 +306,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:Novita|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-10-21T22:17:05.021292+00:00",
+      "last_ts": "2026-10-28T17:17:04.723723+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1793205721.6060383,
+      "next_due_epoch": 1793790810.7364147,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 19,
-      "ticks": 19
+      "stable_streak": 20,
+      "ticks": 20
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|Crusoe via OpenRouter": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-28T16:17:04.971504+00:00"
+  "updated": "2026-10-28T17:17:04.723667+00:00"
 }
