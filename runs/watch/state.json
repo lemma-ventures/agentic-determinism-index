@@ -354,7 +354,7 @@
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova Turbo via OpenRouter": {
       "byte_exact": true,
       "drifts": 0,
-      "interval_s": 61509.375,
+      "interval_s": 86400,
       "label": "SambaNova Turbo via OpenRouter",
       "last_fingerprint": "fastcoe",
       "last_mode_share": 1.0,
@@ -364,14 +364,14 @@
       "last_score_epoch": 1793190123.4013622,
       "last_score_stamp": "2026-10-28T121707Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
-      "last_ts": "2026-10-28T01:17:06.060436+00:00",
+      "last_ts": "2026-10-28T19:17:04.781692+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1793211665.9009285,
+      "next_due_epoch": 1793315102.6388264,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-28T18:17:04.668649+00:00"
+  "updated": "2026-10-28T19:17:04.781619+00:00"
 }
