@@ -78,7 +78,7 @@
     "openai_compatible|deepseek-ai/DeepSeek-V4-Flash-0731|Nebius direct (DeepSeek V4 Flash, reasoning)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 27337.5,
+      "interval_s": 41006.25,
       "label": "Nebius direct (DeepSeek V4 Flash, reasoning)",
       "last_fingerprint": null,
       "last_mode_share": 0.7,
@@ -88,14 +88,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:deepseek-ai/DeepSeek-V4-Flash-0731",
-      "last_ts": "2026-10-27T18:17:04.810929+00:00",
+      "last_ts": "2026-10-28T01:17:06.576254+00:00",
       "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "next_due_epoch": 1793149845.0770411,
+      "next_due_epoch": 1793188692.5213385,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 7,
-      "ticks": 7
+      "stable_streak": 8,
+      "ticks": 8
     },
     "openai_compatible|google/gemma-3-27b-it|Nebius direct (Gemma 3 27B dense)": {
       "byte_exact": false,
@@ -354,7 +354,7 @@
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova Turbo via OpenRouter": {
       "byte_exact": true,
       "drifts": 0,
-      "interval_s": 41006.25,
+      "interval_s": 61509.375,
       "label": "SambaNova Turbo via OpenRouter",
       "last_fingerprint": "fastcoe",
       "last_mode_share": 1.0,
@@ -364,14 +364,14 @@
       "last_score_epoch": 1793100142.4816706,
       "last_score_stamp": "2026-10-27T111706Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
-      "last_ts": "2026-10-27T13:17:05.808673+00:00",
+      "last_ts": "2026-10-28T01:17:06.060436+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1793149853.529694,
+      "next_due_epoch": 1793211665.9009285,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 8,
-      "ticks": 8
+      "stable_streak": 9,
+      "ticks": 9
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -421,14 +421,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fp_4b2adf74ff|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-10-27T21:17:01.271863+00:00",
+      "last_ts": "2026-10-28T01:17:04.782508+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1793148585.2883322,
+      "next_due_epoch": 1793166617.6009567,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 4,
-      "ticks": 37
+      "stable_streak": 5,
+      "ticks": 38
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -479,7 +479,7 @@
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 27337.5,
+      "interval_s": 41006.25,
       "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
       "last_fingerprint": "vllm-0.27.1-tp4-80ed3009",
       "last_mode_share": 0.3,
@@ -489,14 +489,14 @@
       "last_score_epoch": 1793121733.356797,
       "last_score_stamp": "2026-10-27T171707Z",
       "last_stack_id": "fp:vllm-0.27.1-tp4-80ed3009|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-27T17:17:07.438456+00:00",
+      "last_ts": "2026-10-28T01:17:07.538375+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793148322.6555178,
+      "next_due_epoch": 1793194440.9033482,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 7,
-      "ticks": 7
+      "stable_streak": 8,
+      "ticks": 8
     },
     "openrouter|openai/gpt-oss-120b|Phala TEE via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-28T00:17:04.750524+00:00"
+  "updated": "2026-10-28T01:17:04.782465+00:00"
 }
