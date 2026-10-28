@@ -66,14 +66,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:Qwen/Qwen3-30B-A3B-Instruct-2507",
-      "last_ts": "2026-10-21T19:17:05.021107+00:00",
+      "last_ts": "2026-10-28T04:17:04.756342+00:00",
       "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
-      "next_due_epoch": 1793160424.2480116,
+      "next_due_epoch": 1793693278.548829,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 15,
-      "ticks": 15
+      "stable_streak": 16,
+      "ticks": 16
     },
     "openai_compatible|deepseek-ai/DeepSeek-V4-Flash-0731|Nebius direct (DeepSeek V4 Flash, reasoning)": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-28T03:17:04.820943+00:00"
+  "updated": "2026-10-28T04:17:04.756265+00:00"
 }
