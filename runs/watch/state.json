@@ -479,7 +479,7 @@
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 61509.375,
+      "interval_s": 92264.0625,
       "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
       "last_fingerprint": "vllm-0.27.1-tp4-80ed3009",
       "last_mode_share": 0.3,
@@ -489,14 +489,14 @@
       "last_score_epoch": 1793121733.356797,
       "last_score_stamp": "2026-10-27T171707Z",
       "last_stack_id": "fp:vllm-0.27.1-tp4-80ed3009|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-28T14:17:04.694210+00:00",
+      "last_ts": "2026-10-29T10:17:36.125496+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793267424.4528074,
+      "next_due_epoch": 1793365153.273572,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "openrouter|openai/gpt-oss-120b|Phala TEE via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-29T09:17:04.902514+00:00"
+  "updated": "2026-10-29T10:17:36.125407+00:00"
 }
