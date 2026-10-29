@@ -110,14 +110,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:google/gemma-3-27b-it",
-      "last_ts": "2026-10-22T17:17:06.941853+00:00",
+      "last_ts": "2026-10-29T18:17:04.823413+00:00",
       "model": "google/gemma-3-27b-it",
-      "next_due_epoch": 1793296986.4665494,
+      "next_due_epoch": 1793855758.503537,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 15,
-      "ticks": 15
+      "stable_streak": 16,
+      "ticks": 16
     },
     "openai_compatible|openai/gpt-oss-120b|Nebius direct (gpt-oss-120b, vLLM fingerprint)": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-29T17:17:21.307117+00:00"
+  "updated": "2026-10-29T18:17:04.823312+00:00"
 }
