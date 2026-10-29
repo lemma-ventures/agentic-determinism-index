@@ -78,7 +78,7 @@
     "openai_compatible|deepseek-ai/DeepSeek-V4-Flash-0731|Nebius direct (DeepSeek V4 Flash, reasoning)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 61509.375,
+      "interval_s": 92264.0625,
       "label": "Nebius direct (DeepSeek V4 Flash, reasoning)",
       "last_fingerprint": null,
       "last_mode_share": 0.7,
@@ -88,14 +88,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:deepseek-ai/DeepSeek-V4-Flash-0731",
-      "last_ts": "2026-10-28T12:17:06.414058+00:00",
+      "last_ts": "2026-10-29T05:17:04.665025+00:00",
       "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "next_due_epoch": 1793248167.3930871,
+      "next_due_epoch": 1793351331.5113604,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "openai_compatible|google/gemma-3-27b-it|Nebius direct (Gemma 3 27B dense)": {
       "byte_exact": false,
@@ -457,7 +457,7 @@
     "openrouter|openai/gpt-oss-120b|Cerebras via OpenRouter (wafer-scale, single SKU)": {
       "byte_exact": true,
       "drifts": 1,
-      "interval_s": 8100.0,
+      "interval_s": 12150.0,
       "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
       "last_fingerprint": "fp_6fdb8c40f91e0c236df5",
       "last_mode_share": 1.0,
@@ -467,14 +467,14 @@
       "last_score_epoch": 1793190123.4013622,
       "last_score_stamp": "2026-10-28T121707Z",
       "last_stack_id": "fp:fp_6fdb8c40f91e0c236df5|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-29T02:17:21.796909+00:00",
+      "last_ts": "2026-10-29T05:17:05.643207+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793247733.8194788,
+      "next_due_epoch": 1793261898.3712685,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 4,
-      "ticks": 14
+      "stable_streak": 5,
+      "ticks": 15
     },
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-29T04:17:04.898767+00:00"
+  "updated": "2026-10-29T05:17:04.664925+00:00"
 }
