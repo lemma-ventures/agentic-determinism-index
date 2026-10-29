@@ -515,7 +515,7 @@
     "openrouter|openai/gpt-oss-120b|Phala via OpenRouter (TEE, attested stack)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 61509.375,
+      "interval_s": 92264.0625,
       "label": "Phala via OpenRouter (TEE, attested stack)",
       "last_fingerprint": "Phala",
       "last_mode_share": 0.3333,
@@ -525,14 +525,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-28T02:17:05.361512+00:00",
+      "last_ts": "2026-10-29T17:17:21.307231+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793292053.2460616,
+      "next_due_epoch": 1793389503.3641384,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 9,
-      "ticks": 9
+      "stable_streak": 10,
+      "ticks": 10
     },
     "openrouter|openai/gpt-oss-120b|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-29T16:17:04.834599+00:00"
+  "updated": "2026-10-29T17:17:21.307117+00:00"
 }
