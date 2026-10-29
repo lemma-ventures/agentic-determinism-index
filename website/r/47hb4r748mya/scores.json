@@ -1,0 +1,248 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "632285101437176d8086aae628bbd09551bce2a34786698c7fd77b3dcbc2a04f",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_020e283281"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "a5a93d9ef3f6a9d90546f55892ca4fb68795d40c319d658a894e9d177aef9549",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_020e283281"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "52c7af67d0ac18aa3ee8d03af4b80f13efb1de8206b1f9c921c986ea9dd80b3c",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_020e283281"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "25dbbde960495eeaaec31639aaca2d30726a6f4303f49de293c088d9dc96a05d",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_020e283281"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.1-8b-instruct"
+  ],
+  "label": "Groq via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "a8c08c2ead66f95990896e4d27a4513d0c928e358257e5fa683fcdbe1a54bbc9",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fastcoe"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "SambaNova Turbo via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fastcoe"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "SambaNova Turbo via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "98fc089be21e235cd98cc220ee57f21c0e3f56f52f66881481f0119e71e215f1",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fastcoe"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "SambaNova Turbo via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "40ba2453e73ff729d8285c7b9fee65439de62bd1f01edb56b44c9ec9d66b1c0a",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fastcoe"
+  ],
+  "model_versions": [
+   "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "label": "SambaNova Turbo via OpenRouter"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_6fdb8c40f91e0c236df5"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_6fdb8c40f91e0c236df5"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "9055b1a94540eb4d52b348ff61cb5ebb27e0c385b6de9d5bb5f9f02ac66149c9",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_6fdb8c40f91e0c236df5"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "6662ba6aa6402b1811fd1a55ff9b83bccd6e79e80f7d29196cb1d6314cccb834",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "fp_6fdb8c40f91e0c236df5"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)"
+ }
+]

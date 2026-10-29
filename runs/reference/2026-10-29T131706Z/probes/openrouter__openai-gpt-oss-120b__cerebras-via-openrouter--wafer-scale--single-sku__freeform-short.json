@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-29T13:20:23.353734+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 653
+  },
+  {
+   "ts": "2026-10-29T13:20:23.354033+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 673
+  },
+  {
+   "ts": "2026-10-29T13:20:23.355267+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 911
+  },
+  {
+   "ts": "2026-10-29T13:20:23.356377+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 677
+  },
+  {
+   "ts": "2026-10-29T13:20:23.362282+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 649
+  },
+  {
+   "ts": "2026-10-29T13:20:23.363262+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 648
+  },
+  {
+   "ts": "2026-10-29T13:20:23.365260+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 805
+  },
+  {
+   "ts": "2026-10-29T13:20:23.367463+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 657
+  },
+  {
+   "ts": "2026-10-29T13:20:34.267210+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 324
+  },
+  {
+   "ts": "2026-10-29T13:20:44.591671+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point addition is performed with a finite number of bits, so after each operation the exact real sum is rounded to the nearest representable value. Because rounding is applied after every intermediate addition, the accumulated rounding error can differ depending on how the operands are grouped; for example, (a\u202f+\u202fb)\u202f+\u202fc may round a\u202f+\u202fb before adding c, while a\u202f+\u202f(b\u202f+\u202fc) rounds b\u202f+\u202fc first, leading to different final results. Consequently, the rounding step breaks the mathematical property (x\u202f+\u202fy)\u202f+\u202fz\u202f=\u202fx\u202f+\u202f(y\u202f+\u202fz), making floating\u2011point addition non\u2011associative.",
+   "sha256": "31302b47f1d95dda066187797c73bfd4f3636eece6d884ab9eb4b3f391bd15d6",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1256
+  }
+ ]
+}
