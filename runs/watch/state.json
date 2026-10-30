@@ -122,7 +122,7 @@
     "openai_compatible|openai/gpt-oss-120b|Nebius direct (gpt-oss-120b, vLLM fingerprint)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 92264.0625,
+      "interval_s": 138396.09375,
       "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)",
       "last_fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
       "last_mode_share": 0.2,
@@ -132,14 +132,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:vllm-v0.22.0-tp4-3e04bf1c|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-29T02:17:21.286404+00:00",
+      "last_ts": "2026-10-30T04:17:36.395773+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793333616.4551709,
+      "next_due_epoch": 1793471779.0950918,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 10,
-      "ticks": 10
+      "stable_streak": 11,
+      "ticks": 11
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-30T03:17:04.857543+00:00"
+  "updated": "2026-10-30T04:17:36.395694+00:00"
 }
