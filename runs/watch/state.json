@@ -364,14 +364,14 @@
       "last_score_epoch": 1793370194.5581858,
       "last_score_stamp": "2026-10-30T141705Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
-      "last_ts": "2026-10-29T23:17:21.281484+00:00",
+      "last_ts": "2026-10-30T20:17:51.311052+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1793391223.4172359,
+      "next_due_epoch": 1793485995.5238774,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 11,
-      "ticks": 11
+      "stable_streak": 12,
+      "ticks": 12
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -515,7 +515,7 @@
     "openrouter|openai/gpt-oss-120b|Phala via OpenRouter (TEE, attested stack)": {
       "byte_exact": false,
       "drifts": 0,
-      "interval_s": 92264.0625,
+      "interval_s": 138396.09375,
       "label": "Phala via OpenRouter (TEE, attested stack)",
       "last_fingerprint": "Phala",
       "last_mode_share": 0.3333,
@@ -525,14 +525,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-10-29T17:17:21.307231+00:00",
+      "last_ts": "2026-10-30T20:17:51.997457+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793389503.3641384,
+      "next_due_epoch": 1793518517.4340618,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 10,
-      "ticks": 10
+      "stable_streak": 11,
+      "ticks": 11
     },
     "openrouter|openai/gpt-oss-120b|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-10-30T19:17:21.324617+00:00"
+  "updated": "2026-10-30T20:17:51.310974+00:00"
 }
