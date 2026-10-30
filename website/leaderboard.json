@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-30T13:17:07.875971Z",
- "latest_score_as_of": "2026-10-29T131706Z",
+ "generated_at": "2026-10-30T14:23:15.768688Z",
+ "latest_score_as_of": "2026-10-30T141705Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 54,
+ "n_runs": 55,
  "parked": [
   {
    "display": "EigenAI (EigenCloud, bit-exact claim)",
@@ -78,15 +78,15 @@
    "reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
   }
  ],
- "run_stamp": "2026-10-29T131706Z",
+ "run_stamp": "2026-10-30T141705Z",
  "tuples": [
   {
    "base_url": null,
-   "deterministic_runs": 4,
+   "deterministic_runs": 5,
    "display": "SambaNova Turbo via OpenRouter",
    "exact_match_rate": 1.0,
    "green": true,
-   "held_hours": 75.0,
+   "held_hours": 100.0,
    "held_since": "2026-10-26T101705Z",
    "label": "SambaNova Turbo via OpenRouter",
    "mean_mode_share": 1.0,
@@ -101,42 +101,13 @@
     ]
    },
    "rank": 1,
-   "replay_checks": 12,
+   "replay_checks": 16,
    "replay_rate": 1.0,
-   "runs_seen": 4,
+   "runs_seen": 5,
    "score": 100.0,
-   "score_as_of": "2026-10-29T131706Z",
+   "score_as_of": "2026-10-30T141705Z",
    "status": "active",
-   "streak": 4
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 8,
-   "display": "Groq via OpenRouter",
-   "exact_match_rate": 1.0,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "Groq via OpenRouter",
-   "mean_mode_share": 1.0,
-   "medal": "",
-   "model": "meta-llama/llama-3.1-8b-instruct",
-   "parked_reason": "",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "groq"
-    ]
-   },
-   "rank": 2,
-   "replay_checks": 50,
-   "replay_rate": 0.9,
-   "runs_seen": 15,
-   "score": 96.0,
-   "score_as_of": "2026-10-29T131706Z",
-   "status": "active",
-   "streak": 0
+   "streak": 5
   },
   {
    "base_url": null,
@@ -158,12 +129,41 @@
      "coreweave"
     ]
    },
-   "rank": 3,
+   "rank": 2,
    "replay_checks": 14,
    "replay_rate": 1.0,
    "runs_seen": 6,
    "score": 93.75,
    "score_as_of": "2026-10-26T101705Z",
+   "status": "active",
+   "streak": 0
+  },
+  {
+   "base_url": null,
+   "deterministic_runs": 8,
+   "display": "Groq via OpenRouter",
+   "exact_match_rate": 0.5,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "",
+   "label": "Groq via OpenRouter",
+   "mean_mode_share": 0.9,
+   "medal": "",
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "parked_reason": "",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "groq"
+    ]
+   },
+   "rank": 3,
+   "replay_checks": 54,
+   "replay_rate": 0.8704,
+   "runs_seen": 16,
+   "score": 80.82,
+   "score_as_of": "2026-10-30T141705Z",
    "status": "active",
    "streak": 0
   },
@@ -188,11 +188,11 @@
     ]
    },
    "rank": 4,
-   "replay_checks": 128,
-   "replay_rate": 0.2109,
-   "runs_seen": 33,
-   "score": 68.44,
-   "score_as_of": "2026-10-29T131706Z",
+   "replay_checks": 132,
+   "replay_rate": 0.2121,
+   "runs_seen": 34,
+   "score": 68.48,
+   "score_as_of": "2026-10-30T141705Z",
    "status": "active",
    "streak": 0
   },
