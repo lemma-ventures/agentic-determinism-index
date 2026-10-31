@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-31T15:20:41.069729+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1535
+  },
+  {
+   "ts": "2026-10-31T15:20:41.070013+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1763
+  },
+  {
+   "ts": "2026-10-31T15:20:41.071259+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1562
+  },
+  {
+   "ts": "2026-10-31T15:20:41.072393+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1967
+  },
+  {
+   "ts": "2026-10-31T15:20:41.078281+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1806
+  },
+  {
+   "ts": "2026-10-31T15:20:41.079255+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1967
+  },
+  {
+   "ts": "2026-10-31T15:20:41.081288+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1594
+  },
+  {
+   "ts": "2026-10-31T15:20:41.082391+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1521
+  },
+  {
+   "ts": "2026-10-31T15:20:53.047195+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 495
+  },
+  {
+   "ts": "2026-10-31T15:21:03.542781+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point addition is performed with a fixed number of mantissa bits, so after each operation the exact real sum is rounded to the nearest representable value. Because the rounding is applied after every intermediate addition, the result of \\((a+b)+c\\) can differ from \\(a+(b+c)\\) when the rounding errors in the two groupings are not the same. Thus the finite precision and rounding steps break the mathematical associativity property of addition.",
+   "sha256": "370bd2830c58db2e25508348c22d40703e040cbed5409758cccdd7f027288735",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 951
+  }
+ ]
+}

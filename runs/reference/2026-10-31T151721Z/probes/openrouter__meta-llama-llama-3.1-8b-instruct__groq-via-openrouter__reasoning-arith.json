@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Groq via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "groq"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "groq"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-10-31T15:17:43.776643+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 563
+  },
+  {
+   "ts": "2026-10-31T15:17:43.776890+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 580
+  },
+  {
+   "ts": "2026-10-31T15:17:43.778280+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 586
+  },
+  {
+   "ts": "2026-10-31T15:17:43.779397+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 551
+  },
+  {
+   "ts": "2026-10-31T15:17:43.785278+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 785
+  },
+  {
+   "ts": "2026-10-31T15:17:43.786268+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 495
+  },
+  {
+   "ts": "2026-10-31T15:17:43.788254+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 513
+  },
+  {
+   "ts": "2026-10-31T15:17:43.790266+00:00",
+   "mode": "burst",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 578
+  },
+  {
+   "ts": "2026-10-31T15:17:54.570936+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 409
+  },
+  {
+   "ts": "2026-10-31T15:18:04.979720+00:00",
+   "mode": "serial",
+   "text": "To find the total number of boxes, we need to add the boxes across all three floors:\n\n1284 + 907 + 2156 = 4247 boxes\n\nNext, we need to divide the total number of boxes by the number of boxes each truck can carry to find the number of fully loaded trucks:\n\n4247 \u00f7 85 = 49.91\n\nSince we can't have a fraction of a truck, we round down to the nearest whole number. This means we can fill 49 trucks completely.\n\nTo find the number of boxes remaining, we multiply the number of fully loaded trucks by the number of boxes each truck can carry, then subtract this from the total number of boxes:\n\n49 * 85 = 4185 boxes\n4247 - 4185 = 62 boxes\n\nSo, 49 trucks can be fully loaded, and 62 boxes remain unshipped.\n\nANSWER: 49,62",
+   "sha256": "7db94671966734cc6fa89ec1b57069957f4953eff9fde2133f05e45aea2ffda8",
+   "fingerprint": "fp_020e283281",
+   "model_version": "meta-llama/llama-3.1-8b-instruct",
+   "latency_ms": 442
+  }
+ ]
+}

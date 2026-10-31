@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-10-30T14:23:15.768688Z",
- "latest_score_as_of": "2026-10-30T141705Z",
+ "generated_at": "2026-10-31T15:22:19.106725Z",
+ "latest_score_as_of": "2026-10-31T151721Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 55,
+ "n_runs": 56,
  "parked": [
   {
    "display": "EigenAI (EigenCloud, bit-exact claim)",
@@ -78,15 +78,15 @@
    "reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
   }
  ],
- "run_stamp": "2026-10-30T141705Z",
+ "run_stamp": "2026-10-31T151721Z",
  "tuples": [
   {
    "base_url": null,
-   "deterministic_runs": 5,
+   "deterministic_runs": 6,
    "display": "SambaNova Turbo via OpenRouter",
    "exact_match_rate": 1.0,
    "green": true,
-   "held_hours": 100.0,
+   "held_hours": 125.0,
    "held_since": "2026-10-26T101705Z",
    "label": "SambaNova Turbo via OpenRouter",
    "mean_mode_share": 1.0,
@@ -101,13 +101,13 @@
     ]
    },
    "rank": 1,
-   "replay_checks": 16,
+   "replay_checks": 20,
    "replay_rate": 1.0,
-   "runs_seen": 5,
+   "runs_seen": 6,
    "score": 100.0,
-   "score_as_of": "2026-10-30T141705Z",
+   "score_as_of": "2026-10-31T151721Z",
    "status": "active",
-   "streak": 5
+   "streak": 6
   },
   {
    "base_url": null,
@@ -142,12 +142,12 @@
    "base_url": null,
    "deterministic_runs": 8,
    "display": "Groq via OpenRouter",
-   "exact_match_rate": 0.5,
+   "exact_match_rate": 0.75,
    "green": false,
    "held_hours": 0.0,
    "held_since": "",
    "label": "Groq via OpenRouter",
-   "mean_mode_share": 0.9,
+   "mean_mode_share": 0.85,
    "medal": "",
    "model": "meta-llama/llama-3.1-8b-instruct",
    "parked_reason": "",
@@ -159,11 +159,11 @@
     ]
    },
    "rank": 3,
-   "replay_checks": 54,
-   "replay_rate": 0.8704,
-   "runs_seen": 16,
-   "score": 80.82,
-   "score_as_of": "2026-10-30T141705Z",
+   "replay_checks": 58,
+   "replay_rate": 0.8793,
+   "runs_seen": 17,
+   "score": 84.17,
+   "score_as_of": "2026-10-31T151721Z",
    "status": "active",
    "streak": 0
   },
@@ -188,11 +188,11 @@
     ]
    },
    "rank": 4,
-   "replay_checks": 132,
-   "replay_rate": 0.2121,
-   "runs_seen": 34,
-   "score": 68.48,
-   "score_as_of": "2026-10-30T141705Z",
+   "replay_checks": 136,
+   "replay_rate": 0.2132,
+   "runs_seen": 35,
+   "score": 68.53,
+   "score_as_of": "2026-10-31T151721Z",
    "status": "active",
    "streak": 0
   },
