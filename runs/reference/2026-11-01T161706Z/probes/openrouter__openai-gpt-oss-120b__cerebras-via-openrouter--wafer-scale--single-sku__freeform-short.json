@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-01T16:19:14.588569+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 430
+  },
+  {
+   "ts": "2026-11-01T16:19:14.588821+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 450
+  },
+  {
+   "ts": "2026-11-01T16:19:14.590258+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 444
+  },
+  {
+   "ts": "2026-11-01T16:19:14.591357+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 453
+  },
+  {
+   "ts": "2026-11-01T16:19:14.597285+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 444
+  },
+  {
+   "ts": "2026-11-01T16:19:14.598242+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 438
+  },
+  {
+   "ts": "2026-11-01T16:19:14.599374+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 430
+  },
+  {
+   "ts": "2026-11-01T16:19:14.601263+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 425
+  },
+  {
+   "ts": "2026-11-01T16:19:25.045219+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 331
+  },
+  {
+   "ts": "2026-11-01T16:19:35.376460+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a limited mantissa, so each arithmetic operation rounds the exact real result to the nearest representable value. When you add three numbers, the intermediate rounding can differ depending on whether you compute \\((a+b)+c\\) or \\(a+(b+c)\\), because the first sum may lose bits that the second sum would retain. Consequently, the final rounded results can be unequal, breaking the associative law for floating\u2011point addition.",
+   "sha256": "c01d504f0d1794d930bb43f546436d1078c66461ebfe8ecb2b38e8170b05f956",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1783
+  }
+ ]
+}

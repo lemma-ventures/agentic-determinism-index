@@ -359,10 +359,10 @@
       "last_fingerprint": "fastcoe",
       "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.3-70b-instruct",
-      "last_score_attempt_epoch": 1793460138.004834,
-      "last_score_attempt_stamp": "2026-10-31T151721Z",
-      "last_score_epoch": 1793460138.004834,
-      "last_score_stamp": "2026-10-31T151721Z",
+      "last_score_attempt_epoch": 1793550049.1442764,
+      "last_score_attempt_stamp": "2026-11-01T161706Z",
+      "last_score_epoch": 1793550049.1442764,
+      "last_score_stamp": "2026-11-01T161706Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-10-31T23:17:06.163012+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
@@ -462,10 +462,10 @@
       "last_fingerprint": "fp_6fdb8c40f91e0c236df5",
       "last_mode_share": 1.0,
       "last_model_version": "openai/gpt-oss-120b",
-      "last_score_attempt_epoch": 1793460138.004834,
-      "last_score_attempt_stamp": "2026-10-31T151721Z",
-      "last_score_epoch": 1793460138.004834,
-      "last_score_stamp": "2026-10-31T151721Z",
+      "last_score_attempt_epoch": 1793550049.1442764,
+      "last_score_attempt_stamp": "2026-11-01T161706Z",
+      "last_score_epoch": 1793550049.1442764,
+      "last_score_stamp": "2026-11-01T161706Z",
       "last_stack_id": "fp:fp_6fdb8c40f91e0c236df5|mv:openai/gpt-oss-120b",
       "last_ts": "2026-11-01T07:17:36.318453+00:00",
       "model": "openai/gpt-oss-120b",
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-01T15:17:04.890259+00:00"
+  "updated": "2026-11-01T16:20:49.144312+00:00"
 }
