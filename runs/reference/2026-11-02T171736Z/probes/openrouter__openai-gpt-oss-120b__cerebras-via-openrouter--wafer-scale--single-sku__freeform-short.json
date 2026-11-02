@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-02T17:19:26.876020+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 530
+  },
+  {
+   "ts": "2026-11-02T17:19:26.876288+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 452
+  },
+  {
+   "ts": "2026-11-02T17:19:26.877256+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 468
+  },
+  {
+   "ts": "2026-11-02T17:19:26.878412+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 458
+  },
+  {
+   "ts": "2026-11-02T17:19:26.884297+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 4969
+  },
+  {
+   "ts": "2026-11-02T17:19:26.885265+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1389
+  },
+  {
+   "ts": "2026-11-02T17:19:26.887275+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 498
+  },
+  {
+   "ts": "2026-11-02T17:19:26.889246+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 468
+  },
+  {
+   "ts": "2026-11-02T17:19:41.854386+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1056
+  },
+  {
+   "ts": "2026-11-02T17:19:52.910636+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition follows the rule\u202fa\u202f+\u202fb\u202f=\u202fround(a\u202f+\u202fb), where the exact sum is rounded to the nearest representable value in a finite mantissa. Because each rounding discards some low\u2011order bits, the intermediate result of (a\u202f+\u202fb) can differ from the exact sum, so when we then add c the final rounding may produce a different value than computing a\u202f+\u202f(b\u202f+\u202fc) where the rounding occurs after the second addition instead. Consequently, the limited precision and successive rounding operations break the mathematical associativity property for floating\u2011point addition.",
+   "sha256": "4c1f03ccd470c4f3840117483e652c32faa1737cf8b7e69cb9eec58ef54ce91b",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2016
+  }
+ ]
+}
