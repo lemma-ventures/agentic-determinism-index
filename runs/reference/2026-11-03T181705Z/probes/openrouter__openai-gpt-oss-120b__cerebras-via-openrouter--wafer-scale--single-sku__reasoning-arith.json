@@ -1,0 +1,133 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-03T18:19:15.956462+00:00",
+   "mode": "burst",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347\\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:  \n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   Since only whole trucks can be fully loaded, we take the integer part: **51 trucks**.\n\n3. **Calculate how many boxes those 51 trucks carry**  \n   \\[\n   51 \\times 85 = 4335\\text{ boxes}\n   \\]\n\n4. **Find the remaining boxes that cannot fill another truck**  \n   \\[\n   4347 - 4335 = 12\\text{ boxes}\n   \\]\n\nThus, 51 trucks can be completely filled, and 12 boxes will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "96efe0f704650b58413911bd6b4f91bef8599d8d3dbc9f7f645cf7b5d6affaea",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 500
+  },
+  {
+   "ts": "2026-11-03T18:19:15.956693+00:00",
+   "mode": "burst",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347\\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:  \n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   Since only whole trucks can be fully loaded, we take the integer part: **51 trucks**.\n\n3. **Calculate how many boxes those 51 trucks carry**  \n   \\[\n   51 \\times 85 = 4335\\text{ boxes}\n   \\]\n\n4. **Find the remaining boxes that cannot fill another truck**  \n   \\[\n   4347 - 4335 = 12\\text{ boxes}\n   \\]\n\nThus, 51 trucks can be completely filled, and 12 boxes will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "96efe0f704650b58413911bd6b4f91bef8599d8d3dbc9f7f645cf7b5d6affaea",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 525
+  },
+  {
+   "ts": "2026-11-03T18:19:15.958271+00:00",
+   "mode": "burst",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347\\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:  \n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   Since only whole trucks can be fully loaded, we take the integer part: **51 trucks**.\n\n3. **Calculate how many boxes those 51 trucks carry**  \n   \\[\n   51 \\times 85 = 4335\\text{ boxes}\n   \\]\n\n4. **Find the remaining boxes that cannot fill another truck**  \n   \\[\n   4347 - 4335 = 12\\text{ boxes}\n   \\]\n\nThus, 51 trucks can be completely filled, and 12 boxes will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "96efe0f704650b58413911bd6b4f91bef8599d8d3dbc9f7f645cf7b5d6affaea",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 527
+  },
+  {
+   "ts": "2026-11-03T18:19:15.959393+00:00",
+   "mode": "burst",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347\\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:  \n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   Since only whole trucks can be fully loaded, we take the integer part: **51 trucks**.\n\n3. **Calculate how many boxes those 51 trucks carry**  \n   \\[\n   51 \\times 85 = 4335\\text{ boxes}\n   \\]\n\n4. **Find the remaining boxes that cannot fill another truck**  \n   \\[\n   4347 - 4335 = 12\\text{ boxes}\n   \\]\n\nThus, 51 trucks can be completely filled, and 12 boxes will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "96efe0f704650b58413911bd6b4f91bef8599d8d3dbc9f7f645cf7b5d6affaea",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 518
+  },
+  {
+   "ts": "2026-11-03T18:19:15.965288+00:00",
+   "mode": "burst",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347\\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:  \n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   Since only whole trucks can be fully loaded, we take the integer part: **51 trucks**.\n\n3. **Calculate how many boxes those 51 trucks carry**  \n   \\[\n   51 \\times 85 = 4335\\text{ boxes}\n   \\]\n\n4. **Find the remaining boxes that cannot fill another truck**  \n   \\[\n   4347 - 4335 = 12\\text{ boxes}\n   \\]\n\nThus, 51 trucks can be completely filled, and 12 boxes will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "96efe0f704650b58413911bd6b4f91bef8599d8d3dbc9f7f645cf7b5d6affaea",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 793
+  },
+  {
+   "ts": "2026-11-03T18:19:15.966259+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own provider key to use your own limits: https://openrouter.ai/workspaces/default/byok\",\"provider_name\":\"Cerebras\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key to use your own limits (https://openrouter.ai/workspaces/default/byok), or route to another provid",
+   "latency_ms": 325
+  },
+  {
+   "ts": "2026-11-03T18:19:15.968263+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own provider key to use your own limits: https://openrouter.ai/workspaces/default/byok\",\"provider_name\":\"Cerebras\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key to use your own limits (https://openrouter.ai/workspaces/default/byok), or route to another provid",
+   "latency_ms": 299
+  },
+  {
+   "ts": "2026-11-03T18:19:15.968650+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 429: {\"error\":{\"message\":\"Provider returned error\",\"code\":429,\"metadata\":{\"raw\":\"openai/gpt-oss-120b is temporarily rate-limited upstream. Please retry shortly, or add your own provider key to use your own limits: https://openrouter.ai/workspaces/default/byok\",\"provider_name\":\"Cerebras\",\"is_byok\":false,\"limit_source\":\"upstream_provider_shared_pool\",\"remedy_hint\":\"Retry shortly, add your own provider key to use your own limits (https://openrouter.ai/workspaces/default/byok), or route to another provid",
+   "latency_ms": 322
+  },
+  {
+   "ts": "2026-11-03T18:19:26.759038+00:00",
+   "mode": "serial",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347\\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:  \n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   Since only whole trucks can be fully loaded, we take the integer part: **51 trucks**.\n\n3. **Calculate how many boxes those 51 trucks carry**  \n   \\[\n   51 \\times 85 = 4335\\text{ boxes}\n   \\]\n\n4. **Find the remaining boxes that cannot fill another truck**  \n   \\[\n   4347 - 4335 = 12\\text{ boxes}\n   \\]\n\nThus, 51 trucks can be completely filled, and 12 boxes will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "96efe0f704650b58413911bd6b4f91bef8599d8d3dbc9f7f645cf7b5d6affaea",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 762
+  },
+  {
+   "ts": "2026-11-03T18:19:37.521325+00:00",
+   "mode": "serial",
+   "text": "**Step\u2011by\u2011step reasoning**\n\n1. **Add the boxes on all three floors**  \n   \\[\n   1284 + 907 + 2156 = 2191 + 2156 = 4347\\text{ boxes}\n   \\]\n\n2. **Determine how many full trucks can be loaded**  \n   Each truck holds 85 boxes.  \n   Divide the total number of boxes by the capacity per truck:  \n   \\[\n   \\frac{4347}{85} \\approx 51.14\n   \\]\n   Since only whole trucks can be fully loaded, we take the integer part: **51 trucks**.\n\n3. **Calculate how many boxes those 51 trucks carry**  \n   \\[\n   51 \\times 85 = 4335\\text{ boxes}\n   \\]\n\n4. **Find the remaining boxes that cannot fill another truck**  \n   \\[\n   4347 - 4335 = 12\\text{ boxes}\n   \\]\n\nThus, 51 trucks can be completely filled, and 12 boxes will be left unshipped.\n\n**ANSWER: 51,12**",
+   "sha256": "96efe0f704650b58413911bd6b4f91bef8599d8d3dbc9f7f645cf7b5d6affaea",
+   "fingerprint": "fp_6fdb8c40f91e0c236df5",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 1005
+  }
+ ]
+}
