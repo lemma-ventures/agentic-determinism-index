@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-04T19:19:08.735194+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 453
+  },
+  {
+   "ts": "2026-11-04T19:19:08.735501+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 551
+  },
+  {
+   "ts": "2026-11-04T19:19:08.737293+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 563
+  },
+  {
+   "ts": "2026-11-04T19:19:08.738402+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 481
+  },
+  {
+   "ts": "2026-11-04T19:19:08.744289+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 482
+  },
+  {
+   "ts": "2026-11-04T19:19:08.745270+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 568
+  },
+  {
+   "ts": "2026-11-04T19:19:08.746406+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 472
+  },
+  {
+   "ts": "2026-11-04T19:19:08.746683+00:00",
+   "mode": "burst",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 477
+  },
+  {
+   "ts": "2026-11-04T19:19:19.314304+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 319
+  },
+  {
+   "ts": "2026-11-04T19:19:29.633442+00:00",
+   "mode": "serial",
+   "text": "Floating\u2011point numbers have a finite mantissa, so each arithmetic operation must round the exact real result to the nearest representable value (or another rounding mode). Because the rounding is performed after every addition, the intermediate result of \\((a+b)+c\\) is rounded before adding \\(c\\), while in \\(a+(b+c)\\) the rounding occurs after adding \\(b\\) and \\(c\\) first, which can produce a different rounded intermediate value. Consequently the two final rounded results can differ, showing that floating\u2011point addition is not associative.",
+   "sha256": "eb891b06b69736ee60f08ef7aac4e75934ddbd462a4c2000a28fcd8b5ae21497",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2245
+  }
+ ]
+}
