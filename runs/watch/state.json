@@ -457,7 +457,7 @@
     "openrouter|openai/gpt-oss-120b|Cerebras via OpenRouter (wafer-scale, single SKU)": {
       "byte_exact": false,
       "drifts": 2,
-      "interval_s": 27337.5,
+      "interval_s": 41006.25,
       "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
       "last_fingerprint": "fp_4e63ac9396838fe79c69",
       "last_mode_share": 1.0,
@@ -467,14 +467,14 @@
       "last_score_epoch": 1793820042.9735782,
       "last_score_stamp": "2026-11-04T191702Z",
       "last_stack_id": "fp:fp_4e63ac9396838fe79c69|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-04T18:17:51.361345+00:00",
+      "last_ts": "2026-11-05T03:17:51.395684+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793846619.9238446,
+      "next_due_epoch": 1793888649.09391,
       "non_exact_streak": 1,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 7,
-      "ticks": 31
+      "stable_streak": 8,
+      "ticks": 32
     },
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
@@ -489,14 +489,14 @@
       "last_score_epoch": 1793121733.356797,
       "last_score_stamp": "2026-10-27T171707Z",
       "last_stack_id": "fp:Crusoe|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-04T23:17:04.793649+00:00",
+      "last_ts": "2026-11-05T03:17:51.730690+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793847907.4022517,
+      "next_due_epoch": 1793861567.3811872,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 1,
-      "ticks": 28
+      "stable_streak": 2,
+      "ticks": 29
     },
     "openrouter|openai/gpt-oss-120b|Phala TEE via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-05T02:17:04.872692+00:00"
+  "updated": "2026-11-05T03:17:51.395597+00:00"
 }
