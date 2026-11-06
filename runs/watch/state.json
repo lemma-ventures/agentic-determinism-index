@@ -467,14 +467,14 @@
       "last_score_epoch": 1793910053.04009,
       "last_score_stamp": "2026-11-05T201704Z",
       "last_stack_id": "fp:fp_365d1af6b3d96d47607a|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-06T11:17:05.025242+00:00",
+      "last_ts": "2026-11-06T13:17:04.869463+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1793968025.536918,
+      "next_due_epoch": 1793974101.3015232,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 34
+      "stable_streak": 1,
+      "ticks": 35
     },
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-06T12:17:04.788666+00:00"
+  "updated": "2026-11-06T13:17:04.869375+00:00"
 }
