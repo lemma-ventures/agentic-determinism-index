@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-11-06T15:17:07.120393Z",
- "latest_score_as_of": "2026-11-05T201704Z",
+ "generated_at": "2026-11-06T21:20:36.733949Z",
+ "latest_score_as_of": "2026-11-06T211701Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 61,
+ "n_runs": 62,
  "parked": [
   {
    "display": "EigenAI (EigenCloud, bit-exact claim)",
@@ -78,15 +78,15 @@
    "reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
   }
  ],
- "run_stamp": "2026-11-05T201704Z",
+ "run_stamp": "2026-11-06T211701Z",
  "tuples": [
   {
    "base_url": null,
-   "deterministic_runs": 10,
+   "deterministic_runs": 11,
    "display": "SambaNova Turbo via OpenRouter",
    "exact_match_rate": 1.0,
    "green": false,
-   "held_hours": 0.0,
+   "held_hours": 25.0,
    "held_since": "2026-11-05T201704Z",
    "label": "SambaNova Turbo via OpenRouter",
    "mean_mode_share": 1.0,
@@ -101,13 +101,13 @@
     ]
    },
    "rank": 1,
-   "replay_checks": 40,
+   "replay_checks": 44,
    "replay_rate": 1.0,
-   "runs_seen": 11,
+   "runs_seen": 12,
    "score": 100.0,
-   "score_as_of": "2026-11-05T201704Z",
+   "score_as_of": "2026-11-06T211701Z",
    "status": "active",
-   "streak": 1
+   "streak": 2
   },
   {
    "base_url": null,
@@ -171,12 +171,12 @@
    "base_url": null,
    "deterministic_runs": 1,
    "display": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "exact_match_rate": 1.0,
+   "exact_match_rate": 0.75,
    "green": false,
    "held_hours": 0.0,
    "held_since": "",
    "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
-   "mean_mode_share": 1.0,
+   "mean_mode_share": 0.975,
    "medal": "",
    "model": "openai/gpt-oss-120b",
    "parked_reason": "",
@@ -188,11 +188,11 @@
     ]
    },
    "rank": 4,
-   "replay_checks": 156,
-   "replay_rate": 0.2179,
-   "runs_seen": 40,
-   "score": 68.72,
-   "score_as_of": "2026-11-05T201704Z",
+   "replay_checks": 160,
+   "replay_rate": 0.2188,
+   "runs_seen": 41,
+   "score": 62.75,
+   "score_as_of": "2026-11-06T211701Z",
    "status": "active",
    "streak": 0
   },
