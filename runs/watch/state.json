@@ -410,25 +410,25 @@
     },
     "openrouter|openai/gpt-4o-mini|Azure via OpenRouter": {
       "byte_exact": false,
-      "drifts": 2,
-      "interval_s": 311391.2109375,
+      "drifts": 3,
+      "interval_s": 14400,
       "label": "Azure via OpenRouter",
-      "last_fingerprint": "fp_4b2adf74ff",
+      "last_fingerprint": "fp_486a957a0b",
       "last_mode_share": 0.3,
       "last_model_version": "openai/gpt-4o-mini",
       "last_score_attempt_epoch": 1793013125.889248,
       "last_score_attempt_stamp": "2026-10-26T101705Z",
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
-      "last_stack_id": "fp:fp_4b2adf74ff|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-11-04T09:17:04.892429+00:00",
+      "last_stack_id": "fp:fp_486a957a0b|mv:openai/gpt-4o-mini",
+      "last_ts": "2026-11-07T14:17:04.818142+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1794060189.3561847,
+      "next_due_epoch": 1794075779.633668,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 13,
-      "ticks": 46
+      "stable_streak": 0,
+      "ticks": 47
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -489,14 +489,14 @@
       "last_score_epoch": 1793121733.356797,
       "last_score_stamp": "2026-10-27T171707Z",
       "last_stack_id": "fp:Crusoe|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-07T09:17:51.392581+00:00",
+      "last_ts": "2026-11-07T14:17:05.861614+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1794060099.8273373,
+      "next_due_epoch": 1794075711.8559966,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 4,
-      "ticks": 40
+      "stable_streak": 5,
+      "ticks": 41
     },
     "openrouter|openai/gpt-oss-120b|Phala TEE via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-07T13:17:51.353091+00:00"
+  "updated": "2026-11-07T14:17:04.817449+00:00"
 }
