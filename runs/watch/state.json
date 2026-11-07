@@ -275,7 +275,7 @@
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": false,
       "drifts": 172,
-      "interval_s": 18225.0,
+      "interval_s": 27337.5,
       "label": "Groq via OpenRouter",
       "last_fingerprint": "fp_020e283281",
       "last_mode_share": 1.0,
@@ -285,14 +285,14 @@
       "last_score_epoch": 1793460138.004834,
       "last_score_stamp": "2026-10-31T151721Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-11-07T00:17:04.735422+00:00",
+      "last_ts": "2026-11-07T06:17:04.775780+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1794029742.8018878,
+      "next_due_epoch": 1794064397.608716,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 6,
-      "ticks": 359
+      "stable_streak": 7,
+      "ticks": 360
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-07T05:17:04.836752+00:00"
+  "updated": "2026-11-07T06:17:04.775734+00:00"
 }
