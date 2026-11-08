@@ -410,25 +410,25 @@
     },
     "openrouter|openai/gpt-4o-mini|Azure via OpenRouter": {
       "byte_exact": false,
-      "drifts": 4,
+      "drifts": 5,
       "interval_s": 14400,
       "label": "Azure via OpenRouter",
-      "last_fingerprint": "fp_4b2adf74ff",
+      "last_fingerprint": "fp_486a957a0b",
       "last_mode_share": 0.3,
       "last_model_version": "openai/gpt-4o-mini",
       "last_score_attempt_epoch": 1793013125.889248,
       "last_score_attempt_stamp": "2026-10-26T101705Z",
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
-      "last_stack_id": "fp:fp_4b2adf74ff|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-11-08T17:17:04.797930+00:00",
+      "last_stack_id": "fp:fp_486a957a0b|mv:openai/gpt-4o-mini",
+      "last_ts": "2026-11-08T22:17:01.205739+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1794173675.74853,
+      "next_due_epoch": 1794190195.8282516,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 3,
-      "ticks": 53
+      "stable_streak": 0,
+      "ticks": 54
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-08T21:17:04.775978+00:00"
+  "updated": "2026-11-08T22:17:01.205694+00:00"
 }
