@@ -421,14 +421,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:fp_486a957a0b|mv:openai/gpt-4o-mini",
-      "last_ts": "2026-11-08T22:17:01.205739+00:00",
+      "last_ts": "2026-11-09T02:17:04.873490+00:00",
       "model": "openai/gpt-4o-mini",
-      "next_due_epoch": 1794190195.8282516,
+      "next_due_epoch": 1794203201.8287613,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 54
+      "stable_streak": 1,
+      "ticks": 55
     },
     "openrouter|openai/gpt-4o-mini|OpenAI via OpenRouter": {
       "interval_s": 3600,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-09T01:17:04.779743+00:00"
+  "updated": "2026-11-09T02:17:04.873449+00:00"
 }
