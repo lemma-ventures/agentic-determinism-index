@@ -491,7 +491,7 @@
       "last_stack_id": "fp:vllm-0.27.1-tp4-80ed3009|mv:openai/gpt-oss-120b",
       "last_ts": "2026-11-09T12:17:04.838064+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1794238425.5700474,
+      "next_due_epoch": 1794254853.004519,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-09T15:17:05.364766+00:00"
+  "updated": "2026-11-09T16:17:04.934825+00:00"
 }
