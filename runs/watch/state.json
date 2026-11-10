@@ -489,14 +489,14 @@
       "last_score_epoch": 1793121733.356797,
       "last_score_stamp": "2026-10-27T171707Z",
       "last_stack_id": "fp:Crusoe|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-10T13:17:04.852422+00:00",
+      "last_ts": "2026-11-10T17:17:04.755984+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1794329506.5512714,
+      "next_due_epoch": 1794347456.0972605,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 4,
-      "ticks": 53
+      "stable_streak": 5,
+      "ticks": 54
     },
     "openrouter|openai/gpt-oss-120b|Phala TEE via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-10T16:17:04.823731+00:00"
+  "updated": "2026-11-10T17:17:04.755893+00:00"
 }
