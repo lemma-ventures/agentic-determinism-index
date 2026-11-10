@@ -46,7 +46,7 @@
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
       "last_ts": "2026-10-26T15:17:04.845985+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1794333433.5888731,
+      "next_due_epoch": 1795058018.2951088,
       "non_exact_streak": 3,
       "provider": "nvidia_nim",
       "score_failures": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-10T17:17:04.755893+00:00"
+  "updated": "2026-11-10T18:17:04.726799+00:00"
 }
