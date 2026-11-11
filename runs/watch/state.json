@@ -285,14 +285,14 @@
       "last_score_epoch": 1793460138.004834,
       "last_score_stamp": "2026-10-31T151721Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-11-11T19:17:04.657110+00:00",
+      "last_ts": "2026-11-11T23:17:01.295147+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1794438116.3798819,
+      "next_due_epoch": 1794453961.9546223,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 366
+      "stable_streak": 1,
+      "ticks": 367
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -479,7 +479,7 @@
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
       "drifts": 7,
-      "interval_s": 41006.25,
+      "interval_s": 61509.375,
       "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)",
       "last_fingerprint": "Crusoe",
       "last_mode_share": 0.3,
@@ -489,14 +489,14 @@
       "last_score_epoch": 1793121733.356797,
       "last_score_stamp": "2026-10-27T171707Z",
       "last_stack_id": "fp:Crusoe|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-11T10:17:04.762935+00:00",
+      "last_ts": "2026-11-11T23:17:01.540511+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1794438740.5299814,
+      "next_due_epoch": 1794504986.2650433,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 8,
-      "ticks": 57
+      "stable_streak": 9,
+      "ticks": 58
     },
     "openrouter|openai/gpt-oss-120b|Phala TEE via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-11T22:17:04.877025+00:00"
+  "updated": "2026-11-11T23:17:01.295097+00:00"
 }
