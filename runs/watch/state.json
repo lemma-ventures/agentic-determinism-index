@@ -364,14 +364,14 @@
       "last_score_epoch": 1794360078.5387714,
       "last_score_stamp": "2026-11-11T011704Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
-      "last_ts": "2026-11-04T21:17:04.951423+00:00",
+      "last_ts": "2026-11-11T20:17:04.746524+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1794425838.0368228,
+      "next_due_epoch": 1795074565.5147085,
       "non_exact_streak": 1,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 17,
-      "ticks": 17
+      "stable_streak": 18,
+      "ticks": 18
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova via OpenRouter": {
       "drifts": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-11T19:17:04.657061+00:00"
+  "updated": "2026-11-11T20:17:04.746453+00:00"
 }
