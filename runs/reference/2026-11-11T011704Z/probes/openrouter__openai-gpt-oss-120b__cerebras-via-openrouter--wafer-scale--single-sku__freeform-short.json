@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-11T01:19:47.733773+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 441
+  },
+  {
+   "ts": "2026-11-11T01:19:47.734078+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 488
+  },
+  {
+   "ts": "2026-11-11T01:19:47.735256+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 474
+  },
+  {
+   "ts": "2026-11-11T01:19:47.736394+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 455
+  },
+  {
+   "ts": "2026-11-11T01:19:47.742271+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 457
+  },
+  {
+   "ts": "2026-11-11T01:19:47.743277+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 470
+  },
+  {
+   "ts": "2026-11-11T01:19:47.745267+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 532
+  },
+  {
+   "ts": "2026-11-11T01:19:47.746402+00:00",
+   "mode": "burst",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 472
+  },
+  {
+   "ts": "2026-11-11T01:19:58.277781+00:00",
+   "mode": "serial",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 2112
+  },
+  {
+   "ts": "2026-11-11T01:20:10.390263+00:00",
+   "mode": "serial",
+   "text": "In floating\u2011point arithmetic each operation rounds the exact real result to the nearest representable number with a fixed number of bits. When you add three numbers, the intermediate rounding after the first addition can change the magnitude and exponent of the partial sum, causing a different rounding error than if you add the other two first. Consequently \\((a+b)+c\\) and \\(a+(b+c)\\) can produce different floating\u2011point results, showing that addition is not associative.",
+   "sha256": "a269d46908acd1e8876d7f73429d15b24ad15decf45103b3cd23db6fe1cf7e65",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 336
+  }
+ ]
+}
