@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
+  "provider_prefs": {
+   "order": [
+    "cerebras"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cerebras"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-12T02:18:55.195833+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 418
+  },
+  {
+   "ts": "2026-11-12T02:18:55.196108+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 432
+  },
+  {
+   "ts": "2026-11-12T02:18:55.197278+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 423
+  },
+  {
+   "ts": "2026-11-12T02:18:55.198400+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 428
+  },
+  {
+   "ts": "2026-11-12T02:18:55.204299+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 415
+  },
+  {
+   "ts": "2026-11-12T02:18:55.205249+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 541
+  },
+  {
+   "ts": "2026-11-12T02:18:55.207267+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 410
+  },
+  {
+   "ts": "2026-11-12T02:18:55.209264+00:00",
+   "mode": "burst",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 423
+  },
+  {
+   "ts": "2026-11-12T02:19:05.747195+00:00",
+   "mode": "serial",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 253
+  },
+  {
+   "ts": "2026-11-12T02:19:16.000280+00:00",
+   "mode": "serial",
+   "text": "In exact arithmetic the sum (a\u202f+\u202fb)\u202f+\u202fc equals a\u202f+\u202f(b\u202f+\u202fc), but floating\u2011point numbers have limited precision, so each operation is rounded to the nearest representable value. When the intermediate result of the first addition is rounded, the subsequent addition may start from a slightly different value than if the other pair were added first, causing a different rounding error to be introduced. Consequently, the final rounded result can differ depending on the grouping of the operands, breaking associativity.",
+   "sha256": "97bed30878f6b894ee1992cea5fda036fa59bba398510ba4d7f5b57ae726d394",
+   "fingerprint": "fp_4e63ac9396838fe79c69",
+   "model_version": "openai/gpt-oss-120b",
+   "latency_ms": 274
+  }
+ ]
+}
