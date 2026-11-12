@@ -285,14 +285,14 @@
       "last_score_epoch": 1793460138.004834,
       "last_score_stamp": "2026-10-31T151721Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-11-12T13:17:04.753431+00:00",
+      "last_ts": "2026-11-12T17:17:04.857370+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1794503134.9005315,
+      "next_due_epoch": 1794519267.6995156,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 4,
-      "ticks": 370
+      "stable_streak": 5,
+      "ticks": 371
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -308,7 +308,7 @@
       "last_stack_id": "fp:Novita|mv:meta-llama/llama-3.1-8b-instruct",
       "last_ts": "2026-10-28T17:17:04.723723+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1794503327.287865,
+      "next_due_epoch": 1795206734.026648,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-12T16:17:04.998331+00:00"
+  "updated": "2026-11-12T17:17:04.857321+00:00"
 }
