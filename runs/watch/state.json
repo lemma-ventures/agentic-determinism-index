@@ -110,14 +110,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:google/gemma-3-27b-it",
-      "last_ts": "2026-11-05T05:17:04.713607+00:00",
+      "last_ts": "2026-11-13T11:17:31.559751+00:00",
       "model": "google/gemma-3-27b-it",
-      "next_due_epoch": 1794566409.26973,
+      "next_due_epoch": 1795245489.2373114,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 17,
-      "ticks": 17
+      "stable_streak": 18,
+      "ticks": 18
     },
     "openai_compatible|openai/gpt-oss-120b|Nebius direct (gpt-oss-120b, vLLM fingerprint)": {
       "byte_exact": false,
@@ -275,7 +275,7 @@
     "openrouter|meta-llama/llama-3.1-8b-instruct|Groq via OpenRouter": {
       "byte_exact": false,
       "drifts": 174,
-      "interval_s": 27337.5,
+      "interval_s": 41006.25,
       "label": "Groq via OpenRouter",
       "last_fingerprint": "fp_020e283281",
       "last_mode_share": 1.0,
@@ -285,14 +285,14 @@
       "last_score_epoch": 1793460138.004834,
       "last_score_stamp": "2026-10-31T151721Z",
       "last_stack_id": "fp:fp_020e283281|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-11-13T04:17:04.704289+00:00",
+      "last_ts": "2026-11-13T11:17:31.322679+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1794567299.1207736,
+      "next_due_epoch": 1794611254.5865738,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 7,
-      "ticks": 373
+      "stable_streak": 8,
+      "ticks": 374
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|Novita via OpenRouter": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-13T10:17:04.865828+00:00"
+  "updated": "2026-11-13T11:17:31.322628+00:00"
 }
