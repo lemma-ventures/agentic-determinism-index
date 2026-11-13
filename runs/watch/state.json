@@ -359,10 +359,10 @@
       "last_fingerprint": "fastcoe",
       "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.3-70b-instruct",
-      "last_score_attempt_epoch": 1794450024.2696345,
-      "last_score_attempt_stamp": "2026-11-12T021704Z",
-      "last_score_epoch": 1794450024.2696345,
-      "last_score_stamp": "2026-11-12T021704Z",
+      "last_score_attempt_epoch": 1794539932.360593,
+      "last_score_attempt_stamp": "2026-11-13T031705Z",
+      "last_score_epoch": 1794539932.360593,
+      "last_score_stamp": "2026-11-13T031705Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-11-11T20:17:04.746524+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-13T02:17:04.893764+00:00"
+  "updated": "2026-11-13T03:18:52.360626+00:00"
 }

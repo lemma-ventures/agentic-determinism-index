@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-11-12T02:20:25.414238Z",
- "latest_score_as_of": "2026-11-12T021704Z",
+ "generated_at": "2026-11-13T03:18:53.655131Z",
+ "latest_score_as_of": "2026-11-13T031705Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 67,
+ "n_runs": 68,
  "parked": [
   {
    "display": "EigenAI (EigenCloud, bit-exact claim)",
@@ -78,15 +78,15 @@
    "reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
   }
  ],
- "run_stamp": "2026-11-12T021704Z",
+ "run_stamp": "2026-11-13T031705Z",
  "tuples": [
   {
    "base_url": null,
-   "deterministic_runs": 15,
+   "deterministic_runs": 16,
    "display": "SambaNova Turbo via OpenRouter",
    "exact_match_rate": 1.0,
    "green": false,
-   "held_hours": 0.0,
+   "held_hours": 25.0,
    "held_since": "2026-11-12T021704Z",
    "label": "SambaNova Turbo via OpenRouter",
    "mean_mode_share": 1.0,
@@ -101,13 +101,13 @@
     ]
    },
    "rank": 1,
-   "replay_checks": 64,
+   "replay_checks": 68,
    "replay_rate": 1.0,
-   "runs_seen": 17,
+   "runs_seen": 18,
    "score": 100.0,
-   "score_as_of": "2026-11-12T021704Z",
+   "score_as_of": "2026-11-13T031705Z",
    "status": "active",
-   "streak": 1
+   "streak": 2
   },
   {
    "base_url": null,
