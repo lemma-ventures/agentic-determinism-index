@@ -242,14 +242,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:vllm-0.22.1.dev0+g0b3ba88f1.d20260529-25c7fbc0|mv:meta-llama/llama-3.1-8b-instruct",
-      "last_ts": "2026-11-06T14:17:04.828502+00:00",
+      "last_ts": "2026-11-13T19:17:10.389259+00:00",
       "model": "meta-llama/llama-3.1-8b-instruct",
-      "next_due_epoch": 1794595639.0697665,
+      "next_due_epoch": 1795139829.628886,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 21,
-      "ticks": 21
+      "stable_streak": 22,
+      "ticks": 22
     },
     "openrouter|meta-llama/llama-3.1-8b-instruct|DeepInfra via OpenRouter": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-13T18:17:21.350312+00:00"
+  "updated": "2026-11-13T19:17:10.389190+00:00"
 }
