@@ -457,7 +457,7 @@
     "openrouter|openai/gpt-oss-120b|Cerebras via OpenRouter (wafer-scale, single SKU)": {
       "byte_exact": false,
       "drifts": 4,
-      "interval_s": 18225.0,
+      "interval_s": 27337.5,
       "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
       "last_fingerprint": "fp_4e63ac9396838fe79c69",
       "last_mode_share": 0.6,
@@ -467,14 +467,14 @@
       "last_score_epoch": 1794450024.2696345,
       "last_score_stamp": "2026-11-12T021704Z",
       "last_stack_id": "fp:fp_4e63ac9396838fe79c69|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-14T14:17:51.291015+00:00",
+      "last_ts": "2026-11-14T19:17:04.927501+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1794683291.9210596,
+      "next_due_epoch": 1794708583.059345,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 6,
-      "ticks": 53
+      "stable_streak": 7,
+      "ticks": 54
     },
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-14T18:17:04.759938+00:00"
+  "updated": "2026-11-14T19:17:04.927383+00:00"
 }
