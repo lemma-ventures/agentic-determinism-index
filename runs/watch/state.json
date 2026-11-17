@@ -527,7 +527,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-11-07T18:17:51.340909+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1794945940.9581497,
+      "next_due_epoch": 1795488256.2601197,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-17T19:17:51.373652+00:00"
+  "updated": "2026-11-17T20:17:21.373484+00:00"
 }
