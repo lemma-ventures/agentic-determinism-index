@@ -352,22 +352,22 @@
       "ticks": 10
     },
     "openrouter|meta-llama/llama-3.3-70b-instruct|SambaNova Turbo via OpenRouter": {
-      "byte_exact": false,
+      "byte_exact": true,
       "drifts": 0,
       "interval_s": 604800,
       "label": "SambaNova Turbo via OpenRouter",
       "last_fingerprint": "fastcoe",
-      "last_mode_share": 0.6,
+      "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.3-70b-instruct",
-      "last_score_attempt_epoch": 1794809949.9924812,
-      "last_score_attempt_stamp": "2026-11-16T061721Z",
-      "last_score_epoch": 1794809949.9924812,
-      "last_score_stamp": "2026-11-16T061721Z",
+      "last_score_attempt_epoch": 1794899957.0616074,
+      "last_score_attempt_stamp": "2026-11-17T071731Z",
+      "last_score_epoch": 1794899957.0616074,
+      "last_score_stamp": "2026-11-17T071731Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-11-11T20:17:04.746524+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
       "next_due_epoch": 1795074565.5147085,
-      "non_exact_streak": 1,
+      "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 0,
       "stable_streak": 18,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-17T06:17:51.491507+00:00"
+  "updated": "2026-11-17T07:19:17.061630+00:00"
 }

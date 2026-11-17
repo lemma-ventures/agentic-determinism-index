@@ -1,9 +1,9 @@
 {
  "feed_version": 1,
- "generated_at": "2026-11-16T06:19:11.259475Z",
- "latest_score_as_of": "2026-11-16T061721Z",
+ "generated_at": "2026-11-17T07:19:18.305468Z",
+ "latest_score_as_of": "2026-11-17T071731Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
- "n_runs": 71,
+ "n_runs": 72,
  "parked": [
   {
    "display": "EigenAI (EigenCloud, bit-exact claim)",
@@ -78,8 +78,37 @@
    "reason": "OpenRouter serves this free model only to listed agentic apps (HTTP 403 for any other caller), and its endpoint is not zero-data-retention. Never scored."
   }
  ],
- "run_stamp": "2026-11-16T061721Z",
+ "run_stamp": "2026-11-17T071731Z",
  "tuples": [
+  {
+   "base_url": null,
+   "deterministic_runs": 19,
+   "display": "SambaNova Turbo via OpenRouter",
+   "exact_match_rate": 1.0,
+   "green": false,
+   "held_hours": 0.0,
+   "held_since": "2026-11-17T071731Z",
+   "label": "SambaNova Turbo via OpenRouter",
+   "mean_mode_share": 1.0,
+   "medal": "",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "parked_reason": "",
+   "provider": "openrouter",
+   "provider_prefs": {
+    "allow_fallbacks": false,
+    "order": [
+     "sambanova-turbo"
+    ]
+   },
+   "rank": 1,
+   "replay_checks": 84,
+   "replay_rate": 1.0,
+   "runs_seen": 22,
+   "score": 100.0,
+   "score_as_of": "2026-11-17T071731Z",
+   "status": "active",
+   "streak": 1
+  },
   {
    "base_url": null,
    "deterministic_runs": 1,
@@ -100,41 +129,12 @@
      "coreweave"
     ]
    },
-   "rank": 1,
+   "rank": 2,
    "replay_checks": 14,
    "replay_rate": 1.0,
    "runs_seen": 6,
    "score": 93.75,
    "score_as_of": "2026-10-26T101705Z",
-   "status": "active",
-   "streak": 0
-  },
-  {
-   "base_url": null,
-   "deterministic_runs": 18,
-   "display": "SambaNova Turbo via OpenRouter",
-   "exact_match_rate": 0.75,
-   "green": false,
-   "held_hours": 0.0,
-   "held_since": "",
-   "label": "SambaNova Turbo via OpenRouter",
-   "mean_mode_share": 0.9,
-   "medal": "",
-   "model": "meta-llama/llama-3.3-70b-instruct",
-   "parked_reason": "",
-   "provider": "openrouter",
-   "provider_prefs": {
-    "allow_fallbacks": false,
-    "order": [
-     "sambanova-turbo"
-    ]
-   },
-   "rank": 2,
-   "replay_checks": 80,
-   "replay_rate": 1.0,
-   "runs_seen": 21,
-   "score": 91.0,
-   "score_as_of": "2026-11-16T061721Z",
    "status": "active",
    "streak": 0
   },
