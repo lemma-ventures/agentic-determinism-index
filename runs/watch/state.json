@@ -132,14 +132,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:vllm-v0.22.0-tp4-93a3d065|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-20T01:17:36.271728+00:00",
+      "last_ts": "2026-11-20T05:17:06.537502+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1795150169.6905801,
+      "next_due_epoch": 1795168678.8389564,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 4,
-      "ticks": 20
+      "stable_streak": 5,
+      "ticks": 21
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -366,7 +366,7 @@
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-11-11T20:17:04.746524+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1795148618.410711,
+      "next_due_epoch": 1795248667.0944953,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 2,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-20T04:17:48.650250+00:00"
+  "updated": "2026-11-20T05:17:06.390603+00:00"
 }
