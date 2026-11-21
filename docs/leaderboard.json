@@ -1,6 +1,6 @@
 {
  "feed_version": 1,
- "generated_at": "2026-11-21T00:17:53.835504Z",
+ "generated_at": "2026-11-21T05:17:53.124620Z",
  "latest_score_as_of": "2026-11-17T071731Z",
  "methodology": "METHODOLOGY.md v0.2 - green = same bytes for the same request over >= 3 consecutive runs spanning >= 72 h; not a certification",
  "n_runs": 72,
