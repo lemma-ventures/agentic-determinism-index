@@ -110,14 +110,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "mv:google/gemma-3-27b-it",
-      "last_ts": "2026-11-13T11:17:31.559751+00:00",
+      "last_ts": "2026-11-21T08:17:51.412604+00:00",
       "model": "google/gemma-3-27b-it",
-      "next_due_epoch": 1795245489.2373114,
+      "next_due_epoch": 1795902485.9697604,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 18,
-      "ticks": 18
+      "stable_streak": 19,
+      "ticks": 19
     },
     "openai_compatible|openai/gpt-oss-120b|Nebius direct (gpt-oss-120b, vLLM fingerprint)": {
       "byte_exact": false,
@@ -366,7 +366,7 @@
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-11-11T20:17:04.746524+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1795248667.0944953,
+      "next_due_epoch": 1795328934.0881853,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 3,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-21T07:17:21.325816+00:00"
+  "updated": "2026-11-21T08:17:51.277667+00:00"
 }
