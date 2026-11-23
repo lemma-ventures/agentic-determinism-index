@@ -132,14 +132,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:vllm-v0.22.0-tp4-93a3d065|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-23T09:17:51.372159+00:00",
+      "last_ts": "2026-11-23T14:17:51.183879+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1795440273.8620496,
+      "next_due_epoch": 1795459748.5514388,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 37
+      "stable_streak": 1,
+      "ticks": 38
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-23T13:19:13.127667+00:00"
+  "updated": "2026-11-23T14:17:51.183797+00:00"
 }
