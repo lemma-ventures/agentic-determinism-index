@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "label": "SambaNova Turbo via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "sambanova-turbo"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "sambanova-turbo"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-23T13:17:51.381541+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 293
+  },
+  {
+   "ts": "2026-11-23T13:17:51.382220+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 283
+  },
+  {
+   "ts": "2026-11-23T13:17:51.382506+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 291
+  },
+  {
+   "ts": "2026-11-23T13:17:51.382948+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 296
+  },
+  {
+   "ts": "2026-11-23T13:17:51.383228+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 307
+  },
+  {
+   "ts": "2026-11-23T13:17:51.383481+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 287
+  },
+  {
+   "ts": "2026-11-23T13:17:51.385572+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 290
+  },
+  {
+   "ts": "2026-11-23T13:17:51.386028+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 294
+  },
+  {
+   "ts": "2026-11-23T13:18:01.691393+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 63
+  },
+  {
+   "ts": "2026-11-23T13:18:11.754425+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.3-70b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/turbo, akashml/fp8, parasail/fp8, cloudflare/fp8, groq, coreweave/fp16, amazon-bedrock/us-east-1, google-vertex/us-central1, google-vertex.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":9},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_",
+   "latency_ms": 76
+  }
+ ]
+}
