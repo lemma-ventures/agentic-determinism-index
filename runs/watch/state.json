@@ -202,7 +202,7 @@
       "last_stack_id": "fp:SiliconFlow|mv:deepseek/deepseek-chat-v3.1",
       "last_ts": "2026-11-16T08:17:04.831772+00:00",
       "model": "deepseek/deepseek-chat-v3.1",
-      "next_due_epoch": 1795490030.484068,
+      "next_due_epoch": 1796092550.5966606,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
@@ -527,7 +527,7 @@
       "last_stack_id": "fp:Phala|mv:openai/gpt-oss-120b",
       "last_ts": "2026-11-07T18:17:51.340909+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1795488256.2601197,
+      "next_due_epoch": 1795864790.4208918,
       "non_exact_streak": 3,
       "provider": "openrouter",
       "score_failures": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-24T02:17:51.387011+00:00"
+  "updated": "2026-11-24T03:17:48.218634+00:00"
 }
