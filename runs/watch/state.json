@@ -153,14 +153,14 @@
       "last_score_epoch": 1795607012.624918,
       "last_score_stamp": "2026-11-25T111721Z",
       "last_stack_id": "fp:Amazon Bedrock|mv:amazon/nova-lite-v1",
-      "last_ts": "2026-11-17T13:17:21.420618+00:00",
+      "last_ts": "2026-11-25T22:17:04.792752+00:00",
       "model": "amazon/nova-lite-v1",
-      "next_due_epoch": 1795643184.3934639,
+      "next_due_epoch": 1796173643.7007036,
       "non_exact_streak": 4,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 23,
-      "ticks": 23
+      "stable_streak": 24,
+      "ticks": 24
     },
     "openrouter|cohere/command-r-08-2024|Cohere via OpenRouter": {
       "interval_s": 3600,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-25T21:17:04.876225+00:00"
+  "updated": "2026-11-25T22:17:04.792690+00:00"
 }
