@@ -90,7 +90,7 @@
       "last_stack_id": "mv:deepseek-ai/DeepSeek-V4-Flash-0731",
       "last_ts": "2026-11-07T15:17:05.048019+00:00",
       "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "next_due_epoch": 1795589182.003695,
+      "next_due_epoch": 1796013034.850731,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-25T06:17:04.755880+00:00"
+  "updated": "2026-11-25T07:17:04.680537+00:00"
 }
