@@ -46,7 +46,7 @@
       "last_stack_id": "mv:meta/llama-3.2-11b-vision-instruct",
       "last_ts": "2026-10-26T15:17:04.845985+00:00",
       "model": "meta/llama-3.2-11b-vision-instruct",
-      "next_due_epoch": 1795648200.0898054,
+      "next_due_epoch": 1796155633.2111049,
       "non_exact_streak": 3,
       "provider": "nvidia_nim",
       "score_failures": 1,
@@ -121,25 +121,25 @@
     },
     "openai_compatible|openai/gpt-oss-120b|Nebius direct (gpt-oss-120b, vLLM fingerprint)": {
       "byte_exact": false,
-      "drifts": 14,
+      "drifts": 15,
       "interval_s": 14400,
       "label": "Nebius direct (gpt-oss-120b, vLLM fingerprint)",
-      "last_fingerprint": "vllm-v0.22.0-tp4-3e04bf1c",
+      "last_fingerprint": "vllm-v0.22.0-tp4-93a3d065",
       "last_mode_share": 0.2,
       "last_model_version": "openai/gpt-oss-120b",
       "last_score_attempt_epoch": 1795607012.624918,
       "last_score_attempt_stamp": "2026-11-25T111721Z",
       "last_score_epoch": 1795607012.624918,
       "last_score_stamp": "2026-11-25T111721Z",
-      "last_stack_id": "fp:vllm-v0.22.0-tp4-3e04bf1c|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-25T18:17:21.410486+00:00",
+      "last_stack_id": "fp:vllm-v0.22.0-tp4-93a3d065|mv:openai/gpt-oss-120b",
+      "last_ts": "2026-11-25T23:17:21.401724+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1795645627.6436248,
+      "next_due_epoch": 1795665631.0021904,
       "non_exact_streak": 4,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 1,
-      "ticks": 49
+      "stable_streak": 0,
+      "ticks": 50
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-25T22:17:04.792690+00:00"
+  "updated": "2026-11-25T23:17:21.350485+00:00"
 }
