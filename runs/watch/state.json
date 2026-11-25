@@ -359,8 +359,8 @@
       "last_fingerprint": "fastcoe",
       "last_mode_share": 1.0,
       "last_model_version": "meta-llama/llama-3.3-70b-instruct",
-      "last_score_attempt_epoch": 1795529954.065995,
-      "last_score_attempt_stamp": "2026-11-24T141752Z",
+      "last_score_attempt_epoch": 1795619953.6028445,
+      "last_score_attempt_stamp": "2026-11-25T151751Z",
       "last_score_epoch": 1794899957.0616074,
       "last_score_stamp": "2026-11-17T071731Z",
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
@@ -369,7 +369,7 @@
       "next_due_epoch": 1795622710.3918998,
       "non_exact_streak": 0,
       "provider": "openrouter",
-      "score_failures": 7,
+      "score_failures": 8,
       "stable_streak": 18,
       "ticks": 18
     },
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-25T14:17:04.784033+00:00"
+  "updated": "2026-11-25T15:19:13.602865+00:00"
 }
