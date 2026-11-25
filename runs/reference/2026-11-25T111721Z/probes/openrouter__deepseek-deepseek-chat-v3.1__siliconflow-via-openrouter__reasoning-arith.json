@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-chat-v3.1",
+  "label": "SiliconFlow via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "siliconflow"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "reasoning-arith",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 800
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 800,
+   "messages": [
+    {
+     "content": "A warehouse holds 1284, 907, and 2156 boxes across three floors. Each truck carries 85 boxes. How many fully loaded trucks are needed, and how many boxes remain unshipped? Show your reasoning step by step, then end with a final line of the form 'ANSWER: <trucks>,<remaining>'.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek/deepseek-chat-v3.1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "siliconflow"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-25T11:28:18.361757+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 224
+  },
+  {
+   "ts": "2026-11-25T11:28:18.362043+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 228
+  },
+  {
+   "ts": "2026-11-25T11:28:18.363279+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 216
+  },
+  {
+   "ts": "2026-11-25T11:28:18.364576+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 216
+  },
+  {
+   "ts": "2026-11-25T11:28:18.370293+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 231
+  },
+  {
+   "ts": "2026-11-25T11:28:18.371261+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 240
+  },
+  {
+   "ts": "2026-11-25T11:28:18.373264+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 230
+  },
+  {
+   "ts": "2026-11-25T11:28:18.375448+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 228
+  },
+  {
+   "ts": "2026-11-25T11:28:28.612040+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 64
+  },
+  {
+   "ts": "2026-11-25T11:28:38.676479+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for deepseek/deepseek-chat-v3.1. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed deepinfra/fp4, coreweave/fp8.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":3},{\"step\":\"Filter by Guardrails\",\"endpoint_count\":2,\"reason\":\"ZDR violation (account settings)\"},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"",
+   "latency_ms": 353
+  }
+ ]
+}

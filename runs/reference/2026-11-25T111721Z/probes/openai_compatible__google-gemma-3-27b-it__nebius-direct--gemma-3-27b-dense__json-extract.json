@@ -1,0 +1,135 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "google/gemma-3-27b-it",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (Gemma 3 27B dense)"
+ },
+ "case": {
+  "id": "json-extract",
+  "expect": "json",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300,
+   "json": true
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Return only a JSON object (no prose, no code fences) with keys \"company\", \"amount_eur\" (number), \"date\" (ISO 8601), and \"parties\" (array of strings), extracted from: 'On 12 March 2024, Aventra GmbH agreed to pay 45,000 euros to the consortium of Baltik Systems and Corenz SA.'",
+     "role": "user"
+    }
+   ],
+   "model": "google/gemma-3-27b-it",
+   "response_format": {
+    "type": "json_object"
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-25T11:40:23.630793+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1323
+  },
+  {
+   "ts": "2026-11-25T11:40:23.631121+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1253
+  },
+  {
+   "ts": "2026-11-25T11:40:23.631459+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1286
+  },
+  {
+   "ts": "2026-11-25T11:40:23.631905+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1335
+  },
+  {
+   "ts": "2026-11-25T11:40:23.634431+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1236
+  },
+  {
+   "ts": "2026-11-25T11:40:23.635107+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1250
+  },
+  {
+   "ts": "2026-11-25T11:40:23.638429+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1332
+  },
+  {
+   "ts": "2026-11-25T11:40:23.639203+00:00",
+   "mode": "burst",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1339
+  },
+  {
+   "ts": "2026-11-25T11:40:34.978563+00:00",
+   "mode": "serial",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1067
+  },
+  {
+   "ts": "2026-11-25T11:40:46.045986+00:00",
+   "mode": "serial",
+   "text": "{\"company\": \"Aventra GmbH\", \"amount_eur\": 45000, \"date\": \"2024-03-12\", \"parties\": [\"Baltik Systems\", \"Corenz SA\"]}",
+   "sha256": "273faa6cae9beb5108a6e9672cd2da5c012e9380186ccfa0ed9242bc5e524b05",
+   "fingerprint": null,
+   "model_version": "google/gemma-3-27b-it",
+   "latency_ms": 1135
+  }
+ ]
+}

@@ -1,0 +1,142 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "amazon/nova-lite-v1",
+  "label": "Amazon Bedrock via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "amazon-bedrock"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "amazon/nova-lite-v1",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "amazon-bedrock"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-25T11:26:07.408699+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors. Different groupings of additions may lead to different intermediate sums, which, when rounded at each step, yield distinct final results. This behavior contrasts with exact arithmetic, where the order of addition does not affect the outcome.",
+   "sha256": "189c17bc251aba316b54a128efc524592366bda52a75db3d4f28324188bdace5",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1218
+  },
+  {
+   "ts": "2026-11-25T11:26:07.408979+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the precision of floating-point numbers limits the exactness of calculations. Different order of addition can lead to different rounding errors. This means that \\((a + b) + c\\) can yield a different result than \\(a + (b + c)\\) due to these rounding discrepancies.",
+   "sha256": "1b9cc80608b694a8191ac2df220fb23678c0542f06747b6f75fb598c6ac4a34f",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1229
+  },
+  {
+   "ts": "2026-11-25T11:26:07.409578+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the precision of floating-point numbers limits the exactness of calculations. Intermediate rounding errors can vary depending on the order of addition. This means that \\((A + B) + C\\) can yield a different result than \\(A + (B + C)\\) due to these rounding discrepancies.",
+   "sha256": "222b9fb148f2932012766dd4ef34b0095cc84fe986ab151571e0d96260b2ee22",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1397
+  },
+  {
+   "ts": "2026-11-25T11:26:07.412458+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the precision of floating-point numbers limits the exactness of calculations. Different order of addition can lead to different rounding errors, resulting in varying final sums. Consequently, \\((a + b) + c\\) may not equal \\(a + (b + c)\\) due to these accumulated rounding differences.",
+   "sha256": "914b036594422ad0cabe1e1c93d42b2b5a761e5c0415ad85ab824f6baf31287c",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1176
+  },
+  {
+   "ts": "2026-11-25T11:26:07.413286+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the precision of floating-point numbers limits the exactness of calculations. Different order of addition can lead to different rounding errors. This means that \\((a + b) + c\\) can yield a different result than \\(a + (b + c)\\) due to these rounding discrepancies.",
+   "sha256": "1b9cc80608b694a8191ac2df220fb23678c0542f06747b6f75fb598c6ac4a34f",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1212
+  },
+  {
+   "ts": "2026-11-25T11:26:07.414275+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order of operations can affect the rounding errors introduced at each step. Different groupings of additions may lead to different intermediate results due to the finite precision of floating-point representation. This means that \\((a + b) + c\\) can yield a different result than \\(a + (b + c)\\).",
+   "sha256": "f15b47cf7023c55144ff1be2db331ba776def6e3433e1361e506d927930f8b7c",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1320
+  },
+  {
+   "ts": "2026-11-25T11:26:07.419301+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors. When adding a large number to a small number, the small number may be rounded off before the addition occurs, leading to different results. The accumulation of these rounding errors can vary depending on the grouping of numbers, violating the associative property.",
+   "sha256": "28f951784539a1c9cda24cd5baab6a36b6346251d78c6337732fe7e271d1acbd",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1167
+  },
+  {
+   "ts": "2026-11-25T11:26:07.420020+00:00",
+   "mode": "burst",
+   "text": "Floating-point addition is not associative because the precision of floating-point numbers can lead to different rounding errors when adding numbers in different orders. The intermediate results of floating-point operations can vary due to these rounding errors, causing the final sum to differ based on the grouping of additions. Consequently, \\((a + b) + c\\) may not equal \\(a + (b + c)\\) in floating-point arithmetic.",
+   "sha256": "83390a73079775ebbb4210199f8e67a38a4914af82c3c7ec773cc170ea1cac99",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1272
+  },
+  {
+   "ts": "2026-11-25T11:26:18.807534+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors. Different groupings of additions may lead to different intermediate sums, which, when rounded at each step, yield distinct final results. The presence of finite precision in floating-point representation exacerbates these discrepancies, leading to non-associativity.",
+   "sha256": "95889dcde4ecbaeb15de9b3b6cb08165c193959e307e8ecacfa07f3f9515ad3f",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 781
+  },
+  {
+   "ts": "2026-11-25T11:26:29.588547+00:00",
+   "mode": "serial",
+   "text": "Floating-point addition is not associative because the order in which numbers are added can affect the result due to rounding errors. Different groupings of additions may lead to different intermediate sums, which, when rounded at each step, yield distinct final results. This behavior is a consequence of the finite precision and the specific rounding rules used in floating-point arithmetic.",
+   "sha256": "7f5350c373497ad74571beb054dc8c2c314a5f4ce9431004aeb80857dee03c5b",
+   "fingerprint": "Amazon Bedrock",
+   "model_version": "amazon/nova-lite-v1",
+   "latency_ms": 1046
+  }
+ ]
+}
