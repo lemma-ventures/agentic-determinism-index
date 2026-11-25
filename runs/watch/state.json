@@ -132,14 +132,14 @@
       "last_score_epoch": 1793013125.889248,
       "last_score_stamp": "2026-10-26T101705Z",
       "last_stack_id": "fp:vllm-v0.22.0-tp4-93a3d065|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-24T23:17:06.477214+00:00",
+      "last_ts": "2026-11-25T04:17:04.723420+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1795576900.4013417,
+      "next_due_epoch": 1795595011.4376223,
       "non_exact_streak": 3,
       "provider": "openai_compatible",
       "score_failures": 0,
-      "stable_streak": 0,
-      "ticks": 45
+      "stable_streak": 1,
+      "ticks": 46
     },
     "openrouter|amazon/nova-lite-v1|Amazon Bedrock via OpenRouter": {
       "byte_exact": false,
@@ -457,7 +457,7 @@
     "openrouter|openai/gpt-oss-120b|Cerebras via OpenRouter (wafer-scale, single SKU)": {
       "byte_exact": false,
       "drifts": 5,
-      "interval_s": 92264.0625,
+      "interval_s": 138396.09375,
       "label": "Cerebras via OpenRouter (wafer-scale, single SKU)",
       "last_fingerprint": "fp_fd4dff7eed92aaf38281",
       "last_mode_share": 0.6,
@@ -467,14 +467,14 @@
       "last_score_epoch": 1794450024.2696345,
       "last_score_stamp": "2026-11-12T021704Z",
       "last_stack_id": "fp:fp_fd4dff7eed92aaf38281|mv:openai/gpt-oss-120b",
-      "last_ts": "2026-11-24T06:17:51.292881+00:00",
+      "last_ts": "2026-11-25T04:17:05.272515+00:00",
       "model": "openai/gpt-oss-120b",
-      "next_due_epoch": 1795578101.0935442,
+      "next_due_epoch": 1795710405.4238555,
       "non_exact_streak": 2,
       "provider": "openrouter",
       "score_failures": 0,
-      "stable_streak": 10,
-      "ticks": 70
+      "stable_streak": 11,
+      "ticks": 71
     },
     "openrouter|openai/gpt-oss-120b|Crusoe via OpenRouter (gpt-oss-120b, ZDR)": {
       "byte_exact": false,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-25T03:17:51.278302+00:00"
+  "updated": "2026-11-25T04:17:04.723342+00:00"
 }
