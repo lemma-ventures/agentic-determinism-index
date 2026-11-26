@@ -1,0 +1,166 @@
+[
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 7,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "d1fee06b4be15988c44bc4948f6f080a6bd6e5ef2c649fb1ae253a624f8e0b2c",
+  "first_divergence_char": 8,
+  "fingerprints": [
+   "Crusoe"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 2,
+  "byte_identical": false,
+  "mode_share": 0.9,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": 1,
+  "fingerprints": [
+   "Crusoe"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 8,
+  "byte_identical": false,
+  "mode_share": 0.3,
+  "mode_sha256": "47537b7af4df00471e183e494b2bedc1428888b331ebec27940f40c33f7bd7c4",
+  "first_divergence_char": 6,
+  "fingerprints": [
+   "Crusoe"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 9,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "mode_sha256": "3108f7a21ca197e02061ea79ce9d535e80e08437b3c03050854f369ff795dcef",
+  "first_divergence_char": 0,
+  "fingerprints": [
+   "Crusoe"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Crusoe via OpenRouter (gpt-oss-120b, ZDR)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "freeform-short",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 9,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "mode_sha256": "3134cdc1285dcfcb701cc8dbb7d9e72409d780bc0706cd9e78a600ffc46f6b2e",
+  "first_divergence_char": 29,
+  "fingerprints": [
+   "default"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Together via OpenRouter (gpt-oss-120b, ZDR)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "json-extract",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 1,
+  "byte_identical": true,
+  "mode_share": 1.0,
+  "mode_sha256": "0f15db74ecc4729f3468a2672a2d2894e0e0d769f9dcc761e67ac8f1f7b48a78",
+  "first_divergence_char": null,
+  "fingerprints": [
+   "default"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "json_parse_rate": 1.0,
+  "distinct_canonical_json": 1,
+  "label": "Together via OpenRouter (gpt-oss-120b, ZDR)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "long-generation",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 10,
+  "byte_identical": false,
+  "mode_share": 0.1,
+  "mode_sha256": "933e9df61d7a5b860a7d5fe54164ac79d5a4652e2b416e34220ee2b858c264bd",
+  "first_divergence_char": 58,
+  "fingerprints": [
+   "default"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Together via OpenRouter (gpt-oss-120b, ZDR)"
+ },
+ {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "case": "reasoning-arith",
+  "n": 10,
+  "n_ok": 10,
+  "errors": 0,
+  "distinct": 9,
+  "byte_identical": false,
+  "mode_share": 0.2,
+  "mode_sha256": "fa9cd3be5ff9e4e5957e23874e2bbc94221e7d2c2211ab77776073039cbf7e65",
+  "first_divergence_char": 6,
+  "fingerprints": [
+   "default"
+  ],
+  "model_versions": [
+   "openai/gpt-oss-120b"
+  ],
+  "label": "Together via OpenRouter (gpt-oss-120b, ZDR)"
+ }
+]
