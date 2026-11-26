@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "openai/gpt-oss-120b",
+  "label": "Phala via OpenRouter (TEE, attested stack)",
+  "provider_prefs": {
+   "order": [
+    "phala"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "openai/gpt-oss-120b",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "phala"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-26T12:25:21.216779+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 299
+  },
+  {
+   "ts": "2026-11-26T12:25:21.218503+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 315
+  },
+  {
+   "ts": "2026-11-26T12:25:21.218762+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 292
+  },
+  {
+   "ts": "2026-11-26T12:25:21.221862+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 260
+  },
+  {
+   "ts": "2026-11-26T12:25:21.226305+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 291
+  },
+  {
+   "ts": "2026-11-26T12:25:21.227277+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 302
+  },
+  {
+   "ts": "2026-11-26T12:25:21.228399+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 262
+  },
+  {
+   "ts": "2026-11-26T12:25:21.229272+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 284
+  },
+  {
+   "ts": "2026-11-26T12:25:31.535345+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 84
+  },
+  {
+   "ts": "2026-11-26T12:25:41.619051+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for openai/gpt-oss-120b. Every candidate endpoint was removed during routing: Filter by Guardrails removed siliconflow/fp8 (ZDR violation (account settings)); Filter by Fallback removed near-ai/fp4, venice/int4, deepinfra/bf16, crusoe/bf16, digitalocean, mancer/fp8, google-vertex/global, baseten/fp4/us, baseten/fp4, parasail/fp4, sambanova, amazon-bedrock/eu-west-1, nebius/fp4, amazon-bedrock, groq, parasail/fast, primeintellect/fp4, cerebras/fp16, corewea",
+   "latency_ms": 73
+  }
+ ]
+}

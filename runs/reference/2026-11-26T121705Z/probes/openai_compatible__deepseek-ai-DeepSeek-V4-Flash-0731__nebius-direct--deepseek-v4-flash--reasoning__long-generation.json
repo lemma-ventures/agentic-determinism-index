@@ -1,0 +1,101 @@
+{
+ "target": {
+  "provider": "openai_compatible",
+  "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "base_url": "https://api.tokenfactory.nebius.com/v1",
+  "label": "Nebius direct (DeepSeek V4 Flash, reasoning)"
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-26T12:25:00.136992+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 487
+  },
+  {
+   "ts": "2026-11-26T12:25:00.137565+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 497
+  },
+  {
+   "ts": "2026-11-26T12:25:00.141866+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 472
+  },
+  {
+   "ts": "2026-11-26T12:25:00.154708+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 446
+  },
+  {
+   "ts": "2026-11-26T12:25:00.158128+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 484
+  },
+  {
+   "ts": "2026-11-26T12:25:00.159484+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 478
+  },
+  {
+   "ts": "2026-11-26T12:25:00.161298+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 484
+  },
+  {
+   "ts": "2026-11-26T12:25:00.170207+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 456
+  },
+  {
+   "ts": "2026-11-26T12:25:10.646999+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 282
+  },
+  {
+   "ts": "2026-11-26T12:25:20.929400+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 403: {\"error\":{\"type\":\"error\",\"message\":\"You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\",\"param\":null,\"code\":null},\"detail\":\"Invalid request. Please check the parameters and try again. Details: You do not have access to model `deepseek-ai/DeepSeek-V4-Flash-0731`.\"}",
+   "latency_ms": 287
+  }
+ ]
+}

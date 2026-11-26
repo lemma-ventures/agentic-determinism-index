@@ -1,0 +1,103 @@
+{
+ "target": {
+  "provider": "nvidia_nim",
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "label": "NIM hosted + NIM_FORCE_DETERMINISTIC header",
+  "force_deterministic": true
+ },
+ "case": {
+  "id": "long-generation",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 1600
+  }
+ },
+ "request": {
+  "url": "https://integrate.api.nvidia.com/v1/chat/completions",
+  "payload": {
+   "max_tokens": 1600,
+   "messages": [
+    {
+     "content": "Write a detailed technical explanation, around 600 words, of how a hash table handles collisions, covering separate chaining, open addressing, and resizing.",
+     "role": "user"
+    }
+   ],
+   "model": "meta/llama-3.2-11b-vision-instruct",
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {
+   "Nim_force_deterministic": "1"
+  }
+ },
+ "samples": [
+  {
+   "ts": "2026-11-26T12:23:36.739298+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 193
+  },
+  {
+   "ts": "2026-11-26T12:23:36.739606+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 142
+  },
+  {
+   "ts": "2026-11-26T12:23:36.742336+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 206
+  },
+  {
+   "ts": "2026-11-26T12:23:36.744281+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 194
+  },
+  {
+   "ts": "2026-11-26T12:23:36.745530+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 200
+  },
+  {
+   "ts": "2026-11-26T12:23:36.749506+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 203
+  },
+  {
+   "ts": "2026-11-26T12:23:36.749962+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 201
+  },
+  {
+   "ts": "2026-11-26T12:23:36.759324+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 134
+  },
+  {
+   "ts": "2026-11-26T12:23:46.953698+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 43
+  },
+  {
+   "ts": "2026-11-26T12:23:56.996887+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 410: {\"type\":\"about:blank\",\"title\":\"Gone\",\"status\":410,\"detail\":\"The model 'meta/llama-3.2-11b-vision-instruct' has reached its end of life on 2026-11-05T09:00:00Z and is no longer available.\"}\n",
+   "latency_ms": 42
+  }
+ ]
+}

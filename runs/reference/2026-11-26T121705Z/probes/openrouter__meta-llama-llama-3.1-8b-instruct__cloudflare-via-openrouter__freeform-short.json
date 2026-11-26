@@ -1,0 +1,112 @@
+{
+ "target": {
+  "provider": "openrouter",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "label": "Cloudflare via OpenRouter",
+  "provider_prefs": {
+   "order": [
+    "cloudflare"
+   ],
+   "allow_fallbacks": false
+  }
+ },
+ "case": {
+  "id": "freeform-short",
+  "expect": "text",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Explain in exactly three sentences why floating-point addition is not associative."
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "seed": 42,
+   "max_tokens": 300
+  }
+ },
+ "request": {
+  "url": "https://openrouter.ai/api/v1/chat/completions",
+  "payload": {
+   "max_tokens": 300,
+   "messages": [
+    {
+     "content": "Explain in exactly three sentences why floating-point addition is not associative.",
+     "role": "user"
+    }
+   ],
+   "model": "meta-llama/llama-3.1-8b-instruct",
+   "provider": {
+    "allow_fallbacks": false,
+    "order": [
+     "cloudflare"
+    ]
+   },
+   "seed": 42,
+   "temperature": 0
+  },
+  "headers": {}
+ },
+ "samples": [
+  {
+   "ts": "2026-11-26T12:18:30.600745+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 232
+  },
+  {
+   "ts": "2026-11-26T12:18:30.601083+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 240
+  },
+  {
+   "ts": "2026-11-26T12:18:30.601391+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 217
+  },
+  {
+   "ts": "2026-11-26T12:18:30.602484+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 250
+  },
+  {
+   "ts": "2026-11-26T12:18:30.603341+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 240
+  },
+  {
+   "ts": "2026-11-26T12:18:30.606283+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 228
+  },
+  {
+   "ts": "2026-11-26T12:18:30.609253+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 228
+  },
+  {
+   "ts": "2026-11-26T12:18:30.610435+00:00",
+   "mode": "burst",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 236
+  },
+  {
+   "ts": "2026-11-26T12:18:40.853593+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 64
+  },
+  {
+   "ts": "2026-11-26T12:18:50.917669+00:00",
+   "mode": "serial",
+   "error": "RuntimeError: HTTP 404: {\"error\":{\"message\":\"No endpoints found for meta-llama/llama-3.1-8b-instruct. Every candidate endpoint was removed during routing: Filter by Fallback removed deepinfra/fp8, groq, amazon-bedrock/us-east-1, coreweave/bf16.\",\"code\":404,\"metadata\":{\"routing_funnel\":[{\"step\":\"Initial Endpoints\",\"endpoint_count\":4},{\"step\":\"Filter by Fallback\",\"endpoint_count\":0}],\"failed_routing_step\":\"Filter by Fallback\"}},\"user_id\":\"<redacted>\"}",
+   "latency_ms": 71
+  }
+ ]
+}
