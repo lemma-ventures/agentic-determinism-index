@@ -366,7 +366,7 @@
       "last_stack_id": "fp:fastcoe|mv:meta-llama/llama-3.3-70b-instruct",
       "last_ts": "2026-11-11T20:17:04.746524+00:00",
       "model": "meta-llama/llama-3.3-70b-instruct",
-      "next_due_epoch": 1795818097.2338567,
+      "next_due_epoch": 1795914136.310869,
       "non_exact_streak": 0,
       "provider": "openrouter",
       "score_failures": 10,
@@ -601,5 +601,5 @@
       "ticks": 0
     }
   },
-  "updated": "2026-11-27T22:17:04.785362+00:00"
+  "updated": "2026-11-27T23:17:04.780827+00:00"
 }
